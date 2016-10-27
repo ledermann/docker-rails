@@ -23,5 +23,13 @@ module DockerRails
     # -- all .rb files in that directory are automatically loaded.
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.middleware.use PDFKit::Middleware
+    config.asset_host = Proc.new { |source, request|
+      if request && request.env['Rack-Middleware-PDFKit']
+        # Force wkhtmltopdf to load assets from localhost:80, which differs from request.host_with_port in Docker
+        'http://localhost:80'
+      end
+    }
   end
 end

@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <div class="no-print">
+    <%= link_to 'PDF', url_for(params.to_unsafe_h.merge format: :pdf) %>
+    </div>
+
     <%= yield %>
 
     <%= render 'layouts/system_info' %>

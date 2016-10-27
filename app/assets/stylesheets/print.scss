@@ -1,0 +1,11 @@
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
+
+table {
+  tr {
+    page-break-inside: avoid;
+  }
+}

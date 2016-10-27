@@ -79,6 +79,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    pdfkit (0.8.2)
     rack (2.0.1)
     rack-protection (1.5.3)
       rack
@@ -159,6 +160,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   mysql2 (>= 0.3.18, < 0.5)
+  pdfkit
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
   sidekiq
