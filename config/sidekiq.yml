@@ -1,3 +1,4 @@
 :concurrency: 20
 :queues:
   - [default, 1]
+  - [searchkick, 1]

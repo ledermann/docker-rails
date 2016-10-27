@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dalli'
 gem 'sidekiq'
+gem 'searchkick'
 gem 'pdfkit'
 
 group :development, :test do

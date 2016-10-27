@@ -40,4 +40,8 @@
 <%= Rails.cache.stats.first.second['version'] rescue '[not connected]' %>
 <br />
 
+<strong>Elasticsearch:</strong>
+<%= Searchkick.server_version %>
+<br />
+
 <% end %>

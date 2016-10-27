@@ -2,6 +2,11 @@
 
 <h1>Pages</h1>
 
+<%= form_tag(url_for, method: "get", class: 'no-print') do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search Pages" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <table>
   <thead>
     <tr>

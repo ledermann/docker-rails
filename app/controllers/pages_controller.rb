@@ -4,7 +4,11 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @pages = if params[:q].present?
+      Page.search(params[:q], fields: ["title^10", "content"], order: { created_at: { order: "desc" }})
+    else
+      Page.all.order(:created_at => :desc)
+    end
   end
 
   # GET /pages/1
