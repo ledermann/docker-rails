@@ -11,11 +11,11 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  host: <%= ENV['MYSQL_HOST'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 development:
   <<: *default
@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: docker-rails_production
-  username: docker-rails
-  password: <%= ENV['DOCKER-RAILS_DATABASE_PASSWORD'] %>
