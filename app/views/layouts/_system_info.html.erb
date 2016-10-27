@@ -1,0 +1,31 @@
+<br />
+<br />
+<hr />
+
+<strong>Version:</strong>
+<%= DockerRails::Application::VERSION %>
+<br />
+
+<strong>Environment:</strong>
+<%= Rails.env %>
+<br />
+
+<strong>Ruby:</strong>
+<%= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}" %>
+<br />
+
+<strong>RubyGems:</strong>
+<%= Gem::VERSION %>
+<br />
+
+<strong>Bundler:</strong>
+<%= Bundler::VERSION %>
+<br />
+
+<strong>Rails:</strong>
+<%= Rails::VERSION::STRING %>
+<br />
+
+<strong>MySQL:</strong>
+<%= ActiveRecord::Base.connection.select_rows('SHOW VARIABLES WHERE Variable_name = "version"')[0][1] %>
+<br />
