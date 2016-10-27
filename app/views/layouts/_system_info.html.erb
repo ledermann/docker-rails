@@ -10,6 +10,8 @@
 <%= Rails.env %>
 <br />
 
+<% cache do %>
+
 <strong>Ruby:</strong>
 <%= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}" %>
 <br />
@@ -33,3 +35,9 @@
 <strong>Redis:</strong>
 <%= Sidekiq.redis_info['redis_version'] rescue '[not connected]' %>
 <br />
+
+<strong>memcached:</strong>
+<%= Rails.cache.stats.first.second['version'] rescue '[not connected]' %>
+<br />
+
+<% end %>
