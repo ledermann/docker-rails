@@ -1,0 +1,50 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - "db-data:/var/lib/mysql"
+
+  elasticsearch:
+    image: elasticsearch:2
+    volumes:
+      - "es-data:/usr/share/elasticsearch/data"
+
+  memcached:
+    image: memcached:alpine
+
+  redis:
+    image: redis:alpine
+
+  app: &app_base
+    build: .
+    environment:
+      - MYSQL_HOST=db
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - REDIS_URL=redis://redis:6379/0
+      - MEMCACHED_HOST=memcached
+      - SECRET_KEY_BASE
+      - DB_USER
+      - DB_PASSWORD
+      - RAILS_ENV
+      - PASSENGER_APP_ENV
+    ports:
+      - "82:80"
+    links:
+      - elasticsearch
+      - db
+      - redis
+      - memcached
+    volumes:
+      - .:/home/app/webapp
+
+  worker:
+    <<: *app_base
+    command: bundle exec sidekiq
+    ports: []
+
+volumes:
+  db-data:
+  es-data:
