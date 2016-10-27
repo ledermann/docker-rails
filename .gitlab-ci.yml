@@ -1,0 +1,18 @@
+variables:
+  MYSQL_ROOT_PASSWORD: duubidoo
+  SECRET_KEY_BASE: "we-dont-need-a-secret-here"
+  DB_USER: "root"
+  DB_PASSWORD: "duubidoo"
+
+build_image:
+  before_script:
+    - docker-compose pull
+    - docker-compose build
+
+  script:
+    - docker-compose run app bundle exec rake RAILS_ENV=test wait db:create db:migrate test
+
+  after_script:
+    - docker-compose run app rm -rf tmp/
+    - docker-compose down
+    - docker volume ls -qf dangling=true | xargs -r docker volume rm
