@@ -29,3 +29,7 @@
 <strong>MySQL:</strong>
 <%= ActiveRecord::Base.connection.select_rows('SHOW VARIABLES WHERE Variable_name = "version"')[0][1] %>
 <br />
+
+<strong>Redis:</strong>
+<%= Sidekiq.redis_info['redis_version'] rescue '[not connected]' %>
+<br />
