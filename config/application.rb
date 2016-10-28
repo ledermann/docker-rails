@@ -33,3 +33,5 @@ module DockerRails
     }
   end
 end
+
+require_relative 'version'
