@@ -1,6 +1,6 @@
 module DockerRails
   class Application
-    VERSION = '0.1.0'
+    VERSION = '0.1.1'
 
     def full_version
       "#{VERSION}/#{build_time}"
