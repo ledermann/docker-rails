@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DockerRails</title>
     <%= csrf_meta_tags %>
 
@@ -9,12 +12,46 @@
   </head>
 
   <body>
-    <div class="no-print">
-    <%= link_to 'PDF', url_for(params.to_unsafe_h.merge format: :pdf) %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<%= root_path %>">DockerRails</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="<%= url_for(params.to_unsafe_h.merge format: :pdf) %>">Export as PDF</a>
+            </li>
+            <li>
+            <%= form_tag(pages_path, method: "get", class: 'navbar-form navbar-left') do %>
+              <div class="form-group">
+                <%= text_field_tag :q, params[:q], placeholder: "Search Pages", class: 'form-control' %>
+              </div>
+            <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if notice %>
+      <%= content_tag :p, notice, class: 'alert alert-info' %>
+      <% end %>
+
+      <%= yield %>
     </div>
 
-    <%= yield %>
-
-    <%= render 'layouts/system_info' %>
+    <footer class="footer">
+      <div class="container">
+        <%= render 'layouts/system_info' %>
+      </div>
+    </footer>
   </body>
 </html>

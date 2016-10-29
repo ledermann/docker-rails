@@ -1,16 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @page.title %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @page.title %>
-</p>
+<%= simple_format @page.content %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @page.content %>
-</p>
-
-<div class="no-print">
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
-</div>
+<%= link_to 'Edit', edit_page_path(@page), class: 'btn btn-default btn-primary hidden-print' %>

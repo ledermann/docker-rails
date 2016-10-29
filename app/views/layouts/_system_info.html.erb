@@ -1,47 +1,47 @@
-<br />
-<br />
-<hr />
-
-<strong>Version:</strong>
-<%= Rails.application.full_version %>
-<br />
-
-<strong>Environment:</strong>
-<%= Rails.env %>
-<br />
-
 <% cache do %>
 
-<strong>Ruby:</strong>
-<%= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}" %>
-<br />
+<div class="row">
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+      <dt>Version</dt>
+      <dd><%= Rails.application.full_version %></dd>
 
-<strong>RubyGems:</strong>
-<%= Gem::VERSION %>
-<br />
+      <dt>Environment</dt>
+      <dd><%= Rails.env %></dd>
+    </dl>
+  </div>
 
-<strong>Bundler:</strong>
-<%= Bundler::VERSION %>
-<br />
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+      <dt>Ruby</dt>
+      <dd><%= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}" %></dd>
 
-<strong>Rails:</strong>
-<%= Rails::VERSION::STRING %>
-<br />
+      <dt>RubyGems</dt>
+      <dd><%= Gem::VERSION %></dd>
 
-<strong>MySQL:</strong>
-<%= ActiveRecord::Base.connection.select_rows('SHOW VARIABLES WHERE Variable_name = "version"')[0][1] %>
-<br />
+      <dt>Bundler</dt>
+      <dd><%= Bundler::VERSION %></dd>
 
-<strong>Redis:</strong>
-<%= Sidekiq.redis_info['redis_version'] rescue '[not connected]' %>
-<br />
+      <dt>Rails</dt>
+      <dd><%= Rails::VERSION::STRING %></dd>
+    </dl>
+  </div>
 
-<strong>memcached:</strong>
-<%= Rails.cache.stats.first.second['version'] rescue '[not connected]' %>
-<br />
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+      <dt>MySQL</dt>
+      <dd><%= ActiveRecord::Base.connection.select_rows('SHOW VARIABLES WHERE Variable_name = "version"')[0][1] %></dd>
 
-<strong>Elasticsearch:</strong>
-<%= Searchkick.server_version %>
-<br />
+      <dt>Redis</dt>
+      <dd><%= Sidekiq.redis_info['redis_version'] rescue '[not connected]' %></dd>
+
+      <dt>memcached</dt>
+      <dd><%= Rails.cache.stats.first.second['version'] rescue '[not connected]' %></dd>
+
+      <dt>Elasticsearch</dt>
+      <dd><%= Searchkick.server_version %></dd>
+    </dl>
+  </div>
+</div>
 
 <% end %>
