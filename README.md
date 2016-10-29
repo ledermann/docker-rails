@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
+
 # Docker-Rails
 
 This simple Rails application demonstrates using Docker, Docker Hub, Docker Cloud and GitLab CI.

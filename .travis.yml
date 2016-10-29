@@ -1,0 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
+install: true
+
+before_script:
+  - export MYSQL_ROOT_PASSWORD=duubidoo
+  - export SECRET_KEY_BASE="we-dont-need-a-secret-here"
+  - export DB_USER=root
+  - export DB_PASSWORD=duubidoo
+  - docker-compose pull
+  - docker-compose build
+  - docker-compose up -d
+
+script:
+  - docker-compose run app bundle exec rake RAILS_ENV=test wait db:create db:migrate test
