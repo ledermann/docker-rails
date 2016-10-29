@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install fonts-lato
 ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
 
 # Update Rubygems and Bundler
-RUN gem update --system 2.6.7
+RUN gem update --system 2.6.8
 RUN gem install bundler -v 1.13.6
 
 # Set correct environment variables.
