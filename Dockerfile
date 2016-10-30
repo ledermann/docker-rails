@@ -26,6 +26,8 @@ ENV HOME /root
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
+ADD docker/wait-for-services.sh /etc/my_init.d/98-wait-for-services.sh
+ADD docker/prepare-db.sh /etc/my_init.d/99-prepare-db.sh
 
 # Enable Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
