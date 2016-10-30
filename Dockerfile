@@ -54,7 +54,7 @@ RUN bundle install
 
 # Add the Rails app
 ADD . /home/app/webapp
-RUN bundle exec rake assets:precompile
+RUN RAILS_ENV=production bin/rails assets:precompile
 
 # Save timestamp of image building
 RUN date -u +"%Y-%m-%d %H:%M" > BUILD_TIME
