@@ -14,5 +14,4 @@ build_image:
 
   after_script:
     - docker-compose run --rm app rm -rf tmp/
-    - docker-compose down
     - docker volume ls -qf dangling=true | xargs -r docker volume rm
