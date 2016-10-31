@@ -7,12 +7,11 @@ RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN apt-get update && apt-get install -y wget nodejs mysql-client tnef imagemagick graphicsmagick poppler-utils poppler-data tesseract-ocr tesseract-ocr-deu --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # wkhtmltopdf
-ARG WKHTMLTOPDF_VERSION=0.12.3
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/${WKHTMLTOPDF_VERSION}/wkhtmltox-${WKHTMLTOPDF_VERSION}_linux-generic-amd64.tar.xz \
-    && tar xf wkhtmltox-${WKHTMLTOPDF_VERSION}_linux-generic-amd64.tar.xz \
+RUN curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
+    && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
     && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
-    && rm wkhtmltox-${WKHTMLTOPDF_VERSION}_linux-generic-amd64.tar.xz \
+    && rm wk.tar.xz \
     && rm -r wkhtmltox
 RUN apt-get update && apt-get install fonts-lato
 ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
