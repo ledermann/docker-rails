@@ -4,9 +4,10 @@ FROM phusion/passenger-ruby23
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 
 # Install dependencies
-RUN apt-get update && apt-get install -y wget nodejs mysql-client tnef imagemagick graphicsmagick poppler-utils poppler-data tesseract-ocr tesseract-ocr-deu --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nodejs mysql-client --no-install-recommends
 
 # wkhtmltopdf
+RUN apt-get update && apt-get install -y libxrender1 libxext6 --no-install-recommends
 RUN curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
