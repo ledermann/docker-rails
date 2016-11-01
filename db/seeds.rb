@@ -110,6 +110,9 @@ rows = [
 	{'title': 'Donec porttitor tellus', 'content': 'vel, vulputate eu, odio. Phasellus at augue id'}
 ];
 
-rows.each do |row|
-  Page.create! row
+Searchkick.callbacks(false) do
+  rows.each do |row|
+    Page.create! row
+  end
 end
+Page.reindex
