@@ -5,3 +5,4 @@ log/*
 Dockerfile
 docker-compose.yml
 docker-cloud.yml
+.gitlab-ci.yml
