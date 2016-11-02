@@ -1,19 +1,25 @@
 db:
   image: 'mysql:latest'
+  restart: always
   environment:
     - MYSQL_ROOT_PASSWORD=foobar
 
 elasticsearch:
   image: 'elasticsearch:2'
+  restart: always
 
 memcached:
   image: 'memcached:alpine'
+  restart: always
 
 redis:
   image: 'redis:alpine'
+  restart: always
 
 app:
   image: 'ledermann/docker-rails:latest'
+  autoredeploy: true
+  restart: always
   environment:
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
@@ -32,6 +38,8 @@ app:
 
 worker:
   image: 'ledermann/docker-rails:latest'
+  autoredeploy: true
+  restart: always
   environment:
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
