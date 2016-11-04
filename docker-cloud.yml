@@ -4,6 +4,23 @@ db:
   environment:
     - MYSQL_ROOT_PASSWORD=foobar
 
+backup:
+  image: schickling/mysql-backup-s3
+  restart: always
+  links:
+    - db
+  environment:
+    - MYSQL_HOST=db
+    - MYSQL_USER=root
+    - MYSQL_PASSWORD=foobar
+    - MYSQLDUMP_DATABASE=docker-rails_production
+    - S3_ACCESS_KEY_ID
+    - S3_SECRET_ACCESS_KEY
+    - S3_BUCKET
+    - S3_REGION
+    - S3_PREFIX=backup
+    - SCHEDULE=@daily
+
 elasticsearch:
   image: 'elasticsearch:2'
   restart: always

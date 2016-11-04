@@ -6,7 +6,7 @@ This simple Rails application demonstrates using Docker, Docker Hub, Docker Clou
 
 The app makes use of:
 
-- MySQL
+- MySQL (with periodic backup to Amazon S3)
 - Searchkick (using Elasticsearch)
 - Sidekiq (using Redis)
 - Dalli (using memcached)

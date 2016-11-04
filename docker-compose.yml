@@ -7,6 +7,22 @@ services:
     volumes:
       - "db-data:/var/lib/mysql"
 
+  backup:
+    image: schickling/mysql-backup-s3
+    links:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD
+      - MYSQLDUMP_DATABASE
+      - S3_ACCESS_KEY_ID
+      - S3_SECRET_ACCESS_KEY
+      - S3_BUCKET
+      - S3_REGION
+      - S3_PREFIX=backup
+      - SCHEDULE
+
   elasticsearch:
     image: elasticsearch:2
     volumes:
