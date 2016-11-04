@@ -2,14 +2,45 @@
 
 # Docker-Rails
 
-This simple Rails application demonstrates using Docker, Docker Hub, Docker Cloud and GitLab CI.
+Simple Rails application to demonstrate using Docker for development and deployment.
 
-The app makes use of:
 
-- MySQL (with periodic backup to Amazon S3)
-- Searchkick (using Elasticsearch)
-- Sidekiq (using Redis)
-- Dalli (using memcached)
-- PDFKit (using wkhtmltopdf)
+## App features
+
+- Simple CRUD
+- Caching
+- Fulltext search
+- PDF export
+- Background jobs with Sidekiq (to handle fulltext indexing)
+
+
+## Dependencies
+
+Linked from other containers:
+
+- [mysql](https://hub.docker.com/_/mysql/)
+- [schickling/mysql-backup-s3](https://hub.docker.com/r/schickling/mysql-backup-s3/)
+- [elasticsearch](https://hub.docker.com/_/elasticsearch/)
+- [redis](https://hub.docker.com/_/redis/)
+- [memcached](https://hub.docker.com/_/memcached/)
+
+
+[Dockerfile](/Dockerfile):
+
+- Based on [passenger-docker](https://github.com/phusion/passenger-docker) with Nginx
+- Added [wkhtmltopdf](http://wkhtmltopdf.org/) for generating PDF from HTML/CSS
+- Added [nodejs](https://nodejs.org/) for asset precompiling
+
+
+## Development
+
+- Running tests with TravisCi and GitlabCI on every push
+
+
+## Deployment
+
+- Auto build image on Docker Hub on every push
+- Deploy to Docker Cloud (with autoredeploy)
+- Periodic database backup to Amazon S3
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/ledermann/docker-rails)
