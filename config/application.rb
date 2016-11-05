@@ -31,6 +31,8 @@ module DockerRails
         'http://localhost:80'
       end
     }
+
+    config.time_zone = 'Berlin'
   end
 end
 

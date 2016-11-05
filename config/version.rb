@@ -1,13 +1,11 @@
 module DockerRails
   class Application
-    VERSION = '0.1.3'
-
-    def full_version
-      "#{VERSION}/#{build_time}"
+    def version
+      '0.1.4 alpha'
     end
 
     def build_time
-      @build_time ||= File.read('BUILD_TIME').lines.first.chomp rescue 'unknown'
+      @build_time ||= File.read('BUILD_TIME').lines.first.chomp.to_datetime rescue nil
     end
   end
 end

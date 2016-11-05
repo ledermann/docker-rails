@@ -4,7 +4,10 @@
   <div class="col-md-4">
     <dl class="dl-horizontal">
       <dt>Version</dt>
-      <dd><%= Rails.application.full_version %></dd>
+      <dd><%= Rails.application.version %></dd>
+
+      <dt>Build time</dt>
+      <dd><%= Rails.application.build_time.try(:in_time_zone) %></dd>
 
       <dt>Environment</dt>
       <dd><%= Rails.env %></dd>

@@ -57,7 +57,7 @@ ADD . /home/app/webapp
 RUN RAILS_ENV=production bin/rails assets:precompile
 
 # Save timestamp of image building
-RUN date -u +"%Y-%m-%d %H:%M" > BUILD_TIME
+RUN date -u > BUILD_TIME
 
 RUN chown -R app:app /home/app
 
