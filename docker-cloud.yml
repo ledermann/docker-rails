@@ -38,6 +38,8 @@ app:
   autoredeploy: true
   restart: always
   environment:
+    - RAILS_ENV=production
+    - PASSENGER_RAILS_ENV=production
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
     - MYSQL_HOST=db
@@ -58,6 +60,7 @@ worker:
   autoredeploy: true
   restart: always
   environment:
+    - RAILS_ENV=production
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
     - MYSQL_HOST=db
