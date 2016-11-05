@@ -67,6 +67,7 @@ worker:
     - DB_PASSWORD=foobar
   command: 'bundle exec sidekiq'
   links:
+    - app
     - db
     - elasticsearch
     - memcached

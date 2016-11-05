@@ -60,6 +60,8 @@ services:
     <<: *app_base
     command: bundle exec sidekiq
     ports: []
+    depends_on:
+      - app
 
 volumes:
   db-data:
