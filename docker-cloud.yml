@@ -16,8 +16,8 @@ backup:
     - MYSQLDUMP_DATABASE=docker-rails_production
     - S3_ACCESS_KEY_ID=my-access-id
     - S3_SECRET_ACCESS_KEY=my-secret-access-key
-    - S3_BUCKET-my-bucket
-    - S3_REGION-my-region
+    - S3_BUCKET=my-bucket
+    - S3_REGION=my-region
     - S3_PREFIX=backup
     - SCHEDULE=@daily
 
