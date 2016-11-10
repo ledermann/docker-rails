@@ -53,7 +53,7 @@ app:
     - memcached
     - redis
   ports:
-    - '82:80'
+    - '80'
 
 worker:
   image: 'ledermann/docker-rails:latest'

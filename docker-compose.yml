@@ -47,7 +47,7 @@ services:
       - RAILS_ENV
       - PASSENGER_APP_ENV
     ports:
-      - "82:80"
+      - "80"
     links:
       - elasticsearch
       - db
