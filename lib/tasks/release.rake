@@ -4,7 +4,7 @@ task release: :environment do
 end
 
 def version
-  DockerRails::Application::VERSION
+  DockerRails::Application.version
 end
 
 def version_tag
