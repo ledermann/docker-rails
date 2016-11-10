@@ -57,12 +57,12 @@ GEM
     connection_pool (2.2.0)
     dalli (2.7.6)
     debug_inspector (0.0.2)
-    elasticsearch (2.0.0)
-      elasticsearch-api (= 2.0.0)
-      elasticsearch-transport (= 2.0.0)
-    elasticsearch-api (2.0.0)
+    elasticsearch (5.0.0)
+      elasticsearch-api (= 5.0.0)
+      elasticsearch-transport (= 5.0.0)
+    elasticsearch-api (5.0.0)
       multi_json
-    elasticsearch-transport (2.0.0)
+    elasticsearch-transport (5.0.0)
       faraday
       multi_json
     erubis (2.7.0)
