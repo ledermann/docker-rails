@@ -1,10 +1,18 @@
 <div class="jumbotron">
-  <h1>Pages</h1>
-  <p class="lead">Just some plain old CRUD operations</p>
-  <a class="btn btn-lg btn-success hidden-print " href="<%= new_page_path %>" role="button">Add new Page</a>
+  <div class="row">
+    <div class="col-xs-10">
+      <h1>Pages </h1>
+      <p class="lead">Just some plain old CRUD operations</p>
+      <a class="btn btn-lg btn-success hidden-print " href="<%= new_page_path %>" role="button">Add new Page</a>
+    </div>
+
+    <div class="col-xs-2 text-right">
+      <%= icon('file-text-o', class: 'fa-5x') %>
+    </div>
+  </div>
 </div>
 
-<table class="table table-hover">
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -16,14 +24,15 @@
 
   <tbody>
     <% @pages.each do |page| %>
-      <tr>
+      <tr data-href="<%= url_for(page) %>">
         <td><%= page.title %></td>
         <td class="text-muted"><%= page.content %></td>
         <td><%= page.created_at %></td>
         <td class="hidden-print text-right">
-          <%= link_to 'Show', page, class: 'btn btn-xs btn-default' %>
-          <%= link_to 'Edit', edit_page_path(page), class: 'btn btn-xs btn-default' %>
-          <%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+          <div class="btn-group" role="group">
+            <%= link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit' %>
+            <%= link_to icon('trash'), page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', role: 'button', title: 'Destroy' %>
+          </div>
         </td>
       </tr>
     <% end %>
