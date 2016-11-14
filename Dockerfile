@@ -32,6 +32,10 @@ ADD docker/prepare-db.sh /etc/my_init.d/99-prepare-db.sh
 # Enable Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
 
+# Log handling
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 # Remove the default site
 RUN rm /etc/nginx/sites-enabled/default
 
