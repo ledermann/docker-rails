@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -25,9 +25,9 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr data-href="<%= url_for(page) %>">
-        <td><%= page.title %></td>
-        <td class="text-muted"><%= page.content %></td>
-        <td><%= page.created_at %></td>
+        <td class="row-link"><%= page.title %></td>
+        <td class="row-link text-muted"><%= page.content %></td>
+        <td class="row-link"><%= page.created_at %></td>
         <td class="hidden-print text-right">
           <div class="btn-group" role="group">
             <%= link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit' %>

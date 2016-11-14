@@ -1,13 +1,13 @@
 $(document).on 'turbolinks:load', ->
-  $('.table tr[data-href]').each ->
+  $('.table tr[data-href] td.row-link').each ->
     $(this).css('cursor', 'pointer').hover((->
-      $(this).addClass 'active'
+      $(this).parent().addClass 'active'
       return
     ), ->
-      $(this).removeClass 'active'
+      $(this).parent().removeClass 'active'
       return
     ).click ->
-      document.location = $(this).attr('data-href')
+      document.location = $(this).parent().attr('data-href')
       return
     return
   return
