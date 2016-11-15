@@ -7,19 +7,18 @@ RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN apt-get update && apt-get install -y nodejs mysql-client --no-install-recommends
 
 # wkhtmltopdf
-RUN apt-get update && apt-get install -y libxrender1 libxext6 --no-install-recommends
-RUN curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
+RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
+    curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
     && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
     && rm wk.tar.xz \
     && rm -r wkhtmltox
-RUN apt-get update && apt-get install fonts-lato
 ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
 
 # Update Rubygems and Bundler
-RUN gem update --system 2.6.8
-RUN gem install bundler -v 1.13.6
+RUN gem update --system 2.6.8 && \
+    gem install bundler -v 1.13.6
 
 # Set correct environment variables.
 ENV HOME /root
@@ -29,15 +28,13 @@ CMD ["/sbin/my_init"]
 ADD docker/wait-for-services.sh /etc/my_init.d/98-wait-for-services.sh
 ADD docker/prepare-db.sh /etc/my_init.d/99-prepare-db.sh
 
-# Enable Nginx / Passenger
-RUN rm -f /etc/service/nginx/down
-
-# Log handling
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-
+# Enable Nginx
 # Remove the default site
-RUN rm /etc/nginx/sites-enabled/default
+# Forward logs to stdout/stderr
+RUN rm -f /etc/service/nginx/down && \
+    rm /etc/nginx/sites-enabled/default && \
+    ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Enable env vars
 ADD docker/nginx/app-env.conf /etc/nginx/main.d/app-env.conf
@@ -52,18 +49,18 @@ ENV RAILS_LOG_TO_STDOUT true
 # Install bundle of gems
 RUN mkdir /home/app/webapp
 WORKDIR /home/app/webapp
-ADD Gemfile /home/app/webapp
-ADD Gemfile.lock /home/app/webapp
+ADD Gemfile* /home/app/webapp/
 RUN bundle install
 
 # Add the Rails app
+# Precompile assets
 ADD . /home/app/webapp
 RUN RAILS_ENV=production bin/rails assets:precompile
 
 # Save timestamp of image building
-RUN date -u > BUILD_TIME
-
-RUN chown -R app:app /home/app
+# Set owner of app directory
+RUN date -u > BUILD_TIME && \
+    chown -R app:app /home/app
 
 # Clean up APT and bundler when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
