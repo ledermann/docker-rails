@@ -27,7 +27,7 @@ Linked from other containers:
 
 [Dockerfile](/Dockerfile):
 
-- Based on [passenger-docker](https://github.com/phusion/passenger-docker) with Nginx
+- Based on the official [Ruby image](https://hub.docker.com/_/ruby/) and Unicorn/Nginx
 - Added [wkhtmltopdf](http://wkhtmltopdf.org/) for generating PDF from HTML/CSS
 - Added [nodejs](https://nodejs.org/) for asset precompiling
 
