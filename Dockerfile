@@ -21,7 +21,7 @@ RUN gem update --system 2.6.8 && \
     gem install bundler -v 1.13.6
 
 # Set correct environment variables.
-ENV HOME /root
+ENV HOME=/root TZ=Europe/Berlin
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
