@@ -14,4 +14,4 @@ before_script:
   - docker-compose build
 
 script:
-  - docker-compose run --rm app bash -c "/etc/my_init.d/98-wait-for-services.sh && bundle exec rake db:setup test RAILS_ENV=test"
+  - docker-compose run --rm app bash -c "./docker/wait-for-services.sh && bundle exec rake db:setup test RAILS_ENV=test"
