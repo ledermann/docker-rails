@@ -45,7 +45,6 @@ services:
       - DB_USER
       - DB_PASSWORD
       - RAILS_ENV
-      - PASSENGER_APP_ENV
     ports:
       - "80"
     links:
