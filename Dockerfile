@@ -16,6 +16,7 @@ ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
 # Add the nginx site and config
 RUN rm -rf /etc/nginx/sites-available/default
 ADD docker/nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
 
 # Set some config
 ENV RAILS_LOG_TO_STDOUT true
