@@ -1,7 +1,7 @@
 FROM ruby:2.3.3
 
 # Install dependencies
-RUN apt-get update && apt-get install -y build-essential nodejs mysql-client nginx --no-install-recommends
+RUN apt-get update && apt-get install -y nodejs mysql-client nginx --no-install-recommends
 
 # Set time zone
 ENV TZ=Europe/Berlin
