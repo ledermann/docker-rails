@@ -1,7 +1,7 @@
 FROM ruby:2.3.3
 
-# Install MySQL client and NodeJS
-RUN apt-get update && apt-get install -y nodejs mysql-client --no-install-recommends
+# Install MySQL client
+RUN apt-get update && apt-get install -y mysql-client --no-install-recommends
 
 # Install Nginx
 # Source: https://github.com/nginxinc/docker-nginx/blob/master/stable/jessie/Dockerfile
@@ -20,10 +20,37 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 						gettext-base \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Set time zone
-ENV TZ=Europe/Berlin
+## Install Node.js
+# Source: https://github.com/nodejs/docker-node/blob/master/6.9/wheezy/Dockerfile
+RUN groupadd -r node && useradd -r -g node node
 
-# wkhtmltopdf
+# gpg keys listed at https://github.com/nodejs/node
+RUN set -ex \
+  && for key in \
+    9554F04D7259F04124DE6B476D5A82AC7E37093B \
+    94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
+    0034A06D9D9B0064CE8ADF6BF1747F4AD2306D93 \
+    FD3A5288F042B6850C66B31F09FE44734EB7990E \
+    71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
+    DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
+    B9AE9905FFD7803F25714661B63B535A4C206CA9 \
+    C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
+  ; do \
+    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+  done
+
+ENV NPM_CONFIG_LOGLEVEL info
+ENV NODE_VERSION 6.9.1
+
+RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
+  && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
+  && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
+  && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
+  && ln -s /usr/local/bin/node /usr/local/bin/nodejs
+
+# Install wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
     curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
@@ -32,6 +59,9 @@ RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-in
     && rm wk.tar.xz \
     && rm -r wkhtmltox
 ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
+
+# Set time zone
+ENV TZ=Europe/Berlin
 
 # Add the nginx site and config
 RUN rm -rf /etc/nginx/sites-available/default
