@@ -3,6 +3,9 @@ FROM ruby:2.3.3
 # Install dependencies
 RUN apt-get update && apt-get install -y build-essential nodejs mysql-client nginx --no-install-recommends
 
+# Set time zone
+ENV TZ=Europe/Berlin
+
 # wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
     curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
