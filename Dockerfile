@@ -1,7 +1,7 @@
 FROM ruby:2.3.3
 
 # Install dependencies
-RUN apt-get update && apt-get install -y build-essential nodejs mysql-client nginx
+RUN apt-get update && apt-get install -y build-essential nodejs mysql-client nginx --no-install-recommends
 
 # wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
