@@ -12,6 +12,7 @@ RUN echo 'deb http://repo.mysql.com/apt/debian/ jessie mysql-5.7' > /etc/apt/sou
     apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5 && \
     apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y mysql-community-client && \
+    apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Nginx
@@ -68,6 +69,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 
 # Install wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/* && \
     curl -L#o wk.tar.xz http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
