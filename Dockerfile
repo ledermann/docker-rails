@@ -3,9 +3,6 @@ FROM ruby:2.3.3
 # Set time zone
 ENV TZ=Europe/Berlin
 
-# Save timestamp of image building
-RUN date -u > BUILD_TIME
-
 # Install MySQL client
 # Source: http://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
 RUN echo 'deb http://repo.mysql.com/apt/debian/ jessie mysql-5.7' > /etc/apt/sources.list.d/mysql.list && \
@@ -84,9 +81,14 @@ ENV RAILS_LOG_TO_STDOUT true
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
-# Install bundle of gems
+# Workdir
 RUN mkdir -p /home/app/webapp
 WORKDIR /home/app/webapp
+
+# Save timestamp of image building
+RUN date -u > BUILD_TIME
+
+# Install gems
 ADD Gemfile* /home/app/webapp/
 RUN bundle install
 
