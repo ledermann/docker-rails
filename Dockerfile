@@ -1,5 +1,11 @@
 FROM ruby:2.3.3
 
+# Set time zone
+ENV TZ=Europe/Berlin
+
+# Save timestamp of image building
+RUN date -u > BUILD_TIME
+
 # Install MySQL client
 # Source: http://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
 RUN echo 'deb http://repo.mysql.com/apt/debian/ jessie mysql-5.7' > /etc/apt/sources.list.d/mysql.list && \
@@ -12,18 +18,23 @@ RUN echo 'deb http://repo.mysql.com/apt/debian/ jessie mysql-5.7' > /etc/apt/sou
 # Source: https://github.com/nginxinc/docker-nginx/blob/master/stable/jessie/Dockerfile
 ENV NGINX_VERSION 1.10.2-1~jessie
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
-	&& echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list \
-	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-						ca-certificates \
-						nginx=${NGINX_VERSION} \
-						nginx-module-xslt \
-						nginx-module-geoip \
-						nginx-module-image-filter \
-						nginx-module-perl \
-						nginx-module-njs \
-						gettext-base \
-	&& rm -rf /var/lib/apt/lists/*
+  && echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list \
+  && apt-get update \
+  && apt-get install --no-install-recommends --no-install-suggests -y \
+            ca-certificates \
+            nginx=${NGINX_VERSION} \
+            nginx-module-xslt \
+            nginx-module-geoip \
+            nginx-module-image-filter \
+            nginx-module-perl \
+            nginx-module-njs \
+            gettext-base \
+  && rm -rf /var/lib/apt/lists/*
+
+# Add the nginx site and config
+RUN rm -rf /etc/nginx/sites-available/default
+ADD docker/nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80 443
 
 ## Install Node.js
 # Source: https://github.com/nodejs/docker-node/blob/master/6.9/wheezy/Dockerfile
@@ -65,14 +76,6 @@ RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-in
     && rm -r wkhtmltox
 ADD docker/wkhtmltopdf/fontconfig.xml /etc/fonts/conf.d/10-wkhtmltopdf.conf
 
-# Set time zone
-ENV TZ=Europe/Berlin
-
-# Add the nginx site and config
-RUN rm -rf /etc/nginx/sites-available/default
-ADD docker/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-
 # Set some config
 ENV RAILS_LOG_TO_STDOUT true
 
@@ -90,9 +93,6 @@ ADD . /home/app/webapp
 
 # Precompile assets
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
-
-# Save timestamp of image building
-RUN date -u > BUILD_TIME
 
 # Start up
 CMD "docker/startup.sh"
