@@ -30,7 +30,7 @@ RUN bundle config --global frozen 1
 # Install bundle of gems
 RUN mkdir -p /home/app/webapp
 WORKDIR /home/app/webapp
-COPY Gemfile* /home/app/webapp/
+ADD Gemfile* /home/app/webapp/
 RUN bundle install
 
 # Add the Rails app
