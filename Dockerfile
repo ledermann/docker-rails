@@ -82,18 +82,18 @@ ENV RAILS_LOG_TO_STDOUT true
 RUN bundle config --global frozen 1
 
 # Workdir
-RUN mkdir -p /home/app/webapp
-WORKDIR /home/app/webapp
+RUN mkdir -p /home/app
+WORKDIR /home/app
 
 # Save timestamp of image building
 RUN date -u > BUILD_TIME
 
 # Install gems
-ADD Gemfile* /home/app/webapp/
+ADD Gemfile* /home/app/
 RUN bundle install
 
 # Add the Rails app
-ADD . /home/app/webapp
+ADD . /home/app
 
 # Precompile assets
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
