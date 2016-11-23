@@ -7,7 +7,7 @@ $(document).on 'turbolinks:load', ->
       $(this).parent().removeClass 'active'
       return
     ).click ->
-      document.location = $(this).parent().attr('data-href')
+      Turbolinks.visit $(this).parent().attr('data-href')
       return
     return
   return
