@@ -14,6 +14,12 @@ Simple Rails application to demonstrate using Docker for development and deploym
 - Background jobs with Sidekiq (to handle fulltext indexing)
 
 
+## [Dockerfile](/Dockerfile)
+
+- Based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which is based on the official [Ruby image](https://hub.docker.com/_/ruby/)
+- Adds [wkhtmltopdf](http://wkhtmltopdf.org/) for generating PDF from HTML/CSS
+
+
 ## Dependencies
 
 Linked from other containers:
@@ -23,13 +29,6 @@ Linked from other containers:
 - [elasticsearch](https://hub.docker.com/_/elasticsearch/)
 - [redis](https://hub.docker.com/_/redis/)
 - [memcached](https://hub.docker.com/_/memcached/)
-
-
-[Dockerfile](/Dockerfile):
-
-- Based on the official [Ruby image](https://hub.docker.com/_/ruby/) and Unicorn/Nginx
-- Added [wkhtmltopdf](http://wkhtmltopdf.org/) for generating PDF from HTML/CSS
-- Added [nodejs](https://nodejs.org/) for asset precompiling
 
 
 ## Development
