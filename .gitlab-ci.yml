@@ -10,7 +10,7 @@ build_image:
     - docker-compose build
 
   script:
-    - docker-compose run --rm app bash -c "./docker/wait-for-services.sh && bundle exec rake db:setup test"
+    - docker-compose run --rm app bash -c "./docker/wait-for-services.sh && bundle exec rake db:setup spec"
 
   after_script:
     - docker-compose run --rm app rm -rf tmp/
