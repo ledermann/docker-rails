@@ -18,3 +18,6 @@
 
 # ignore enviromment files
 .env
+
+# Ignore precompiled assets
+/public/assets/*
