@@ -30,6 +30,11 @@ RUN bundle install
 # Add the Rails app
 ADD . /home/app
 
+# Create user and group
+RUN groupadd --gid 9999 app && \
+    useradd --uid 9999 --gid app app && \
+    chown -R app:app /home/app
+
 # Precompile assets
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 

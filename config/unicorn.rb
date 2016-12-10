@@ -1,6 +1,8 @@
 app_dir = File.expand_path("../..", __FILE__)
 working_directory app_dir
 
+user "app"
+
 pid "#{app_dir}/tmp/unicorn.pid"
 
 stderr_path "/dev/stderr"
