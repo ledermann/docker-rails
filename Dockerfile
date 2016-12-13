@@ -1,10 +1,5 @@
 FROM ledermann/base
 
-# Add the nginx site and config
-RUN rm -rf /etc/nginx/sites-available/default
-ADD docker/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80 443
-
 # Install wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* && \
@@ -37,6 +32,11 @@ RUN groupadd --gid 9999 app && \
 
 # Precompile assets
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+
+# Add the nginx site and config
+RUN rm -rf /etc/nginx/sites-available/default
+ADD docker/nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80 443
 
 # Save timestamp of image building
 RUN date -u > BUILD_TIME
