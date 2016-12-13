@@ -32,7 +32,7 @@ gem 'searchkick'
 gem 'pdfkit'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem 'unicorn'
+gem 'puma'
 gem 'foreman'
 
 group :development, :test do
