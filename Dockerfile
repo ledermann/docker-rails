@@ -20,7 +20,8 @@ WORKDIR /home/app
 
 # Install gems
 ADD Gemfile* /home/app/
-RUN bundle install
+ADD docker /home/app/docker/
+RUN bash docker/bundle.sh
 
 # Add the Rails app
 ADD . /home/app
