@@ -22,7 +22,7 @@ backup:
     - SCHEDULE=@daily
 
 elasticsearch:
-  image: 'elasticsearch:2'
+  image: 'elasticsearch:5'
   restart: always
 
 memcached:

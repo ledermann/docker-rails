@@ -24,7 +24,7 @@ services:
       - SCHEDULE
 
   elasticsearch:
-    image: elasticsearch:2
+    image: elasticsearch:5
     volumes:
       - "es-data:/usr/share/elasticsearch/data"
 
