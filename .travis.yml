@@ -6,6 +6,7 @@ services:
 install: true
 
 before_script:
+  - sudo sysctl -w vm.max_map_count=262144 # Required for Elasticsearch 5
   - export MYSQL_ROOT_PASSWORD=duubidoo
   - export SECRET_KEY_BASE="we-dont-need-a-secret-here"
   - export DB_USER=root
