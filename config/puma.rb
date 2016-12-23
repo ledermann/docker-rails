@@ -1,4 +1,4 @@
-workers ENV.fetch('PUMA_WORKERS', `nproc`).to_i
+workers ENV.fetch('PUMA_WORKERS', Etc.nprocessors).to_i
 
 max_threads = ENV.fetch('PUMA_MAX_THREADS', 16).to_i
 min_threads = ENV.fetch('PUMA_MIN_THREADS', max_threads).to_i
