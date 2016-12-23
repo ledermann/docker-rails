@@ -27,10 +27,27 @@ The application is divided into 7 different containers:
 The image for the application and worker container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/). See the [Dockerfile](/Dockerfile) for details.
 
 
+## Test drive
+
+To checkout the application in your Docker environment:
+
+```bash
+git clone https://github.com/ledermann/docker-rails.git
+cd docker-rails
+cp .env.example .env
+docker-compose up --build
+```
+
+Navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]` to start it up.
+
+
 ## Development and Deployment
 
-- On every push, the (very small) test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/)
-- On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
+On every push, the (very small) test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/)
+
+On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
+
+On every start of the app container, the database will be migrated (or, if not exists, created with some seeds)
 
 If you are already a Docker Cloud user, you can deploy the whole stack with one click:
 

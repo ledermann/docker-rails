@@ -53,8 +53,6 @@ services:
       - db
       - redis
       - memcached
-    volumes:
-      - .:/home/app
 
   worker:
     <<: *app_base
