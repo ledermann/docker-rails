@@ -2,45 +2,36 @@
 
 # Docker-Rails
 
-Simple Rails application to demonstrate using Docker for development and deployment.
+Simple Rails application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage pages. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following non-default features:
+
+- Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed page gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
+- Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) to quickly find page content
+- Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and [Sidekiq](http://sidekiq.org/) (to handle full text indexing)
+- PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [PDFKit](https://github.com/pdfkit/pdfkit) gem
+
+The technique used to build this app should not be considered as "best practice", maybe there are better ways to build. But it works for my needs. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 
 
-## App features
+## Multi-container architecture
 
-- Simple CRUD
-- Auto refresh "show" action via ActionCable
-- Caching
-- Fulltext search
-- PDF export
-- Background jobs with Sidekiq (to handle fulltext indexing)
+The application is divided into 7 different containers:
 
+- **app:** Main part. It contains the Rails code to handle web requests (with the help of [nginx](http://nginx.org) and the [Puma](https://github.com/puma/puma) gem)
+- **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
+- **db:** MySQL database
+- **elasticsearch:** Full text search engine (used from within the app via the [Searchkick](https://github.com/ankane/searchkick) gem)
+- **memcached:** Memory caching system (used from within the app via the [Dalli](https://github.com/petergoldstein/dalli) gem)
+- **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
+- **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
-## [Dockerfile](/Dockerfile)
-
-- Based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which is based on the official [Ruby image](https://hub.docker.com/_/ruby/)
-- Adds [wkhtmltopdf](http://wkhtmltopdf.org/) for generating PDF from HTML/CSS
-
-
-## Dependencies
-
-Linked from other containers:
-
-- [mysql](https://hub.docker.com/_/mysql/)
-- [schickling/mysql-backup-s3](https://hub.docker.com/r/schickling/mysql-backup-s3/)
-- [elasticsearch](https://hub.docker.com/_/elasticsearch/)
-- [redis](https://hub.docker.com/_/redis/)
-- [memcached](https://hub.docker.com/_/memcached/)
+The image for the application and worker container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/). See the [Dockerfile](/Dockerfile) for details.
 
 
-## Development
+## Development and Deployment
 
-- Running tests with TravisCi and GitlabCI on every push
+- On every push, the (very small) test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/)
+- On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
 
-
-## Deployment
-
-- Auto build image on Docker Hub on every push
-- Deploy to Docker Cloud (with autoredeploy)
-- Periodic database backup to Amazon S3
+If you are already a Docker Cloud user, you can deploy the whole stack with one click:
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/ledermann/docker-rails)
