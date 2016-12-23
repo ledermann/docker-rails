@@ -1,0 +1,8 @@
+local: &local
+  url: redis://localhost:6379/1
+
+development: *local
+test: *local
+
+production:
+  url: <%= ENV['REDIS_CABLE_URL'] %>

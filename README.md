@@ -8,6 +8,7 @@ Simple Rails application to demonstrate using Docker for development and deploym
 ## App features
 
 - Simple CRUD
+- Auto refresh "show" action via ActionCable
 - Caching
 - Fulltext search
 - PDF export
