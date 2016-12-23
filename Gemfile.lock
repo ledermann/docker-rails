@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/rack/rack
+  revision: 9e73bd1ae7b5df937302a148ab99bf3be12eb063
+  specs:
+    rack (2.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,7 +106,6 @@ GEM
       mini_portile2 (~> 2.1.0)
     pdfkit (0.8.2)
     puma (3.6.2)
-    rack (2.0.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -209,6 +214,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   pdfkit
   puma
+  rack!
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
   rspec-rails
