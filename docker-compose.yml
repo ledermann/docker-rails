@@ -39,7 +39,7 @@ services:
     environment:
       - MYSQL_HOST=db
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - REDIS_URL=redis://redis:6379/0
+      - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - MEMCACHED_HOST=memcached
       - SECRET_KEY_BASE
       - DB_USER
