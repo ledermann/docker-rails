@@ -1,4 +1,4 @@
-class UpdatesChannel < ApplicationCable::Channel
+class PageUpdateChannel < ApplicationCable::Channel
   def subscribed
     stop_all_streams
 
