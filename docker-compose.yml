@@ -46,6 +46,7 @@ services:
       - DB_USER
       - DB_PASSWORD
       - RAILS_ENV
+      - APP_HOST
     ports:
       - "80"
     links:

@@ -83,7 +83,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # ActionCable: Allow all origins
-  config.action_cable.disable_request_forgery_protection = true
-  # TODO: Use allowed_request_origins instead
+  if ENV['APP_HOST']
+    config.action_cable.allowed_request_origins = [/(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{ENV['APP_HOST']}/]
+  else
+    # Allow all origins
+    config.action_cable.disable_request_forgery_protection = true
+  end
 end
