@@ -1,7 +1,7 @@
 module DockerRails
   class Application
     def version
-      '1.0.0'
+      '1.0.1'
     end
 
     def build_time
