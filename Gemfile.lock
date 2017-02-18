@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rack/rack
-  revision: 713dab7160d94bd34fbae24271afa27dcd7996fc
+  revision: 0d74df67db33cc2a9858ea1568bf47ad8583d84c
   specs:
     rack (2.0.1)
 
@@ -45,7 +45,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.7.2)
+    autoprefixer-rails (6.7.3)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -228,4 +228,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.14.3
+   1.14.4
