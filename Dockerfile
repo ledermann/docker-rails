@@ -1,11 +1,8 @@
 FROM ledermann/base
 
 # Install MySQL client
-# Source: http://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
-RUN echo 'deb http://repo.mysql.com/apt/debian/ jessie mysql-5.7' > /etc/apt/sources.list.d/mysql.list && \
-    apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5 && \
-    apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y mysql-community-client && \
+RUN apt-get update && \
+    apt-get install -y mysql-client && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
