@@ -105,7 +105,7 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     pdfkit (0.8.2)
-    puma (3.8.0)
+    puma (3.8.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
