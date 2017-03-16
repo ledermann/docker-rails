@@ -52,3 +52,8 @@ On every start of the app container, the database will be migrated (or, if not e
 If you are already a Docker Cloud user, you can deploy the whole stack with one click:
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/ledermann/docker-rails)
+
+
+## Domain setup and SSL encryption with Let's Encrypt
+
+The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-cloud.yml](/docker-cloud.yml) for example setup.
