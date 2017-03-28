@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rack/rack
-  revision: 647438af0019c9cf5e0e1418997b551f7b580b35
+  revision: 85d95bbf6502a58160bf727c75633b6d37b34c89
   specs:
     rack (2.0.1)
 
@@ -187,7 +187,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
-    tzinfo (1.2.2)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.1.10)
       execjs (>= 0.3.0, < 3)
