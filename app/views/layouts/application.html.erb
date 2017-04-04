@@ -27,7 +27,12 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="<%= url_for(params.to_unsafe_h.merge format: :pdf) %>">Export as PDF</a>
+              <a href="<%= sidekiq_web_path %>">Sidekiq</a>
+            </li>
+            <li>
+              <a href="<%= url_for(params.to_unsafe_h.merge format: :pdf) %>" title="Export as PDF">
+                <i class="fa fa-print"></i>
+              </a>
             </li>
             <li>
             <%= form_tag(pages_path, method: "get", class: 'navbar-form navbar-left') do %>
