@@ -25,19 +25,20 @@
           <a class="navbar-brand" href="<%= root_path %>">DockerRails</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
+          <p class="navbar-text hidden-xs">Just a demo</p>
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a href="<%= sidekiq_web_path %>">Sidekiq</a>
             </li>
             <li>
-              <a href="<%= url_for(params.to_unsafe_h.merge format: :pdf) %>" title="Export as PDF">
+              <%= link_to(url_for(params.to_unsafe_h.merge format: :pdf), title: 'Export to PDF') do %>
                 <i class="fa fa-print"></i>
-              </a>
+              <% end %>
             </li>
             <li>
             <%= form_tag(pages_path, method: "get", class: 'navbar-form navbar-left') do %>
               <div class="form-group">
-                <%= text_field_tag :q, params[:q], placeholder: "Search Pages", class: 'form-control' %>
+                <%= text_field_tag :q, params[:q], placeholder: "Search", class: 'form-control' %>
               </div>
             <% end %>
             </li>
