@@ -28,7 +28,7 @@
           <p class="navbar-text hidden-xs">Just a demo</p>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="<%= sidekiq_web_path %>">Sidekiq</a>
+              <%= link_to 'Sidekiq', sidekiq_web_path, data: { turbolinks: 'false' } %>
             </li>
             <li>
               <%= link_to(url_for(params.to_unsafe_h.merge format: :pdf), title: 'Export to PDF') do %>
