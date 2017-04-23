@@ -1,3 +1,5 @@
+# To keep this Dockerfile simple, we rely on `ledermann/base`,
+# which is based on the official Ruby image and adds Nginx, Node.js and Yarn
 FROM ledermann/base
 
 # Install MySQL client

@@ -1,9 +1,10 @@
-[![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails) [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
+[![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
 [![Dependency Status](https://gemnasium.com/badges/github.com/ledermann/docker-rails.svg)](https://gemnasium.com/github.com/ledermann/docker-rails)
+[![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
 
 # Docker-Rails
 
-Simple Rails application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage pages. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following non-default features:
+Simple Rails 5 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage pages. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following non-default features:
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed page gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) to quickly find page content
@@ -26,7 +27,7 @@ The application is divided into 7 different containers:
 - **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
-The image for the application and worker container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/). See the [Dockerfile](/Dockerfile) for details.
+The image for the application and worker container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and adds Nginx, Node.js and Yarn. See the [Dockerfile](/Dockerfile) for details.
 
 
 ## Test drive
