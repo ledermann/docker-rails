@@ -6,3 +6,4 @@ test: *local
 
 production:
   url: <%= ENV['REDIS_CABLE_URL'] %>
+  channel_prefix: docker_rails_production
