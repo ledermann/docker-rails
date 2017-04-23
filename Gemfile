@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0.rc2'
@@ -34,7 +38,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'puma', '~> 3.7'
 gem 'foreman'
-gem 'rack', :git => 'https://github.com/rack/rack'
+gem 'rack', github: 'rack/rack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
