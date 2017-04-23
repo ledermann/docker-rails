@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
+//= require autosize/dist/autosize
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
