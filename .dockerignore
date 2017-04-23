@@ -10,3 +10,4 @@ Dockerfile
 log/*
 public/assets/*
 tmp/*
+node_modules/*
