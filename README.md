@@ -9,6 +9,7 @@ Simple Rails application to demonstrate using Docker for production deployment. 
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) to quickly find page content
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and [Sidekiq](http://sidekiq.org/) (to handle full text indexing)
 - PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [PDFKit](https://github.com/pdfkit/pdfkit) gem
+- Page specific Javascript using the [initjs](https://github.com/josemarluedke/initjs) gem
 
 The technique used to build this app should not be considered as "best practice", maybe there are better ways to build. But it works for my needs. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 

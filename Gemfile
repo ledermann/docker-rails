@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'puma', '~> 3.7'
 gem 'foreman'
 gem 'rack', github: 'rack/rack'
+gem 'initjs', github: 'danieldocki/initjs' # Use fork because of https://github.com/josemarluedke/initjs/issues/14
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

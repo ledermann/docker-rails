@@ -15,4 +15,6 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
+//= require docker_rails/docker_rails
+//= require init.js
 //= require_tree .
