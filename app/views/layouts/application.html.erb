@@ -27,7 +27,11 @@
           <a class="navbar-brand" href="<%= root_path %>">DockerRails</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <p class="navbar-text hidden-xs">Just a demo</p>
+          <p class="navbar-text hidden-xs">
+            Just a demo
+            <%= link_to icon('github'), 'https://github.com/ledermann/docker-rails' %>
+          </p>
+
           <ul class="nav navbar-nav navbar-right">
             <li>
               <%= link_to 'Sidekiq', sidekiq_web_path, data: { turbolinks: 'false' } %>
