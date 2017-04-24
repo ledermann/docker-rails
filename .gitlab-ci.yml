@@ -10,9 +10,9 @@ build_image:
     - docker-compose build
 
   script:
-    - docker-compose run --rm app bash -c "./docker/wait-for-services.sh && bundle exec rake db:setup spec"
+    - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec"
 
   after_script:
-    - docker-compose run --rm app rm -rf tmp/
+    - docker-compose run --rm test rm -rf tmp/
     - docker-compose down
     - docker volume ls -qf dangling=true | xargs -r docker volume rm

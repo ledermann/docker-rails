@@ -65,6 +65,29 @@ services:
     depends_on:
       - app
 
+  selenium:
+    image: selenium/standalone-firefox
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+
+  test:
+    <<: *app_base
+    environment:
+      - MYSQL_HOST=db
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - REDIS_SIDEKIQ_URL=redis://redis:6379/0
+      - REDIS_CABLE_URL=redis://redis:6379/1
+      - MEMCACHED_HOST=memcached
+      - SELENIUM_REMOTE_HOST=selenium
+      - RAILS_ENV=test
+      - SECRET_KEY_BASE
+      - DB_USER
+      - DB_PASSWORD
+      - APP_HOST
+    depends_on:
+      - selenium
+
 volumes:
   db-data:
   es-data:

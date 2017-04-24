@@ -27,7 +27,12 @@ The application is divided into 7 different containers:
 - **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
-The image for the application and worker container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and adds Nginx, Node.js and Yarn. See the [Dockerfile](/Dockerfile) for details.
+For running tests using RSpec, there are two additional containers:
+
+- **selenium:** Standalone Firefox for executing requests specs and feature specs
+- **test:** Application code prepared for running tests
+
+The image for the application container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and adds Nginx, Node.js and Yarn. See the [Dockerfile](/Dockerfile) for details.
 
 
 ## Test drive

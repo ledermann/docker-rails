@@ -26,6 +26,17 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+if ENV['SELENIUM_REMOTE_HOST']
+  Capybara.javascript_driver = :selenium_remote_firefox
+  Capybara.register_driver :selenium_remote_firefox do |app|
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: :remote,
+      url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
+      desired_capabilities: :firefox)
+  end
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -54,4 +65,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before :each do
+    if /selenium_remote/.match Capybara.current_driver.to_s
+      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.gsub("\n", '')
+      Capybara.server_host = ip
+      Capybara.server_port = '3000'
+      Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"
+    end
+  end
+
+  config.after :each do
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+    Capybara.app_host = nil
+  end
 end
