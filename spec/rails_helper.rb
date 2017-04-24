@@ -27,13 +27,18 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 if ENV['SELENIUM_REMOTE_HOST']
-  Capybara.javascript_driver = :selenium_remote_firefox
-  Capybara.register_driver :selenium_remote_firefox do |app|
+  Capybara.javascript_driver = :selenium_remote_chrome
+  Capybara.register_driver :selenium_remote_chrome do |app|
     Capybara::Selenium::Driver.new(
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox)
+      desired_capabilities: :chrome)
+  end
+else
+  Capybara.javascript_driver = :chrome
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
 end
 

@@ -66,7 +66,7 @@ services:
       - app
 
   selenium:
-    image: selenium/standalone-firefox
+    image: selenium/standalone-chrome
     ports:
       - "4444:4444"
       - "5900:5900"

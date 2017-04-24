@@ -29,7 +29,7 @@ The application is divided into 7 different containers:
 
 For running tests using RSpec, there are two additional containers:
 
-- **selenium:** Standalone Firefox for executing requests specs and feature specs
+- **selenium:** Standalone Chrome for executing requests specs and feature specs
 - **test:** Application code prepared for running tests
 
 The image for the application container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and adds Nginx, Node.js and Yarn. See the [Dockerfile](/Dockerfile) for details.
