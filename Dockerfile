@@ -1,6 +1,7 @@
 # To keep this Dockerfile simple, we rely on `ledermann/base`,
 # which is based on the official Ruby image and adds Nginx, Node.js and Yarn
 FROM ledermann/base
+LABEL maintainer="mail@georg-ledermann.de"
 
 # Install MySQL client
 RUN apt-get update && \
