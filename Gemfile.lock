@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/rack/rack.git
-  revision: 5c36acac4d298dcf04c58a10014c849a478da53f
+  revision: e37c6ae42da4b561321d9d30b91ffac02c214717
   specs:
     rack (2.0.1)
 
