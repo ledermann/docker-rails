@@ -4,7 +4,7 @@
 
 # Docker-Rails
 
-Simple Rails 5 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage pages. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following non-default features:
+Simple Rails 5.1 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage pages. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following non-default features:
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed page gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) to quickly find page content
