@@ -63,7 +63,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
-    capybara (2.13.0)
+    capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -247,7 +247,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
-  capybara (~> 2.13.0)
+  capybara (~> 2.14.0)
   coffee-rails (~> 4.2)
   dalli
   dotenv-rails
