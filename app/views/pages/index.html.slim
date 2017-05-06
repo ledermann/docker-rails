@@ -1,0 +1,29 @@
+.jumbotron
+  .row
+    .col-md-10
+      h1 Pages
+      p.lead Just some plain old CRUD operations
+      a.btn.btn-lg.btn-success.hidden-print[href=new_page_path role="button"] Add new Page
+    .col-md-2.text-right.hidden-xs
+      = icon('file-text-o', class: 'fa-5x')
+
+table.table.table-striped
+  thead
+    tr
+      th Title
+      th Content
+      th Created at
+      th.hidden-print
+  tbody
+    - @pages.each do |page|
+      tr[data-href=url_for(page)]
+        td.row-link
+          = page.title
+        td.row-link.text-muted
+          = page.content
+        td.row-link
+          = page.created_at
+        td.hidden-print.text-right
+          .btn-group[role="group"]
+            = link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit'
+            = link_to icon('trash'), page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', role: 'button', title: 'Destroy'
