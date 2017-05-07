@@ -40,6 +40,7 @@ else
   Capybara.register_driver :chrome do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
+  Capybara.asset_host = 'http://localhost:3000'
 end
 
 RSpec.configure do |config|

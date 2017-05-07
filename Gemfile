@@ -47,6 +47,9 @@ group :development, :test do
   gem 'capybara', '~> 2.14.0'
   gem 'selenium-webdriver'
 
+  # Support #save_and_open_page in feature specs
+  gem 'launchy'
+
   gem 'rspec-rails'
   gem 'dotenv-rails'
 end
