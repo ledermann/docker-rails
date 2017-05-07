@@ -17,6 +17,11 @@ require 'rails_helper'
 # is no simpler way to get a handle on the object needed for the example.
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
+#
+# Also compared to earlier versions of this generator, there are no longer any
+# expectations of assigns and templates rendered. These features have been
+# removed from Rails core in Rails 5, but can be added back in via the
+# `rails-controller-testing` gem.
 
 describe PagesController do
 
@@ -41,33 +46,33 @@ describe PagesController do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all pages as @pages" do
+    it "returns a success response" do
       page = Page.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(assigns(:pages)).to include(page)
+      expect(response).to be_success
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested page as @page" do
+    it "returns a success response" do
       page = Page.create! valid_attributes
       get :show, params: {id: page.to_param}, session: valid_session
-      expect(assigns(:page)).to eq(page)
+      expect(response).to be_success
     end
   end
 
   describe "GET #new" do
-    it "assigns a new page as @page" do
+    it "returns a success response" do
       get :new, params: {}, session: valid_session
-      expect(assigns(:page)).to be_a_new(Page)
+      expect(response).to be_success
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested page as @page" do
+    it "returns a success response" do
       page = Page.create! valid_attributes
       get :edit, params: {id: page.to_param}, session: valid_session
-      expect(assigns(:page)).to eq(page)
+      expect(response).to be_success
     end
   end
 
@@ -79,12 +84,6 @@ describe PagesController do
         }.to change(Page, :count).by(1)
       end
 
-      it "assigns a newly created page as @page" do
-        post :create, params: {page: valid_attributes}, session: valid_session
-        expect(assigns(:page)).to be_a(Page)
-        expect(assigns(:page)).to be_persisted
-      end
-
       it "redirects to the created page" do
         post :create, params: {page: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Page.last)
@@ -92,14 +91,9 @@ describe PagesController do
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved page as @page" do
+      it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {page: invalid_attributes}, session: valid_session
-        expect(assigns(:page)).to be_a_new(Page)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, params: {page: invalid_attributes}, session: valid_session
-        expect(response).to render_template("new")
+        expect(response).to be_success
       end
     end
   end
@@ -116,13 +110,7 @@ describe PagesController do
         page = Page.create! valid_attributes
         put :update, params: {id: page.to_param, page: new_attributes}, session: valid_session
         page.reload
-        expect(assigns[:page].title).to eq('Bar')
-      end
-
-      it "assigns the requested page as @page" do
-        page = Page.create! valid_attributes
-        put :update, params: {id: page.to_param, page: valid_attributes}, session: valid_session
-        expect(assigns(:page)).to eq(page)
+        expect(page.title).to eq('Bar')
       end
 
       it "redirects to the page" do
@@ -133,16 +121,10 @@ describe PagesController do
     end
 
     context "with invalid params" do
-      it "assigns the page as @page" do
+      it "returns a success response (i.e. to display the 'edit' template)" do
         page = Page.create! valid_attributes
         put :update, params: {id: page.to_param, page: invalid_attributes}, session: valid_session
-        expect(assigns(:page)).to eq(page)
-      end
-
-      it "re-renders the 'edit' template" do
-        page = Page.create! valid_attributes
-        put :update, params: {id: page.to_param, page: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
+        expect(response).to be_success
       end
     end
   end

@@ -48,7 +48,6 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'rspec-rails'
-  gem 'rails-controller-testing'
   gem 'dotenv-rails'
 end
 
