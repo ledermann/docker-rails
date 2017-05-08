@@ -39,9 +39,12 @@ html[lang="en"]
               = link_to(url_for(params.to_unsafe_h.merge format: :pdf), title: 'Export to PDF') do
                 i.fa.fa-print
             li
-              = form_tag(pages_path, method: "get", class: 'navbar-form navbar-left') do
-                .form-group
+              = form_tag(pages_path, method: "get", class: 'navbar-form navbar-left', id: 'search') do
+                .input-group
                   = text_field_tag :q, params[:q], placeholder: "Search", class: 'form-control'
+                  .input-group-btn
+                    button.btn.btn-default[type="submit" title="Search for Text"]
+                      i.fa.fa-search
 
     .container
       - if notice

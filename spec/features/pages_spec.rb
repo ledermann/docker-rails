@@ -20,6 +20,19 @@ feature 'Page management', js: true do
     expect(page.current_path).to eq(root_path)
   end
 
+  scenario 'User searches for a page' do
+    visit pages_path
+    expect(page).to_not have_text('Pages matching')
+
+    within '#search' do
+      fill_in 'q', with: 'lorem'
+    end
+    click_on 'Search for Text'
+
+    expect(page).to have_text('Pages matching')
+    expect(page).to have_current_path(/q=lorem/)
+  end
+
   scenario 'User edits an existing page' do
     visit page_path(example_page)
 

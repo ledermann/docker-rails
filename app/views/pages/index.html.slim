@@ -7,6 +7,14 @@
     .col-md-2.text-right.hidden-xs
       = icon('file-text-o', class: 'fa-5x')
 
+- if @search
+  .alert.alert-info
+    | Pages matching
+    '
+    strong= @search
+    '
+    | only
+
 table.table.table-striped
   thead
     tr
@@ -18,9 +26,15 @@ table.table.table-striped
     - @pages.each do |page|
       tr[data-href=url_for(page)]
         td.row-link
-          = page.title
+          - if @search && page.search_highlights[:title]
+            == page.search_highlights[:title]
+          - else
+            = page.title.truncate(80)
         td.row-link.text-muted
-          = page.content
+          - if @search && page.search_highlights[:content]
+            ==  page.search_highlights[:content]
+          - else
+            = page.content.truncate(100)
         td.row-link
           = page.created_at
         td.hidden-print.text-right
