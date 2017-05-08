@@ -117,10 +117,6 @@ GEM
       thor (>= 0.14, < 2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.5)
@@ -168,9 +164,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
-    rb-fsevent (0.9.8)
-    rb-inotify (0.9.8)
-      ffi (>= 0.5.0)
     redis (3.3.3)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
@@ -189,7 +182,6 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -265,7 +257,6 @@ DEPENDENCIES
   initjs!
   jbuilder (~> 2.5)
   launchy
-  listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
   pdfkit
   puma (~> 3.7)
