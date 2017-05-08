@@ -2,10 +2,7 @@ require 'rails_helper'
 
 describe 'pages/edit' do
   before :each do
-    @page = assign(:page, Page.create!(
-      title:   'MyString',
-      content: 'Foo'
-    ))
+    @page = assign(:page, create(:page))
   end
 
   it 'renders the edit page form' do

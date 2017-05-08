@@ -97,6 +97,11 @@ GEM
       multi_json
     erubi (1.6.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -252,6 +257,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dalli
   dotenv-rails
+  factory_girl_rails
   font-awesome-sass
   foreman
   initjs!

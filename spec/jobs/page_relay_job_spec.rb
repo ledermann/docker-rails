@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe PageRelayJob do
   it 'should broadcast' do
-    page = Page.create! title: 'Foo', content: 'Lorem ipsum'
+    page = create(:page)
 
     PageRelayJob.perform_now(page)
 

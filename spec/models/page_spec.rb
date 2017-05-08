@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Page do
-  subject { Page.create! title: 'Foo', content: '1234567890' }
+  subject { create(:page, content: '1234567890') }
 
   it 'can be searched' do
     subject

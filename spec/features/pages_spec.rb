@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Page management', js: true do
-  let!(:example_page) { Page.create!(title: 'Foo', content: 'lorem ipsum') }
+  let!(:example_page) { create(:page) }
 
   scenario 'User navigates through pages' do
     visit pages_path

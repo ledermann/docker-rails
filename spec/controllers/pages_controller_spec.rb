@@ -47,7 +47,7 @@ describe PagesController do
 
   describe "GET #index" do
     it "returns a success response" do
-      page = Page.create! valid_attributes
+      page = create(:page, valid_attributes)
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -55,7 +55,7 @@ describe PagesController do
 
   describe "GET #show" do
     it "returns a success response" do
-      page = Page.create! valid_attributes
+      page = create(:page, valid_attributes)
       get :show, params: {id: page.to_param}, session: valid_session
       expect(response).to be_success
     end
@@ -70,7 +70,7 @@ describe PagesController do
 
   describe "GET #edit" do
     it "returns a success response" do
-      page = Page.create! valid_attributes
+      page = create(:page, valid_attributes)
       get :edit, params: {id: page.to_param}, session: valid_session
       expect(response).to be_success
     end
@@ -107,14 +107,14 @@ describe PagesController do
       }
 
       it "updates the requested page" do
-        page = Page.create! valid_attributes
+        page = create(:page, valid_attributes)
         put :update, params: {id: page.to_param, page: new_attributes}, session: valid_session
         page.reload
         expect(page.title).to eq('Bar')
       end
 
       it "redirects to the page" do
-        page = Page.create! valid_attributes
+        page = create(:page, valid_attributes)
         put :update, params: {id: page.to_param, page: valid_attributes}, session: valid_session
         expect(response).to redirect_to(page)
       end
@@ -122,7 +122,7 @@ describe PagesController do
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        page = Page.create! valid_attributes
+        page = create(:page, valid_attributes)
         put :update, params: {id: page.to_param, page: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
@@ -131,14 +131,14 @@ describe PagesController do
 
   describe "DELETE #destroy" do
     it "destroys the requested page" do
-      page = Page.create! valid_attributes
+      page = create(:page, valid_attributes)
       expect {
         delete :destroy, params: {id: page.to_param}, session: valid_session
       }.to change(Page, :count).by(-1)
     end
 
     it "redirects to the pages list" do
-      page = Page.create! valid_attributes
+      page = create(:page, valid_attributes)
       delete :destroy, params: {id: page.to_param}, session: valid_session
       expect(response).to redirect_to(pages_url)
     end
