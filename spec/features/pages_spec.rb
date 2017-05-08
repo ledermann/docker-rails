@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Page management', js: true do
-  let!(:example_page) { create(:page) }
+  let!(:example_page) { create(:page, :reindex) }
 
   scenario 'User navigates through pages' do
     visit pages_path

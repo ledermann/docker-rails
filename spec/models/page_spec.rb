@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 describe Page do
-  subject { create(:page, content: '1234567890') }
+  subject { create(:page, :reindex, content: '1234567890') }
 
   it 'can be searched' do
     subject
-    Page.reindex
 
     expect(Page.search('1234567890').total_count).to eq(1)
   end
