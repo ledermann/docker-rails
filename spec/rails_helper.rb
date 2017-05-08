@@ -72,7 +72,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before(:suite) { FactoryGirl.reload }
+  config.before :suite do
+    FactoryGirl.reload
+
+    Page.reindex
+    Searchkick.disable_callbacks
+  end
 
   config.before :each do
     if /selenium_remote/.match Capybara.current_driver.to_s
@@ -87,5 +92,11 @@ RSpec.configure do |config|
     Capybara.reset_sessions!
     Capybara.use_default_driver
     Capybara.app_host = nil
+  end
+
+  config.around(:each, search: true) do |example|
+    Searchkick.enable_callbacks
+    example.run
+    Searchkick.disable_callbacks
   end
 end
