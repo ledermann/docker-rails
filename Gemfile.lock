@@ -217,6 +217,8 @@ GEM
       slim (~> 3.0)
     spring (2.0.1)
       activesupport (>= 4.2)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -275,6 +277,7 @@ DEPENDENCIES
   sidekiq
   slim-rails
   spring
+  spring-commands-rspec
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
