@@ -22,3 +22,6 @@
 
 # Ignore precompiled assets
 /public/assets/*
+
+# Ignore simplecov result
+/coverage/*
