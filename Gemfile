@@ -37,7 +37,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'puma', '~> 3.7'
 gem 'foreman'
-gem 'rack', github: 'rack/rack' # Use latest code because of https://github.com/rack/rack/pull/1080
+gem 'rack'
 gem 'initjs', github: 'danieldocki/initjs' # Use fork because of https://github.com/josemarluedke/initjs/issues/14
 
 group :development, :test do

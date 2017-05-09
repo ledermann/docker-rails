@@ -6,12 +6,6 @@ GIT
       jquery-rails
       rails (>= 3.1)
 
-GIT
-  remote: https://github.com/rack/rack.git
-  revision: e37c6ae42da4b561321d9d30b91ffac02c214717
-  specs:
-    rack (2.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,6 +135,7 @@ GEM
     pdfkit (0.8.2)
     public_suffix (2.0.5)
     puma (3.8.2)
+    rack (2.0.2)
     rack-protection (2.0.0)
       rack
     rack-test (0.6.3)
@@ -268,7 +263,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   pdfkit
   puma (~> 3.7)
-  rack!
+  rack
   rails (~> 5.1.0)
   rspec-rails
   sass-rails (~> 5.0)
