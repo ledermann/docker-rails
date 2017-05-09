@@ -130,11 +130,11 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.4.6)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     pdfkit (0.8.2)
+    pg (0.20.0)
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.2)
@@ -267,8 +267,8 @@ DEPENDENCIES
   initjs!
   jbuilder (~> 2.5)
   launchy
-  mysql2 (>= 0.3.18, < 0.5)
   pdfkit
+  pg (~> 0.18)
   puma (~> 3.7)
   rack
   rails (~> 5.1.0)

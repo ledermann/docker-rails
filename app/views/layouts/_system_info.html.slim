@@ -20,8 +20,8 @@
         dd= Rails::VERSION::STRING
     .col-md-4
       dl.dl-horizontal
-        dt MySQL
-        dd= ActiveRecord::Base.connection.select_rows('SHOW VARIABLES WHERE Variable_name = "version"')[0][1]
+        dt PostgreSQL
+        dd= ActiveRecord::Base.connection.select_value('SHOW server_version;')
         dt Redis
         dd= Sidekiq.redis_info['redis_version'] rescue '[not connected]'
         dt memcached

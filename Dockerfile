@@ -3,9 +3,9 @@
 FROM ledermann/base
 LABEL maintainer="mail@georg-ledermann.de"
 
-# Install MySQL client
+# Install PostgreSQL client
 RUN apt-get update && \
-    apt-get install -y mysql-client && \
+    apt-get install -y libpq-dev && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 

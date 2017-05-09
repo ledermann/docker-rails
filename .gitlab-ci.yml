@@ -1,7 +1,7 @@
 variables:
-  MYSQL_ROOT_PASSWORD: duubidoo
+  POSTGRES_PASSWORD: duubidoo
   SECRET_KEY_BASE: "we-dont-need-a-secret-here"
-  DB_USER: "root"
+  DB_USER: "postgres"
   DB_PASSWORD: "duubidoo"
 
 build_image:

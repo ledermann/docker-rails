@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# Wait for MySQL
-until $(curl --output /dev/null --silent --head --fail http://$MYSQL_HOST:3306); do
-  echo 'Waiting for MySQL...'
+# Wait for PostgreSQL
+until curl $DB_HOST:5432 2>&1 | grep '52'; do
+  echo 'Waiting for PostgreSQL...'
   sleep 1
 done
-echo "MySQL is up and running"
+echo "PostgreSQL is up and running"
 
 # Wait for Elasticsearch
 until $(curl --output /dev/null --silent --head --fail $ELASTICSEARCH_URL); do

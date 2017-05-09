@@ -21,7 +21,7 @@ The application is divided into 7 different containers:
 
 - **app:** Main part. It contains the Rails code to handle web requests (with the help of [nginx](http://nginx.org) and the [Puma](https://github.com/puma/puma) gem)
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
-- **db:** MySQL database
+- **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine (used from within the app via the [Searchkick](https://github.com/ankane/searchkick) gem)
 - **memcached:** Memory caching system (used from within the app via the [Dalli](https://github.com/petergoldstein/dalli) gem)
 - **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
