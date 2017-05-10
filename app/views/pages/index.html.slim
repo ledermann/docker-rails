@@ -25,17 +25,17 @@ table.table.table-striped
   tbody
     - @pages.each do |page|
       tr[data-href=url_for(page)]
-        td.row-link
+        td.js-row-link
           - if @search && page.search_highlights[:title]
             == page.search_highlights[:title]
           - else
             = page.title.truncate(80)
-        td.row-link.text-muted
+        td.js-row-link.text-muted
           - if @search && page.search_highlights[:content]
             ==  page.search_highlights[:content]
           - else
             = page.content.truncate(100)
-        td.row-link
+        td.js-row-link
           = page.created_at
         td.hidden-print.text-right
           .btn-group[role="group"]

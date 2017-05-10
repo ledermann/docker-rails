@@ -1,6 +1,6 @@
 class @PagesIndex
   constructor: ->
-    $('.table tr[data-href] td.row-link').each ->
+    $('.table tr[data-href] > td.js-row-link').each ->
       $(this).css('cursor', 'pointer').hover((->
         $(this).parent().addClass 'active'
         return
