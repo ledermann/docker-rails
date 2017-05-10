@@ -1,0 +1,12 @@
+// Render new items
+rendered_items = "<%= j render(@pages) %>";
+
+// Append to exists list
+$("#js-infinitive-scrolling").append(rendered_items);
+
+// Update Paginator
+<% if items.next_page %>
+  $('.pagination').replaceWith("<%= j render 'kaminari/paging', objects: @pages %>");
+<% else %>
+  $('.pagination').remove();
+<% end %>

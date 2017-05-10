@@ -11,6 +11,11 @@ class PagesController < ApplicationController
     else
       Page.order(created_at: :desc).page(params[:page]).per(25).without_count
     end
+
+    respond_to do |format|
+      format.js { render 'kaminari/infinitive-scrolling', locals: { items: @pages } }
+      format.html
+    end
   end
 
   # GET /pages/1

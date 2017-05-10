@@ -15,16 +15,12 @@ feature 'Page management', js: true do
     expect(page).to have_link(href: edit_page_path(example_page))
     expect(page).to have_link('Add new Page', href: new_page_path)
 
-    # Use paging by clicking on pagination links
-    expect(page).to have_link('Next page', href: pages_path(page: 2))
-    click_on 'Next page'
-    expect(page.current_path).to eq(pages_path(page: 2))
+    # Scroll down to load whole list via infinitive scrolling
+    page.execute_script "window.scrollBy(0, $(window).height())"
+    expect(page).to have_xpath('.//table/tbody/tr', count: 31)
 
-    expect(page).to have_link('Previous page', href: pages_path)
-    click_on 'Previous page'
-    expect(page.current_path).to eq(pages_path)
-
-    # Go to single page by clicking on a row
+    # Scroll up again and go to single page by clicking on a row
+    page.execute_script "window.scrollTo(0, 0)"
     find(:xpath, ".//table/tbody/tr[1]").click
     expect(page.current_path).to eq(page_path(example_page))
 
