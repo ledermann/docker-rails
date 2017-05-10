@@ -23,23 +23,6 @@ table.table.table-striped
       th Created at
       th.hidden-print
   tbody
-    - @pages.each do |page|
-      tr[data-href=url_for(page)]
-        td.js-row-link
-          - if @search && page.search_highlights[:title]
-            == page.search_highlights[:title]
-          - else
-            = page.title.truncate(80)
-        td.js-row-link.text-muted
-          - if @search && page.search_highlights[:content]
-            ==  page.search_highlights[:content]
-          - else
-            = page.content.truncate(100)
-        td.js-row-link
-          = page.created_at
-        td.hidden-print.text-right
-          .btn-group[role="group"]
-            = link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit'
-            = link_to icon('trash'), page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', role: 'button', title: 'Destroy'
+    = render @pages
 
 = render 'kaminari/paging', objects: @pages
