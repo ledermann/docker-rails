@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @pages = if @search
       Page.search(@search, fields: ['title^10', 'content'], highlight: { tag: '<strong>' })
     else
-      Page.order(:created_at => :desc)
+      Page.order(created_at: :desc)
     end
   end
 
@@ -60,7 +60,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    @page.destroy
+    @page.destroy!
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
       format.json { head :no_content }
