@@ -22,7 +22,7 @@ table.table.table-striped
       th Content
       th Created at
       th.hidden-print
-  tbody
+  tbody#js-infinite-scrolling
     = render @pages
 
 = render 'kaminari/paging', objects: @pages

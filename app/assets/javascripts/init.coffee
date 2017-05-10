@@ -4,6 +4,7 @@ class @Init
     @execute(page)
 
     new TextAreaAutosize()
+    new InfiniteScrolling()
 
   execute: (page) ->
     if 'function' is typeof window[page]

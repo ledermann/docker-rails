@@ -1,0 +1,8 @@
+// Render new objects to a HTML string
+rendered_objects = "<%=j render(objects) %>";
+
+// Append to exists list
+$("#js-infinite-scrolling").append(rendered_objects);
+
+// Update Paginator
+$('#js-paging').replaceWith("<%=j render('kaminari/paging', objects: objects) %>");

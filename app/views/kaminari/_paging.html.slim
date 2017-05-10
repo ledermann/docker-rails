@@ -1,8 +1,4 @@
-.text-center
-  ul.pagination
-    - if objects.prev_page
-      li
-        = link_to_prev_page objects, icon('chevron-left'), title: 'Previous page'
-    - if objects.next_page
-      li
-        = link_to_next_page objects, icon('chevron-right'), title: 'Next page'
+#js-paging.text-center
+  - if objects.next_page
+    = link_to_next_page objects, 'next', class: 'hidden'
+    = icon('spinner', class: 'fa-spin fa-4x')
