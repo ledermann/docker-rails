@@ -1,0 +1,8 @@
+.text-center
+  ul.pagination
+    - if objects.prev_page
+      li
+        = link_to_prev_page objects, icon('chevron-left'), title: 'Previous page'
+    - if objects.next_page
+      li
+        = link_to_next_page objects, icon('chevron-right'), title: 'Next page'

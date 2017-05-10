@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :page do
-    title 'Foo'
+    sequence(:title) { |n| "Page #{n}" }
     content 'Lorem ipsum'
 
     trait :reindex do

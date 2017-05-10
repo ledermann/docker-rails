@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'slim-rails'
+gem 'kaminari'
 gem 'dalli'
 gem 'sidekiq'
 gem 'searchkick'

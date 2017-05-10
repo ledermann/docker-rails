@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'pages/show' do
   before :each do
-    @page = assign(:page, create(:page))
+    @page = assign(:page, create(:page, title: 'Foo'))
   end
 
   it 'renders attributes' do

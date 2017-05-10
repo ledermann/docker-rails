@@ -1,15 +1,28 @@
 require 'rails_helper'
 
 feature 'Page management', js: true do
-  let!(:example_page) { create(:page, :reindex) }
+  before :each do
+    30.times { create(:page) }
+  end
+
+  let!(:example_page) { create(:page, :reindex, title: 'Example') }
 
   scenario 'User navigates through pages' do
     visit pages_path
 
     expect(page).to have_selector('h1', text: 'Pages')
-    expect(page).to have_xpath('.//table/tbody/tr', count: 1)
+    expect(page).to have_xpath('.//table/tbody/tr', count: 25)
     expect(page).to have_link(href: edit_page_path(example_page))
     expect(page).to have_link('Add new Page', href: new_page_path)
+
+    # Use paging by clicking on pagination links
+    expect(page).to have_link('Next page', href: pages_path(page: 2))
+    click_on 'Next page'
+    expect(page.current_path).to eq(pages_path(page: 2))
+
+    expect(page).to have_link('Previous page', href: pages_path)
+    click_on 'Previous page'
+    expect(page.current_path).to eq(pages_path)
 
     # Go to single page by clicking on a row
     find(:xpath, ".//table/tbody/tr[1]").click
@@ -36,7 +49,7 @@ feature 'Page management', js: true do
   scenario 'User edits an existing page' do
     visit page_path(example_page)
 
-    expect(page).to have_selector('h1', text: 'Foo')
+    expect(page).to have_selector('h1', text: 'Example')
     expect(page).to have_link(href: edit_page_path(example_page))
 
     click_on 'Edit'
@@ -59,6 +72,7 @@ feature 'Page management', js: true do
     visit pages_path
 
     expect(page).to have_selector('h1', text: 'Pages')
+    expect(page).to have_selector('td', text: 'Example')
 
     page.accept_alert 'Are you sure?' do
       find(:xpath, '//table/tbody/tr[1]//a[@title="Destroy"]').click
@@ -66,7 +80,7 @@ feature 'Page management', js: true do
 
     expect(page.current_path).to eq(pages_path)
     expect(page).to have_text 'Page was successfully destroyed.'
-    expect(page).to have_xpath('.//table/tbody/tr', count: 0)
+    expect(page).to_not have_selector('td', text: 'Example')
   end
 
   scenario 'User creates a new page' do
