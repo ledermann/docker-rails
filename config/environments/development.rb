@@ -53,3 +53,5 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.file_watcher = ActiveSupport::FileUpdateChecker
 end
+
+Slim::Engine.options[:pretty] = true
