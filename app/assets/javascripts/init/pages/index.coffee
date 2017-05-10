@@ -1,7 +1,5 @@
-DockerRails.Pages ?= {}
-
-DockerRails.Pages.Index =
-  init: ->
+class @PagesIndex
+  constructor: ->
     $('.table tr[data-href] td.row-link').each ->
       $(this).css('cursor', 'pointer').hover((->
         $(this).parent().addClass 'active'
@@ -14,5 +12,3 @@ DockerRails.Pages.Index =
         return
       return
     return
-
-  modules: -> []
