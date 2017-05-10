@@ -1,7 +1,9 @@
-class Init
+class @Init
   constructor: ->
     page = $('body').data('page')
     @execute(page)
+
+    new TextAreaAutosize()
 
   execute: (page) ->
     if 'function' is typeof window[page]
@@ -9,6 +11,4 @@ class Init
       new klass()
 
 $(document).on 'turbolinks:load', ->
-  autosize $('textarea')
-
   new Init()
