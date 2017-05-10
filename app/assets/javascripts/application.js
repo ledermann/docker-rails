@@ -16,4 +16,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require init
-//= require_tree ./init
+//= require_tree .
