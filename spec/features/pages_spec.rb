@@ -56,8 +56,8 @@ feature 'Page management' do
     expect(page).to have_selector('h1', text: 'Editing Page')
     expect(page).to have_button('Update Page')
 
-    fill_in 'Title', with: 'Bar'
-    fill_in 'Content', with: 'dolor sit amet'
+    fill_in 'page[title]', with: 'Bar'
+    fill_in 'page[content]', with: 'dolor sit amet'
     click_on 'Update Page'
 
     expect(page.current_path).to eq(page_path(example_page))
@@ -90,8 +90,8 @@ feature 'Page management' do
     expect(page).to have_selector('h1', text: 'New Page')
     expect(page).to have_button('Create Page')
 
-    fill_in 'Title', with: 'Bar'
-    fill_in 'Content', with: 'dolor sit amet'
+    fill_in 'page[title]', with: 'Bar'
+    fill_in 'page[content]', with: 'dolor sit amet'
     click_on 'Create Page'
 
     expect(page).to have_text 'Page was successfully created.'

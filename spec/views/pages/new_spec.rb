@@ -11,7 +11,8 @@ describe 'pages/new' do
     render
 
     assert_select 'form[action=?][method=?]', pages_path, 'post' do
-      assert_select 'input#page_title[name=?]', 'page[title]'
+      assert_select 'input[name=?]', 'page[title]'
+      assert_select 'textarea[name=?]', 'page[content]'
     end
   end
 end
