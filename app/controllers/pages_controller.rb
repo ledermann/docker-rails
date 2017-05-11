@@ -4,10 +4,8 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @search = params[:q].presence
-
-    @pages = if @search
-      Page.search @search,
+    @pages = if search_string
+      Page.search search_string,
                   fields:       [ 'title^10', 'content' ],
                   match:        :word_start,
                   misspellings: { prefix_length: 2 },
@@ -90,5 +88,9 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       params.require(:page).permit(:title, :content)
+    end
+
+    helper_method def search_string
+      params[:q].presence
     end
 end

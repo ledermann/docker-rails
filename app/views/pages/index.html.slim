@@ -7,11 +7,11 @@
     .col-md-2.text-right.hidden-xs
       = icon('file-text-o', class: 'fa-5x')
 
-- if @search
+- if search_string
   .alert.alert-info
     | Pages matching
     '
-    strong= @search
+    strong= search_string
     '
     | only
 

@@ -7,6 +7,7 @@ describe 'pages/index' do
   end
 
   it 'renders a list of pages' do
+    allow(view).to receive(:search_string).and_return(nil)
     render
     assert_select 'tr > td', :text => 'Foo', :count => 2
   end

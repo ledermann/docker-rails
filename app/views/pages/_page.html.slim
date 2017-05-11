@@ -1,11 +1,11 @@
 tr[data-href=url_for(page)]
   td.js-row-link
-    - if @search && page.search_highlights[:title]
+    - if search_string && page.search_highlights[:title]
       == page.search_highlights[:title]
     - else
       = page.title.truncate(80)
   td.js-row-link.text-muted
-    - if @search && page.search_highlights[:content]
+    - if search_string && page.search_highlights[:content]
       ==  page.search_highlights[:content]
     - else
       = page.content.truncate(100)
