@@ -7,9 +7,18 @@ class PagesController < ApplicationController
     @search = params[:q].presence
 
     @pages = if @search
-      Page.search(@search, fields: ['title^10', 'content'], highlight: { tag: '<strong>' }, page: params[:page], per_page: 25)
+      Page.search @search,
+                  fields:       [ 'title^10', 'content' ],
+                  match:        :word_start,
+                  misspellings: { prefix_length: 2 },
+                  highlight:    { tag: '<strong>' },
+                  page:         params[:page],
+                  per_page:     25
     else
-      Page.order(created_at: :desc).page(params[:page]).per(25).without_count
+      Page.order(created_at: :desc).
+           page(params[:page]).
+           per(25).
+           without_count
     end
 
     respond_to do |format|

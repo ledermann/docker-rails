@@ -34,12 +34,14 @@ feature 'Page management' do
     expect(page).to_not have_text('Pages matching')
 
     within '#search' do
-      fill_in 'q', with: 'lorem'
+      fill_in 'q', with: 'Exam'
     end
     click_on 'Search for Text'
 
     expect(page).to have_text('Pages matching')
-    expect(page).to have_current_path(/q=lorem/)
+    expect(page).to have_current_path(/q=Exam/)
+    expect(page).to have_xpath('.//table/tbody/tr', count: 1)
+    expect(page).to have_link(href: page_path(example_page))
   end
 
   scenario 'User edits an existing page' do
