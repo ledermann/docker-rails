@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature 'Page management', js: true do
+feature 'Page management' do
   before :each do
     30.times { create(:page) }
   end
 
   let!(:example_page) { create(:page, :reindex, title: 'Example') }
 
-  scenario 'User navigates through pages' do
+  scenario 'User navigates through pages', js: true do
     visit pages_path
 
     expect(page).to have_selector('h1', text: 'Pages')
@@ -64,7 +64,7 @@ feature 'Page management', js: true do
     expect(page).to have_selector('p', text: 'dolor sit amet')
   end
 
-  scenario 'User deletes an existing page' do
+  scenario 'User deletes an existing page', js: true do
     visit pages_path
 
     expect(page).to have_selector('h1', text: 'Pages')
