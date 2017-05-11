@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "autosize": "^3.0.20",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "parsleyjs": "^2.7.2"
   }
 }

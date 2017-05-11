@@ -81,7 +81,7 @@ feature 'Page management' do
     expect(page).to_not have_selector('td', text: 'Example')
   end
 
-  scenario 'User creates a new page' do
+  scenario 'User creates a new page', js: true do
     visit pages_path
 
     click_on 'Add new Page'
@@ -91,7 +91,10 @@ feature 'Page management' do
     expect(page).to have_button('Create Page')
 
     fill_in 'page[title]', with: 'Bar'
+    click_on 'Create Page'
+    expect(page).to have_selector('div.form-group.has-error')
     fill_in 'page[content]', with: 'dolor sit amet'
+    expect(page).to_not have_selector('div.form-group.has-error')
     click_on 'Create Page'
 
     expect(page).to have_text 'Page was successfully created.'

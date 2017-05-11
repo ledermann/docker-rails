@@ -12,6 +12,8 @@
 //
 //= require jquery/dist/jquery.js
 //= require autosize/dist/autosize
+//= require parsleyjs
+//= require parsleyjs/dist/i18n/de
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks

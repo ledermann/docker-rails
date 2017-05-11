@@ -4,6 +4,7 @@ class @Init
     @execute(page)
 
     new TextAreaAutosize()
+    new FormValidator()
     new InfiniteScrolling()
 
   execute: (page) ->
