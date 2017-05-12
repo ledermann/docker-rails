@@ -4,6 +4,7 @@
   "dependencies": {
     "autosize": "^3.0.20",
     "jquery": "^3.2.1",
+    "moment": "^2.18.1",
     "parsleyjs": "^2.7.2"
   }
 }

@@ -13,6 +13,7 @@
 //= require jquery/dist/jquery.js
 //= require autosize/dist/autosize
 //= require parsleyjs
+//= require moment/moment
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks

@@ -44,15 +44,17 @@ feature 'Page management' do
     expect(page).to have_link(href: page_path(example_page))
   end
 
-  scenario 'User edits an existing page' do
+  scenario 'User opens a single page', js: true do
     visit page_path(example_page)
 
     expect(page).to have_selector('h1', text: 'Example')
-    expect(page).to have_link(href: edit_page_path(example_page))
+    expect(page).to have_selector('time', text: 'ago')
+    expect(page).to have_link(href: edit_page_path(example_page), text: 'Edit Page')
+  end
 
-    click_on 'Edit'
+  scenario 'User edits an existing page' do
+    visit edit_page_path(example_page)
 
-    expect(page.current_path).to eq(edit_page_path(example_page))
     expect(page).to have_selector('h1', text: 'Editing Page')
     expect(page).to have_button('Update Page')
 

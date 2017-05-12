@@ -10,6 +10,7 @@ class @Init
     new TextAreaAutosize()
     new FormValidator()
     new InfiniteScrolling()
+    new TimeFormatter()
 
   startup_controller_specific_code: ->
     klass_name = $('body').data('js-class')

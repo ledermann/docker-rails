@@ -10,7 +10,8 @@ tr[data-href=url_for(page)]
     - else
       = page.content.truncate(100)
   td.js-row-link
-    = page.created_at
+    = time_tag page.created_at
+
   td.hidden-print.text-right
     .btn-group[role="group"]
       = link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit'

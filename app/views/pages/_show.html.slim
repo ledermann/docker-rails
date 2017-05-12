@@ -1,2 +1,11 @@
-h1= page.title
-= simple_format h(page.content)
+article
+  header
+    h1
+      = page.title
+
+    p.text-muted
+      | Created
+      '
+      = time_tag(page.created_at)
+
+  = simple_format h(page.content)
