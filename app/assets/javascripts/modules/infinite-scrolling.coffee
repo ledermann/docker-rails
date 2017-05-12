@@ -9,15 +9,20 @@ class @InfiniteScrolling
     return
 
   enable: ->
+    @getNextPageIfNeeded()
     $(window).on 'scroll', =>
-      if @isInViewport()
-        url = $('#js-paging a[rel=next]').attr('href')
-        if url
-          @disable()
-          $.getScript url, ->
-            new Init()
-            return
+      @getNextPageIfNeeded()
       return
+    return
+
+  getNextPageIfNeeded: ->
+    if @isInViewport()
+      url = $('#js-paging a[rel=next]').attr('href')
+      if url
+        @disable()
+        $.getScript url, ->
+          new Init()
+          return
     return
 
   isInViewport: ->
