@@ -12,7 +12,6 @@ feature 'Page management' do
 
     expect(page).to have_selector('h1', text: 'Pages')
     expect(page).to have_xpath('.//table/tbody/tr', count: 25)
-    expect(page).to have_link(href: edit_page_path(example_page))
     expect(page).to have_link('Add new Page', href: new_page_path)
 
     # Scroll down to load whole list via infinite scrolling
@@ -40,8 +39,7 @@ feature 'Page management' do
 
     expect(page).to have_text('Pages matching')
     expect(page).to have_current_path(/q=Exam/)
-    expect(page).to have_xpath('.//table/tbody/tr', count: 1)
-    expect(page).to have_link(href: page_path(example_page))
+    expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
   end
 
   scenario 'User opens a single page', js: true do
@@ -49,7 +47,7 @@ feature 'Page management' do
 
     expect(page).to have_selector('h1', text: 'Example')
     expect(page).to have_selector('time', text: 'ago')
-    expect(page).to have_link(href: edit_page_path(example_page), text: 'Edit Page')
+    expect(page).to have_link(href: edit_page_path(example_page), title: 'Edit Page')
   end
 
   scenario 'User edits an existing page' do
@@ -69,13 +67,10 @@ feature 'Page management' do
   end
 
   scenario 'User deletes an existing page', js: true do
-    visit pages_path
-
-    expect(page).to have_selector('h1', text: 'Pages')
-    expect(page).to have_selector('td', text: 'Example')
+    visit page_path(example_page)
 
     page.accept_alert 'Are you sure?' do
-      find(:xpath, '//table/tbody/tr[1]//a[@title="Destroy"]').click
+      find(:xpath, '//a[@title="Destroy"]').click
     end
 
     expect(page.current_path).to eq(pages_path)

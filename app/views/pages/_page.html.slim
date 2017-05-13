@@ -11,8 +11,3 @@ tr[data-href=url_for(page)]
       = page.content.truncate(100)
   td.js-row-link
     = time_tag page.updated_at
-
-  td.hidden-print.text-right
-    .btn-group[role="group"]
-      = link_to icon('pencil'), [ :edit, page ], class: 'btn btn-xs btn-default', role: 'button', title: 'Edit'
-      = link_to icon('trash'), page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', role: 'button', title: 'Destroy'

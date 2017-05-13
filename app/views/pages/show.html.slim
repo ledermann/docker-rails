@@ -1,3 +1,6 @@
 = content_tag :div, class: 'content', data: { page_id: @page.id } do
   = render 'show', page: @page
-= link_to 'Edit Page', edit_page_path(@page), class: 'btn btn-default btn-primary hidden-print'
+
+.btn-group.hidden-print
+  = link_to icon('pencil'), edit_page_path(@page), class: 'btn btn-default btn-primary', title: 'Edit Page'
+  = link_to icon('trash'), @page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', role: 'button', title: 'Destroy'
