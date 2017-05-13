@@ -10,7 +10,7 @@ tr[data-href=url_for(page)]
     - else
       = page.content.truncate(100)
   td.js-row-link
-    = time_tag page.created_at
+    = time_tag page.updated_at
 
   td.hidden-print.text-right
     .btn-group[role="group"]

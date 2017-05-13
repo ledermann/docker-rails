@@ -4,8 +4,8 @@ article
       = page.title
 
     p.text-muted
-      | Created
+      | Updated
       '
-      = time_tag(page.created_at)
+      = time_tag(page.updated_at)
 
   = simple_format h(page.content)

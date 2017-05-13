@@ -13,7 +13,7 @@ class PagesController < ApplicationController
                   page:         params[:page],
                   per_page:     25
     else
-      Page.order(created_at: :desc).
+      Page.order(updated_at: :desc).
            page(params[:page]).
            per(25).
            without_count
