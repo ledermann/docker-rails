@@ -27,7 +27,13 @@ class PagesController < ApplicationController
 
   # GET /pages/1
   # GET /pages/1.json
+  # GET /pages/1.pdf
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf { render pdf: @page.title, disposition: 'inline' }
+    end
   end
 
   # GET /pages/new
