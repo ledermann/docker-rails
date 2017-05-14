@@ -1,6 +1,6 @@
 - cache do
   .row
-    .col-md-4
+    .col-xs-4
       dl.dl-horizontal
         dt Version
         dd= Rails.application.version
@@ -8,7 +8,7 @@
         dd= Rails.application.build_time.try(:in_time_zone)
         dt Environment
         dd= Rails.env
-    .col-md-4
+    .col-xs-4
       dl.dl-horizontal
         dt Ruby
         dd= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}"
@@ -18,7 +18,7 @@
         dd= Bundler::VERSION
         dt Rails
         dd= Rails::VERSION::STRING
-    .col-md-4
+    .col-xs-4
       dl.dl-horizontal
         dt PostgreSQL
         dd= ActiveRecord::Base.connection.select_value('SHOW server_version;')

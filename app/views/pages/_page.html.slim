@@ -9,5 +9,5 @@ tr[data-href=url_for(page)]
       ==  page.search_highlights[:content]
     - else
       = page.content.truncate(100)
-  td.js-row-link
+  td.js-row-link.text-right
     = time_tag page.updated_at

@@ -3,15 +3,22 @@ html {
   min-height: 100%;
 }
 
-body {
-  padding-top: 80px;
-  margin-bottom: 140px;
+#main {
+  padding: 70px 0 220px;
 }
 
 footer {
-  height: 90px;
-  padding: 10px 0;
-  font-size: 90%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0 0;
+  font-size: 85%;
   background: $gray-light;
   color: $gray-lighter;
+}
+
+@media(min-width: $screen-md-min) {
+  footer {
+    position: fixed;
+  }
 }
