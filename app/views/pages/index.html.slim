@@ -15,6 +15,9 @@
     '
     | only
 
+p.small.text-muted.text-right#page-count
+  = pluralize @pages.total_count, 'Page'
+
 table.table.table-striped
   thead
     tr
