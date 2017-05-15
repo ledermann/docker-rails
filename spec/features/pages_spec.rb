@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Page management' do
   before :each do
     30.times { create(:page) }
+    Page.reindex
   end
 
   let!(:example_page) { create(:page, :reindex, title: 'Example', content: 'Lorem ipsum') }
@@ -12,6 +13,7 @@ feature 'Page management' do
 
     expect(page).to have_selector('h1', text: 'Pages')
     expect(page).to have_xpath('.//table/tbody/tr', count: 25)
+    expect(page).to have_selector('#page-count', text: '31 Pages')
     expect(page).to have_link('Add new Page', href: new_page_path)
 
     # Scroll down to load whole list via infinite scrolling
@@ -40,6 +42,7 @@ feature 'Page management' do
     expect(page).to have_text('Pages matching')
     expect(page).to have_current_path(/q=Exam/)
     expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
+    expect(page).to have_selector('#page-count', text: '1 Page')
   end
 
   scenario 'User opens a single page', js: true do

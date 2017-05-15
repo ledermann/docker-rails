@@ -15,8 +15,7 @@ class PagesController < ApplicationController
     else
       Page.order(updated_at: :desc).
            page(params[:page]).
-           per(25).
-           without_count
+           per(25)
     end
 
     respond_to do |format|
