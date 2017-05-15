@@ -41,7 +41,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    autoprefixer-rails (7.0.1)
+    autoprefixer-rails (7.1.0)
       execjs
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
