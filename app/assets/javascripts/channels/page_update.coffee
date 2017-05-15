@@ -15,3 +15,4 @@ $(document).on 'turbolinks:load', ->
         # Called when there's incoming data on the websocket for this channel
         console.log "Received data from " + App.updates.identifier
         $('.content').html(data.html)
+        new Init()
