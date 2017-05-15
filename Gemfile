@@ -33,7 +33,7 @@ gem 'kaminari'
 gem 'dalli'
 gem 'sidekiq'
 gem 'searchkick'
-gem 'pdfkit'
+gem 'wicked_pdf'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'puma', '~> 3.7'
@@ -67,6 +67,7 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'pdf-reader'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,5 +1,5 @@
 $(document).on 'turbolinks:load', ->
-  page_id = $('.content').data('page-id')
+  page_id = $('article').data('cable-page-id')
 
   if page_id
     App.updates = App.cable.subscriptions.create { channel: "PageUpdateChannel", page_id: page_id },
@@ -14,5 +14,5 @@ $(document).on 'turbolinks:load', ->
       received: (data) ->
         # Called when there's incoming data on the websocket for this channel
         console.log "Received data from " + App.updates.identifier
-        $('.content').html(data.html)
+        $('article').html(data.html)
         new Init()
