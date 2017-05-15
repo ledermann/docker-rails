@@ -31,7 +31,9 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.pdf { render pdf: @page.title, disposition: 'inline' }
+      format.pdf { render pdf:          @page.title,
+                          disposition:  'inline',
+                          show_as_html: params[:debug].present? }
     end
   end
 

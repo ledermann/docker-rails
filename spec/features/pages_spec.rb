@@ -6,7 +6,7 @@ feature 'Page management' do
     Page.reindex
   end
 
-  let!(:example_page) { create(:page, :reindex, title: 'Example') }
+  let!(:example_page) { create(:page, :reindex, title: 'Example', content: 'Lorem ipsum') }
 
   scenario 'User navigates through pages', js: true do
     visit pages_path
@@ -51,6 +51,15 @@ feature 'Page management' do
     expect(page).to have_selector('h1', text: 'Example')
     expect(page).to have_selector('time', text: 'ago')
     expect(page).to have_link(href: edit_page_path(example_page), title: 'Edit Page')
+    expect(page).to have_link(href: page_path(example_page, format: 'pdf'), title: 'Export Page as PDF')
+  end
+
+  scenario 'User opens a single page as PDF' do
+    visit page_path(example_page, format: 'pdf')
+
+    convert_pdf_to_page
+    expect(page).to have_text('Example')
+    expect(page).to have_text('Lorem ipsum')
   end
 
   scenario 'User edits an existing page' do
