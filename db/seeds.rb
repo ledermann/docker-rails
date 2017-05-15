@@ -6,113 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# http://www.generatedata.com/
-rows = [
-  {'title': 'primis in faucibus', 'content': 'Nam nulla magna, malesuada vel, convallis'},
-  {'title': 'elit. Curabitur sed', 'content': 'neque. Morbi quis urna. Nunc quis arcu vel quam'},
-  {'title': 'vel, vulputate eu,', 'content': 'adipiscing, enim mi tempor lorem, eget mollis lectus'},
-  {'title': 'ullamcorper, velit in', 'content': 'molestie tortor nibh sit amet orci. Ut sagittis lobortis'},
-  {'title': 'egestas a, dui.', 'content': 'Donec porttitor tellus non magna. Nam ligula elit, pretium'},
-  {'title': 'auctor odio a', 'content': 'nec enim. Nunc ut erat.'},
-  {'title': 'molestie dapibus ligula.', 'content': 'Curabitur egestas nunc sed libero. Proin sed turpis nec mauris'},
-  {'title': 'Cum sociis natoque', 'content': 'Fusce mollis. Duis sit amet'},
-  {'title': 'eget magna. Suspendisse', 'content': 'nec, eleifend non, dapibus rutrum, justo.'},
-  {'title': 'eget massa. Suspendisse', 'content': 'posuere cubilia Curae; Donec tincidunt. Donec vitae'},
-  {'title': 'non, feugiat nec,', 'content': 'amet, consectetuer adipiscing elit. Etiam laoreet, libero et'},
-  {'title': 'mauris blandit mattis.', 'content': 'dui. Cum sociis natoque penatibus et magnis'},
-  {'title': 'felis orci, adipiscing', 'content': 'vehicula risus. Nulla eget metus eu erat semper'},
-  {'title': 'consequat dolor vitae', 'content': 'nostra, per inceptos hymenaeos. Mauris ut quam vel'},
-  {'title': 'Cras interdum. Nunc', 'content': 'Ut tincidunt vehicula risus. Nulla eget metus'},
-  {'title': 'enim nisl elementum', 'content': 'et ultrices posuere cubilia Curae; Donec tincidunt.'},
-  {'title': 'Nam nulla magna,', 'content': 'Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi'},
-  {'title': 'pharetra. Quisque ac', 'content': 'diam. Proin dolor. Nulla semper'},
-  {'title': 'tortor, dictum eu,', 'content': 'sem, vitae aliquam eros turpis non enim. Mauris'},
-  {'title': 'augue ut lacus.', 'content': 'vitae aliquam eros turpis non enim. Mauris quis turpis vitae'},
-  {'title': 'nibh dolor, nonummy', 'content': 'quis arcu vel quam dignissim'},
-  {'title': 'erat. Etiam vestibulum', 'content': 'blandit at, nisi. Cum sociis natoque penatibus et'},
-  {'title': 'cursus. Integer mollis.', 'content': 'rhoncus. Nullam velit dui, semper et, lacinia vitae, sodales'},
-  {'title': 'aliquet molestie tellus.', 'content': 'nunc sed libero. Proin sed turpis nec mauris'},
-  {'title': 'amet massa. Quisque', 'content': 'eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit'},
-  {'title': 'eu, eleifend nec,', 'content': 'eget, ipsum. Donec sollicitudin adipiscing'},
-  {'title': 'est, mollis non,', 'content': 'lorem, eget mollis lectus pede et risus.'},
-  {'title': 'orci luctus et', 'content': 'nisi nibh lacinia orci, consectetuer euismod'},
-  {'title': 'augue porttitor interdum.', 'content': 'urna, nec luctus felis purus ac tellus. Suspendisse'},
-  {'title': 'eleifend egestas. Sed', 'content': 'in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula'},
-  {'title': 'velit eget laoreet', 'content': 'rhoncus. Proin nisl sem, consequat nec, mollis vitae,'},
-  {'title': 'lorem. Donec elementum,', 'content': 'nonummy ipsum non arcu. Vivamus sit amet risus.'},
-  {'title': 'dictum. Phasellus in', 'content': 'iaculis enim, sit amet ornare lectus justo eu arcu. Morbi'},
-  {'title': 'adipiscing lacus. Ut', 'content': 'arcu. Vestibulum ut eros non enim commodo'},
-  {'title': 'id, mollis nec,', 'content': 'risus. In mi pede, nonummy'},
-  {'title': 'porttitor eros nec', 'content': 'posuere, enim nisl elementum purus, accumsan interdum libero dui'},
-  {'title': 'scelerisque mollis. Phasellus', 'content': 'ac metus vitae velit egestas lacinia.'},
-  {'title': 'Morbi metus. Vivamus', 'content': 'lobortis tellus justo sit amet nulla. Donec non justo. Proin'},
-  {'title': 'felis. Nulla tempor', 'content': 'Nulla semper tellus id nunc interdum feugiat. Sed'},
-  {'title': 'Vivamus euismod urna.', 'content': 'vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac'},
-  {'title': 'dapibus rutrum, justo.', 'content': 'porttitor eros nec tellus. Nunc lectus pede, ultrices a,'},
-  {'title': 'elit. Curabitur sed', 'content': 'felis orci, adipiscing non, luctus sit amet, faucibus ut,'},
-  {'title': 'lobortis augue scelerisque', 'content': 'dignissim pharetra. Nam ac nulla.'},
-  {'title': 'magna nec quam.', 'content': 'in molestie tortor nibh sit amet'},
-  {'title': 'magna. Suspendisse tristique', 'content': 'interdum. Curabitur dictum. Phasellus in'},
-  {'title': 'Nunc mauris elit,', 'content': 'lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies'},
-  {'title': 'Integer id magna', 'content': 'ipsum cursus vestibulum. Mauris magna. Duis dignissim'},
-  {'title': 'Cras dictum ultricies', 'content': 'tincidunt adipiscing. Mauris molestie pharetra'},
-  {'title': 'eros nec tellus.', 'content': 'Aliquam nisl. Nulla eu neque pellentesque massa lobortis'},
-  {'title': 'Nullam feugiat placerat', 'content': 'ullamcorper eu, euismod ac, fermentum vel, mauris.'},
-  {'title': 'dignissim. Maecenas ornare', 'content': 'Quisque porttitor eros nec tellus. Nunc'},
-  {'title': 'libero nec ligula', 'content': 'fringilla cursus purus. Nullam scelerisque neque sed sem egestas'},
-  {'title': 'et libero. Proin', 'content': 'eu eros. Nam consequat dolor vitae dolor. Donec'},
-  {'title': 'Aenean eget metus.', 'content': 'lectus convallis est, vitae sodales nisi magna sed'},
-  {'title': 'a, dui. Cras', 'content': 'senectus et netus et malesuada fames'},
-  {'title': 'velit. Aliquam nisl.', 'content': 'Nullam vitae diam. Proin dolor. Nulla semper'},
-  {'title': 'tincidunt adipiscing. Mauris', 'content': 'lacus pede sagittis augue, eu tempor erat neque'},
-  {'title': 'Vestibulum accumsan neque', 'content': 'nibh. Donec est mauris, rhoncus id, mollis nec, cursus'},
-  {'title': 'bibendum sed, est.', 'content': 'in, cursus et, eros. Proin'},
-  {'title': 'nec quam. Curabitur', 'content': 'semper egestas, urna justo faucibus lectus, a sollicitudin orci sem'},
-  {'title': 'at arcu. Vestibulum', 'content': 'sollicitudin a, malesuada id, erat. Etiam vestibulum massa rutrum magna.'},
-  {'title': 'Donec nibh. Quisque', 'content': 'dictum cursus. Nunc mauris elit,'},
-  {'title': 'ac facilisis facilisis,', 'content': 'rutrum non, hendrerit id, ante. Nunc'},
-  {'title': 'ipsum nunc id', 'content': 'vitae, posuere at, velit. Cras lorem lorem,'},
-  {'title': 'sem mollis dui,', 'content': 'ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet'},
-  {'title': 'primis in faucibus', 'content': 'magna. Ut tincidunt orci quis lectus.'},
-  {'title': 'est tempor bibendum.', 'content': 'nec enim. Nunc ut erat. Sed nunc est, mollis'},
-  {'title': 'ultrices iaculis odio.', 'content': 'Fusce aliquam, enim nec tempus scelerisque, lorem'},
-  {'title': 'gravida. Praesent eu', 'content': 'nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor'},
-  {'title': 'eleifend. Cras sed', 'content': 'arcu. Sed eu nibh vulputate mauris sagittis placerat. Cras'},
-  {'title': 'auctor ullamcorper, nisl', 'content': 'mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus.'},
-  {'title': 'congue a, aliquet', 'content': 'vel, faucibus id, libero. Donec'},
-  {'title': 'Aliquam adipiscing lobortis', 'content': 'Pellentesque tincidunt tempus risus. Donec egestas. Duis ac'},
-  {'title': 'lacinia at, iaculis', 'content': 'varius ultrices, mauris ipsum porta elit, a feugiat'},
-  {'title': 'ultrices iaculis odio.', 'content': 'diam eu dolor egestas rhoncus. Proin nisl sem,'},
-  {'title': 'adipiscing. Mauris molestie', 'content': 'elit. Nulla facilisi. Sed neque. Sed'},
-  {'title': 'feugiat metus sit', 'content': 'nunc. In at pede. Cras'},
-  {'title': 'diam eu dolor', 'content': 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur'},
-  {'title': 'sollicitudin a, malesuada', 'content': 'Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper'},
-  {'title': 'nisl. Maecenas malesuada', 'content': 'non, vestibulum nec, euismod in, dolor. Fusce'},
-  {'title': 'arcu. Vivamus sit', 'content': 'Sed congue, elit sed consequat auctor, nunc nulla vulputate'},
-  {'title': 'nulla vulputate dui,', 'content': 'senectus et netus et malesuada'},
-  {'title': 'ullamcorper. Duis cursus,', 'content': 'Nam ligula elit, pretium et, rutrum'},
-  {'title': 'ipsum non arcu.', 'content': 'orci luctus et ultrices posuere'},
-  {'title': 'Donec nibh enim,', 'content': 'amet, dapibus id, blandit at, nisi. Cum'},
-  {'title': 'adipiscing elit. Curabitur', 'content': 'fringilla. Donec feugiat metus sit'},
-  {'title': 'Nunc commodo auctor', 'content': 'natoque penatibus et magnis dis'},
-  {'title': 'convallis est, vitae', 'content': 'viverra. Maecenas iaculis aliquet diam.'},
-  {'title': 'mi pede, nonummy', 'content': 'Maecenas libero est, congue a,'},
-  {'title': 'massa. Suspendisse eleifend.', 'content': 'eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros.'},
-  {'title': 'dui. Fusce diam', 'content': 'non nisi. Aenean eget metus. In'},
-  {'title': 'pulvinar arcu et', 'content': 'at fringilla purus mauris a nunc.'},
-  {'title': 'ipsum dolor sit', 'content': 'eros turpis non enim. Mauris quis'},
-  {'title': 'ligula. Nullam feugiat', 'content': 'feugiat nec, diam. Duis mi enim, condimentum eget, volutpat'},
-  {'title': 'diam. Sed diam', 'content': 'Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio.'},
-  {'title': 'a neque. Nullam', 'content': 'sit amet, risus. Donec nibh enim, gravida sit'},
-  {'title': 'non nisi. Aenean', 'content': 'fames ac turpis egestas. Aliquam fringilla cursus purus.'},
-  {'title': 'aliquet molestie tellus.', 'content': 'Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis'},
-  {'title': 'cubilia Curae; Donec', 'content': 'enim. Suspendisse aliquet, sem ut cursus luctus, ipsum'},
-  {'title': 'Donec porttitor tellus', 'content': 'vel, vulputate eu, odio. Phasellus at augue id'}
-];
+class Generator
+  def attributes
+    { title:   title,
+      content: content
+    }
+  end
+
+  private
+
+  def faker
+    @faker ||= [
+      Faker::Hipster,
+      Faker::Lorem
+    ].sample
+  end
+
+  def title
+    faker.words(3, true).join(' ').upcase_first
+  end
+
+  def content
+    (1..3).map { faker.paragraph(5, true, 10) }.join("\n\n")
+  end
+end
 
 Searchkick.callbacks(false) do
-  rows.each do |row|
-    Page.create! row
-  end
+  100.times { Page.create!(Generator.new.attributes) }
 end
 Page.reindex
