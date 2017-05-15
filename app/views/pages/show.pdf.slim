@@ -1,1 +1,10 @@
-=  render 'show', page: @page
+h1
+  = @page.title
+
+p
+  em
+    | Updated
+    '
+    = time_tag(@page.updated_at)
+
+= simple_format h(@page.content)

@@ -1,9 +1,25 @@
-= content_tag :div, class: 'content', data: { page_id: @page.id } do
-  = render 'show', page: @page
+article data-cable-page-id=@page.id
+  header.row
+    .col-sm-11.col-sm-offset-1
+      h1
+        = @page.title
 
-.btn-group
-  = link_to icon('file-pdf-o'), page_path(@page, format: 'pdf'), class: 'btn btn-default', title: 'Print as PDF'
+      p.text-muted
+        | Updated
+        '
+        = time_tag(@page.updated_at)
 
-.btn-group
-  = link_to icon('pencil'), edit_page_path(@page), class: 'btn btn-default', title: 'Edit Page'
-  = link_to icon('trash'), @page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', role: 'button', title: 'Destroy'
+  .row
+    .col-sm-1
+      .btn-group-vertical[role='group']
+        = link_to page_path(@page, format: 'pdf'), class: 'btn btn-default btn-lg', data: { turbolinks: 'false' }, title: 'Export Page as PDF' do
+          = icon('file-pdf-o')
+
+        = link_to edit_page_path(@page), class: 'btn btn-default btn-lg', title: 'Edit Page' do
+          = icon('pencil')
+
+        = link_to @page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg', role: 'button', title: 'Destroy' do
+          = icon('trash')
+
+    .col-sm-11
+      = simple_format h(@page.content)
