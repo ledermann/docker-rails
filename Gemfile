@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'responders'
 gem 'slim-rails'
 gem 'kaminari'
 gem 'dalli'

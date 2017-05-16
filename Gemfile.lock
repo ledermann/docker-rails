@@ -184,6 +184,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     redis (3.3.3)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -294,6 +297,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rack
   rails (~> 5.1.1)
+  responders
   rspec-rails
   sass-rails (~> 5.0)
   searchkick
