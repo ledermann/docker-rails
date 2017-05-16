@@ -22,7 +22,7 @@ The techniques used to build this app should not be considered as "best practice
 
 The application is divided into 7 different containers:
 
-- **app:** Main part. It contains the Rails code to handle web requests (with the help of [Nginx](http://nginx.org) and the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details.
+- **app:** Main part. It contains the Rails code to handle web requests (with the help of [Nginx](http://nginx.org) and the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and just adds Nginx, Node.js and Yarn.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine
@@ -34,8 +34,6 @@ For running tests using RSpec, there are two additional containers:
 
 - **test:** Application code prepared for running tests
 - **selenium:** Standalone Chrome for executing feature specs containing Javascript
-
-The image for the application container is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and adds Nginx, Node.js and Yarn.
 
 
 ## Check it out!
