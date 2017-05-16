@@ -1,11 +1,11 @@
-= form_with model: page, local: true do |f|
-  - if page.errors.any?
+= form_with model: post, local: true do |f|
+  - if post.errors.any?
     #error_explanation.text-danger
       h2
-        = pluralize(page.errors.count, "error")
-        |  prohibited this page from being saved:
+        = pluralize(post.errors.count, "error")
+        |  prohibited this post from being saved:
       ul.list-unstyled
-        - page.errors.full_messages.each do |message|
+        - post.errors.full_messages.each do |message|
           li
             = message
   .form-group

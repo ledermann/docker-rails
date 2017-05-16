@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe "Pages", type: :request do
-  describe "GET /pages" do
+describe "Posts", type: :request do
+  describe "GET /posts" do
     it "works! (now write some real specs)" do
-      get pages_path
+      get posts_path
       expect(response).to have_http_status(200)
     end
   end

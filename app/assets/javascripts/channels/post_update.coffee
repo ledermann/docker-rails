@@ -1,8 +1,8 @@
 $(document).on 'turbolinks:load', ->
-  page_id = $('article').data('cable-page-id')
+  post_id = $('article').data('cable-post-id')
 
-  if page_id
-    App.updates = App.cable.subscriptions.create { channel: "PageUpdateChannel", page_id: page_id },
+  if post_id
+    App.updates = App.cable.subscriptions.create { channel: "PostUpdateChannel", post_id: post_id },
       connected: ->
         # Called when the subscription is ready for use on the server
         console.log "Connected to " + App.updates.identifier

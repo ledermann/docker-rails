@@ -1,5 +1,5 @@
 class Reindex < ActiveRecord::Migration[5.1]
   def change
-    Page.reindex
+    Post.reindex
   end
 end

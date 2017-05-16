@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'pages/show' do
+describe 'posts/show' do
   before :each do
-    @page = assign(:page, create(:page, title: 'Foo'))
+    @post = assign(:post, create(:post, title: 'Foo'))
   end
 
   it 'renders attributes' do

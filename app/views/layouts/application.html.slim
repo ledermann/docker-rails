@@ -34,7 +34,7 @@ html[lang="en"]
             li
               = link_to 'Sidekiq', sidekiq_web_path, data: { turbolinks: 'false' }
             li
-              = form_with url: pages_path, local: true, method: "get", class: 'navbar-form', id: 'search' do
+              = form_with url: posts_path, local: true, method: "get", class: 'navbar-form', id: 'search' do
                 .input-group
                   = text_field_tag :q, params[:q], placeholder: "Search", class: 'form-control'
                   .input-group-btn

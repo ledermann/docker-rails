@@ -32,6 +32,6 @@ class Generator
 end
 
 Searchkick.callbacks(false) do
-  100.times { Page.create!(Generator.new.attributes) }
+  100.times { Post.create!(Generator.new.attributes) }
 end
-Page.reindex
+Post.reindex

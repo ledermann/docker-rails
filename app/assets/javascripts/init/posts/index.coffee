@@ -1,4 +1,4 @@
-class @PagesIndex
+class @PostsIndex
   constructor: ->
     # Make rows (means: cells with class js-row-link) clickable
     $('.table tr[data-href] > td.js-row-link')

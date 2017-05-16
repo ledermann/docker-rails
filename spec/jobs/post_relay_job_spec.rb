@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe PageRelayJob do
+describe PostRelayJob do
   it 'should broadcast' do
-    page = create(:page)
+    post = create(:post)
 
-    PageRelayJob.perform_now(page)
+    PostRelayJob.perform_now(post)
 
     # Currently, rspec-rails has no built-in support for testing ActionCable
     # https://github.com/rspec/rspec-rails/issues/1606

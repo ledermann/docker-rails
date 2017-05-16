@@ -1,22 +1,22 @@
 .jumbotron
   .row
     .col-sm-10
-      h1 Pages
+      h1 Posts
       p.lead Just some plain old CRUD operations
-      a.btn.btn-lg.btn-success[href=new_page_path role="button"] Add new Page
+      a.btn.btn-lg.btn-success[href=new_post_path role="button"] Add new Post
     .col-sm-2.text-right.hidden-xs
       = icon('file-text-o', class: 'fa-5x')
 
 - if search_string
   .alert.alert-info
-    | Pages matching
+    | Posts matching
     '
     strong= search_string
     '
     | only
 
-p.small.text-muted.text-right#page-count
-  = pluralize @pages.total_count, 'Page'
+p.small.text-muted.text-right#post-count
+  = pluralize @posts.total_count, 'Post'
 
 table.table.table-striped
   thead
@@ -25,6 +25,6 @@ table.table.table-striped
       th Content
       th.text-right Updated
   tbody#js-infinite-scrolling
-    = render @pages
+    = render @posts
 
-= render 'kaminari/paging', objects: @pages
+= render 'kaminari/paging', objects: @posts

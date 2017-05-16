@@ -1,6 +1,6 @@
 RSpec.configure do |config|
   config.before :suite do
-    Page.reindex
+    Post.reindex
     Searchkick.disable_callbacks
   end
 

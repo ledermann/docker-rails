@@ -1,0 +1,10 @@
+h1
+  = @post.title
+
+p
+  em
+    | Updated
+    '
+    = time_tag(@post.updated_at)
+
+= simple_format h(@post.content)

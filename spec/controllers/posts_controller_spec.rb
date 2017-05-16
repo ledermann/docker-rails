@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-describe PagesController do
+describe PostsController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Page. As you add validations to Page, be sure to
+  # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     { title:   'Foo',
@@ -42,12 +42,12 @@ describe PagesController do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # PagesController. Be sure to keep this updated too.
+  # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      page = create(:page, valid_attributes)
+      post = create(:post, valid_attributes)
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -55,8 +55,8 @@ describe PagesController do
 
   describe "GET #show" do
     it "returns a success response" do
-      page = create(:page, valid_attributes)
-      get :show, params: {id: page.to_param}, session: valid_session
+      post = create(:post, valid_attributes)
+      get :show, params: {id: post.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
@@ -70,29 +70,29 @@ describe PagesController do
 
   describe "GET #edit" do
     it "returns a success response" do
-      page = create(:page, valid_attributes)
-      get :edit, params: {id: page.to_param}, session: valid_session
+      post = create(:post, valid_attributes)
+      get :edit, params: {id: post.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Page" do
+      it "creates a new Post" do
         expect {
-          post :create, params: {page: valid_attributes}, session: valid_session
-        }.to change(Page, :count).by(1)
+          post :create, params: {post: valid_attributes}, session: valid_session
+        }.to change(Post, :count).by(1)
       end
 
-      it "redirects to the created page" do
-        post :create, params: {page: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Page.last)
+      it "redirects to the created post" do
+        post :create, params: {post: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Post.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {page: invalid_attributes}, session: valid_session
+        post :create, params: {post: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end
@@ -106,41 +106,41 @@ describe PagesController do
         }
       }
 
-      it "updates the requested page" do
-        page = create(:page, valid_attributes)
-        put :update, params: {id: page.to_param, page: new_attributes}, session: valid_session
-        page.reload
-        expect(page.title).to eq('Bar')
+      it "updates the requested post" do
+        post = create(:post, valid_attributes)
+        put :update, params: {id: post.to_param, post: new_attributes}, session: valid_session
+        post.reload
+        expect(post.title).to eq('Bar')
       end
 
-      it "redirects to the page" do
-        page = create(:page, valid_attributes)
-        put :update, params: {id: page.to_param, page: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(page)
+      it "redirects to the post" do
+        post = create(:post, valid_attributes)
+        put :update, params: {id: post.to_param, post: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(post)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        page = create(:page, valid_attributes)
-        put :update, params: {id: page.to_param, page: invalid_attributes}, session: valid_session
+        post = create(:post, valid_attributes)
+        put :update, params: {id: post.to_param, post: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested page" do
-      page = create(:page, valid_attributes)
+    it "destroys the requested post" do
+      post = create(:post, valid_attributes)
       expect {
-        delete :destroy, params: {id: page.to_param}, session: valid_session
-      }.to change(Page, :count).by(-1)
+        delete :destroy, params: {id: post.to_param}, session: valid_session
+      }.to change(Post, :count).by(-1)
     end
 
-    it "redirects to the pages list" do
-      page = create(:page, valid_attributes)
-      delete :destroy, params: {id: page.to_param}, session: valid_session
-      expect(response).to redirect_to(pages_url)
+    it "redirects to the posts list" do
+      post = create(:post, valid_attributes)
+      delete :destroy, params: {id: post.to_param}, session: valid_session
+      expect(response).to redirect_to(posts_url)
     end
   end
 

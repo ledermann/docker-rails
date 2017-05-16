@@ -1,0 +1,25 @@
+article data-cable-post-id=@post.id
+  header.row
+    .col-sm-11.col-sm-offset-1
+      h1
+        = @post.title
+
+      p.text-muted
+        | Updated
+        '
+        = time_tag(@post.updated_at)
+
+  .row
+    .col-sm-1
+      .btn-group-vertical[role='group']
+        = link_to post_path(@post, format: 'pdf'), class: 'btn btn-default btn-lg', data: { turbolinks: 'false' }, title: 'Export Post as PDF' do
+          = icon('file-pdf-o')
+
+        = link_to edit_post_path(@post), class: 'btn btn-default btn-lg', title: 'Edit Post' do
+          = icon('pencil')
+
+        = link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg', role: 'button', title: 'Destroy' do
+          = icon('trash')
+
+    .col-sm-11
+      = simple_format h(@post.content)
