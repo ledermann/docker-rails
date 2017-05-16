@@ -78,6 +78,28 @@ feature 'Post management' do
     expect(page).to have_selector('p', text: 'dolor sit amet')
   end
 
+  scenario 'User sees auto-refreshed post (via ActionCable) if other user updates it', js: true do
+    in_browser(:first_user) do
+      visit post_path(example_post)
+
+      expect(page).to have_selector('h1', text: 'Example')
+      expect(page).to have_selector('p', text: 'Lorem ipsum')
+    end
+
+    in_browser(:second_user) do
+      visit edit_post_path(example_post)
+
+      fill_in 'post[title]', with: 'Fooo'
+      fill_in 'post[content]', with: 'dolor sit amet'
+      click_on 'Update Post'
+    end
+
+    in_browser(:first_user) do
+      expect(page).to have_selector('h1', text: 'Fooo')
+      expect(page).to have_selector('p', text: 'dolor sit amet')
+    end
+  end
+
   scenario 'User deletes an existing page', js: true do
     visit post_path(example_post)
 

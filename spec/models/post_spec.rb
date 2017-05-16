@@ -9,17 +9,20 @@ describe Post do
     expect(Post.search('1234567890').total_count).to eq(1)
   end
 
-  it 'enqueues PostRelayJob on update only' do
-    expect {
+  describe 'after_commit' do
+    it "don't enqueues PostRelayJob on create" do
+      expect(PostRelayJob).to_not receive(:perform_later)
       subject
-    }.to_not have_enqueued_job(PostRelayJob)
+    end
 
-    expect {
+    it "enqueues PostRelayJob on create" do
+      expect(PostRelayJob).to receive(:perform_later)
       subject.update_attributes! content: 'ipsum'
-    }.to have_enqueued_job(PostRelayJob)
+    end
 
-    expect {
+    it "don't enqueues PostRelayJob on destroy" do
+      expect(PostRelayJob).to_not receive(:perform_later)
       subject.destroy
-    }.to_not have_enqueued_job(PostRelayJob)
+    end
   end
 end

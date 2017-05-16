@@ -59,3 +59,14 @@ def convert_pdf_to_page
   pdf_text = reader.pages.map(&:text)
   page.driver.response.instance_variable_set('@body', pdf_text)
 end
+
+# Using multiple Capybara sessions in RSpec request specs
+# http://blog.bruzilla.com/2012/04/10/using-multiple-capybara-sessions-in-rspec-request.html
+def in_browser(name, &block)
+  old_session = Capybara.session_name
+
+  Capybara.session_name = name
+  yield
+
+  Capybara.session_name = old_session
+end
