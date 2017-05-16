@@ -1,8 +1,6 @@
 class @PostsIndex
   constructor: ->
     # Make rows (means: cells with class js-row-link) clickable
-    $('.table tr[data-href] > td.js-row-link')
-      .css('cursor', 'pointer')
-      .off('click').on 'click', ->
-        Turbolinks.visit $(this).parent().attr('data-href')
-        return
+    $('.table').off('click').on 'click', 'tr[data-href] > td.js-row-link', ->
+      Turbolinks.visit $(this).parent().attr('data-href')
+      return
