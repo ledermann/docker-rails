@@ -14,7 +14,10 @@ else
   Capybara.register_driver :chrome do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
-  Capybara.asset_host = 'http://localhost:3000'
+
+  # To use save_and_open_page with CSS and JS loaded, get assets from this host
+  # Capybara.asset_host = 'http://localhost:3000'
+  Capybara.asset_host = 'http://docker-rails.dev'
 end
 
 RSpec.configure do |config|
