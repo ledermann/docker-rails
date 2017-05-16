@@ -20,6 +20,13 @@ else
   Capybara.asset_host = 'http://docker-rails.dev'
 end
 
+# Use Puma for Capybara, because by default it uses Webrick (which is not compatible with ActionCable)
+Capybara.register_server :puma do |app, port, host|
+  require 'rack/handler/puma'
+  Rack::Handler::Puma.run(app, Host: host, Port: port, config_files: ['-'])
+end
+Capybara.server = :puma
+
 RSpec.configure do |config|
   config.before :each do
     if Capybara.current_driver == :selenium_remote_chrome
