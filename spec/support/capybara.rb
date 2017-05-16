@@ -37,7 +37,13 @@ RSpec.configure do |config|
     end
   end
 
-  config.after :each do
+  config.after :each, js: true do
+    errors = page.driver.browser.manage.logs.get(:browser)
+    if errors.present?
+      message = errors.map(&:message).join("\n")
+      raise message
+    end
+
     Capybara.reset_sessions!
     Capybara.use_default_driver
     Capybara.app_host = nil
