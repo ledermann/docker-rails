@@ -19,8 +19,9 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render 'kaminari/infinite-scrolling', locals: { objects: @posts } }
       format.html
+      format.json
+      format.js { render 'kaminari/infinite-scrolling', locals: { objects: @posts } }
     end
   end
 
