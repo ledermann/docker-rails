@@ -50,6 +50,16 @@ app:
     - DB_USER=postgres
     - DB_PASSWORD=foobar
     - APP_HOST=docker-rails.example.org
+    - APP_ADMIN_EMAIL=admin@example.org
+    - APP_ADMIN_PASSWORD=secret
+    - APP_EMAIL=reply@example.org
+    - SMTP_SERVER=smtp.gmail.com
+    - SMTP_PORT=587
+    - SMTP_DOMAIN=example.org
+    - SMTP_USERNAME=johndoe
+    - SMTP_PASSWORD=verysecret
+    - SMTP_AUTHENTICATION=plain
+    - SMTP_ENABLE_STARTTLS_AUTO=true
     - CERT_NAME=docker-rails.example.org
     - VIRTUAL_HOST=docker-rails.example.org
     - LETSENCRYPT_EMAIL=mail@example.org

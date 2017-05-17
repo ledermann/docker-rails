@@ -17,7 +17,7 @@ else
 
   # To use save_and_open_page with CSS and JS loaded, get assets from this host
   # Capybara.asset_host = 'http://localhost:3000'
-  Capybara.asset_host = 'http://docker-rails.dev'
+  Capybara.asset_host = "http://#{ENV['APP_HOST']}"
 end
 
 # Use Puma for Capybara, because by default it uses Webrick (which is not compatible with ActionCable)

@@ -3,6 +3,10 @@ variables:
   SECRET_KEY_BASE: "we-dont-need-a-secret-here"
   DB_USER: "postgres"
   DB_PASSWORD: "duubidoo"
+  APP_ADMIN_EMAIL: "admin@example.org"
+  APP_ADMIN_PASSWORD: "secret"
+  APP_EMAIL: "reply@example.org"
+  APP_HOST: "example.org"
 
 build_image:
   before_script:

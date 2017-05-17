@@ -11,6 +11,10 @@ before_script:
   - export SECRET_KEY_BASE="we-dont-need-a-secret-here"
   - export DB_USER=postgres
   - export DB_PASSWORD=duubidoo
+  - export APP_ADMIN_EMAIL=admin@example.org
+  - export APP_ADMIN_PASSWORD=secret
+  - export APP_EMAIL=reply@example.org
+  - export APP_HOST=example.org
   - docker-compose pull
   - docker-compose build
 

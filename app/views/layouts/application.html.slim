@@ -41,6 +41,17 @@ html[lang="en"]
                     button.btn.btn-default[type="submit" title="Search for Text"]
                       i.fa.fa-search
 
+            - if signed_in?
+              li.navbar-text
+                = current_user.email
+              li
+                = link_to sign_out_path, method: :delete do
+                  = I18n.t("layouts.application.sign_out")
+            - else
+              li
+                = link_to sign_in_path do
+                  = I18n.t("layouts.application.sign_in")
+
     #main
       .container
         - if notice

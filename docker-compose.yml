@@ -49,6 +49,16 @@ services:
       - DB_PASSWORD
       - RAILS_ENV
       - APP_HOST
+      - APP_ADMIN_EMAIL
+      - APP_ADMIN_PASSWORD
+      - APP_EMAIL
+      - SMTP_SERVER
+      - SMTP_PORT
+      - SMTP_DOMAIN
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_AUTHENTICATION
+      - SMTP_ENABLE_STARTTLS_AUTO
     ports:
       - "80"
     links:
@@ -84,6 +94,16 @@ services:
       - DB_USER
       - DB_PASSWORD
       - APP_HOST
+      - APP_ADMIN_EMAIL
+      - APP_ADMIN_PASSWORD
+      - APP_EMAIL
+      - SMTP_SERVER
+      - SMTP_PORT
+      - SMTP_DOMAIN
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_AUTHENTICATION
+      - SMTP_ENABLE_STARTTLS_AUTO
     depends_on:
       - selenium
 

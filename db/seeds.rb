@@ -31,7 +31,14 @@ class Generator
   end
 end
 
+# Create some random posts
 Searchkick.callbacks(false) do
   100.times { Post.create!(Generator.new.attributes) }
 end
 Post.reindex
+
+# Create Admin user
+User.find_or_create_by(is_admin: true) do |user|
+  user.email    = ENV.fetch('APP_ADMIN_EMAIL')
+  user.password = ENV.fetch('APP_ADMIN_PASSWORD')
+end
