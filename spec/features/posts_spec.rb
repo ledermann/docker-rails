@@ -39,7 +39,7 @@ feature 'Post management' do
     end
     click_on 'Search for Text'
 
-    expect(page).to have_text('Posts matching')
+    expect(page).to have_text('Searching for')
     expect(page).to have_current_path(/q=Exam/)
     expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
     expect(page).to have_selector('#post-count', text: '1 Post')

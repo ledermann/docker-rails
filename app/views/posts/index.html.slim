@@ -9,11 +9,9 @@
 
 - if search_string
   .alert.alert-info
-    | Posts matching
+    | Searching for
     '
     strong= search_string
-    '
-    | only
 
 p.small.text-muted.text-right#post-count
   = pluralize @posts.total_count, 'Post'
