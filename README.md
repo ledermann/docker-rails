@@ -1,6 +1,7 @@
 # Docker-Rails
 
 [![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
+[![Code Climate](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Dependency Status](https://gemnasium.com/badges/github.com/ledermann/docker-rails.svg)](https://gemnasium.com/github.com/ledermann/docker-rails)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ledermann/docker-rails.svg)](https://greenkeeper.io/)
 [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
@@ -11,11 +12,11 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and the [Sidekiq](http://sidekiq.org/) gem (to handle full text indexing)
 - PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [WickedPDF](https://github.com/mileszs/wicked_pdf) gem
-- Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some Javascript)
-- Controller specific Javascript embedded into the asset pipeline
-- Bundle Javascript libraries with [Yarn](https://yarnpkg.com)
+- Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
+- Controller specific JavaScript embedded into the asset pipeline
+- Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
-The techniques used to build this app should not be considered as "best practice", maybe there are better ways to build. It demonstrates my way of building Rails applications. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
+The techniques used to build this app should not be considered as "best practice", maybe there are better ways to build. The repo demonstrates my way of building Rails applications. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 
 
 ## Multi container architecture
@@ -33,7 +34,7 @@ The application is divided into 7 different containers:
 For running tests using RSpec, there are two additional containers:
 
 - **test:** Application code prepared for running tests
-- **selenium:** Standalone Chrome for executing feature specs containing Javascript
+- **selenium:** Standalone Chrome for executing feature specs containing JavaScript
 
 
 ## Check it out!
@@ -52,11 +53,11 @@ Navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]`.
 
 ## Deployment
 
-On every push, the (very small) test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/).
+On every push, the test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/).
 
 On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
 
-On every start of the app container, the database will be migrated (or, if not exists, created with some seeds)
+On every start of the app container, the database will be migrated (or, if not exists, created with some seeds).
 
 If you are already a Docker Cloud user, you can deploy the whole stack with one click:
 
