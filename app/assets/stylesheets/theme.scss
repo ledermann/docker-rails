@@ -11,6 +11,11 @@ td.js-row-link {
   cursor: pointer;
 }
 
+td em {
+  font-weight: bold;
+  font-style: normal;
+}
+
 footer {
   position: absolute;
   bottom: 0;
