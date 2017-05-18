@@ -1,17 +1,9 @@
-= form_with model: post, local: true do |f|
-  - if post.errors.any?
-    #error_explanation.text-danger
-      h2
-        = pluralize(post.errors.count, "error")
-        |  prohibited this post from being saved:
-      ul.list-unstyled
-        - post.errors.full_messages.each do |message|
-          li
-            = message
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control', required: true
-  .form-group
-    = f.label :content
-    = f.text_area :content, class: 'form-control', rows: 4, required: true
-  = f.submit class: 'btn btn-default btn-primary'
+= simple_form_for post do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :content, input_html: { rows: 4 }
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'

@@ -3,9 +3,10 @@
     = t(".title")
   p
     = t(".description")
-  = form_for :password_reset, url: user_password_path(@user, token: @user.confirmation_token), html: { method: :put } do |form|
-    .form-group
-      = form.label :password
-      = form.password_field :password, class: 'form-control', required: true
-    .form-group
-      = form.submit class: 'btn btn-default btn-primary'
+
+  = simple_form_for :password_reset, url: user_password_path(@user, token: @user.confirmation_token), html: { method: :put } do |form|
+    .form-inputs
+      = form.input :password
+
+    .form-actions
+      = form.button :submit, class: 'btn-primary'

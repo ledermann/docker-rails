@@ -2,8 +2,10 @@
   h2
     = t(".title")
 
-  = form_for @user do |form|
-    = render partial: '/users/form', object: form
-    .form-group
-      = form.submit class: 'btn btn-primary'
+  = simple_form_for @user do |form|
+    .form-inputs
+      = render partial: '/users/form', object: form
+
+    .form-actions
+      = form.button :submit, class: 'btn-primary'
       = link_to t(".sign_in"), sign_in_path, class: 'btn btn-link'
