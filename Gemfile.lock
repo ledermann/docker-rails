@@ -43,7 +43,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     afm (0.2.2)
     arel (8.0.0)
-    autoprefixer-rails (7.1.0)
+    autoprefixer-rails (7.1.1)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
