@@ -52,6 +52,8 @@ services:
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL
+      - PIWIK_HOST
+      - PIWIK_ID
       - SMTP_SERVER
       - SMTP_PORT
       - SMTP_DOMAIN
@@ -97,6 +99,8 @@ services:
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL
+      - PIWIK_HOST
+      - PIWIK_ID
       - SMTP_SERVER
       - SMTP_PORT
       - SMTP_DOMAIN

@@ -53,6 +53,8 @@ app:
     - APP_ADMIN_EMAIL=admin@example.org
     - APP_ADMIN_PASSWORD=secret
     - APP_EMAIL=reply@example.org
+    - PIWIK_HOST=piwik.example.org
+    - PIWIK_ID=42
     - SMTP_SERVER=smtp.gmail.com
     - SMTP_PORT=587
     - SMTP_DOMAIN=example.org
