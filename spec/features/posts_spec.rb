@@ -63,7 +63,7 @@ feature 'Post management' do
   end
 
   scenario 'User edits an existing page' do
-    visit edit_post_path(example_post)
+    visit edit_post_path(example_post, as: create(:admin))
 
     expect(page).to have_selector('h1', text: 'Editing Post')
     expect(page).to have_button('Update Post')
@@ -87,7 +87,7 @@ feature 'Post management' do
     end
 
     in_browser(:second_user) do
-      visit edit_post_path(example_post)
+      visit edit_post_path(example_post, as: create(:admin))
 
       fill_in 'post[title]', with: 'Fooo'
       fill_in 'post[content]', with: 'dolor sit amet'
@@ -101,7 +101,7 @@ feature 'Post management' do
   end
 
   scenario 'User deletes an existing page', js: true do
-    visit post_path(example_post)
+    visit post_path(example_post, as: create(:admin))
 
     page.accept_alert 'Are you sure?' do
       find(:xpath, '//a[@title="Destroy"]').click
@@ -113,7 +113,7 @@ feature 'Post management' do
   end
 
   scenario 'User creates a new page', js: true do
-    visit posts_path
+    visit posts_path(as: create(:admin))
 
     click_on 'Add new Post'
 

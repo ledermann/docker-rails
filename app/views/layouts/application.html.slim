@@ -55,6 +55,9 @@ html[lang="en"]
 
     #main
       .container
+        - if alert
+          p.alert.alert-danger
+            = alert
         - if notice
           p.alert.alert-info
             = notice

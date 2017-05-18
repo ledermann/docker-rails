@@ -62,6 +62,10 @@ describe PostsController do
   end
 
   describe "GET #new" do
+    before do
+      sign_in_as(build(:admin))
+    end
+
     it "returns a success response" do
       get :new, params: {}, session: valid_session
       expect(response).to be_success
@@ -69,6 +73,10 @@ describe PostsController do
   end
 
   describe "GET #edit" do
+    before do
+      sign_in_as(build(:admin))
+    end
+
     it "returns a success response" do
       post = create(:post, valid_attributes)
       get :edit, params: {id: post.to_param}, session: valid_session
@@ -77,6 +85,10 @@ describe PostsController do
   end
 
   describe "POST #create" do
+    before do
+      sign_in_as(build(:admin))
+    end
+
     context "with valid params" do
       it "creates a new Post" do
         expect {
@@ -99,6 +111,10 @@ describe PostsController do
   end
 
   describe "PUT #update" do
+    before do
+      sign_in_as(build(:admin))
+    end
+
     context "with valid params" do
       let(:new_attributes) {
         {
@@ -130,6 +146,10 @@ describe PostsController do
   end
 
   describe "DELETE #destroy" do
+    before do
+      sign_in_as(build(:admin))
+    end
+
     it "destroys the requested post" do
       post = create(:post, valid_attributes)
       expect {

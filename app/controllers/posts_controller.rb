@@ -11,6 +11,7 @@ class PostsController < ApplicationController
            page(params[:page]).
            per(25)
     end
+    authorize @posts
 
     respond_with @posts do |format|
       format.js { render 'kaminari/infinite-scrolling', locals: { objects: @posts } }
@@ -19,6 +20,8 @@ class PostsController < ApplicationController
 
   def show
     @post = find_post
+    authorize @post
+
     respond_with @post do |format|
       format.pdf { render pdf:          @post.title,
                           disposition:  'inline',
@@ -28,27 +31,37 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def edit
     @post = find_post
+    authorize @post
+
     respond_with @post
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
+    authorize @post
+    @post.save
+
     respond_with @post
   end
 
   def update
     @post = find_post
+    authorize @post
     @post.update(post_params)
+
     respond_with @post
   end
 
   def destroy
     @post = find_post
+    authorize @post
     @post.destroy!
+
     respond_with @post
   end
 
