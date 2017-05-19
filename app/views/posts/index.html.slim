@@ -23,6 +23,7 @@ table.table.table-striped
       th Content
       th.text-right Updated
   tbody#js-infinite-scrolling
-    = render @posts
+    - cache [ @posts, search_string ] do
+      = render @posts
 
 = render 'kaminari/paging', objects: @posts
