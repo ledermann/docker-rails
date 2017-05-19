@@ -12,7 +12,7 @@ feature 'Post management' do
     scenario 'navigates through posts', js: true do
       visit posts_path
 
-      expect(page).to have_selector('h1', text: 'Posts')
+      expect(page).to have_selector('h1', text: 'Example application')
       expect(page).to have_xpath('.//table/tbody/tr', count: 25)
       expect(page).to have_selector('#post-count', text: '31 Posts')
       expect(page).to have_link('Add new Post', href: new_post_path)
