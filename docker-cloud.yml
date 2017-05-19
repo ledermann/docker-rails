@@ -62,6 +62,7 @@ app:
     - SMTP_PASSWORD=verysecret
     - SMTP_AUTHENTICATION=plain
     - SMTP_ENABLE_STARTTLS_AUTO=true
+    - SKYLIGHT_AUTHENTICATION=my-secret-skylight-token
     - CERT_NAME=docker-rails.example.org
     - VIRTUAL_HOST=docker-rails.example.org
     - LETSENCRYPT_EMAIL=mail@example.org

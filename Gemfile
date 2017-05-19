@@ -44,6 +44,7 @@ gem 'faker'
 gem 'clearance'
 gem 'simple_form'
 gem 'pundit'
+gem 'skylight'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
