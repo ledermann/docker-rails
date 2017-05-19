@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
     @body_js_class ||= [ controller_name.camelcase, action_name.camelcase ].join
   end
 
+  helper_method def title(value=nil)
+    if value
+      @title = value
+    else
+      @title
+    end
+  end
+
 private
 
   def user_not_authorized
