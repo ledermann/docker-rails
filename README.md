@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
 [![Code Climate](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
+[![Issue Count](https://codeclimate.com/github/ledermann/docker-rails/badges/issue_count.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Dependency Status](https://gemnasium.com/badges/github.com/ledermann/docker-rails.svg)](https://gemnasium.com/github.com/ledermann/docker-rails)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ledermann/docker-rails.svg)](https://greenkeeper.io/)
 [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
