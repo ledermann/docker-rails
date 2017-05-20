@@ -1,0 +1,98 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - db/schema.rb
+
+### Rails
+
+Rails:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: false
+
+
+### Bundler
+
+Bundler/OrderedGems:
+  Enabled: false
+
+
+### Lint
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+
+### Metrics
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 150
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+
+
+### Style
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+Style/Encoding:
+  Enabled: true
+
+Style/FirstArrayElementLineBreak:
+  Enabled: true
+
+Style/FirstHashElementLineBreak:
+  Enabled: true
+
+Style/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Style/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/StringMethods:
+  Enabled: true
+
+Style/SpaceInsideBrackets:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+
+### Documentation
+
+Documentation:
+  Enabled: false
