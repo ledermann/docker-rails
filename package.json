@@ -2,9 +2,9 @@
   "name": "docker-rails",
   "private": true,
   "dependencies": {
-    "autosize": "^3.0.20",
-    "jquery": "^3.2.1",
-    "moment": "^2.18.1",
-    "parsleyjs": "^2.7.2"
+    "autosize": "^3",
+    "jquery": "^3",
+    "moment": "^2",
+    "parsleyjs": "^2"
   }
 }
