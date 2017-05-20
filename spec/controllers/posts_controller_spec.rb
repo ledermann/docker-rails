@@ -24,21 +24,22 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 describe PostsController do
-
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    { title:   'Foo',
+  let(:valid_attributes) do
+    {
+      title:   'Foo',
       content: 'Lorem ipsum'
     }
-  }
+  end
 
-  let(:invalid_attributes) {
-    { title:   '',
+  let(:invalid_attributes) do
+    {
+      title:   '',
       content: ''
     }
-  }
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -47,7 +48,7 @@ describe PostsController do
 
   describe "GET #index" do
     it "returns a success response" do
-      post = create(:post, valid_attributes)
+      create(:post, valid_attributes)
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -56,7 +57,7 @@ describe PostsController do
   describe "GET #show" do
     it "returns a success response" do
       post = create(:post, valid_attributes)
-      get :show, params: {id: post.to_param}, session: valid_session
+      get :show, params: { id: post.to_param }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -79,7 +80,7 @@ describe PostsController do
 
     it "returns a success response" do
       post = create(:post, valid_attributes)
-      get :edit, params: {id: post.to_param}, session: valid_session
+      get :edit, params: { id: post.to_param }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -91,20 +92,20 @@ describe PostsController do
 
     context "with valid params" do
       it "creates a new Post" do
-        expect {
-          post :create, params: {post: valid_attributes}, session: valid_session
-        }.to change(Post, :count).by(1)
+        expect do
+          post :create, params: { post: valid_attributes }, session: valid_session
+        end.to change(Post, :count).by(1)
       end
 
       it "redirects to the created post" do
-        post :create, params: {post: valid_attributes}, session: valid_session
+        post :create, params: { post: valid_attributes }, session: valid_session
         expect(response).to redirect_to(Post.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {post: invalid_attributes}, session: valid_session
+        post :create, params: { post: invalid_attributes }, session: valid_session
         expect(response).to be_success
       end
     end
@@ -116,22 +117,22 @@ describe PostsController do
     end
 
     context "with valid params" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         {
           title: 'Bar'
         }
-      }
+      end
 
       it "updates the requested post" do
         post = create(:post, valid_attributes)
-        put :update, params: {id: post.to_param, post: new_attributes}, session: valid_session
+        put :update, params: { id: post.to_param, post: new_attributes }, session: valid_session
         post.reload
         expect(post.title).to eq('Bar')
       end
 
       it "redirects to the post" do
         post = create(:post, valid_attributes)
-        put :update, params: {id: post.to_param, post: valid_attributes}, session: valid_session
+        put :update, params: { id: post.to_param, post: valid_attributes }, session: valid_session
         expect(response).to redirect_to(post)
       end
     end
@@ -139,7 +140,7 @@ describe PostsController do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
         post = create(:post, valid_attributes)
-        put :update, params: {id: post.to_param, post: invalid_attributes}, session: valid_session
+        put :update, params: { id: post.to_param, post: invalid_attributes }, session: valid_session
         expect(response).to be_success
       end
     end
@@ -152,16 +153,15 @@ describe PostsController do
 
     it "destroys the requested post" do
       post = create(:post, valid_attributes)
-      expect {
-        delete :destroy, params: {id: post.to_param}, session: valid_session
-      }.to change(Post, :count).by(-1)
+      expect do
+        delete :destroy, params: { id: post.to_param }, session: valid_session
+      end.to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
       post = create(:post, valid_attributes)
-      delete :destroy, params: {id: post.to_param}, session: valid_session
+      delete :destroy, params: { id: post.to_param }, session: valid_session
       expect(response).to redirect_to(posts_url)
     end
   end
-
 end

@@ -8,5 +8,5 @@ def version
 end
 
 def version_tag
- "v#{version}"
+  "v#{version}"
 end

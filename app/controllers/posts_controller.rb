@@ -8,8 +8,8 @@ class PostsController < ApplicationController
                          per_page: 25
     else
       Post.order(updated_at: :desc).
-           page(params[:page]).
-           per(25)
+        page(params[:page]).
+        per(25)
     end
     authorize @posts
 
@@ -23,9 +23,11 @@ class PostsController < ApplicationController
     authorize @post
 
     respond_with @post do |format|
-      format.pdf { render pdf:          @post.title,
-                          disposition:  'inline',
-                          show_as_html: params[:debug].present? }
+      format.pdf do
+        render pdf:          @post.title,
+               disposition:  'inline',
+               show_as_html: params[:debug].present?
+      end
     end
   end
 
@@ -66,16 +68,17 @@ class PostsController < ApplicationController
   end
 
   private
-    def find_post
-      Post.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
+  def find_post
+    Post.find(params[:id])
+  end
 
-    helper_method def search_string
-      params[:q].presence
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+
+  helper_method def search_string
+    params[:q].presence
+  end
 end

@@ -8,7 +8,8 @@
 
 class Generator
   def attributes
-    { title:   title,
+    {
+      title:   title,
       content: content
     }
   end

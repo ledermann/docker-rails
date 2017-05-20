@@ -6,13 +6,14 @@ if ENV['SELENIUM_REMOTE_HOST']
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :chrome)
+      desired_capabilities: :chrome
+    )
   end
 else
   # Running on local machine
   Capybara.javascript_driver = :chrome
   Capybara.register_driver :chrome do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
 
   # To use save_and_open_page with CSS and JS loaded, get assets from this host
@@ -30,7 +31,7 @@ Capybara.server = :puma
 RSpec.configure do |config|
   config.before :each do
     if Capybara.current_driver == :selenium_remote_chrome
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.gsub("\n", '')
+      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
       Capybara.server_host = ip
       Capybara.server_port = '3000'
       Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"
@@ -62,7 +63,7 @@ end
 
 # Using multiple Capybara sessions in RSpec request specs
 # http://blog.bruzilla.com/2012/04/10/using-multiple-capybara-sessions-in-rspec-request.html
-def in_browser(name, &block)
+def in_browser(name)
   old_session = Capybara.session_name
 
   Capybara.session_name = name

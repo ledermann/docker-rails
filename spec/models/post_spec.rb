@@ -2,20 +2,30 @@ require 'rails_helper'
 
 describe Post do
   describe 'searching' do
-    let!(:post_single)  { create :post, :reindex,
-      title:   'Single Responsibility',
-      content: 'Every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility.'
-    }
+    let!(:post_single) do
+      create :post,
+             :reindex,
+             title:   'Single Responsibility',
+             content: 'Every module or class should have responsibility over a single part
+                       of the functionality provided by the software, and that responsibility
+                       should be entirely encapsulated by the class. All its services should be
+                       narrowly aligned with that responsibility.'
+    end
 
-    let!(:post_demeter) { create :post, :reindex,
-      title:   'The Law of Demeter',
-      content: 'Each unit should have only limited knowledge about other units.'
-    }
+    let!(:post_demeter) do
+      create :post,
+             :reindex,
+             title:   'The Law of Demeter',
+             content: 'Each unit should have only limited knowledge about other units.'
+    end
 
-    let!(:post_reuse)   { create :post, :reindex,
-      title:   'Code reuse',
-      content: 'Use of existing software, or software knowledge, to build new software, following the reusability principles.'
-    }
+    let!(:post_reuse) do
+      create :post,
+             :reindex,
+             title:   'Code reuse',
+             content: 'Use of existing software, or software knowledge, to build new software,
+                       following the reusability principles.'
+    end
 
     context 'exact match' do
       it 'find posts by matching title' do

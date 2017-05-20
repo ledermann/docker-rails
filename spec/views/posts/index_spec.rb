@@ -8,6 +8,6 @@ describe 'posts/index' do
 
   it 'renders a list of posts' do
     render
-    assert_select 'tr > td', :text => 'Foo', :count => 2
+    assert_select 'tr > td', text: 'Foo', count: 2
   end
 end

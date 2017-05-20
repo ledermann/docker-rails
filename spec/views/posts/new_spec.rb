@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe 'posts/new' do
   before:each do
-    assign(:post, Post.new(
-      title: 'MyString'
-    ))
+    assign(:post, Post.new(title: 'MyString'))
   end
 
   it 'renders new post form' do
