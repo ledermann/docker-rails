@@ -3,7 +3,7 @@
 - cache @post do
   article data-cable-post-id=@post.id
     header.row
-      .col-sm-11.col-sm-offset-1
+      .col-sm-10.col-sm-offset-2
         h1
           = @post.title
 
@@ -13,16 +13,15 @@
           = time_tag(@post.updated_at)
 
     .row
-      .col-sm-1
-        .btn-group-vertical[role='group']
-          = link_to post_path(@post, format: 'pdf'), class: 'btn btn-default btn-lg', data: { turbolinks: 'false' }, title: 'Export Post as PDF' do
-            = icon('file-pdf-o')
+      .col-sm-2.form-group
+        = link_to post_path(@post, format: 'pdf'), class: 'btn btn-default btn-lg btn-block', data: { turbolinks: 'false' }, title: 'Export Post as PDF' do
+          = icon('file-pdf-o fa-fw')
 
-          = link_to edit_post_path(@post), class: 'btn btn-default btn-lg', title: 'Edit Post' do
-            = icon('pencil')
+        = link_to edit_post_path(@post), class: 'btn btn-default btn-lg btn-block', title: 'Edit Post' do
+          = icon('pencil')
 
-          = link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg', role: 'button', title: 'Destroy' do
-            = icon('trash')
+        = link_to @post, method: :delete, class: 'btn btn-danger btn-lg btn-block', data: { confirm: 'Are you sure?' }, role: 'button', title: 'Destroy Post' do
+          = icon('trash')
 
-      .col-sm-11
+      .col-sm-10
         = simple_format h(@post.content)

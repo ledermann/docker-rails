@@ -92,7 +92,7 @@ feature 'Post management' do
 
     scenario 'is not allowed to delete a page' do
       visit post_path(example_post)
-      find(:xpath, '//a[@title="Destroy"]').click
+      find(:xpath, '//a[@title="Destroy Post"]').click
 
       expect(page).to have_selector('p.alert', text: 'not authorized')
     end
@@ -125,7 +125,7 @@ feature 'Post management' do
       visit post_path(example_post, as: create(:admin))
 
       page.accept_alert 'Are you sure?' do
-        find(:xpath, '//a[@title="Destroy"]').click
+        find(:xpath, '//a[@title="Destroy Post"]').click
       end
 
       expect(page.current_path).to eq(posts_path)
