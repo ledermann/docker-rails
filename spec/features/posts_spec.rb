@@ -51,8 +51,8 @@ feature 'Post management' do
 
       expect(page).to have_selector('h1', text: 'Example')
       expect(page).to have_selector('time', text: 'ago')
-      expect(page).to have_link(href: edit_post_path(example_post), title: 'Edit Post')
-      expect(page).to have_link(href: post_path(example_post, format: 'pdf'), title: 'Export Post as PDF')
+      expect(page).to have_link(href: edit_post_path(example_post))
+      expect(page).to have_link(href: post_path(example_post, format: 'pdf'))
     end
 
     scenario 'opens a single page as PDF' do
@@ -90,9 +90,12 @@ feature 'Post management' do
       expect(page).to have_selector('p.alert', text: 'not authorized')
     end
 
-    scenario 'is not allowed to delete a page' do
+    scenario 'is not allowed to delete a page', js: true do
       visit post_path(example_post)
-      find(:xpath, '//a[@title="Destroy Post"]').click
+
+      page.accept_alert 'Are you sure?' do
+        find('a[data-original-title="Delete Post"]').click
+      end
 
       expect(page).to have_selector('p.alert', text: 'not authorized')
     end
@@ -125,7 +128,7 @@ feature 'Post management' do
       visit post_path(example_post, as: create(:admin))
 
       page.accept_alert 'Are you sure?' do
-        find(:xpath, '//a[@title="Destroy Post"]').click
+        find('a[data-original-title="Delete Post"]').click
       end
 
       expect(page.current_path).to eq(posts_path)

@@ -14,13 +14,13 @@
 
     .row
       .col-sm-2.form-group
-        = link_to post_path(@post, format: 'pdf'), class: 'btn btn-default btn-lg btn-block', data: { turbolinks: 'false' }, title: 'Export Post as PDF' do
+        = link_to post_path(@post, format: 'pdf'), class: 'btn btn-default btn-lg btn-block', data: { toggle: 'tooltip', placement: 'right' }, title: 'Export Post as PDF' do
           = icon('file-pdf-o fa-fw')
 
-        = link_to edit_post_path(@post), class: 'btn btn-default btn-lg btn-block', title: 'Edit Post' do
+        = link_to edit_post_path(@post), class: 'btn btn-default btn-lg btn-block', data: { toggle: 'tooltip', placement: 'right' }, title: 'Edit Post' do
           = icon('pencil')
 
-        = link_to @post, method: :delete, class: 'btn btn-danger btn-lg btn-block', data: { confirm: 'Are you sure?' }, role: 'button', title: 'Destroy Post' do
+        = link_to @post, method: :delete, class: 'btn btn-danger btn-lg btn-block', data: { toggle: 'tooltip', placement: 'right', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
           = icon('trash')
 
       .col-sm-10

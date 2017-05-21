@@ -11,6 +11,7 @@ class @Init
     new FormValidator()
     new InfiniteScrolling()
     new TimeFormatter()
+    new TooltipEnabler()
 
   startup_controller_specific_code: ->
     klass_name = $('body').data('js-class')
