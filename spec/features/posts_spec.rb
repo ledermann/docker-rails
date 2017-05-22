@@ -18,11 +18,11 @@ feature 'Post management' do
       expect(page).to have_link('Add new Post', href: new_post_path)
 
       # Scroll down to load whole list via infinite scrolling
-      page.execute_script "window.scrollBy(0, $(window).height())"
+      scroll_to_bottom
       expect(page).to have_xpath('.//table/tbody/tr', count: 31)
 
       # Scroll up again and go to single post by clicking on a row
-      page.execute_script "window.scrollTo(0, 0)"
+      scroll_to_top
       find(:xpath, ".//table/tbody/tr[1]").click
       expect(page.current_path).to eq(post_path(example_post))
 

@@ -29,7 +29,7 @@ end
 Capybara.server = :puma
 
 RSpec.configure do |config|
-  config.before :each do
+  config.before :each, js: true do
     if Capybara.current_driver == :selenium_remote_chrome
       ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
       Capybara.server_host = ip
@@ -49,25 +49,4 @@ RSpec.configure do |config|
     Capybara.use_default_driver
     Capybara.app_host = nil
   end
-end
-
-# Test PDFs with Capybara
-# https://content.pivotal.io/blog/how-to-test-pdfs-with-capybara
-def convert_pdf_to_page
-  temp_pdf = Tempfile.new('pdf')
-  temp_pdf << page.source.force_encoding('UTF-8')
-  reader = PDF::Reader.new(temp_pdf)
-  pdf_text = reader.pages.map(&:text)
-  page.driver.response.instance_variable_set('@body', pdf_text)
-end
-
-# Using multiple Capybara sessions in RSpec request specs
-# http://blog.bruzilla.com/2012/04/10/using-multiple-capybara-sessions-in-rspec-request.html
-def in_browser(name)
-  old_session = Capybara.session_name
-
-  Capybara.session_name = name
-  yield
-
-  Capybara.session_name = old_session
 end
