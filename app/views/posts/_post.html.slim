@@ -4,11 +4,11 @@
       - if search_string && post.search_highlights[:title]
         == post.search_highlights[:title]
       - else
-        = post.title.truncate(80)
+        = post.title.truncate(50)
     td.js-row-link.text-muted
       - if search_string && post.search_highlights[:content]
         ==  post.search_highlights[:content]
       - else
-        = post.content.truncate(100)
-    td.js-row-link.text-right
+        = post.content.truncate(80)
+    td.js-row-link.text-right.hidden-xs-down
       = time_tag post.updated_at

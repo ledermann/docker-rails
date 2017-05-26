@@ -6,5 +6,5 @@ class @TooltipEnabler
 
 # Avoid tooltips to be visible on using browser's back button
 $(document).on 'turbolinks:before-cache', ->
-  $('[data-toggle="tooltip"]').tooltip('destroy')
+  $('[data-toggle="tooltip"]').tooltip('dispose')
   return

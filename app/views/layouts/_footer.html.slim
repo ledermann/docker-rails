@@ -2,31 +2,33 @@
   footer
     .container
       .row
-        .col-xs-4
-          dl.dl-horizontal
-            dt Version
-            dd= Rails.application.version
-            dt Build time
-            dd= Rails.application.build_time.try(:in_time_zone)
-            dt Environment
-            dd= Rails.env
-        .col-xs-4
-          dl.dl-horizontal
-            dt Ruby
-            dd= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}"
-            dt RubyGems
-            dd= Gem::VERSION
-            dt Bundler
-            dd= Bundler::VERSION
-            dt Rails
-            dd= Rails::VERSION::STRING
-        .col-xs-4
-          dl.dl-horizontal
-            dt PostgreSQL
-            dd= ActiveRecord::Base.connection.select_value('SHOW server_version;')
-            dt Redis
-            dd= Sidekiq.redis_info['redis_version'] rescue '[not connected]'
-            dt memcached
-            dd= Rails.cache.stats.first.second['version'] rescue '[not connected]'
-            dt Elasticsearch
-            dd= Searchkick.server_version
+        .col
+          dl.row
+            dt.col-md-5 Version
+            dd.col-md-7= Rails.application.version
+
+            dt.col-md-5 Build time
+            dd.col-md-7= Rails.application.build_time.try(:in_time_zone)
+
+            dt.col-md-5 Environment
+            dd.col-md-7= Rails.env
+        .col
+          dl.row
+            dt.col-md-4 Ruby
+            dd.col-md-8= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}"
+            dt.col-md-4 RubyGems
+            dd.col-md-8= Gem::VERSION
+            dt.col-md-4 Bundler
+            dd.col-md-8= Bundler::VERSION
+            dt.col-md-4 Rails
+            dd.col-md-8= Rails::VERSION::STRING
+        .col
+          dl.row
+            dt.col-md-5 PostgreSQL
+            dd.col-md-7= ActiveRecord::Base.connection.select_value('SHOW server_version;')
+            dt.col-md-5 Redis
+            dd.col-md-7= Sidekiq.redis_info['redis_version'] rescue '[not connected]'
+            dt.col-md-5 memcached
+            dd.col-md-7= Rails.cache.stats.first.second['version'] rescue '[not connected]'
+            dt.col-md-5 Elasticsearch
+            dd.col-md-7= Searchkick.server_version

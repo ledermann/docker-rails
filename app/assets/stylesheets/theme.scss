@@ -1,10 +1,10 @@
-html {
-  position: relative;
-  min-height: 100%;
+html, body {
+  height: 100%;
 }
 
 #main {
-  padding: 70px 0 220px;
+  margin-top: 80px;
+  margin-bottom: 30px;
 }
 
 td.js-row-link {
@@ -17,17 +17,33 @@ td em {
 }
 
 footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 15px 0 0;
-  font-size: 85%;
+  padding: 10px 0;
+  font-size: 75%;
   background: $gray-light;
   color: $gray-lighter;
+
+  dl.row {
+    margin-bottom: 0;
+  }
 }
 
-@media(min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
+  #main {
+    margin-bottom: 180px;
+  }
+
   footer {
     position: fixed;
+  }
+}
+
+// Fix toggler on small displays
+// https://github.com/twbs/bootstrap/pull/21722
+@include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
+  nav > .container {
+    margin-right: 0;
+    margin-left: 0;
   }
 }

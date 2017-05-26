@@ -31,14 +31,13 @@ feature 'Post management' do
       expect(page.current_path).to eq(root_path)
     end
 
-    scenario 'searches for a post' do
+    scenario 'searches for a post', js: true do
       visit posts_path
       expect(page).to_not have_text('Posts matching')
 
       within '#search' do
-        fill_in 'q', with: 'Exam'
+        fill_in 'q', with: "Exam\n"
       end
-      click_on 'Search for Text'
 
       expect(page).to have_text('Searching for')
       expect(page).to have_current_path(/q=Exam/)
@@ -147,9 +146,9 @@ feature 'Post management' do
 
       fill_in 'post[title]', with: 'Bar'
       click_on 'Create Post'
-      expect(page).to have_selector('div.form-group.has-error')
+      expect(page).to have_selector('div.form-group.has-danger')
       fill_in 'post[content]', with: 'dolor sit amet'
-      expect(page).to_not have_selector('div.form-group.has-error')
+      expect(page).to_not have_selector('div.form-group.has-danger')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'

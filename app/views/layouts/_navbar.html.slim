@@ -1,39 +1,33 @@
 - cache [ 'navbar', I18n.locale, current_user ] do
-  nav.navbar.navbar-default.navbar-fixed-top
+  nav.navbar.fixed-top.navbar-toggleable-md.navbar-light.bg-faded
     .container
-      .navbar-header
-        button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false"]
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
+      button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+        span.navbar-toggler-icon
 
-        a.navbar-brand[href=root_path]
-          | DockerRails
+      a.navbar-brand href=root_path
+        | DockerRails
 
-      #navbar.collapse.navbar-collapse
-        = form_with url: posts_path, local: true, method: "get", class: 'navbar-form navbar-left', id: 'search' do
+      #navbarSupportedContent.collapse.navbar-collapse
+        = form_with url: posts_path, local: true, method: "get", class: 'form-inline mr-auto', id: 'search' do
           .input-group
-            = text_field_tag :q, '', placeholder: "Search", class: 'form-control'
-            .input-group-btn
-              button.btn.btn-default[type="submit" title="Search for Text"]
-                i.fa.fa-search
+            = text_field_tag :q, '', placeholder: 'Search', class: 'form-control'
+            span.input-group-addon
+              i.fa.fa-search
 
-        ul.nav.navbar-nav.navbar-right
-          li
-            = link_to 'Sidekiq', sidekiq_web_path, data: { turbolinks: 'false' }
+        ul.navbar-nav
+          li.nav-item
+            = link_to 'Sidekiq', sidekiq_web_path, class: 'nav-link', data: { turbolinks: 'false' }
 
           - if signed_in?
-            li.dropdown
-              a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
                 = current_user.email
                 '
                 span.caret
-              ul.dropdown-menu
-                li
-                  = link_to I18n.t('layouts.application.sign_out'), sign_out_path, method: :delete
+              .dropdown-menu
+                = link_to I18n.t('layouts.application.sign_out'), sign_out_path, class: 'dropdown-item', method: :delete
 
           - else
-            li
-              = link_to sign_in_path do
+            li.nav-item
+              = link_to sign_in_path, class: 'nav-link' do
                 = I18n.t("layouts.application.sign_in")

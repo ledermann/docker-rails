@@ -5,6 +5,7 @@
     "autosize": "^3",
     "jquery": "^3",
     "moment": "^2",
-    "parsleyjs": "^2"
+    "parsleyjs": "^2",
+    "tether": "^1"
   }
 }

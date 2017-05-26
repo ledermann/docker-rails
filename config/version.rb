@@ -8,7 +8,7 @@ module DockerRails
       @build_time ||= begin
         File.read('BUILD_TIME').lines.first.chomp.to_datetime
       rescue
-        nil
+        Time.current
       end
     end
   end
