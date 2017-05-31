@@ -112,7 +112,7 @@ GEM
       activesupport (>= 4.2.0)
     hashery (2.1.2)
     hashie (3.5.5)
-    i18n (0.8.1)
+    i18n (0.8.4)
     jbuilder (2.6.4)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2)
