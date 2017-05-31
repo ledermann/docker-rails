@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include ImageUploader::Attachment.new(:image)
+
   validates :title, presence: true
   validates :content, presence: true
 

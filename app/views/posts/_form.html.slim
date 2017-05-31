@@ -5,5 +5,10 @@
     = f.input :title
     = f.input :content, input_html: { rows: 4 }
 
+    - if post.image
+      = image_tag post.image_url(:thumbnail), class: 'img-thumbnail'
+    = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
+    = f.input :image, as: :file
+
   .form-actions
     = f.button :submit, class: 'btn-primary'

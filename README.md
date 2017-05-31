@@ -13,6 +13,7 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and the [Sidekiq](http://sidekiq.org/) gem (to handle full text indexing)
 - PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [WickedPDF](https://github.com/mileszs/wicked_pdf) gem
+- Image upload with the [Shrine](https://github.com/janko-m/shrine) gem
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - Controller specific JavaScript embedded into the asset pipeline
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)

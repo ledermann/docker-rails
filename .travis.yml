@@ -15,6 +15,10 @@ before_script:
   - export APP_ADMIN_PASSWORD=secret
   - export APP_EMAIL=reply@example.org
   - export APP_HOST=example.org
+  - export AWS_ACCESS_KEY_ID=my-access-key
+  - export AWS_SECRET_ACCESS_KEY=my-secret
+  - export AWS_BUCKET=my-bucket
+  - export AWS_REGION=eu-central-1
   - docker-compose pull
   - docker-compose build
 

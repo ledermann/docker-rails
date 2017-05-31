@@ -67,6 +67,10 @@ app:
     - VIRTUAL_HOST=docker-rails.example.org
     - LETSENCRYPT_EMAIL=mail@example.org
     - LETSENCRYPT_HOST=docker-rails.example.org
+    - AWS_ACCESS_KEY_ID=my-access-key
+    - AWS_SECRET_ACCESS_KEY=my-secret-key
+    - AWS_BUCKET=my-bucket
+    - AWS_REGION=eu-central-1
   links:
     - db
     - elasticsearch

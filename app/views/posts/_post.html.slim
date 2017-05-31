@@ -1,6 +1,9 @@
 - cache [ post, search_string ] do
   tr[data-href=url_for(post)]
     td.js-row-link
+      - if post.image
+        = icon('picture-o')
+        '
       - if search_string && post.search_highlights[:title]
         == post.search_highlights[:title]
       - else

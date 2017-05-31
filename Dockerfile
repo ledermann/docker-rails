@@ -3,9 +3,9 @@
 FROM ledermann/base
 LABEL maintainer="mail@georg-ledermann.de"
 
-# Install PostgreSQL client
+# Install PostgreSQL client and ImageMagick
 RUN apt-get update && \
-    apt-get install -y libpq-dev && \
+    apt-get install -y libpq-dev imagemagick && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 

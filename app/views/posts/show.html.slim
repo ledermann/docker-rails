@@ -24,4 +24,7 @@
           = icon('trash')
 
       .col-sm-10
+        - if @post.image
+          p= image_tag @post.image_url(:panorama), class: 'img-fluid'
+
         = simple_format h(@post.content)

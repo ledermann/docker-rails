@@ -7,6 +7,10 @@ variables:
   APP_ADMIN_PASSWORD: "secret"
   APP_EMAIL: "reply@example.org"
   APP_HOST: "example.org"
+  AWS_ACCESS_KEY_ID: "my-access-key"
+  AWS_SECRET_ACCESS_KEY: "my-secret"
+  AWS_BUCKET: "my-bucket"
+  AWS_REGION: "eu-central-1"
 
 build_image:
   before_script:
