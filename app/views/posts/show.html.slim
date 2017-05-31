@@ -1,6 +1,6 @@
 - title @post.title
 
-- cache @post do
+- cache @post, expires_in: 1.day do
   article data-cable-post-id=@post.id
     header.row
       .col-sm-10.offset-sm-2
@@ -25,6 +25,6 @@
 
       .col-sm-10
         - if @post.image
-          p= image_tag @post.image_url(:panorama), class: 'img-fluid'
+          p= image_tag @post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid'
 
         = simple_format h(@post.content)
