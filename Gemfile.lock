@@ -170,7 +170,7 @@ GEM
       ttfunk
     pg (0.20.0)
     public_suffix (2.0.5)
-    puma (3.8.2)
+    puma (3.9.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.3)
