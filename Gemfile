@@ -75,6 +75,7 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'meta_request' # For use with RailsPanel (Chrome extension)
+  gem 'letter_opener'
 end
 
 group :test do

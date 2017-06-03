@@ -147,6 +147,8 @@ GEM
     kaminari-core (1.0.1)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.5)
@@ -328,6 +330,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   kaminari
   launchy
+  letter_opener
   meta_request
   mini_magick
   pdf-reader
