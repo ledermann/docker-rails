@@ -99,6 +99,10 @@ GEM
     elasticsearch-transport (5.0.4)
       faraday
       multi_json
+    email_spec (2.1.1)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.6)
     email_validator (1.6.0)
       activemodel
     erubi (1.6.0)
@@ -121,6 +125,7 @@ GEM
       activesupport (>= 4.2.0)
     hashery (2.1.2)
     hashie (3.5.5)
+    htmlentities (4.3.4)
     i18n (0.8.4)
     image_processing (0.4.1)
     jbuilder (2.6.4)
@@ -314,6 +319,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dalli
   dotenv-rails
+  email_spec
   factory_girl_rails
   faker
   font-awesome-sass
