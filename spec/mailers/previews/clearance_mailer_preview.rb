@@ -1,5 +1,4 @@
 class ClearanceMailerPreview < ActionMailer::Preview
-
   def change_password
     user = User.new(
       id: 1234,
@@ -9,5 +8,4 @@ class ClearanceMailerPreview < ActionMailer::Preview
 
     ClearanceMailer.change_password(user)
   end
-
 end

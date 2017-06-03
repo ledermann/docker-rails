@@ -14,7 +14,7 @@ class ImageUploader < Shrine
     validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
   end
 
-  process(:store) do |io, context|
+  process(:store) do |io, _context|
     {
       original:  io,
       thumbnail: resize_to_limit!(io.download, 250, 250),

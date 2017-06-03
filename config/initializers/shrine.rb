@@ -13,7 +13,7 @@ s3_options = {
 
 Shrine.storages = {
   cache: Shrine::Storage::S3.new(prefix: "#{Rails.env}/cache", **s3_options),
-  store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", **s3_options),
+  store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", **s3_options)
 }
 
 Shrine.plugin :activerecord

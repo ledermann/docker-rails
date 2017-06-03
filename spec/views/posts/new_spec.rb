@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'posts/new' do
-  before:each do
+  before :each do
     assign(:post, Post.new(title: 'MyString'))
   end
 
