@@ -135,7 +135,7 @@ feature 'Post management' do
       expect(page).to_not have_selector('td', text: 'Example')
     end
 
-    scenario 'creates a new page', js: true do
+    scenario 'creates a new page' do
       visit posts_path(as: create(:admin))
 
       click_on 'Add new Post'
@@ -145,15 +145,30 @@ feature 'Post management' do
       expect(page).to have_button('Create Post')
 
       fill_in 'post[title]', with: 'Bar'
-      click_on 'Create Post'
-      expect(page).to have_selector('div.form-group.has-danger')
       fill_in 'post[content]', with: 'dolor sit amet'
-      expect(page).to_not have_selector('div.form-group.has-danger')
+      attach_file 'post[image]', Rails.root.join('spec/fixtures', 'example.jpg')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'
       expect(page).to have_selector('h1', text: 'Bar')
       expect(page).to have_selector('p', text: 'dolor sit amet')
+      expect(page).to have_selector('img', class: 'img-fluid')
+    end
+
+    scenario 'creates a new page with client side validation', js: true do
+      visit new_post_path(as: create(:admin))
+
+      fill_in 'post[title]', with: 'Bar'
+      click_on 'Create Post'
+
+      expect(page).to have_selector('.form-group.has-danger')
+
+      fill_in 'post[content]', with: 'dolor sit amet'
+      expect(page).to_not have_selector('.form-group.has-danger')
+
+      click_on 'Create Post'
+
+      expect(page).to have_text 'Post was successfully created.'
     end
   end
 end
