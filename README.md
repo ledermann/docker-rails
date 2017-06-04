@@ -15,6 +15,7 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [WickedPDF](https://github.com/mileszs/wicked_pdf) gem
 - Image upload with the [Shrine](https://github.com/janko-m/shrine) gem
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
+- User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Controller specific JavaScript embedded into the asset pipeline
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 

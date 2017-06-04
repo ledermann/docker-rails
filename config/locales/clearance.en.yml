@@ -4,6 +4,7 @@ en:
     models:
       clearance_mailer:
         change_password: Change your password
+        registration_confirmation: Confirm your e-mail
   clearance_mailer:
     change_password:
       closing: If you didn't request this, ignore this email. Your password has
@@ -11,12 +12,20 @@ en:
       link_text: Change my password
       opening: "Someone, hopefully you, requested we send you a link to change
         your password:"
+    registration_confirmation:
+      closing: If you didn't request this, ignore this email. We will not contact you again.
+      link_text: Confirm my registration
+      opening: "Your e-mail address was used to request a registration. If this is correct, please click the following link:"
   flashes:
     failure_after_create: Bad email or password.
     failure_after_update: Password can't be blank.
     failure_when_forbidden: Please double check the URL or try submitting
       the form again.
     failure_when_not_signed_in: Please sign in to continue.
+    failure_confirmation: Confirmation failed!
+    confirmation_requested: We have send you an confirmation e-mail. Please click the link inside.
+    confirmed_registration: Your account is confirmed. Now you can sign in with your password.
+    failure_when_not_confirmed: Your account needs to be confirmed. Please look in your e-mail.
   helpers:
     label:
       password:

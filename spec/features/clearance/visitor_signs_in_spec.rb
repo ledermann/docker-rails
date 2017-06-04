@@ -15,6 +15,17 @@ feature "Visitor signs in" do
     expect_user_to_be_signed_in
   end
 
+  scenario "tries without confirmation" do
+    create_unconfirmed_user "user@example.com", "password"
+    sign_in_with "user@example.com", "password"
+
+    expect(page.body).to include(
+      I18n.t("flashes.failure_when_not_confirmed")
+    )
+
+    expect_user_to_be_signed_out
+  end
+
   scenario "tries with invalid password" do
     create_user "user@example.com", "password"
     sign_in_with "user@example.com", "wrong_password"
@@ -34,6 +45,10 @@ feature "Visitor signs in" do
 
   def create_user(email, password)
     FactoryGirl.create(:user, email: email, password: password)
+  end
+
+  def create_unconfirmed_user(email, password)
+    FactoryGirl.create(:user, :unconfirmed, email: email, password: password)
   end
 
   def expect_page_to_display_sign_in_error

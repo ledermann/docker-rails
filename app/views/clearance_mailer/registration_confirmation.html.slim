@@ -1,0 +1,6 @@
+p
+  = t(".opening")
+p
+  = link_to t(".link_text", default: "Confirm registration"), confirm_url(@user, @user.email_confirmation_token.html_safe)
+p
+  = raw t(".closing")

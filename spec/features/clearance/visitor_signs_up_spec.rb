@@ -9,10 +9,14 @@ feature "Visitor signs up" do
     expect(current_path).to eq sign_up_path
   end
 
-  scenario "with valid email and password" do
+  scenario "with valid email and password and confirmation" do
     sign_up_with "valid@example.com", "password"
+    expect(page).to have_content I18n.t("flashes.confirmation_requested")
 
-    expect_user_to_be_signed_in
+    open_email "valid@example.com"
+    click_first_link_in_email
+
+    expect(page).to have_content I18n.t("flashes.confirmed_registration")
   end
 
   scenario "tries with invalid email" do
