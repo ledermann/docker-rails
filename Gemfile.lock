@@ -260,7 +260,7 @@ GEM
       websocket (~> 1.0)
     shrine (2.6.1)
       down (>= 2.3.6)
-    sidekiq (5.0.1)
+    sidekiq (5.0.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
