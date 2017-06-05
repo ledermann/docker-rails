@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :posts
+  mount Sidekiq::Web => '/sidekiq'
 
   # Authentication with Clearance
   resource :session, controller: 'clearance/sessions', only: [:create]
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   delete '/sign_out'                 => 'clearance/sessions#destroy', as: 'sign_out'
   get    '/sign_up'                  => 'users#new',                  as: 'sign_up'
 
-  root to: "posts#index"
+  resources :posts
+  root to: 'posts#index'
 
-  mount Sidekiq::Web => '/sidekiq'
+  # Catch all to avoid FATAL error logging
+  match '*path', via: :all, to: 'errors#error_404'
 end
