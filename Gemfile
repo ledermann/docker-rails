@@ -45,6 +45,7 @@ gem 'clearance'
 gem 'simple_form'
 gem 'pundit'
 gem 'skylight'
+gem 'premailer-rails'
 
 # Image uploads
 gem 'shrine'

@@ -1,9 +1,8 @@
-class ClearanceMailer < ActionMailer::Base
+class ClearanceMailer < ApplicationMailer
 
   def change_password(user)
     @user = user
     mail(
-      from: Clearance.configuration.mailer_sender,
       to: @user.email,
       subject: I18n.t(
         :change_password,
@@ -15,7 +14,6 @@ class ClearanceMailer < ActionMailer::Base
   def registration_confirmation(user)
     @user = user
     mail(
-      from: Clearance.configuration.mailer_sender,
       to: @user.email,
       subject: I18n.t(
         :registration_confirmation,

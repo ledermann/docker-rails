@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width"]
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    title E-Mail from DockerRails
+    = stylesheet_link_tag 'email'
+
+  body
+    table.body[border="0" cellpadding="0" cellspacing="0"]
+      tr
+        td
+          |  
+
+        td.container
+          .content
+            - if content_for?(:preheader)
+              span.preheader
+                / This is preheader text. Some clients will show this text as a preview.
+                = yield :preheader
+
+            table.main
+              tr
+                td.wrapper
+                  table[border="0" cellpadding="0" cellspacing="0"]
+                    tr
+                      td
+                        = yield :opening
+
+                        - if content_for?(:action)
+                          table.btn.btn-primary[border="0" cellpadding="0" cellspacing="0"]
+                            tbody
+                              tr
+                                td[align="left"]
+                                  table[border="0" cellpadding="0" cellspacing="0"]
+                                    tbody
+                                      tr
+                                        td
+                                          = yield :action
+
+                        = yield :closing
+
+            .footer
+              table[border="0" cellpadding="0" cellspacing="0"]
+                tr
+                  td.content-block
+                    span.apple-link
+                      = t('mail.footer')
+
+                    br
+
+                    a[href="https://github.com/ledermann/docker-rails"]
+                      | GitHub repository
+
+
+        td
+          |  

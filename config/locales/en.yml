@@ -30,4 +30,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  mail:
+    footer: DockerRails, a Rails application example running in a Docker container

@@ -16,6 +16,7 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - Image upload with the [Shrine](https://github.com/janko-m/shrine) gem
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
+- Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
 - Controller specific JavaScript embedded into the asset pipeline
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
