@@ -41,6 +41,7 @@ app:
   restart: always
   environment:
     - RAILS_ENV=production
+    - RAILS_MAX_THREADS=5
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
     - DB_HOST=db
@@ -78,6 +79,7 @@ worker:
   restart: always
   environment:
     - RAILS_ENV=production
+    - RAILS_MAX_THREADS=10
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
     - DB_HOST=db

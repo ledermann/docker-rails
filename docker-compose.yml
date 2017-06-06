@@ -48,6 +48,7 @@ services:
       - DB_USER
       - DB_PASSWORD
       - RAILS_ENV
+      - RAILS_MAX_THREADS
       - APP_HOST
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
@@ -96,6 +97,7 @@ services:
       - MEMCACHED_HOST=memcached
       - SELENIUM_REMOTE_HOST=selenium
       - RAILS_ENV=test
+      - RAILS_MAX_THREADS
       - SECRET_KEY_BASE
       - DB_USER
       - DB_PASSWORD
