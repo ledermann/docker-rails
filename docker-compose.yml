@@ -13,6 +13,7 @@ services:
       - db
     environment:
       - POSTGRES_HOST=db
+      - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DATABASE
       - S3_ACCESS_KEY_ID
@@ -39,12 +40,12 @@ services:
   app: &app_base
     build: .
     environment:
-      - DB_HOST=db
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
       - MEMCACHED_HOST=memcached
       - SECRET_KEY_BASE
+      - DB_HOST=db
       - DB_USER
       - DB_PASSWORD
       - RAILS_ENV
@@ -90,7 +91,6 @@ services:
   test:
     <<: *app_base
     environment:
-      - DB_HOST=db
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
@@ -99,6 +99,7 @@ services:
       - RAILS_ENV=test
       - RAILS_MAX_THREADS
       - SECRET_KEY_BASE
+      - DB_HOST=db
       - DB_USER
       - DB_PASSWORD
       - APP_HOST

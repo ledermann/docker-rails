@@ -11,6 +11,7 @@ backup:
     - db
   environment:
     - POSTGRES_HOST=db
+    - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=foobar
     - POSTGRES_DATABASE=docker-rails_production
     - S3_ACCESS_KEY_ID=my-access-id
@@ -44,10 +45,10 @@ app:
     - RAILS_MAX_THREADS=5
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
-    - DB_HOST=db
     - 'REDIS_SIDEKIQ_URL=redis://redis:6379/0'
     - 'REDIS_CABLE_URL=redis://redis:6379/1'
     - SECRET_KEY_BASE=b4f498b1c9f77a0644ae955e8e301c046eccbc5df7fd807c816aba1922db9c35c02a7a0b9efa72c07284a19807614f82c99c44bdd7cf1aea688b410df6911418
+    - DB_HOST=db
     - DB_USER=postgres
     - DB_PASSWORD=foobar
     - APP_HOST=docker-rails.example.org
@@ -82,12 +83,12 @@ worker:
     - RAILS_MAX_THREADS=10
     - 'ELASTICSEARCH_URL=http://elasticsearch:9200'
     - MEMCACHED_HOST=memcached
-    - DB_HOST=db
     - 'REDIS_SIDEKIQ_URL=redis://redis:6379/0'
     - 'REDIS_CABLE_URL=redis://redis:6379/1'
     - SECRET_KEY_BASE=b4f498b1c9f77a0644ae955e8e301c046eccbc5df7fd807c816aba1922db9c35c02a7a0b9efa72c07284a19807614f82c99c44bdd7cf1aea688b410df6911418
     - APP_HOST=docker-rails.example.org
     - APP_EMAIL=reply@example.org
+    - DB_HOST=db
     - DB_USER=postgres
     - DB_PASSWORD=foobar
     - SMTP_SERVER=smtp.gmail.com
