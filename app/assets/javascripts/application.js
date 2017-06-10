@@ -16,6 +16,7 @@
 //= require moment/moment
 //= require tether
 //= require bootstrap-sprockets
+//= require corejs-typeahead/dist/typeahead.bundle
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .

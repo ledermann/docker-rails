@@ -15,7 +15,7 @@ feature 'Post management' do
       expect(page).to have_selector('h1', text: 'Example application')
       expect(page).to have_xpath('.//table/tbody/tr', count: 25)
       expect(page).to have_selector('#post-count', text: '31 Posts')
-      expect(page).to have_link('Add new Post', href: new_post_path)
+      expect(page).to have_link('', href: new_post_path)
 
       # Scroll down to load whole list via infinite scrolling
       scroll_to_bottom
@@ -31,15 +31,16 @@ feature 'Post management' do
       expect(page.current_path).to eq(root_path)
     end
 
-    scenario 'searches for a post', js: true do
+    scenario 'searches for a post with autocompletion', js: true do
       visit posts_path
-      expect(page).to_not have_text('Posts matching')
 
       within '#search' do
+        fill_in 'q', with: 'Exa'
+        expect(page).to have_selector('.tt-suggestion', text: 'Example')
+
         fill_in 'q', with: "Exam\n"
       end
 
-      expect(page).to have_text('Searching for')
       expect(page).to have_current_path(/q=Exam/)
       expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
       expect(page).to have_selector('#post-count', text: '1 Post')

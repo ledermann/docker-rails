@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   delete '/sign_out'                 => 'clearance/sessions#destroy', as: 'sign_out'
   get    '/sign_up'                  => 'users#new',                  as: 'sign_up'
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :autocomplete
+    end
+  end
+
   root to: 'posts#index'
 
   # Catch all to avoid FATAL error logging

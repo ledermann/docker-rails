@@ -6,7 +6,13 @@ autosize@^3:
   version "3.0.21"
   resolved "https://registry.yarnpkg.com/autosize/-/autosize-3.0.21.tgz#f182f40d17757d978a139a4c9ca40c4c0e448603"
 
-jquery@>=1.8.0, jquery@^3:
+corejs-typeahead@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.1.1.tgz#62b2ab841de200256e36548c223b35b45fd7157e"
+  dependencies:
+    jquery ">=1.11"
+
+jquery@>=1.11, jquery@>=1.8.0, jquery@^3:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 

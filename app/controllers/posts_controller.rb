@@ -18,6 +18,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Post.search(params[:q], {
+      fields: [ :title ],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: { below: 5 }
+    }).map { |post| post.title }
+  end
+
   def show
     @post = find_post
     authorize @post

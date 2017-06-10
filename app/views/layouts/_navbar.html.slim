@@ -1,33 +1,58 @@
 - cache [ 'navbar', I18n.locale, current_user ] do
   nav.navbar.fixed-top.navbar-toggleable-md.navbar-light.bg-faded
     .container
-      button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+      button.navbar-toggler.navbar-toggler-right {
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label=("Toggle navigation")
+        data-target="#navbarSupportedContent"
+        data-toggle="collapse"
+        type="button"
+      }
         span.navbar-toggler-icon
 
       a.navbar-brand href=root_path
         | DockerRails
 
       #navbarSupportedContent.collapse.navbar-collapse
-        = form_with url: posts_path, local: true, method: "get", class: 'form-inline mr-auto', id: 'search' do
-          .input-group
-            = text_field_tag :q, '', placeholder: 'Search', class: 'form-control'
-            span.input-group-addon
-              i.fa.fa-search
+        ul.navbar-nav.mr-auto
 
         ul.navbar-nav
           li.nav-item
-            = link_to 'Sidekiq', sidekiq_web_path, class: 'nav-link', data: { turbolinks: 'false' }
+            = link_to new_post_path, \
+                class: 'btn btn-primary',
+                title: 'Add new Post',
+                data: { toggle: 'tooltip', placement: 'bottom' } do
+              i.fa.fa-plus
+
+          li.nav-item
+            = link_to sidekiq_web_path, \
+                class: 'btn btn-secondary ml-lg-2',
+                title: 'Sidekiq',
+                data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+              i.fa.fa-cogs
 
           - if signed_in?
             li.nav-item.dropdown
-              a.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+              a.btn.btn-secondary.dropdown-toggle.ml-lg-2 {
+                aria-expanded="false"
+                aria-haspopup="true"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+              }
+                i.fa.fa-user-circle
+                '
                 = current_user.email
                 '
                 span.caret
               .dropdown-menu
-                = link_to I18n.t('layouts.application.sign_out'), sign_out_path, class: 'dropdown-item', method: :delete
+                = link_to sign_out_path, class: 'dropdown-item', method: :delete do
+                  = I18n.t('layouts.application.sign_out')
 
           - else
             li.nav-item
-              = link_to sign_in_path, class: 'nav-link' do
+              = link_to sign_in_path, class: 'btn btn-secondary ml-lg-2' do
+                i.fa.fa-user-circle
+                '
                 = I18n.t("layouts.application.sign_in")

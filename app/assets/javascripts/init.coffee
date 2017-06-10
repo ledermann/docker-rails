@@ -12,6 +12,7 @@ class @Init
     new InfiniteScrolling()
     new TimeFormatter()
     new TooltipEnabler()
+    new Autocomplete()
 
   startup_controller_specific_code: ->
     klass_name = $('body').data('js-class')

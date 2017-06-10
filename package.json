@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "autosize": "^3",
+    "corejs-typeahead": "^1.1.1",
     "jquery": "^3",
     "moment": "^2",
     "parsleyjs": "^2",
