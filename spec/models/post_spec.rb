@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe Post do
   describe 'content_as_plaintext' do
-    let(:post) { Post.new(content: 'This is <strong>bold</strong>') }
+    let(:post) { Post.new(content: 'This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>') }
 
     describe "#content_as_plaintext" do
       it "removes all tags" do
-        expect(post.content_as_plaintext).to eq("This is bold")
+        expect(post.content_as_plaintext).to eq("This is bold One Two")
       end
     end
   end

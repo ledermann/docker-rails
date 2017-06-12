@@ -6,8 +6,9 @@ class Post < ApplicationRecord
 
   def content_as_plaintext
     @content_as_plaintext ||= begin
-      full_sanitizer = Rails::Html::FullSanitizer.new
-      full_sanitizer.sanitize(content)
+      # Get text, dont just strip tags. This preserves spaces
+      # Based on https://stackoverflow.com/a/28449868/57950
+      Nokogiri::HTML(content).xpath('//text()').map(&:text).map(&:strip).join(' ')
     end
   end
 
