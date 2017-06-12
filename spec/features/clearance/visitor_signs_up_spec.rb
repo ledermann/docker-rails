@@ -56,6 +56,6 @@ feature "Visitor signs up" do
     user = User.last
     visit "/confirm/000/#{user.email_confirmation_token}"
 
-    expect(page).to have_content I18n.t("flashes.failure_confirmation_user")
+    expect(page).to have_content I18n.t("flashes.failure_confirmation")
   end
 end

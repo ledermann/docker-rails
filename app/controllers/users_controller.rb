@@ -16,7 +16,7 @@ class UsersController < Clearance::UsersController
     user = User.find_by(id: params[:user_id])
 
     unless user
-      redirect_to root_path, alert: t('flashes.failure_confirmation_user')
+      redirect_to root_path, alert: t('flashes.failure_confirmation')
       return
     end
 
