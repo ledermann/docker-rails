@@ -11,9 +11,14 @@ class Post < ApplicationRecord
   def search_data
     {
       title:    title,
-      content:  content,
-      combined: "#{title} #{content}"
+      content:  plaintext_content,
+      combined: "#{title} #{plaintext_content}"
     }
+  end
+
+  # Content without markdown formatting
+  def plaintext_content
+    content.gsub(/[*_=#>]/,' ')
   end
 
   def self.elasticsearch(query, options = {})
