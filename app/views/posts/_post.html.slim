@@ -13,7 +13,7 @@
       - if search_string && post.search_highlights[:content]
         == post.search_highlights[:content]
       - else
-        = content_as_plaintext(post).truncate(70)
+        = post.content_as_plaintext.truncate(70)
 
     td.js-row-link.text-right.hidden-xs-down
       = time_tag post.updated_at
