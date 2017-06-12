@@ -114,8 +114,6 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faker (1.7.3)
-      i18n (~> 0.5)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -147,6 +145,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    kramdown (1.13.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -332,12 +331,12 @@ DEPENDENCIES
   dotenv-rails
   email_spec
   factory_girl_rails
-  faker
   font-awesome-sass
   foreman
   image_processing
   jbuilder (~> 2.5)
   kaminari
+  kramdown
   launchy
   letter_opener
   meta_request

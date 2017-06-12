@@ -6,35 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-class Generator
-  def attributes
-    {
-      title:   title,
-      content: content
-    }
-  end
+require_relative 'wikipedia'
 
-  private
-
-  def faker
-    @faker ||= [
-      Faker::Hipster,
-      Faker::Lorem
-    ].sample
-  end
-
-  def title
-    faker.words(3, true).join(' ').upcase_first
-  end
-
-  def content
-    (1..3).map { faker.paragraph(5, true, 10) }.join("\n\n")
-  end
-end
-
-# Create some random posts
+# Add some articles from Wikipedia
 Searchkick.callbacks(false) do
-  100.times { Post.create!(Generator.new.attributes) }
+  Wikipedia::List.new.articles.each do |article|
+    next unless article.valid?
+    puts article.title
+
+    Post.find_or_initialize_by(title: article.title) do |p|
+      p.content = article.extract
+    end.save!
+  end
 end
 Post.reindex
 

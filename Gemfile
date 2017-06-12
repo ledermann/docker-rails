@@ -40,12 +40,12 @@ gem 'font-awesome-sass'
 gem 'puma', '~> 3.7'
 gem 'foreman'
 gem 'rack'
-gem 'faker'
 gem 'clearance'
 gem 'simple_form'
 gem 'pundit'
 gem 'skylight'
 gem 'premailer-rails'
+gem 'kramdown'
 
 # Image uploads
 gem 'shrine'
