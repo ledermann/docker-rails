@@ -176,7 +176,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    pg (0.20.0)
+    pg (0.21.0)
     premailer (1.10.4)
       addressable
       css_parser (>= 1.4.10)
