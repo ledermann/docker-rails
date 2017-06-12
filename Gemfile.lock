@@ -146,7 +146,6 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    kramdown (1.13.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -338,7 +337,6 @@ DEPENDENCIES
   image_processing
   jbuilder (~> 2.5)
   kaminari
-  kramdown
   launchy
   letter_opener
   meta_request

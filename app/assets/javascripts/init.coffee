@@ -7,8 +7,8 @@ class @Init
     @startup_controller_specific_code()
 
   startup_modules: ->
-    new TextAreaAutosize()
     new FormValidator()
+    new HtmlEditor()
     new InfiniteScrolling()
     new TimeFormatter()
     new TooltipEnabler()

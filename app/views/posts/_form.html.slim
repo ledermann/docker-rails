@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :title
-    = f.input :content, input_html: { rows: 4 }
+    = f.input :content
 
     - if post.image
       = image_tag post.image_url(:thumbnail), class: 'img-thumbnail'

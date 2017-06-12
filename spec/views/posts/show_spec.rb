@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'posts/show' do
   before :each do
-    @post = assign(:post, create(:post, title: 'Foo'))
-    ActiveDecorator::Decorator.instance.decorate(@post)
+    @post = assign(:post, create(:post, title: 'Foo', content: '<p>Lorem ipsum</p>'))
   end
 
   it 'renders attributes' do

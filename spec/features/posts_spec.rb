@@ -6,7 +6,7 @@ feature 'Post management' do
     Post.reindex
   end
 
-  let!(:example_post) { create(:post, :reindex, title: 'Example', content: 'Lorem ipsum') }
+  let!(:example_post) { create(:post, :reindex, title: 'Example', content: '<p>Lorem ipsum</p>') }
 
   context "User who is not an admin" do
     scenario 'navigates through posts', js: true do
@@ -75,7 +75,7 @@ feature 'Post management' do
         visit edit_post_path(example_post, as: create(:admin))
 
         fill_in 'post[title]', with: 'Fooo'
-        fill_in 'post[content]', with: 'dolor sit amet'
+        fill_in 'post[content]', with: '<p>dolor sit amet</p>', visible: false
         click_on 'Update Post'
       end
 
@@ -115,7 +115,7 @@ feature 'Post management' do
       expect(page).to have_button('Update Post')
 
       fill_in 'post[title]', with: 'Bar'
-      fill_in 'post[content]', with: 'dolor sit amet'
+      fill_in 'post[content]', with: '<p>dolor sit amet</p>'
       click_on 'Update Post'
 
       expect(page.current_path).to eq(post_path(example_post))
@@ -146,7 +146,7 @@ feature 'Post management' do
       expect(page).to have_button('Create Post')
 
       fill_in 'post[title]', with: 'Bar'
-      fill_in 'post[content]', with: 'dolor sit amet'
+      fill_in 'post[content]', with: '<p>dolor sit amet</p>'
       attach_file 'post[image]', Rails.root.join('spec/fixtures', 'example.jpg')
       click_on 'Create Post'
 
@@ -162,10 +162,10 @@ feature 'Post management' do
       fill_in 'post[title]', with: 'Bar'
       click_on 'Create Post'
 
-      expect(page).to have_selector('.form-group.has-danger')
+      expect(page).to have_selector('.post_content .has-danger')
 
-      fill_in 'post[content]', with: 'dolor sit amet'
-      expect(page).to_not have_selector('.form-group.has-danger')
+      fill_in 'post[content]', with: '<p>dolor sit amet</p>', visible: false
+      expect(page).to_not have_selector('.post_content .has-danger')
 
       click_on 'Create Post'
 

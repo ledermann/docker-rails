@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
-//= require autosize/dist/autosize
 //= require parsleyjs
 //= require moment/moment
 //= require tether
 //= require bootstrap-sprockets
 //= require corejs-typeahead/dist/typeahead.bundle
+//= require trumbowyg/dist/trumbowyg
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .

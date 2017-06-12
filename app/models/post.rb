@@ -4,6 +4,13 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  def content_as_plaintext
+    @content_as_plaintext ||= begin
+      full_sanitizer = Rails::Html::FullSanitizer.new
+      full_sanitizer.sanitize(content)
+    end
+  end
+
   searchkick word_start: [ :title, :content, :combined ],
              highlight:  [ :title, :content ],
              callbacks:  :async
@@ -11,14 +18,9 @@ class Post < ApplicationRecord
   def search_data
     {
       title:    title,
-      content:  plaintext_content,
-      combined: "#{title} #{plaintext_content}"
+      content:  content_as_plaintext,
+      combined: "#{title} #{content_as_plaintext}"
     }
-  end
-
-  # Content without markdown formatting
-  def plaintext_content
-    content.gsub(/[*_=#>]/,' ')
   end
 
   def self.elasticsearch(query, options = {})

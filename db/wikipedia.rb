@@ -54,7 +54,7 @@ module Wikipedia
     end
 
     def extract
-      Kramdown::Document.new(raw_extract, :html_to_native => true).to_kramdown
+      raw_extract
     end
 
     def valid?

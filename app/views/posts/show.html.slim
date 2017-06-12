@@ -27,4 +27,4 @@
         - if @post.image
           p= image_tag @post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid'
 
-        == @post.content_as_html
+        == @post.content

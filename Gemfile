@@ -45,7 +45,6 @@ gem 'simple_form'
 gem 'pundit'
 gem 'skylight'
 gem 'premailer-rails'
-gem 'kramdown'
 gem 'active_decorator'
 
 # Image uploads
