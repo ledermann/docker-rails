@@ -17,12 +17,11 @@
 p.small.text-muted.text-right#post-count
   = pluralize @posts.total_count, 'Post'
 
-table.table.table-striped.table-hover
-  thead
+table.table.table-hover
+  thead.thead-inverse.hidden-xs-down
     tr
-      th Title
       th Content
-      th.text-right.hidden-xs-down Updated
+      th.text-right.hidden-xs-down.nowrap Last Update
   tbody#js-infinite-scrolling
     - cache [ @posts, search_string ] do
       = render @posts

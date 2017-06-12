@@ -4,16 +4,21 @@
       - if post.image
         = icon('picture-o')
         '
-      - if search_string && post.search_highlights[:title]
-        == post.search_highlights[:title]
-      - else
-        = post.title.truncate(30)
 
-    td.js-row-link.text-muted
-      - if search_string && post.search_highlights[:content]
-        == post.search_highlights[:content]
-      - else
-        = post.content_as_plaintext.truncate(70)
+      strong
+        - if search_string && post.search_highlights[:title]
+          == post.search_highlights[:title]
+        - else
+          = post.title
 
-    td.js-row-link.text-right.hidden-xs-down
+      '
+      span.text-muted
+        - if search_string && post.search_highlights[:content]
+          == '&hellip;'
+          == post.search_highlights[:content]
+          == '&hellip;'
+        - else
+          = post.content_as_plaintext.truncate(300)
+
+    td.js-row-link.text-right.hidden-xs-down.nowrap
       = time_tag post.updated_at
