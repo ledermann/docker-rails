@@ -39,30 +39,30 @@ describe Post do
 
     context 'exact match' do
       it 'find posts by matching title' do
-        expect(Post.elasticsearch('Responsibility').to_a).to eq([post_single])
-        expect(Post.elasticsearch('Demeter').to_a).to eq([post_demeter])
-        expect(Post.elasticsearch('reuse').to_a).to eq([post_reuse])
+        expect(Post.search_for('Responsibility').to_a).to eq([post_single])
+        expect(Post.search_for('Demeter').to_a).to eq([post_demeter])
+        expect(Post.search_for('reuse').to_a).to eq([post_reuse])
 
-        expect(Post.elasticsearch('Single Responsibility').to_a).to eq([post_single])
-        expect(Post.elasticsearch('Law Demeter').to_a).to eq([post_demeter])
-        expect(Post.elasticsearch('Code reuse').to_a).to eq([post_reuse])
+        expect(Post.search_for('Single Responsibility').to_a).to eq([post_single])
+        expect(Post.search_for('Law Demeter').to_a).to eq([post_demeter])
+        expect(Post.search_for('Code reuse').to_a).to eq([post_reuse])
       end
 
       it 'find posts by matching content' do
-        expect(Post.elasticsearch('responsibility single part').to_a).to eq([post_single])
-        expect(Post.elasticsearch('limited knowledge other').to_a).to eq([post_demeter])
-        expect(Post.elasticsearch('existing software').to_a).to eq([post_reuse])
+        expect(Post.search_for('responsibility single part').to_a).to eq([post_single])
+        expect(Post.search_for('limited knowledge other').to_a).to eq([post_demeter])
+        expect(Post.search_for('existing software').to_a).to eq([post_reuse])
 
-        expect(Post.elasticsearch('encapsulated').to_a).to eq([post_single])
-        expect(Post.elasticsearch('knowledge').to_a).to eq([post_demeter, post_reuse])
-        expect(Post.elasticsearch('existing').to_a).to eq([post_reuse])
-        expect(Post.elasticsearch('software').to_a).to eq([post_reuse, post_single])
+        expect(Post.search_for('encapsulated').to_a).to eq([post_single])
+        expect(Post.search_for('knowledge').to_a).to eq([post_demeter, post_reuse])
+        expect(Post.search_for('existing').to_a).to eq([post_reuse])
+        expect(Post.search_for('software').to_a).to eq([post_reuse, post_single])
       end
     end
 
     context 'Misspellings' do
       def search(query)
-        Post.elasticsearch(query, misspellings: { prefix_length: 2 })
+        Post.search_for(query, misspellings: { prefix_length: 2 })
       end
 
       it "Ignores spelling errors after the second char" do
@@ -83,13 +83,13 @@ describe Post do
 
     context 'Boosting' do
       it "prefers matches in title" do
-        expect(Post.elasticsearch('the').to_a).to eq([post_demeter, post_single, post_reuse])
+        expect(Post.search_for('the').to_a).to eq([post_demeter, post_single, post_reuse])
       end
     end
 
     context "Cross field matches" do
       it "find matches in both fields" do
-        expect(Post.elasticsearch('Law knowledge').to_a).to eq([post_demeter])
+        expect(Post.search_for('Law knowledge').to_a).to eq([post_demeter])
       end
     end
   end

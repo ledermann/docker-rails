@@ -3,13 +3,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = if search_string
-      Post.elasticsearch search_string,
-                         page:     params[:page],
-                         per_page: 25
+      Post.search_for(search_string,
+                      page:      params[:page],
+                      per_page:  25)
     else
       Post.order(updated_at: :desc).
-        page(params[:page]).
-        per(25)
+           page(params[:page]).
+           per(25)
     end
     authorize @posts
 
@@ -19,14 +19,7 @@ class PostsController < ApplicationController
   end
 
   def autocomplete
-    render json: Post.search(
-      params[:q],
-      fields:       [ :title ],
-      match:        :word_start,
-      limit:        10,
-      load:         false,
-      misspellings: { below: 5 }
-    ).map(&:title)
+    render json: Post.autocomplete(search_string).map(&:title)
   end
 
   def show
