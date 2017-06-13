@@ -7,7 +7,8 @@ module Wikipedia
 
       loop do
         result += names.map { |name| Article.new(name) }
-        break unless @page = next_page
+        @page = next_page
+        break unless @page
       end
 
       result
@@ -27,7 +28,7 @@ module Wikipedia
 
     def as_json
       @as_json ||= Hash.new do |h, key|
-        h[key] = JSON.load(open(url))
+        h[key] = JSON.parse(open(url).read)
       end
       @as_json[@page]
     end
@@ -45,7 +46,7 @@ module Wikipedia
     end
 
     def url
-      escaped_name = CGI::escape(@name)
+      escaped_name = CGI.escape(@name)
       "https://en.wikipedia.org/w/api.php?format=json&action=query&titles=#{escaped_name}&prop=extracts&exintro=&redirects"
     end
 
@@ -58,10 +59,9 @@ module Wikipedia
     end
 
     def valid?
-      raw_extract.present? && not(
-        title == 'Wikipedia:Wikimedia sister projects' ||
-        title =~ /lists? of/i
-      )
+      raw_extract.present? &&
+        title != 'Wikipedia:Wikimedia sister projects' &&
+        title !~ /lists? of/i
     end
 
     private
@@ -75,7 +75,7 @@ module Wikipedia
     end
 
     def as_json
-      @as_json ||= JSON.load(open(url))
+      @as_json ||= JSON.parse(open(url).read)
     end
   end
 end
