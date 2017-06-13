@@ -10,11 +10,12 @@
 Simple Rails 5.1 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following features:
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed post gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
-- Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content
-- Autocomplete with [corejs-typeahead](https://github.com/corejavascript/typeahead.js)
+- Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content (with suggestions)
+- Autocompletion with [corejs-typeahead](https://github.com/corejavascript/typeahead.js)
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and the [Sidekiq](http://sidekiq.org/) gem (to handle full text indexing)
 - PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [WickedPDF](https://github.com/mileszs/wicked_pdf) gem
-- Image upload with the [Shrine](https://github.com/janko-m/shrine) gem
+- Editing HTML content with the WYSIWYG JavaScript editor [Trumbowyg](https://github.com/Alex-D/Trumbowyg)
+- Uploading images with the [Shrine](https://github.com/janko-m/shrine) gem
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
