@@ -10,9 +10,11 @@ module PostSearch
 
   def content_as_plaintext
     @content_as_plaintext ||= begin
-      # Get text, dont just strip tags. This preserves spaces
+      # Remove styles and get real text, don't just strip tags.
       # Based on https://stackoverflow.com/a/28449868/57950
-      Nokogiri::HTML(content).xpath('//text()').map(&:text).map(&:strip).join(' ')
+      doc = Nokogiri::HTML(content)
+      doc.xpath('//style').remove
+      doc.xpath('//text()').map(&:text).map(&:strip).join(' ')
     end
   end
 

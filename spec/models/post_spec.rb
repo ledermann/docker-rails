@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Post do
   describe 'content_as_plaintext' do
-    let(:post) { Post.new(content: 'This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>') }
+    let(:post) { Post.new(content: '<style type="text/css">body { margin: 10px; }</style> This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>') }
 
     describe "#content_as_plaintext" do
       it "removes all tags" do
