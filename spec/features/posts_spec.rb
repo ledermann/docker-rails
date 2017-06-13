@@ -46,6 +46,12 @@ feature 'Post management' do
       expect(page).to have_selector('#post-count', text: '1 Post')
     end
 
+    scenario 'searches for a post and sees suggestions' do
+      visit posts_path(q: 'Exmple')
+
+      expect(page).to have_selector('#post-suggestions', text: 'Did you mean example')
+    end
+
     scenario 'opens a single page', js: true do
       visit post_path(example_post)
 

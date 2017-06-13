@@ -14,8 +14,20 @@
       span.input-group-addon
         i.fa.fa-search
 
-p.small.text-muted.text-right#post-count
-  = pluralize @posts.total_count, 'Post'
+.row.small
+  .col-9
+    - if @posts.respond_to?(:suggestions) && @posts.suggestions.present?
+      p#post-suggestions
+        ' Did you mean
+        - @posts.suggestions.each_with_index do |suggest, index|
+          - unless index == 0
+            -
+            '  or
+          em= link_to suggest, posts_path(q: suggest)
+
+  .col-3.text-right
+    p#post-count
+      = pluralize @posts.total_count, 'Post'
 
 table.table.table-hover
   thead.thead-inverse.hidden-xs-down

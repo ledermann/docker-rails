@@ -61,15 +61,23 @@ describe Post do
     end
 
     context 'Misspellings' do
+      def search(query)
+        Post.elasticsearch(query, misspellings: { prefix_length: 2 })
+      end
+
       it "Ignores spelling errors after the second char" do
-        expect(Post.elasticsearch('ResponsiXility').to_a).to eq([post_single])
-        expect(Post.elasticsearch('RespXnsibility').to_a).to eq([post_single])
-        expect(Post.elasticsearch('ReXponsibility').to_a).to eq([post_single])
+        expect(search('ResponsiXility').to_a).to eq([post_single])
+        expect(search('RespXnsibility').to_a).to eq([post_single])
+        expect(search('ReXponsibility').to_a).to eq([post_single])
       end
 
       it "Fails on spelling errors in the first two chars" do
-        expect(Post.elasticsearch('RXsponsbility').to_a).to eq([])
-        expect(Post.elasticsearch('Xesponsbility').to_a).to eq([])
+        expect(search('RXsponsbility').to_a).to eq([])
+        expect(search('Xesponsbility').to_a).to eq([])
+      end
+
+      it 'offers suggestions' do
+        expect(search('ResponsiXility').suggestions).to eq(['responsibility'])
       end
     end
 

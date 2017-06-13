@@ -14,6 +14,7 @@ class Post < ApplicationRecord
 
   searchkick word_start: [ :title, :content, :combined ],
              highlight:  [ :title, :content ],
+             suggest:    [ :title, :content ],
              callbacks:  :async
 
   def search_data
@@ -29,7 +30,8 @@ class Post < ApplicationRecord
       fields:       [ 'title^10', 'content', 'combined' ],
       highlight:    true,
       match:        :word_start,
-      misspellings: { prefix_length: 2 }
+      suggest:      true,
+      misspellings: false
     }.merge(options)
   end
 
