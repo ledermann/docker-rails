@@ -9,17 +9,18 @@
 require_relative 'wikipedia'
 
 # Add some articles from Wikipedia
-Searchkick.callbacks(false) do
+Searchkick.callbacks(:bulk) do
   Wikipedia::List.new.articles.each do |article|
     next unless article.valid?
     puts article.title
 
-    Post.find_or_initialize_by(title: article.title) do |p|
+    post = Post.find_or_initialize_by(title: article.title) do |p|
       p.content = article.extract
-    end.save!
+    end
+
+    post.save! if post.changed?
   end
 end
-Post.reindex
 
 # Create Admin user
 User.find_or_create_by(is_admin: true) do |user|
