@@ -1,7 +1,12 @@
+require 'shrine'
+
+Shrine.plugin :activerecord
+Shrine.plugin :cached_attachment_data # for forms
+Shrine.plugin :direct_upload
+Shrine.plugin :restore_cached_data
+
 # On precompile, the ENV vars for AWS are not set
 return if ARGV.join.include?('assets:precompile')
-
-require 'shrine'
 
 if Rails.env.test?
   require 'shrine/storage/file_system'
@@ -25,8 +30,3 @@ else
     store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", **s3_options)
   }
 end
-
-Shrine.plugin :activerecord
-Shrine.plugin :cached_attachment_data # for forms
-Shrine.plugin :direct_upload
-Shrine.plugin :restore_cached_data
