@@ -9,6 +9,7 @@ class @Init
   startup_modules: ->
     new FormValidator()
     new HtmlEditor()
+    new Upload()
     new InfiniteScrolling()
     new TimeFormatter()
     new TooltipEnabler()

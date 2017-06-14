@@ -2,6 +2,7 @@
   "name": "docker-rails",
   "private": true,
   "dependencies": {
+    "blueimp-file-upload": "latest",
     "corejs-typeahead": "latest",
     "jquery": "latest",
     "moment": "latest",

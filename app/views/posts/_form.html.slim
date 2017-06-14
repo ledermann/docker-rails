@@ -1,14 +1,21 @@
 = simple_form_for post do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :title
-    = f.input :content
+  .row.form-inputs
+    .col-md-9
+      = f.input :title, placeholder: 'Title', label: false
+      = f.input :content, label: false, placeholder: 'Content'
 
-    - if post.image
-      = image_tag post.image_url(:thumbnail), class: 'img-thumbnail'
-    = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
-    = f.input :image, as: :file
+    .col-md-3
+      = image_tag post.image ? post.image_url(:thumbnail) : asset_path('no-image.png'), \
+                  class: 'img-thumbnail w-100',
+                  id:    'image-preview',
+                  width:  250
+
+      = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
+      .btn.btn-secondary.btn-block.fileinput-button
+        i.fa.fa-upload.fa-2x
+        = f.input :image, as: :file, label: false, wrapper_html: { class: 'mb-0' }
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

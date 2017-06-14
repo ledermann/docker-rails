@@ -3,7 +3,14 @@ return if ARGV.join.include?('assets:precompile')
 
 require 'shrine'
 
-unless Rails.env.test?
+if Rails.env.test?
+  require 'shrine/storage/file_system'
+
+  Shrine.storages = {
+    cache: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/cache'),
+    store: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/store')
+  }
+else
   require 'shrine/storage/s3'
 
   s3_options = {
@@ -21,3 +28,5 @@ end
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for forms
+Shrine.plugin :direct_upload
+Shrine.plugin :restore_cached_data

@@ -52,6 +52,7 @@ gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'aws-sdk'
+gem 'roda'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
