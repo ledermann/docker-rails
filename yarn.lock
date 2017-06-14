@@ -2,30 +2,30 @@
 # yarn lockfile v1
 
 
-corejs-typeahead@^1.1.1:
+corejs-typeahead@latest:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.1.1.tgz#62b2ab841de200256e36548c223b35b45fd7157e"
   dependencies:
     jquery ">=1.11"
 
-jquery@>=1.11, jquery@>=1.8.0, jquery@^3:
+jquery@>=1.11, jquery@>=1.8.0, jquery@latest:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
-moment@^2:
+moment@latest:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-parsleyjs@^2:
+parsleyjs@latest:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.7.2.tgz#8e64e2a2975ce0455edacc45cb1867d0885fca66"
   dependencies:
     jquery ">=1.8.0"
 
-tether@^1:
+tether@latest:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
-trumbowyg@^2.6.0:
+trumbowyg@latest:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.6.0.tgz#84881b53096cba99cecd87a28404a10bade17caa"
