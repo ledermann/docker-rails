@@ -30,3 +30,7 @@ else
     store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", **s3_options)
   }
 end
+
+Shrine.plugin :backgrounding
+Shrine::Attacher.promote { |data| UploadPromoteJob.perform_later(data) }
+Shrine::Attacher.delete { |data| UploadDeleteJob.perform_later(data) }

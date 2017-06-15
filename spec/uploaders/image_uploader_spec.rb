@@ -4,15 +4,15 @@ describe ImageUploader do
   let(:post) { create :post, image: fixture_file_upload('spec/fixtures/example.jpg') }
 
   it 'generates image versions' do
-    expect(post.image.keys).to eq([:original, :thumbnail, :panorama])
+    expect(post.reload.image.keys).to eq([:original, :thumbnail, :panorama])
   end
 
   it 'stores image' do
-    expect(post.image[:original].storage_key).to eq('store')
+    expect(post.reload.image[:original].storage_key).to eq('store')
   end
 
   it 'stores mime type' do
-    expect(post.image[:original].mime_type).to eq('image/jpeg')
+    expect(post.reload.image[:original].mime_type).to eq('image/jpeg')
   end
 
   it 'rejects other files than images' do
