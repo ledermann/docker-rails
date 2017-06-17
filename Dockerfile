@@ -12,7 +12,7 @@ RUN apt-get update && \
 # Install wkhtmltopdf
 RUN apt-get update && apt-get install -y libxrender1 libxext6 fonts-lato --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* && \
-    curl -L#o wk.tar.xz https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
+    curl -L#o wk.tar.xz https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
     && tar xf wk.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/bin \
     && cp wkhtmltox/bin/wkhtmltoimage /usr/bin \
