@@ -1,0 +1,39 @@
+= render 'posts/show_nav', post: post
+
+- cache @post do
+  header
+    h1.display-4
+      span.small Audits of
+      '
+      = @post.title
+
+    p.text-muted
+      | Updated
+      '
+      = time_tag(@post.updated_at)
+
+  - if audits.present?
+    table.table.table-sm.table-borderless
+      thead.thead-inverse
+        tr
+          th
+          th Event
+          th.text-right User
+      tbody
+        - audits.each do |audit|
+          tr
+            td= l audit.created_at, format: :long
+            td
+              - case audit.event
+                - when 'create'
+                  span.badge.badge-success= audit.event
+                - when 'update'
+                  span.badge.badge-info= audit.event
+            td.text-right
+              - if audit.user
+                = audit.user.email
+              - else
+                span.text-muted unknown
+
+  - else
+    em No changes so far

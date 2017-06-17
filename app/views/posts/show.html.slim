@@ -1,30 +1,5 @@
 - title @post.title
 
 - cache @post, expires_in: 1.day do
-  article data-cable-post-id=@post.id
-    header.row
-      .col-sm-10.offset-sm-2
-        h1
-          = @post.title
-
-        p.text-muted
-          | Updated
-          '
-          = time_tag(@post.updated_at)
-
-    .row
-      .col-sm-2.mb-3
-        = link_to post_path(@post, format: 'pdf'), class: 'btn btn-secondary btn-block', data: { toggle: 'tooltip', placement: 'right' }, title: 'Export Post as PDF' do
-          = icon('file-pdf-o fa-fw')
-
-        = link_to edit_post_path(@post), class: 'btn btn-secondary btn-block', data: { toggle: 'tooltip', placement: 'right' }, title: 'Edit Post' do
-          = icon('pencil')
-
-        = link_to @post, method: :delete, class: 'btn btn-danger btn-block', data: { toggle: 'tooltip', placement: 'right', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
-          = icon('trash')
-
-      .col-sm-10
-        - if @post.image
-          p= image_tag @post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid'
-
-        == @post.content
+  = render 'show_nav', post: @post
+  = render 'show_article', post: @post

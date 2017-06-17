@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete, constraints: lambda { |req| req.format == :json }
     end
+
+    resources :audits, only: [ :index ]
   end
 
   root to: 'posts#index'

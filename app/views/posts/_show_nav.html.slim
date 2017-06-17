@@ -1,0 +1,5 @@
+ul.nav.nav-tabs.mb-3.justify-content-end
+  li.nav-item
+    = link_to_active 'Article', post, class: 'nav-link'
+  li.nav-item
+    = link_to_active 'History', [ post, :audits ], class: 'nav-link'

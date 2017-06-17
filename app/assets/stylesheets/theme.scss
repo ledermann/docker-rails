@@ -7,6 +7,10 @@ html, body {
   margin-bottom: 30px;
 }
 
+.table-borderless td, .table-borderless th {
+  border: 0;
+}
+
 td.js-row-link {
   cursor: pointer;
 }
