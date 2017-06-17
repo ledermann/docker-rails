@@ -19,4 +19,27 @@ describe Post do
       subject
     end
   end
+
+  describe "paper_trail" do
+    subject { create(:post) }
+
+    it "adds audits on create" do
+      expect(subject.audits.count).to eq(1)
+      expect(subject.audits.last.event).to eq('create')
+    end
+
+    it "adds version on update" do
+      expect {
+        subject.update_attributes! content: 'foo'
+      }.to change(subject.audits, :count).by(1)
+      expect(subject.audits.last.event).to eq('update')
+    end
+
+    it "adds version on destroy" do
+      expect {
+        subject.destroy
+      }.to change(subject.audits, :count).by(1)
+      expect(subject.audits.last.event).to eq('destroy')
+    end
+  end
 end

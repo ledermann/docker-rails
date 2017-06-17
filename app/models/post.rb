@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   include ImageUploader::Attachment.new(:image)
   include PostSearch
+  has_paper_trail class_name: 'Audit', versions: :audits
 
   validates :title, presence: true
   validates :content, presence: true
