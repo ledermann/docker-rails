@@ -3,13 +3,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = if search_string
-      Post.search_for(search_string,
-                      page:      params[:page],
-                      per_page:  25)
+      Post.search_for(search_string, page: params[:page], per_page: 25)
     else
-      Post.order(updated_at: :desc).
-           page(params[:page]).
-           per(25)
+      Post.order(updated_at: :desc).page(params[:page]).per(25)
     end
     authorize @posts
 

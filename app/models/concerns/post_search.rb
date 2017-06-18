@@ -37,7 +37,7 @@ module PostSearch
       }.merge(options)
     end
 
-    def autocomplete(search_string, options={})
+    def autocomplete(search_string, options = {})
       search search_string, {
         fields:       [ :title ],
         match:        :word_start,

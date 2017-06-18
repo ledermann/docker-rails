@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get :autocomplete, constraints: lambda { |req| req.format == :json }
+      get :autocomplete, constraints: ->(req) { req.format == :json }
     end
 
     resources :audits, only: [ :index ]

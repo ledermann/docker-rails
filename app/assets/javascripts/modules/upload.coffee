@@ -14,7 +14,10 @@ class @Upload
         reader.readAsDataURL file
 
         # Add Progressbar
-        data.progressBar = $('<div class="progress w-100 mt-2"><div class="progress-bar"></div></div>').insertAfter($(this).closest('.fileinput-button'))
+        data.progressBar = $('<div class="progress w-100 mt-2">
+                                <div class="progress-bar">
+                                </div>
+                              </div>').insertAfter($(this).closest('.fileinput-button'))
 
         # Presign file
         options =

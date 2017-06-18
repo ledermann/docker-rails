@@ -1,5 +1,5 @@
 module BootstrapHelper
-  def link_to_active(name, options, html_options={})
+  def link_to_active(name, options, html_options = {})
     if current_page?(options)
       html_options[:class] = Array(html_options[:class])
       html_options[:class] << 'active'

@@ -29,16 +29,16 @@ describe Post do
     end
 
     it "adds version on update" do
-      expect {
+      expect do
         subject.update_attributes! content: 'foo'
-      }.to change(subject.audits, :count).by(1)
+      end.to change(subject.audits, :count).by(1)
       expect(subject.audits.last.event).to eq('update')
     end
 
     it "adds version on destroy" do
-      expect {
+      expect do
         subject.destroy
-      }.to change(subject.audits, :count).by(1)
+      end.to change(subject.audits, :count).by(1)
       expect(subject.audits.last.event).to eq('destroy')
     end
   end
