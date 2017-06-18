@@ -11,7 +11,7 @@ article data-cable-post-id=post.id
   .row
     .col-sm-10
       - if post.image
-        p= image_tag post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid rounded', width: 1200, height: 250
+        p= image_tag post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid rounded'
 
       == post.content
 

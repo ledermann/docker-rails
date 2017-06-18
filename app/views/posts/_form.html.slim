@@ -9,8 +9,7 @@
     .col-md-3
       = image_tag post.image ? post.image_url(:thumbnail) : asset_path('no-image.png'), \
                   class: 'img-thumbnail w-100',
-                  id:    'image-preview',
-                  width:  250
+                  id:    'image-preview'
 
       = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
       .btn.btn-secondary.btn-block.fileinput-button
