@@ -14,10 +14,12 @@ class @Upload
         reader.readAsDataURL file
 
         # Add Progressbar
+        data.fileinput_button = $(this).closest('.fileinput-button')
+        data.fileinput_button.hide()
         data.progressBar = $('<div class="progress w-100 mt-2">
-                                <div class="progress-bar">
+                                <div class="progress-bar" role="progressbar" style="height:50px">
                                 </div>
-                              </div>').insertAfter($(this).closest('.fileinput-button'))
+                              </div>').insertAfter(data.fileinput_button)
 
         # Presign file
         options =
@@ -54,5 +56,6 @@ class @Upload
 
         # Enable form submit
         $(this).closest('form').find('input[type=submit]').attr('disabled', false)
+        data.fileinput_button.show()
 
     return
