@@ -71,10 +71,14 @@ module Wikipedia
     end
 
     def extract
-      @extract ||= as_json['query']['pages'].to_a.first.second['extract']
+      raw_extract.to_s.gsub("\n",'').gsub('<p></p>','')
     end
 
     private
+
+    def raw_extract
+      @raw_extract ||= as_json['query']['pages'].to_a.first.second['extract']
+    end
 
     def as_json
       @as_json ||= JSON.parse(open(json_url).read)
