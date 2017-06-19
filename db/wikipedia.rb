@@ -41,41 +41,43 @@ module Wikipedia
   end
 
   class Article
-    def initialize(name)
-      @name = name
+    def initialize(query)
+      @query = query
     end
 
-    def url
-      escaped_name = CGI.escape(@name)
-      "https://en.wikipedia.org/w/api.php?format=json&action=query&titles=#{escaped_name}&prop=extracts&exintro=&redirects"
+    def json_url
+      escaped_query = CGI.escape(@query)
+      "https://en.wikipedia.org/w/api.php?format=json&action=query&titles=#{escaped_query}&prop=extracts&exintro=&redirects"
     end
 
-    def title
-      raw_title.remove(' (programming language)')
+    def html_url
+      escaped_title = title.gsub(' ','_')
+      "https://en.wikipedia.org/wiki/#{escaped_title}"
     end
 
-    def extract
-      raw_extract
+    def history_url
+      escaped_title = title.gsub(' ','_')
+      "https://en.wikipedia.org/w/index.php?title=#{escaped_title}&action=history"
     end
 
     def valid?
-      raw_extract.present? &&
+      extract.present? &&
         title != 'Wikipedia:Wikimedia sister projects' &&
         title !~ /lists? of/i
     end
 
+    def title
+      @title ||= as_json['query']['pages'].to_a.first.second['title']
+    end
+
+    def extract
+      @extract ||= as_json['query']['pages'].to_a.first.second['extract']
+    end
+
     private
 
-    def raw_title
-      @raw_title ||= as_json['query']['pages'].to_a.first.second['title']
-    end
-
-    def raw_extract
-      @raw_extract ||= as_json['query']['pages'].to_a.first.second['extract']
-    end
-
     def as_json
-      @as_json ||= JSON.parse(open(url).read)
+      @as_json ||= JSON.parse(open(json_url).read)
     end
   end
 end

@@ -4,7 +4,17 @@
   .row.form-inputs
     .col-md-9
       = f.input :title, placeholder: 'Title', label: false
-      = f.input :content, label: false, placeholder: 'Content'
+
+      ul.nav.nav-tabs role="tablist"
+        li.nav-item
+          a.nav-link.active data-toggle="tab" href="#content-tab" role="tab"  Content
+        li.nav-item
+          a.nav-link data-toggle="tab" href="#copyright-tab" role="tab"  Copyright
+      .tab-content
+        #content-tab.tab-pane.active role="tabpanel"
+          = f.input :content, label: false, placeholder: 'Content'
+        #copyright-tab.tab-pane role="tabpanel"
+          = f.input :copyright, label: false, placeholder: 'Copyright'
 
     .col-md-3
       = image_tag post.image ? post.image_url(:thumbnail) : asset_path('no-image.png'), \
