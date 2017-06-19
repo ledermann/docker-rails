@@ -9,6 +9,7 @@
 require_relative 'wikipedia'
 
 # Add some articles from Wikipedia
+PaperTrail.whodunnit = 'Wikipedia'
 Searchkick.callbacks(:bulk) do
   Wikipedia::List.new.articles.each do |article|
     next unless article.valid?

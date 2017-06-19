@@ -33,7 +33,8 @@
               - if audit.user
                 = audit.user.email
               - else
-                span.text-muted unknown
+                span.text-muted
+                  = audit.whodunnit || 'unknown'
 
   - else
     em No changes so far
