@@ -57,7 +57,7 @@ module Wikipedia
 
     def history_url
       escaped_title = title.gsub(' ','_')
-      "https://en.wikipedia.org/w/index.php?title=#{escaped_title}&action=history"
+      "https://en.wikipedia.org/w/index.php?title=#{escaped_title}&amp;action=history"
     end
 
     def valid?
@@ -71,7 +71,14 @@ module Wikipedia
     end
 
     def extract
-      raw_extract.to_s.gsub("\n",'').gsub('<p></p>','')
+      raw_extract
+        .to_s
+        .gsub("\n",'')
+        .gsub('<p></p>','')
+        .gsub('<i>','<em>')
+        .gsub('</i>','</em>')
+        .gsub('<b>','<strong>')
+        .gsub('</b>','</strong>')
     end
 
     private
