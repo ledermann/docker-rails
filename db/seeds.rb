@@ -32,3 +32,4 @@ User.find_or_create_by(is_admin: true) do |user|
   user.email    = ENV.fetch('APP_ADMIN_EMAIL')
   user.password = ENV.fetch('APP_ADMIN_PASSWORD')
 end
+User.first.confirm!
