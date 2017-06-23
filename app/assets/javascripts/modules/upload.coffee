@@ -56,8 +56,10 @@ class @Upload
             mime_type: data.files[0].type
         data.context.find('input').val(JSON.stringify(image))
 
-        # Enable form submit
-        $(this).closest('form').find('input[type=submit]').attr('disabled', false)
-        data.fileinput_button.show()
+        # Enable form submit after last upload is done
+        activeUploads = $('[type=file]').fileupload('active')
+        if activeUploads == 1
+          $(this).closest('form').find('input[type=submit]').attr('disabled', false)
+          data.fileinput_button.show()
 
     return
