@@ -17,7 +17,7 @@ article data-cable-post-id=post.id
           - post.clips.each do |clip|
             .col-2
               .mb-2.mr-2
-                = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail'
+                = image_tag clip.image_url(:thumbnail, expires_in: 1.day), class: 'img-thumbnail'
 
       - if post.copyright.present?
         hr
