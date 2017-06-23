@@ -6,20 +6,22 @@ class @Upload
         # Disable form submit
         $(this).closest('form').find('input[type=submit]').attr('disabled', true)
 
-        # Display image while uploading
-        file = data.files[0]
-        reader = new FileReader()
-        reader.onload = (e) ->
-          $('#image-preview').attr('src', e.target.result)
-        reader.readAsDataURL file
-
-        # Add Progressbar
+        # Hide upload button
         data.fileinput_button = $(this).closest('.fileinput-button')
         data.fileinput_button.hide()
-        data.progressBar = $('<div class="progress w-100 mt-2">
-                                <div class="progress-bar" role="progressbar" style="height:50px">
-                                </div>
-                              </div>').insertAfter(data.fileinput_button)
+
+        # Display image while uploading
+        file = data.files[0]
+        data.context = $(tmpl('template-upload', file))
+        $('.fileinput-button').before(data.context)
+
+        reader = new FileReader()
+        reader.onload = (e) ->
+          data.context.find("img").attr "src", e.target.result
+        reader.readAsDataURL file
+
+        # Show progressbar
+        data.progressBar = data.context.find('.progress')
 
         # Presign file
         options =
@@ -52,7 +54,7 @@ class @Upload
             size: data.files[0].size
             filename: data.files[0].name.match(/[^\/\\]+$/)[0]
             mime_type: data.files[0].type
-        $('#post_image').val(JSON.stringify(image))
+        data.context.find('input').val(JSON.stringify(image))
 
         # Enable form submit
         $(this).closest('form').find('input[type=submit]').attr('disabled', false)

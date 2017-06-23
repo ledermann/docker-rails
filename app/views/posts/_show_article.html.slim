@@ -10,10 +10,14 @@ article data-cable-post-id=post.id
 
   .row
     .col-sm-10
-      - if post.image
-        p= image_tag post.image_url(:panorama, expires_in: 1.day), class: 'img-fluid rounded'
-
       == post.content
+
+      - if post.clips.present?
+        .row.no-gutters
+          - post.clips.each do |clip|
+            .col-2
+              .mb-2.mr-2
+                = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail'
 
       - if post.copyright.present?
         hr

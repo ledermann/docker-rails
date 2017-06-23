@@ -153,14 +153,14 @@ feature 'Post management' do
 
       fill_in 'post[title]', with: 'Bar'
       fill_in 'post[content]', with: '<p>dolor sit amet</p>'
-      attach_file 'post[image]', Rails.root.join('spec/fixtures', 'example.jpg')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'
       expect(page).to have_selector('h1', text: 'Bar')
       expect(page).to have_selector('p', text: 'dolor sit amet')
-      expect(page).to have_selector('img', class: 'img-fluid')
     end
+
+    scenario 'creates a new page with image upload'
 
     scenario 'creates a new page with client side validation', js: true do
       visit new_post_path(as: create(:admin))

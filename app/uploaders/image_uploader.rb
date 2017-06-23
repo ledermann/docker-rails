@@ -17,8 +17,7 @@ class ImageUploader < Shrine
   process(:store) do |io, _context|
     {
       original:  io,
-      thumbnail: resize_to_limit!(io.download, 250, 250),
-      panorama:  resize_to_fill!(io.download, 1200, 250, gravity: 'Center')
+      thumbnail: resize_to_fill!(io.download, 400, 400, gravity: 'Center')
     }
   end
 end

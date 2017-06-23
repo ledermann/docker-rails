@@ -1,30 +1,40 @@
 = simple_form_for post do |f|
   = f.error_notification
 
-  .row.form-inputs
-    .col-md-9
-      = f.input :title, placeholder: 'Title', label: false
+  .form-inputs
+    = f.input :title, placeholder: 'Title', label: false
 
-      ul.nav.nav-tabs role="tablist"
-        li.nav-item
-          a.nav-link.active data-toggle="tab" href="#content-tab" role="tab"  Content
-        li.nav-item
-          a.nav-link data-toggle="tab" href="#copyright-tab" role="tab"  Copyright
-      .tab-content
-        #content-tab.tab-pane.active role="tabpanel"
-          = f.input :content, label: false, placeholder: 'Content'
-        #copyright-tab.tab-pane role="tabpanel"
-          = f.input :copyright, label: false, placeholder: 'Copyright'
+    ul.nav.nav-tabs role="tablist"
+      li.nav-item
+        a.nav-link.active data-toggle="tab" href="#text-tab" role="tab"  Text
+      li.nav-item
+        a.nav-link data-toggle="tab" href="#copyright-tab" role="tab"  Copyright
 
-    .col-md-3
-      = image_tag post.image ? post.image_url(:thumbnail) : asset_path('no-image.png'), \
-                  class: 'img-thumbnail w-100',
-                  id:    'image-preview'
+    .tab-content
+      #text-tab.tab-pane.active role="tabpanel"
+        = f.input :content, label: false, placeholder: 'Content'
+        
+      #copyright-tab.tab-pane role="tabpanel"
+        = f.input :copyright, label: false, placeholder: 'Copyright'
 
-      = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
-      .btn.btn-secondary.btn-block.fileinput-button
-        i.fa.fa-upload.fa-2x
-        = f.input :image, as: :file, label: false, wrapper_html: { class: 'mb-0' }
+    .row.no-gutters
+      - post.clips.each do |clip|
+        .col-2
+          .mb-2.mr-2
+            = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail'
 
+      .col-2.fileinput-button
+        .mb-2.mr-2.img-thumbnail.w-100.text-center
+          i.fa.fa-upload.fa-4x
+          = f.input :dummy, as: :file, label: false, input_html: { multiple: true }
+                
+    script#template-upload type='text/x-tmpl'
+      .col-2
+        .mb-2.mr-2
+          img.img-thumbnail
+          input type="hidden" name="post[clips_attributes][][image]"
+          .progress.mt-1
+            .progress-bar role="progressbar" style="width: 0"
+              
   .form-actions
     = f.button :submit, class: 'btn-primary'

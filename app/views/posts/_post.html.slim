@@ -1,7 +1,7 @@
 - cache [ post, search_string ] do
   tr[data-href=url_for(post)]
     td.js-row-link
-      - if post.image
+      - if post.clips_count > 0
         = icon('picture-o')
         '
 

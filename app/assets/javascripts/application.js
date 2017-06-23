@@ -20,6 +20,7 @@
 //= require blueimp-file-upload/js/vendor/jquery.ui.widget
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload
+//= require blueimp-tmpl/js/tmpl
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
