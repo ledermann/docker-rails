@@ -20,6 +20,7 @@ class @Init
     new TimeFormatter()
     new TooltipEnabler()
     new Autocomplete()
+    new Lightbox()
 
   startup_controller_specific_code: ->
     klass_name = $('body').data('js-class')
