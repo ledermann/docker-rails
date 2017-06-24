@@ -4,3 +4,5 @@ class @Lightbox
       event.preventDefault()
       $(this).ekkoLightbox()
       return
+
+new Lightbox()
