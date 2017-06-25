@@ -264,6 +264,8 @@ GEM
       rubyzip (~> 1.0)
     shrine (2.6.1)
       down (>= 2.3.6)
+    shrine-memory (0.3.0)
+      shrine (~> 2.2)
     sidekiq (5.0.3)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -360,6 +362,7 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   shrine
+  shrine-memory
   sidekiq
   simple_form
   simplecov
