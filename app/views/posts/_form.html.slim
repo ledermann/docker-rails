@@ -17,24 +17,23 @@
         = f.input :content, label: false, placeholder: 'Content'
         
       #clips-tab.tab-pane role="tabpanel"
-        .row.no-gutters.mt-3
-          - post.clips.each do |clip|
-            .col-2
-              .mb-2.mr-2
-                = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail'
+        .fileinput-button.mt-3
+          input multiple="multiple" type="file" 
+          .message Drop files here or click to upload
+          
+          .row.no-gutters#js-images
+            - post.clips.each do |clip|
+              .col-2
+                .mb-2.mr-2
+                  = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail square'
 
-          .col-2.fileinput-button
-            .mb-2.mr-2.img-thumbnail.w-100.text-center
-              i.fa.fa-upload.fa-4x
-              = f.input :dummy, as: :file, label: false, input_html: { multiple: true }
-                    
         script#template-upload type='text/x-tmpl'
           .col-2
             .mb-2.mr-2
-              img.img-thumbnail
+              img.muted.img-thumbnail.square
               input type="hidden" name="post[clips_attributes][][image]"
-              .progress.mt-1
-                .progress-bar role="progressbar" style="width: 0"
+              .progress
+                .progress-bar role="progressbar" style="height: 2px"
 
       #copyright-tab.tab-pane role="tabpanel"
         = f.input :copyright, label: false, placeholder: 'Copyright'

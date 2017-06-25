@@ -1,19 +1,16 @@
 class @Upload
   constructor: ->
     $('[type=file]').fileupload
+      limitConcurrentUploads: 3
 
       add: (e, data) -> # Upload begins
         # Disable form submit
         $(this).closest('form').find('input[type=submit]').attr('disabled', true)
 
-        # Hide upload button
-        data.fileinput_button = $(this).closest('.fileinput-button')
-        data.fileinput_button.hide()
-
         # Display image while uploading
         file = data.files[0]
         data.context = $(tmpl('template-upload', file))
-        $('.fileinput-button').before(data.context)
+        $('#js-images').append(data.context)
 
         reader = new FileReader()
         reader.onload = (e) ->
@@ -46,6 +43,9 @@ class @Upload
         # Remove the progressbar
         data.progressBar.remove()
 
+        # Remove image muting
+        data.context.find("img").removeClass "muted"
+
         # Add image id with metadata as value to hidden input field
         image =
           id: data.formData.key.match(/cache\/(.+)/)[1]
@@ -60,6 +60,5 @@ class @Upload
         activeUploads = $('[type=file]').fileupload('active')
         if activeUploads == 1
           $(this).closest('form').find('input[type=submit]').attr('disabled', false)
-          data.fileinput_button.show()
 
     return

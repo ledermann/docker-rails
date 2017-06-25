@@ -25,7 +25,7 @@ article data-cable-post-id=post.id
         .col-2
           .mb-2.mr-2
             = link_to clip.image_url(:original, expires_in: 1.day), data: { toggle: 'lightbox', gallery: 'gallery' }
-              = image_tag clip.image_url(:thumbnail, expires_in: 1.day), class: 'img-thumbnail'
+              = image_tag clip.image_url(:thumbnail, expires_in: 1.day), class: 'img-thumbnail square'
     hr
 
   == post.content

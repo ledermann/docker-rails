@@ -59,3 +59,25 @@ footer {
     margin-left: 0;
   }
 }
+
+img.square {
+  object-fit: cover;
+  width: 172px;
+  height: 172px;
+}
+
+img.muted {
+  opacity: 0.3;
+}
+
+.fileinput-button {
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  background-color: $gray-lighter;
+  color: $gray-light;
+
+  .message {
+    padding: 15px;
+  }
+}
