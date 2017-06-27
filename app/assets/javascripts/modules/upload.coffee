@@ -12,10 +12,12 @@ class @Upload
         data.context = $(tmpl('template-upload', file))
         $('#js-images').append(data.context)
 
-        reader = new FileReader()
-        reader.onload = (e) ->
-          data.context.find("img").attr "src", e.target.result
-        reader.readAsDataURL file
+        loadImage file, ((img) ->
+          data.context.find("img").replaceWith($(img).addClass("img-thumbnail square muted"))
+          return
+        ),
+          maxWidth: 172,
+          maxHeight: 172
 
         # Show progressbar
         data.progressBar = data.context.find('.progress')
