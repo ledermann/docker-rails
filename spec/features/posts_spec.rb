@@ -99,7 +99,7 @@ feature 'Post management' do
     scenario 'is not allowed to delete a page', js: true do
       visit post_path(example_post)
 
-      page.accept_alert 'Are you sure?' do
+      page.accept_alert do
         find('a[data-original-title="Delete Post"]').click
       end
 
@@ -133,7 +133,7 @@ feature 'Post management' do
     scenario 'deletes an existing page', js: true do
       visit post_path(example_post, as: create(:admin))
 
-      page.accept_alert 'Are you sure?' do
+      page.accept_alert do
         find('a[data-original-title="Delete Post"]').click
       end
 
