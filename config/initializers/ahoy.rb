@@ -1,3 +1,5 @@
 class Ahoy::Store < Ahoy::Stores::ActiveRecordTokenStore
-  Ahoy.geocode = :async
 end
+
+Ahoy.geocode = :async
+Ahoy.throttle = !Rails.env.test?
