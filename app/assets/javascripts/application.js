@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
+//= require ahoy
 //= require parsleyjs
 //= require moment/moment
 //= require tether

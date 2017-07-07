@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   mount ImageUploader::UploadEndpoint => '/upload'
   mount Sidekiq::Web => '/sidekiq'
+  mount Ahoy::Engine => "/ahoy", as: :my_ahoy
 
   # Authentication with Clearance
   resource :session, controller: 'clearance/sessions', only: [:create]

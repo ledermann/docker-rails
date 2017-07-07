@@ -28,3 +28,4 @@ class @Init
 
 $(document).on 'turbolinks:load', ->
   new Init()
+  ahoy.trackAll()

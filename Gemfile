@@ -47,6 +47,7 @@ gem 'skylight'
 gem 'premailer-rails'
 gem 'active_decorator'
 gem 'paper_trail'
+gem 'ahoy_matey'
 
 # Image uploads
 gem 'shrine'
