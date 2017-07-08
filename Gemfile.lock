@@ -55,7 +55,7 @@ GEM
       user_agent_parser
       uuidtools
     arel (8.0.0)
-    autoprefixer-rails (7.1.2)
+    autoprefixer-rails (7.1.2.1)
       execjs
     aws-sdk (2.10.9)
       aws-sdk-resources (= 2.10.9)
@@ -141,7 +141,7 @@ GEM
     hashery (2.1.2)
     hashie (3.5.5)
     htmlentities (4.3.4)
-    i18n (0.8.4)
+    i18n (0.8.5)
     image_processing (0.4.4)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -267,7 +267,7 @@ GEM
     rubyzip (1.2.1)
     safely_block (0.2.0)
       errbase
-    sass (3.4.24)
+    sass (3.4.25)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
