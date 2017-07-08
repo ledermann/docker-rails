@@ -7,6 +7,8 @@ class @Init
     @startup_controller_specific_code()
 
   startup_modules: ->
+    new AhoyTracker()
+
     # Forms
     new FormValidator()
     new HtmlEditor()
@@ -28,4 +30,3 @@ class @Init
 
 $(document).on 'turbolinks:load', ->
   new Init()
-  ahoy.trackAll()
