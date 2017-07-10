@@ -48,6 +48,7 @@ gem 'premailer-rails'
 gem 'active_decorator'
 gem 'paper_trail'
 gem 'ahoy_matey'
+gem 'blazer'
 
 # Image uploads
 gem 'shrine'

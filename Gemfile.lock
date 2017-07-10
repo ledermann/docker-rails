@@ -67,6 +67,10 @@ GEM
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    blazer (1.8.0)
+      chartkick
+      rails
+      safely_block (>= 0.1.1)
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
@@ -81,6 +85,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartkick (2.2.4)
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
     clearance (1.16.0)
@@ -351,6 +356,7 @@ DEPENDENCIES
   active_decorator
   ahoy_matey
   aws-sdk
+  blazer
   bootstrap (~> 4.0.0.alpha6)
   byebug
   capybara (~> 2.13)

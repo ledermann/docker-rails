@@ -66,6 +66,7 @@ app:
     - AWS_SECRET_ACCESS_KEY=my-secret-key
     - AWS_BUCKET=my-bucket
     - AWS_REGION=eu-central-1
+    - BLAZER_DATABASE_URL=postgres://postgres:foobar@db:5432/docker-rails_production
   links:
     - db
     - elasticsearch

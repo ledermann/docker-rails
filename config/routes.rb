@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount Ahoy::Engine => "/ahoy", as: :my_ahoy
 
+  constraints Clearance::Constraints::SignedIn.new { |user| user.is_admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
+
   # Authentication with Clearance
   resource :session, controller: 'clearance/sessions', only: [:create]
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
