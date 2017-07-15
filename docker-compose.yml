@@ -35,7 +35,7 @@ services:
     image: memcached:1.4-alpine
 
   redis:
-    image: redis:3.2-alpine
+    image: redis:4.0-alpine
 
   app: &app_base
     build: .
