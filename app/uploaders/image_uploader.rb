@@ -16,7 +16,7 @@ class ImageUploader < Shrine
 
   process(:store) do |io, _context|
     original  = io.download
-    large     = resize_to_limit!(original, 1200, 1200) { |cmd| cmd.auto_orient }
+    large     = resize_to_limit!(original, 1200, 1200, &:auto_orient)
     thumbnail = resize_to_fill(large, 400, 400, gravity: 'Center')
 
     {
