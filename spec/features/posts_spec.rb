@@ -13,21 +13,21 @@ feature 'Post management' do
       visit posts_path
 
       expect(page).to have_selector('h1', text: 'Example application')
-      expect(page).to have_xpath('.//table/tbody/tr', count: 25)
+      expect(page).to have_css('table tbody tr', count: 25)
       expect(page).to have_selector('#post-count', text: '31 Posts')
       expect(page).to have_link('', href: new_post_path)
 
       # Scroll down to load whole list via infinite scrolling
       scroll_to_bottom
-      expect(page).to have_xpath('.//table/tbody/tr', count: 31)
+      expect(page).to have_css('table tbody tr', count: 31)
 
       # Scroll up again and go to single post by clicking on a row
       scroll_to_top
-      find(:xpath, ".//table/tbody/tr[1]").click
+      first('table tbody tr').click
       expect(page.current_path).to eq(post_path(example_post))
 
       # Go to homepage by clicking an the navbar logo
-      find(:xpath, './/a[contains(@class, "navbar-brand")]').click
+      find('a.navbar-brand').click
       expect(page.current_path).to eq(root_path)
     end
 
@@ -42,7 +42,7 @@ feature 'Post management' do
       end
 
       expect(page).to have_current_path(/q=Exam/)
-      expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
+      expect(page).to have_css('table tbody tr', count: 1, text: 'Example')
       expect(page).to have_selector('#post-count', text: '1 Post')
     end
 
