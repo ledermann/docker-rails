@@ -18,21 +18,29 @@
         ul.navbar-nav.mr-auto
 
         ul.navbar-nav
-          li.nav-item
-            = link_to new_post_path, \
-                class: 'btn btn-primary',
-                title: 'Add new Post',
-                data: { toggle: 'tooltip', placement: 'bottom' } do
-              i.fa.fa-plus
-
-          li.nav-item
-            = link_to sidekiq_web_path, \
-                class: 'btn btn-secondary ml-lg-2',
-                title: 'Sidekiq',
-                data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
-              i.fa.fa-cogs
-
           - if signed_in?
+            li.nav-item
+              = link_to new_post_path, \
+                  class: 'btn btn-primary',
+                  title: 'Add new Post',
+                  data: { toggle: 'tooltip', placement: 'bottom' } do
+                i.fa.fa-plus
+
+            - if current_user.is_admin?
+              li.nav-item
+                = link_to sidekiq_web_path, \
+                    class: 'btn btn-secondary ml-lg-2',
+                    title: 'Sidekiq',
+                    data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+                  i.fa.fa-cogs
+
+              li.nav-item  
+                = link_to blazer_path, \
+                    class: 'btn btn-secondary ml-lg-2',
+                    title: 'Blazer',
+                    data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+                  i.fa.fa-binoculars
+
             li.nav-item.dropdown
               a.btn.btn-secondary.dropdown-toggle.ml-lg-2 {
                 aria-expanded="false"
@@ -51,6 +59,12 @@
                   = I18n.t('layouts.application.sign_out')
 
           - else
+            li.nav-item
+              = link_to sign_up_path, class: 'btn btn-secondary' do
+                i.fa.fa-user-plus
+                '
+                = I18n.t("layouts.application.sign_up")
+              
             li.nav-item
               = link_to sign_in_path, class: 'btn btn-secondary ml-lg-2' do
                 i.fa.fa-user-circle

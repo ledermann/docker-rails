@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount ImageUploader::UploadEndpoint => '/upload'
-  mount Sidekiq::Web => '/sidekiq'
   mount Ahoy::Engine => "/ahoy", as: :my_ahoy
 
   constraints Clearance::Constraints::SignedIn.new { |user| user.is_admin? } do
+    mount Sidekiq::Web => '/sidekiq'
     mount Blazer::Engine, at: "blazer"
   end
 
