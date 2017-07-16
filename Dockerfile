@@ -46,7 +46,7 @@ RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 # Add the nginx site and config
 RUN rm -rf /etc/nginx/sites-available/default
 ADD docker/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80 443
+EXPOSE 80
 
 # Save timestamp of image building
 RUN date -u > BUILD_TIME
