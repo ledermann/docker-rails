@@ -51,5 +51,5 @@ tether@latest:
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
 trumbowyg@latest:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.6.0.tgz#84881b53096cba99cecd87a28404a10bade17caa"
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.7.0.tgz#8d270031c6afde05a9b637698ef7b3ff01e39933"
