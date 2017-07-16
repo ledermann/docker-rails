@@ -7,7 +7,10 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/ledermann/docker-rails.svg)](https://greenkeeper.io/)
 [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
 
-Simple Rails 5.1 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates the following features:
+Simple Rails 5.1 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it demonstrates some non-default features.
+
+
+## Features
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed post gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content (with suggestions)
@@ -19,10 +22,15 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
+- User visit and click tracking with [Ahoy](https://github.com/ankane/ahoy) gem
+- Admin dashboards with [Blazer](https://github.com/ankane/blazer) gem
 - Controller specific JavaScript embedded into the asset pipeline
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
-The techniques used to build this app should not be considered as "best practice", maybe there are better ways to build. The repo demonstrates my way of building Rails applications. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
+
+## Why?
+
+This repo demonstrates my way of building Rails applications. The techniques used to build the app should not be considered as "best practice", maybe there are better ways to build. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 
 
 ## Multi container architecture
