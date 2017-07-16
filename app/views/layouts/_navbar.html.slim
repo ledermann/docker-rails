@@ -31,6 +31,12 @@
                 title: 'Sidekiq',
                 data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
               i.fa.fa-cogs
+              
+            = link_to blazer_path, \
+                class: 'btn btn-secondary ml-lg-2',
+                title: 'Blazer',
+                data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+              i.fa.fa-binoculars
 
           - if signed_in?
             li.nav-item.dropdown
