@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe PostSearch do
   describe '#content_as_plaintext' do
-    let(:post) { Post.new(content: '<style type="text/css">body { margin: 10px; }</style> This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>') }
+    let(:html) { '<style type="text/css">body { margin: 10px; }</style> This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>' }
+    let(:post) { Post.new content: html }
 
     describe "#content_as_plaintext" do
       it "removes all tags" do

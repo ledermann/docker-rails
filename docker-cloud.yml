@@ -22,7 +22,7 @@ backup:
     - SCHEDULE=@daily
 
 elasticsearch:
-  image: 'docker.elastic.co/elasticsearch/elasticsearch:5.4.1'
+  image: 'docker.elastic.co/elasticsearch/elasticsearch:5.5.0'
   restart: always
   environment:
     - xpack.security.enabled=false
@@ -33,7 +33,7 @@ memcached:
   restart: always
 
 redis:
-  image: 'redis:3.2-alpine'
+  image: 'redis:4.0-alpine'
   restart: always
 
 app:
@@ -66,6 +66,7 @@ app:
     - AWS_SECRET_ACCESS_KEY=my-secret-key
     - AWS_BUCKET=my-bucket
     - AWS_REGION=eu-central-1
+    - BLAZER_DATABASE_URL=postgres://postgres:foobar@db:5432/docker-rails_production
   links:
     - db
     - elasticsearch

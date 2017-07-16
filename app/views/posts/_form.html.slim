@@ -1,21 +1,42 @@
 = simple_form_for post do |f|
   = f.error_notification
 
-  .row.form-inputs
-    .col-md-9
-      = f.input :title, placeholder: 'Title', label: false
-      = f.input :content, label: false, placeholder: 'Content'
+  .form-inputs
+    = f.input :title, placeholder: 'Title', label: false
 
-    .col-md-3
-      = image_tag post.image ? post.image_url(:thumbnail) : asset_path('no-image.png'), \
-                  class: 'img-thumbnail w-100',
-                  id:    'image-preview',
-                  width:  250
+    ul.nav.nav-tabs role="tablist"
+      li.nav-item
+        a.nav-link.active data-toggle="tab" href="#text-tab" role="tab"  Text
+      li.nav-item
+        a.nav-link data-toggle="tab" href="#clips-tab" role="tab"  Images
+      li.nav-item
+        a.nav-link data-toggle="tab" href="#copyright-tab" role="tab"  Copyright
 
-      = f.input :image, as: :hidden, input_html: { value: post.cached_image_data }
-      .btn.btn-secondary.btn-block.fileinput-button
-        i.fa.fa-upload.fa-2x
-        = f.input :image, as: :file, label: false, wrapper_html: { class: 'mb-0' }
+    .tab-content
+      #text-tab.tab-pane.active role="tabpanel"
+        = f.input :content, label: false, placeholder: 'Content'
+        
+      #clips-tab.tab-pane role="tabpanel"
+        .fileinput-button.mt-3
+          input multiple="multiple" type="file" 
+          .message Drop files here or click to upload
+          
+          .row.no-gutters#js-images
+            - post.clips.each do |clip|
+              .col-2
+                .mb-2.mr-2
+                  = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail square'
+
+        script#template-upload type='text/x-tmpl'
+          .col-2
+            .mb-2.mr-2
+              img
+              input type="hidden" name="post[clips_attributes][][image]"
+              .progress
+                .progress-bar role="progressbar" style="height: 2px"
+
+      #copyright-tab.tab-pane role="tabpanel"
+        = f.input :copyright, label: false, placeholder: 'Copyright'
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

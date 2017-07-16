@@ -1,0 +1,36 @@
+article data-cable-post-id=post.id
+  header
+    .pull-right
+      .btn-group
+        = link_to post_path(post, format: 'pdf'), class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Export Post as PDF' do
+          = icon('file-pdf-o fa-lg')
+
+        = link_to edit_post_path(post), class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Edit Post' do
+          = icon('pencil fa-lg')
+
+        = link_to post, method: :delete, class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
+          = icon('trash fa-lg')
+
+    h1.display-4
+      = post.title
+
+    p.text-muted
+      | Updated
+      '
+      = time_tag(post.updated_at)
+
+  - if post.clips.present?
+    .row.no-gutters
+      - post.clips.each do |clip|
+        .col-2
+          .mb-2.mr-2
+            = link_to clip.image_url(:large, expires_in: 1.day), data: { toggle: 'lightbox', gallery: 'gallery' }
+              = image_tag clip.image_url(:thumbnail, expires_in: 1.day), class: 'img-thumbnail square'
+    hr
+
+  == post.content
+
+  - if post.copyright.present?
+    hr
+    .small.text-muted
+      == post.copyright

@@ -1,6 +1,7 @@
 class @Upload
   constructor: ->
     $('[type=file]').fileupload
+      limitConcurrentUploads: 3
 
       add: (e, data) -> # Upload begins
         # Disable form submit
@@ -8,13 +9,18 @@ class @Upload
 
         # Display image while uploading
         file = data.files[0]
-        reader = new FileReader()
-        reader.onload = (e) ->
-          $('#image-preview').attr('src', e.target.result)
-        reader.readAsDataURL file
+        data.context = $(tmpl('template-upload', file))
+        $('#js-images').append(data.context)
 
-        # Add Progressbar
-        data.progressBar = $('<div class="progress w-100 mt-2"><div class="progress-bar"></div></div>').insertAfter($(this).closest('.fileinput-button'))
+        loadImage file, ((img) ->
+          data.context.find("img").replaceWith($(img).addClass("img-thumbnail square muted"))
+          return
+        ),
+          maxWidth: 172,
+          maxHeight: 172
+
+        # Show progressbar
+        data.progressBar = data.context.find('.progress')
 
         # Presign file
         options =
@@ -39,6 +45,9 @@ class @Upload
         # Remove the progressbar
         data.progressBar.remove()
 
+        # Remove image muting
+        data.context.find("img").removeClass "muted"
+
         # Add image id with metadata as value to hidden input field
         image =
           id: data.formData.key.match(/cache\/(.+)/)[1]
@@ -47,9 +56,11 @@ class @Upload
             size: data.files[0].size
             filename: data.files[0].name.match(/[^\/\\]+$/)[0]
             mime_type: data.files[0].type
-        $('#post_image').val(JSON.stringify(image))
+        data.context.find('input').val(JSON.stringify(image))
 
-        # Enable form submit
-        $(this).closest('form').find('input[type=submit]').attr('disabled', false)
+        # Enable form submit after last upload is done
+        activeUploads = $('[type=file]').fileupload('active')
+        if activeUploads == 1
+          $(this).closest('form').find('input[type=submit]').attr('disabled', false)
 
     return

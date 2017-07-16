@@ -7,10 +7,17 @@ class @Init
     @startup_controller_specific_code()
 
   startup_modules: ->
+    new AhoyTracker()
+
+    # Forms
     new FormValidator()
     new HtmlEditor()
     new Upload()
+
+    # Lists
     new InfiniteScrolling()
+
+    # General
     new TimeFormatter()
     new TooltipEnabler()
     new Autocomplete()

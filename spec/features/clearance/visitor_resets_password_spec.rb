@@ -3,13 +3,6 @@ require "rails_helper"
 feature "Visitor resets password" do
   before { ActionMailer::Base.deliveries.clear }
 
-  around do |example|
-    original_adapter = ActiveJob::Base.queue_adapter
-    ActiveJob::Base.queue_adapter = :inline
-    example.run
-    ActiveJob::Base.queue_adapter = original_adapter
-  end
-
   scenario "by navigating to the page" do
     visit sign_in_path
 

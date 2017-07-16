@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   mount ImageUploader::UploadEndpoint => '/upload'
   mount Sidekiq::Web => '/sidekiq'
+  mount Ahoy::Engine => "/ahoy", as: :my_ahoy
+
+  constraints Clearance::Constraints::SignedIn.new { |user| user.is_admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
 
   # Authentication with Clearance
   resource :session, controller: 'clearance/sessions', only: [:create]
@@ -20,8 +25,10 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get :autocomplete, constraints: lambda { |req| req.format == :json }
+      get :autocomplete, constraints: ->(req) { req.format == :json }
     end
+
+    resources :audits, only: [ :index ]
   end
 
   root to: 'posts#index'

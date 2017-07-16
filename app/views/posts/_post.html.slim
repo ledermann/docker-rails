@@ -1,7 +1,7 @@
 - cache [ post, search_string ] do
   tr[data-href=url_for(post)]
     td.js-row-link
-      - if post.image
+      - if post.clips_count > 0
         = icon('picture-o')
         '
 
@@ -20,5 +20,5 @@
         - else
           = post.content_as_plaintext.truncate(300)
 
-    td.js-row-link.text-right.hidden-xs-down.nowrap
+    td.js-row-link.text-right.hidden-xs-down.text-nowrap
       = time_tag post.updated_at

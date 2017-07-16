@@ -13,21 +13,21 @@ feature 'Post management' do
       visit posts_path
 
       expect(page).to have_selector('h1', text: 'Example application')
-      expect(page).to have_xpath('.//table/tbody/tr', count: 25)
+      expect(page).to have_css('table tbody tr', count: 25)
       expect(page).to have_selector('#post-count', text: '31 Posts')
       expect(page).to have_link('', href: new_post_path)
 
       # Scroll down to load whole list via infinite scrolling
       scroll_to_bottom
-      expect(page).to have_xpath('.//table/tbody/tr', count: 31)
+      expect(page).to have_css('table tbody tr', count: 31)
 
       # Scroll up again and go to single post by clicking on a row
       scroll_to_top
-      find(:xpath, ".//table/tbody/tr[1]").click
+      first('table tbody tr').click
       expect(page.current_path).to eq(post_path(example_post))
 
       # Go to homepage by clicking an the navbar logo
-      find(:xpath, './/a[contains(@class, "navbar-brand")]').click
+      find('a.navbar-brand').click
       expect(page.current_path).to eq(root_path)
     end
 
@@ -42,7 +42,7 @@ feature 'Post management' do
       end
 
       expect(page).to have_current_path(/q=Exam/)
-      expect(page).to have_xpath('.//table/tbody/tr', count: 1, text: 'Example')
+      expect(page).to have_css('table tbody tr', count: 1, text: 'Example')
       expect(page).to have_selector('#post-count', text: '1 Post')
     end
 
@@ -99,7 +99,7 @@ feature 'Post management' do
     scenario 'is not allowed to delete a page', js: true do
       visit post_path(example_post)
 
-      page.accept_alert 'Are you sure?' do
+      page.accept_alert do
         find('a[data-original-title="Delete Post"]').click
       end
 
@@ -133,7 +133,7 @@ feature 'Post management' do
     scenario 'deletes an existing page', js: true do
       visit post_path(example_post, as: create(:admin))
 
-      page.accept_alert 'Are you sure?' do
+      page.accept_alert do
         find('a[data-original-title="Delete Post"]').click
       end
 
@@ -153,14 +153,14 @@ feature 'Post management' do
 
       fill_in 'post[title]', with: 'Bar'
       fill_in 'post[content]', with: '<p>dolor sit amet</p>'
-      attach_file 'post[image]', Rails.root.join('spec/fixtures', 'example.jpg')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'
       expect(page).to have_selector('h1', text: 'Bar')
       expect(page).to have_selector('p', text: 'dolor sit amet')
-      expect(page).to have_selector('img', class: 'img-fluid')
     end
+
+    scenario 'creates a new page with image upload'
 
     scenario 'creates a new page with client side validation', js: true do
       visit new_post_path(as: create(:admin))

@@ -3,13 +3,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = if search_string
-      Post.search_for(search_string,
-                      page:      params[:page],
-                      per_page:  25)
+      Post.search_for(search_string, page: params[:page], per_page: 25)
     else
-      Post.order(updated_at: :desc).
-           page(params[:page]).
-           per(25)
+      Post.order(updated_at: :desc).page(params[:page]).per(25)
     end
     authorize @posts
 
@@ -79,7 +75,7 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :copyright, clips_attributes: [ :id, :image, :_destroy ])
   end
 
   helper_method def search_string

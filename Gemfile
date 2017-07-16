@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.1'
+gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use SCSS for stylesheets
@@ -46,6 +46,9 @@ gem 'pundit'
 gem 'skylight'
 gem 'premailer-rails'
 gem 'active_decorator'
+gem 'paper_trail'
+gem 'ahoy_matey'
+gem 'blazer'
 
 # Image uploads
 gem 'shrine'
@@ -84,6 +87,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'pdf-reader'
   gem 'email_spec'
+  gem 'shrine-memory'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -9,11 +9,11 @@ Shrine.plugin :restore_cached_data
 return if ARGV.join.include?('assets:precompile')
 
 if Rails.env.test?
-  require 'shrine/storage/file_system'
+  require "shrine/storage/memory"
 
   Shrine.storages = {
-    cache: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/cache'),
-    store: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/store')
+    cache: Shrine::Storage::Memory.new,
+    store: Shrine::Storage::Memory.new,
   }
 else
   require 'shrine/storage/s3'

@@ -3,6 +3,6 @@ class PostRelayJob < ApplicationJob
 
   def perform(post)
     PostUpdateChannel.broadcast_to post,
-                                   html: PostsController.render(action: 'show', layout: false, assigns: { post: post })
+                                   html: PostsController.render(partial: 'posts/show_article', locals: { post: post })
   end
 end
