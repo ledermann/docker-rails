@@ -55,7 +55,7 @@ GEM
       user_agent_parser
       uuidtools
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.2)
+    autoprefixer-rails (7.1.2.3)
       execjs
     aws-sdk (2.10.13)
       aws-sdk-resources (= 2.10.13)
