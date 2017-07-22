@@ -133,7 +133,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faraday (0.12.1)
+    faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
@@ -183,7 +183,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     nio4r (2.1.0)
@@ -412,4 +412,4 @@ DEPENDENCIES
   wicked_pdf
 
 BUNDLED WITH
-   1.15.2
+   1.15.3
