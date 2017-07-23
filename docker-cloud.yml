@@ -29,7 +29,7 @@ elasticsearch:
     - xpack.monitoring.enabled=false
 
 memcached:
-  image: 'memcached:1.4-alpine'
+  image: 'memcached:1.5-alpine'
   restart: always
 
 redis:
