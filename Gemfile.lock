@@ -70,8 +70,9 @@ GEM
       chartkick
       rails
       safely_block (>= 0.1.1)
-    bootstrap (4.0.0.alpha6)
+    bootstrap (4.0.0.beta)
       autoprefixer-rails (>= 6.0.3)
+      popper_js (~> 1.11.1)
       sass (>= 3.4.19)
     browser (2.5.0)
     builder (3.2.3)
@@ -199,6 +200,7 @@ GEM
       ruby-rc4
       ttfunk
     pg (0.21.0)
+    popper_js (1.11.1)
     premailer (1.10.4)
       addressable
       css_parser (>= 1.4.10)
@@ -363,7 +365,7 @@ DEPENDENCIES
   ahoy_matey
   aws-sdk
   blazer
-  bootstrap (~> 4.0.0.alpha6)
+  bootstrap (~> 4.0.0.beta)
   byebug
   capybara (~> 2.13)
   clearance

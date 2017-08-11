@@ -29,8 +29,8 @@ footer {
   width: 100%;
   padding: 10px 0;
   font-size: 75%;
-  background: $gray-light;
-  color: $gray-lighter;
+  background: $gray-700;
+  color: $gray-200;
 
   dl.row {
     margin-bottom: 0;
@@ -51,15 +51,6 @@ footer {
   }
 }
 
-// Fix toggler on small displays
-// https://github.com/twbs/bootstrap/pull/21722
-@include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
-  nav > .container {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
 img.square {
   object-fit: cover;
   width: 172px;
@@ -74,8 +65,8 @@ img.muted {
   width: 100%;
   padding: 15px;
   text-align: center;
-  background-color: $gray-lighter;
-  color: $gray-light;
+  background-color: $gray-200;
+  color: $gray-700;
 
   .message {
     padding: 15px;

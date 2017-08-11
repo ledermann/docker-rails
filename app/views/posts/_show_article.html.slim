@@ -2,13 +2,13 @@ article data-cable-post-id=post.id
   header
     .pull-right
       .btn-group
-        = link_to post_path(post, format: 'pdf'), class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Export Post as PDF' do
+        = link_to post_path(post, format: 'pdf'), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Export Post as PDF' do
           = icon('file-pdf-o fa-lg')
 
-        = link_to edit_post_path(post), class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Edit Post' do
+        = link_to edit_post_path(post), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Edit Post' do
           = icon('pencil fa-lg')
 
-        = link_to post, method: :delete, class: 'btn btn-secondary', data: { toggle: 'tooltip', placement: 'bottom', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
+        = link_to post, method: :delete, class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
           = icon('trash fa-lg')
 
     h1.display-4

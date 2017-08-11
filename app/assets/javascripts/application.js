@@ -15,6 +15,7 @@
 //= require parsleyjs
 //= require moment/moment
 //= require tether
+//= require popper
 //= require bootstrap-sprockets
 //= require corejs-typeahead/dist/typeahead.bundle
 //= require trumbowyg/dist/trumbowyg
