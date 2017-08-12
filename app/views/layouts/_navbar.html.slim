@@ -1,5 +1,5 @@
 - cache [ 'navbar', I18n.locale, current_user ] do
-  nav.navbar.fixed-top.navbar-expand-md.navbar-light.bg-light
+  nav.navbar.fixed-top.navbar-expand-md.navbar-dark.bg-dark
     .container
       a.navbar-brand href=root_path
         | DockerRails
@@ -29,20 +29,20 @@
             - if current_user.is_admin?
               li.nav-item
                 = link_to sidekiq_web_path, \
-                    class: 'btn btn-outline-dark ml-md-2',
+                    class: 'btn btn-light ml-md-2',
                     title: 'Sidekiq',
                     data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
                   i.fa.fa-cogs
 
               li.nav-item  
                 = link_to blazer_path, \
-                    class: 'btn btn-outline-dark ml-md-2',
+                    class: 'btn btn-light ml-md-2',
                     title: 'Blazer',
                     data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
                   i.fa.fa-binoculars
 
             li.nav-item.dropdown
-              a.btn.btn-outline-dark.dropdown-toggle.ml-md-2 {
+              a.btn.btn-light.dropdown-toggle.ml-md-2 {
                 aria-expanded="false"
                 aria-haspopup="true"
                 data-toggle="dropdown"
@@ -60,13 +60,13 @@
 
           - else
             li.nav-item
-              = link_to sign_up_path, class: 'btn btn-outline-dark' do
+              = link_to sign_up_path, class: 'btn btn-light' do
                 i.fa.fa-user-plus
                 '
                 = I18n.t("layouts.application.sign_up")
               
             li.nav-item
-              = link_to sign_in_path, class: 'btn btn-outline-dark ml-md-2' do
+              = link_to sign_in_path, class: 'btn btn-light ml-md-2' do
                 i.fa.fa-user-circle
                 '
                 = I18n.t("layouts.application.sign_in")

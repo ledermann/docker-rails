@@ -20,5 +20,5 @@
         - else
           = post.content_as_plaintext.truncate(300)
 
-    td.js-row-link.text-right.hidden-xs-down.text-nowrap
-      = time_tag post.updated_at
+    td.js-row-link.text-right.d-none.d-md-block.text-nowrap
+      .badge.badge-secondary= time_tag post.updated_at
