@@ -48,6 +48,8 @@ gem 'premailer-rails'
 gem 'paper_trail'
 gem 'ahoy_matey'
 gem 'blazer'
+gem 'friendly_id'
+gem 'stringex'
 
 # Image uploads
 gem 'shrine'

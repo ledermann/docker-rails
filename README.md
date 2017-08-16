@@ -19,6 +19,7 @@ Simple Rails 5.1 application to demonstrate using Docker for production deployme
 - Editing HTML content with the WYSIWYG JavaScript editor [Trumbowyg](https://github.com/Alex-D/Trumbowyg)
 - Uploading images directly to S3 with the [Shrine](https://github.com/janko-m/shrine) gem and [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and the [Sidekiq](http://sidekiq.org/) gem (to handle full text indexing, image processing and ActionCable broadcasting)
+- Permalinks using the [FriendlyId](https://github.com/norman/friendly_id) gem
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
