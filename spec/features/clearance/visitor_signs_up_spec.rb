@@ -4,7 +4,7 @@ feature "Visitor signs up" do
   scenario "by navigating to the page" do
     visit sign_in_path
 
-    within 'form' do
+    within '.navbar' do
       click_link I18n.t("sessions.form.sign_up")
     end
 

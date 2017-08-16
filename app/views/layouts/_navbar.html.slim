@@ -17,32 +17,29 @@
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
 
-        ul.navbar-nav
+        form.form-inline
           - if signed_in?
-            li.nav-item
-              = link_to new_post_path, \
-                  class: 'btn btn-primary',
-                  title: 'Add new Post',
-                  data: { toggle: 'tooltip', placement: 'bottom' } do
-                i.fa.fa-plus
+            = link_to new_post_path, \
+                class: 'btn btn-primary btn-sm mr-2',
+                title: 'Add new Post',
+                data: { toggle: 'tooltip', placement: 'bottom' } do
+              i.fa.fa-plus
 
             - if current_user.is_admin?
-              li.nav-item
-                = link_to sidekiq_web_path, \
-                    class: 'btn btn-light ml-md-2',
-                    title: 'Sidekiq',
-                    data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
-                  i.fa.fa-cogs
+              = link_to sidekiq_web_path, \
+                  class: 'btn btn-light btn-sm mr-2',
+                  title: 'Sidekiq',
+                  data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+                i.fa.fa-cogs
 
-              li.nav-item  
-                = link_to blazer_path, \
-                    class: 'btn btn-light ml-md-2',
-                    title: 'Blazer',
-                    data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
-                  i.fa.fa-binoculars
+              = link_to blazer_path, \
+                  class: 'btn btn-light btn-sm mr-2',
+                  title: 'Blazer',
+                  data: { turbolinks: 'false', toggle: 'tooltip', placement: 'bottom' } do
+                i.fa.fa-binoculars
 
-            li.nav-item.dropdown
-              a.btn.btn-light.dropdown-toggle.ml-md-2 {
+            .nav-item.dropdown
+              a.btn.btn-light.btn-sm.dropdown-toggle {
                 aria-expanded="false"
                 aria-haspopup="true"
                 data-toggle="dropdown"
@@ -59,14 +56,12 @@
                   = I18n.t('layouts.application.sign_out')
 
           - else
-            li.nav-item
-              = link_to sign_up_path, class: 'btn btn-light' do
-                i.fa.fa-user-plus
-                '
-                = I18n.t("layouts.application.sign_up")
+            = link_to sign_up_path, class: 'btn btn-light btn-sm mr-2' do
+              i.fa.fa-user-plus
+              '
+              = I18n.t("layouts.application.sign_up")
               
-            li.nav-item
-              = link_to sign_in_path, class: 'btn btn-light ml-md-2' do
-                i.fa.fa-user-circle
-                '
-                = I18n.t("layouts.application.sign_in")
+            = link_to sign_in_path, class: 'btn btn-light btn-sm' do
+              i.fa.fa-user-circle
+              '
+              = I18n.t("layouts.application.sign_in")
