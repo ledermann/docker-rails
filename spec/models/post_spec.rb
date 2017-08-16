@@ -42,4 +42,17 @@ describe Post do
       expect(subject.audits.last.event).to eq('destroy')
     end
   end
+
+  describe 'friendly_id' do
+    subject(:post) { create :post, title: 'c++' }
+
+    it 'creates slug from title' do
+      expect(post.slug).to eq('c-plus-plus')
+    end
+
+    it 'updates slug if title changes' do
+      post.update_attributes! title: 'c+++'
+      expect(post.slug).to eq('c-plus-plus-plus')
+    end
+  end
 end

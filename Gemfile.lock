@@ -2,40 +2,39 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
-    actioncable (5.1.2)
-      actionpack (= 5.1.2)
+    actioncable (5.1.3)
+      actionpack (= 5.1.3)
       nio4r (~> 2.0)
       websocket-driver (~> 0.6.1)
-    actionmailer (5.1.2)
-      actionpack (= 5.1.2)
-      actionview (= 5.1.2)
-      activejob (= 5.1.2)
+    actionmailer (5.1.3)
+      actionpack (= 5.1.3)
+      actionview (= 5.1.3)
+      activejob (= 5.1.3)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.1.2)
-      actionview (= 5.1.2)
-      activesupport (= 5.1.2)
+    actionpack (5.1.3)
+      actionview (= 5.1.3)
+      activesupport (= 5.1.3)
       rack (~> 2.0)
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.1.2)
-      activesupport (= 5.1.2)
+    actionview (5.1.3)
+      activesupport (= 5.1.3)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_decorator (1.0.0)
-    activejob (5.1.2)
-      activesupport (= 5.1.2)
+    activejob (5.1.3)
+      activesupport (= 5.1.3)
       globalid (>= 0.3.6)
-    activemodel (5.1.2)
-      activesupport (= 5.1.2)
-    activerecord (5.1.2)
-      activemodel (= 5.1.2)
-      activesupport (= 5.1.2)
+    activemodel (5.1.3)
+      activesupport (= 5.1.3)
+    activerecord (5.1.3)
+      activemodel (= 5.1.3)
+      activesupport (= 5.1.3)
       arel (~> 8.0)
-    activesupport (5.1.2)
+    activesupport (5.1.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -55,15 +54,15 @@ GEM
       user_agent_parser
       uuidtools
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.3)
+    autoprefixer-rails (7.1.2.6)
       execjs
-    aws-sdk (2.10.13)
-      aws-sdk-resources (= 2.10.13)
-    aws-sdk-core (2.10.13)
+    aws-sdk (2.10.27)
+      aws-sdk-resources (= 2.10.27)
+    aws-sdk-core (2.10.27)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.13)
-      aws-sdk-core (= 2.10.13)
+    aws-sdk-resources (2.10.27)
+      aws-sdk-core (= 2.10.27)
     aws-sigv4 (1.0.1)
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -71,16 +70,17 @@ GEM
       chartkick
       rails
       safely_block (>= 0.1.1)
-    bootstrap (4.0.0.alpha6)
+    bootstrap (4.0.0.beta)
       autoprefixer-rails (>= 6.0.3)
+      popper_js (~> 1.11.1)
       sass (>= 3.4.19)
-    browser (2.4.0)
+    browser (2.5.0)
     builder (3.2.3)
     byebug (9.0.6)
     callsite (0.0.11)
-    capybara (2.14.4)
+    capybara (2.15.1)
       addressable
-      mime-types (>= 1.16)
+      mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
@@ -133,13 +133,15 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faraday (0.12.1)
+    faraday (0.13.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     foreman (0.84.0)
       thor (~> 0.19.1)
+    friendly_id (5.2.1)
+      activerecord (>= 4.0.0)
     geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -182,8 +184,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
+    mini_mime (0.1.4)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     nio4r (2.1.0)
@@ -199,6 +202,7 @@ GEM
       ruby-rc4
       ttfunk
     pg (0.21.0)
+    popper_js (1.11.1)
     premailer (1.10.4)
       addressable
       css_parser (>= 1.4.10)
@@ -219,26 +223,26 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (5.1.2)
-      actioncable (= 5.1.2)
-      actionmailer (= 5.1.2)
-      actionpack (= 5.1.2)
-      actionview (= 5.1.2)
-      activejob (= 5.1.2)
-      activemodel (= 5.1.2)
-      activerecord (= 5.1.2)
-      activesupport (= 5.1.2)
-      bundler (>= 1.3.0, < 2.0)
-      railties (= 5.1.2)
+    rails (5.1.3)
+      actioncable (= 5.1.3)
+      actionmailer (= 5.1.3)
+      actionpack (= 5.1.3)
+      actionview (= 5.1.3)
+      activejob (= 5.1.3)
+      activemodel (= 5.1.3)
+      activerecord (= 5.1.3)
+      activesupport (= 5.1.3)
+      bundler (>= 1.3.0)
+      railties (= 5.1.3)
       sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    railties (5.1.2)
-      actionpack (= 5.1.2)
-      activesupport (= 5.1.2)
+    railties (5.1.3)
+      actionpack (= 5.1.3)
+      activesupport (= 5.1.3)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
@@ -262,7 +266,7 @@ GEM
     rspec-mocks (3.6.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
-    rspec-rails (3.6.0)
+    rspec-rails (3.6.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -290,7 +294,7 @@ GEM
       activemodel (>= 4.1)
       elasticsearch (>= 1)
       hashie
-    selenium-webdriver (3.4.4)
+    selenium-webdriver (3.5.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     shrine (2.6.1)
@@ -305,11 +309,11 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
-    simplecov (0.14.1)
+    simplecov (0.15.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.1)
+    simplecov-html (0.10.2)
     skylight (1.3.1)
       activesupport (>= 3.0.0)
     slim (3.0.8)
@@ -330,10 +334,11 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stringex (2.7.1)
     temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     ttfunk (1.5.1)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
@@ -342,7 +347,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    user_agent_parser (2.3.1)
+    user_agent_parser (2.3.2)
     uuidtools (2.1.5)
     web-console (3.5.1)
       actionview (>= 5.0)
@@ -360,11 +365,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator
   ahoy_matey
   aws-sdk
   blazer
-  bootstrap (~> 4.0.0.alpha6)
+  bootstrap (~> 4.0.0.beta)
   byebug
   capybara (~> 2.13)
   clearance
@@ -375,6 +379,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-sass
   foreman
+  friendly_id
   image_processing
   jbuilder (~> 2.5)
   kaminari
@@ -405,6 +410,7 @@ DEPENDENCIES
   slim-rails
   spring
   spring-commands-rspec
+  stringex
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
@@ -412,4 +418,4 @@ DEPENDENCIES
   wicked_pdf
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

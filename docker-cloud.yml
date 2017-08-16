@@ -22,14 +22,14 @@ backup:
     - SCHEDULE=@daily
 
 elasticsearch:
-  image: 'docker.elastic.co/elasticsearch/elasticsearch:5.5.0'
+  image: 'docker.elastic.co/elasticsearch/elasticsearch:5.5.1'
   restart: always
   environment:
     - xpack.security.enabled=false
     - xpack.monitoring.enabled=false
 
 memcached:
-  image: 'memcached:1.4-alpine'
+  image: 'memcached:1.5-alpine'
   restart: always
 
 redis:

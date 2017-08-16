@@ -24,7 +24,7 @@ services:
       - SCHEDULE
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.1
     environment:
       - xpack.security.enabled=false
       - xpack.monitoring.enabled=false
@@ -32,7 +32,7 @@ services:
       - "es-data:/usr/share/elasticsearch/data"
 
   memcached:
-    image: memcached:1.4-alpine
+    image: memcached:1.5-alpine
 
   redis:
     image: redis:4.0-alpine

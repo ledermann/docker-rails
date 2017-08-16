@@ -4,6 +4,9 @@ class Post < ApplicationRecord
                   versions:   :audits,
                   skip:       [ :created_at, :updated_at ]
 
+  extend FriendlyId
+  friendly_id :title
+
   validates :title, presence: true
   validates :content, presence: true
 

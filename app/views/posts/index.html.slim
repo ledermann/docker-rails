@@ -13,29 +13,28 @@
       = text_field_tag :q, search_string, placeholder: 'Search', class: 'form-control', id: 'autocomplete'
       span.input-group-addon
         i.fa.fa-search
+        
+  - if @posts.respond_to?(:suggestions) && @posts.suggestions.present?
+    p.small.mt-3#post-suggestions
+      ' Did you mean
+      - @posts.suggestions.each_with_index do |suggest, index|
+        - unless index == 0
+          -
+          '  or
+        em= link_to suggest, posts_path(q: suggest)
+      '  ?
 
-.row.small
-  .col-9
-    - if @posts.respond_to?(:suggestions) && @posts.suggestions.present?
-      p#post-suggestions
-        ' Did you mean
-        - @posts.suggestions.each_with_index do |suggest, index|
-          - unless index == 0
-            -
-            '  or
-          em= link_to suggest, posts_path(q: suggest)
+  #post-count
+    = pluralize @posts.total_count, 'Post'
 
-  .col-3.text-right
-    p#post-count
-      = pluralize @posts.total_count, 'Post'
-
-table.table.table-hover
-  thead.thead-inverse.hidden-xs-down
-    tr
-      th Content
-      th.text-right.hidden-xs-down.text-nowrap Last Update
-  tbody#js-infinite-scrolling
-    - cache [ @posts, search_string ] do
-      = render @posts
+- if @posts.present?
+  table.table.table-hover
+    thead.thead-inverse
+      tr
+        th Content
+        th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
+    tbody#js-infinite-scrolling
+      - cache [ @posts, search_string ] do
+        = render @posts
 
 = render 'kaminari/paging', objects: @posts
