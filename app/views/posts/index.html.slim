@@ -15,26 +15,26 @@
         i.fa.fa-search
         
   - if @posts.respond_to?(:suggestions) && @posts.suggestions.present?
-    br
-    small#post-suggestions
+    p.small.mt-3#post-suggestions
       ' Did you mean
       - @posts.suggestions.each_with_index do |suggest, index|
         - unless index == 0
           -
           '  or
         em= link_to suggest, posts_path(q: suggest)
+      '  ?
 
-.text-center
-  p.badge.badge-dark#post-count
+  #post-count
     = pluralize @posts.total_count, 'Post'
 
-table.table.table-hover
-  thead.thead-default
-    tr
-      th Content
-      th.text-right.text-nowrap.d-none.d-md-block Last Update
-  tbody#js-infinite-scrolling
-    - cache [ @posts, search_string ] do
-      = render @posts
+- if @posts.present?
+  table.table.table-hover
+    thead.thead-inverse
+      tr
+        th Content
+        th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
+    tbody#js-infinite-scrolling
+      - cache [ @posts, search_string ] do
+        = render @posts
 
 = render 'kaminari/paging', objects: @posts

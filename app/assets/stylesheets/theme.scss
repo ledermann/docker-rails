@@ -7,8 +7,15 @@ html, body {
   margin-bottom: 30px;
 }
 
-.table-borderless td, .table-borderless th {
-  border: 0;
+#post-count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 4px 6px;
+  background: $gray-400;
+  border-bottom-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  font-size: 80%;
 }
 
 td.js-row-link {
