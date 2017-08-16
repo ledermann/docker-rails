@@ -124,7 +124,7 @@ feature 'Post management' do
       fill_in 'post[content]', with: '<p>dolor sit amet</p>'
       click_on 'Update Post'
 
-      expect(page.current_path).to eq(post_path(example_post))
+      expect(page.current_path).to eq(post_path(example_post.reload))
       expect(page).to have_text 'Post was successfully updated.'
       expect(page).to have_selector('h1', text: 'Bar')
       expect(page).to have_selector('p', text: 'dolor sit amet')
