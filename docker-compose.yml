@@ -24,7 +24,7 @@ services:
       - SCHEDULE
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
     environment:
       - xpack.security.enabled=false
       - xpack.monitoring.enabled=false
