@@ -76,7 +76,7 @@ GEM
       sass (>= 3.4.19)
     browser (2.5.0)
     builder (3.2.3)
-    byebug (9.0.6)
+    byebug (9.1.0)
     callsite (0.0.11)
     capybara (2.15.1)
       addressable
