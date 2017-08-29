@@ -2,7 +2,7 @@
   "name": "docker-rails",
   "private": true,
   "dependencies": {
-    "blueimp-file-upload": "^9.18.0",
+    "blueimp-file-upload": "latest",
     "corejs-typeahead": "latest",
     "ekko-lightbox": "latest",
     "jquery": "latest",
