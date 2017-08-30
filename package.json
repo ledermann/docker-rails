@@ -9,6 +9,6 @@
     "moment": "latest",
     "parsleyjs": "latest",
     "tether": "latest",
-    "trumbowyg": "latest"
+    "trumbowyg": "^2.7.0"
   }
 }
