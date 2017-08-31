@@ -55,7 +55,7 @@ gem 'stringex'
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
-gem 'aws-sdk-s3'
+gem 'aws-sdk', '~> 2.10'
 gem 'roda'
 
 group :development, :test do
