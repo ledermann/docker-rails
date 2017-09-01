@@ -74,7 +74,7 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (~> 1.11.1)
       sass (>= 3.4.19)
-    browser (2.5.0)
+    browser (2.5.1)
     builder (3.2.3)
     byebug (9.1.0)
     callsite (0.0.11)
