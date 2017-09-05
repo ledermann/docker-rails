@@ -6,7 +6,7 @@ blueimp-canvas-to-blob@3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.5.0.tgz#5679ac32f6a2835821f0c3ad661719ff85a9236b"
 
-blueimp-file-upload@latest:
+blueimp-file-upload@^9.19.0:
   version "9.19.0"
   resolved "https://registry.yarnpkg.com/blueimp-file-upload/-/blueimp-file-upload-9.19.0.tgz#bec59dc6810fbe117b168ac3eaa77e37c0ee4326"
   optionalDependencies:
