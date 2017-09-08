@@ -149,7 +149,7 @@ GEM
     hashie (3.5.6)
     htmlentities (4.3.4)
     i18n (0.8.6)
-    image_processing (0.4.4)
+    image_processing (0.4.5)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
