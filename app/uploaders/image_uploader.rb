@@ -5,7 +5,6 @@ class ImageUploader < Shrine
 
   plugin :pretty_location
   plugin :validation_helpers
-  plugin :determine_mime_type
   plugin :processing
   plugin :versions   # enable Shrine to handle a hash of files
   plugin :delete_raw # delete processed files after uploading
