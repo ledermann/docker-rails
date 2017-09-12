@@ -261,8 +261,6 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    roda (2.29.0)
-      rack
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -401,7 +399,6 @@ DEPENDENCIES
   rack
   rails (~> 5.1.2)
   responders
-  roda
   rspec-rails
   sass-rails (~> 5.0)
   searchkick
