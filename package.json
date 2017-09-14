@@ -7,7 +7,7 @@
     "ekko-lightbox": "latest",
     "jquery": "latest",
     "moment": "latest",
-    "parsleyjs": "latest",
+    "parsleyjs": "^2.7.2",
     "tether": "latest",
     "trumbowyg": "latest"
   }
