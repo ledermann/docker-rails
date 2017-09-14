@@ -40,9 +40,9 @@ moment@latest:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-parsleyjs@latest:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.7.2.tgz#8e64e2a2975ce0455edacc45cb1867d0885fca66"
+parsleyjs@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.8.0.tgz#a5511fc3467d22bc18a25a6e2d7304492dd65bfd"
   dependencies:
     jquery ">=1.8.0"
 
