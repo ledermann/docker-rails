@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "blueimp-file-upload": "latest",
-    "corejs-typeahead": "latest",
+    "corejs-typeahead": "^1.2.1",
     "ekko-lightbox": "latest",
     "jquery": "latest",
     "moment": "latest",
