@@ -22,7 +22,7 @@ blueimp-tmpl@3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.6.0.tgz#a4910975d042e2bc03ba77f0e62d04f1548a524c"
 
-corejs-typeahead@latest:
+corejs-typeahead@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.1.1.tgz#62b2ab841de200256e36548c223b35b45fd7157e"
   dependencies:
