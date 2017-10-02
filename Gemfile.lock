@@ -352,7 +352,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    user_agent_parser (2.4.0)
+    user_agent_parser (2.4.1)
     uuidtools (2.1.5)
     web-console (3.5.1)
       actionview (>= 5.0)
