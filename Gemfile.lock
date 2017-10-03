@@ -306,11 +306,11 @@ GEM
       down (~> 4.1)
     shrine-memory (0.3.0)
       shrine (~> 2.2)
-    sidekiq (5.0.4)
+    sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
-      redis (~> 3.3, >= 3.3.3)
+      redis (>= 3.3.4, < 5)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -400,6 +400,7 @@ DEPENDENCIES
   pundit
   rack
   rails (~> 5.1.2)
+  redis (~> 3.3)
   responders
   rspec-rails
   sass-rails (~> 5.0)
