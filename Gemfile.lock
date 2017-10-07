@@ -64,7 +64,7 @@ GEM
     aws-sdk-kms (1.2.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-s3 (1.4.0)
+    aws-sdk-s3 (1.5.0)
       aws-sdk-core (~> 3)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
