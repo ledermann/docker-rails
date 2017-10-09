@@ -21,6 +21,7 @@
           - if signed_in?
             = link_to new_post_path, \
                 class: 'btn btn-primary btn-sm mr-2',
+                id: 'add-new-post',
                 title: 'Add new Post',
                 data: { toggle: 'tooltip', placement: 'bottom' } do
               i.fa.fa-plus
@@ -60,7 +61,7 @@
               i.fa.fa-user-plus
               '
               = I18n.t("layouts.application.sign_up")
-              
+
             = link_to sign_in_path, class: 'btn btn-light btn-sm' do
               i.fa.fa-user-circle
               '

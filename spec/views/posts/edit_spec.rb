@@ -10,7 +10,8 @@ describe 'posts/edit' do
 
     assert_select 'form[action=?][method=?]', post_path(@post), 'post' do
       assert_select 'input[name=?]', 'post[title]'
-      assert_select 'textarea[name=?]', 'post[content]'
+      assert_select 'input[name=?]', 'post[content]'
+      assert_select 'trix-editor[input=?]', 'post_content'
     end
   end
 end

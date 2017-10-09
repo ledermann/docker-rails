@@ -51,6 +51,7 @@ gem 'ahoy_matey'
 gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
+gem 'trix'
 
 # Image uploads
 gem 'shrine'
