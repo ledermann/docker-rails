@@ -26,7 +26,7 @@ class @Upload
         options =
           extension: file.name.match(/(\.\w+)?$/)[0]
           _: Date.now()
-        $.getJSON '/upload/cache/presign', options, (result) ->
+        $.getJSON '/presign', options, (result) ->
           data.formData = result.fields
           data.url = result.url
           data.paramName = 'file'

@@ -81,13 +81,14 @@ feature 'Post management' do
         visit edit_post_path(example_post, as: create(:admin))
 
         fill_in 'post[title]', with: 'Fooo'
-        fill_in 'post[content]', with: '<p>dolor sit amet</p>', visible: false
+        all(:css, "trix-editor").first.click.set('dolor sit amet')
+
         click_on 'Update Post'
       end
 
       in_browser(:first_user) do
         expect(page).to have_selector('h1', text: 'Fooo')
-        expect(page).to have_selector('p', text: 'dolor sit amet')
+        expect(page).to have_selector('div', text: 'dolor sit amet')
       end
     end
 
@@ -114,20 +115,20 @@ feature 'Post management' do
   end
 
   context "User who is an admin" do
-    scenario 'edits an existing page' do
+    scenario 'edits an existing page', js: true do
       visit edit_post_path(example_post, as: create(:admin))
 
       expect(page).to have_selector('h1', text: 'Editing Post')
       expect(page).to have_button('Update Post')
 
       fill_in 'post[title]', with: 'Bar'
-      fill_in 'post[content]', with: '<p>dolor sit amet</p>'
+      all(:css, "trix-editor").first.click.set('dolor sit amet')
       click_on 'Update Post'
 
       expect(page.current_path).to eq(post_path(example_post.reload))
       expect(page).to have_text 'Post was successfully updated.'
       expect(page).to have_selector('h1', text: 'Bar')
-      expect(page).to have_selector('p', text: 'dolor sit amet')
+      expect(page).to have_selector('div', text: 'dolor sit amet')
     end
 
     scenario 'deletes an existing page', js: true do
@@ -142,22 +143,22 @@ feature 'Post management' do
       expect(page).to_not have_selector('td', text: 'Example')
     end
 
-    scenario 'creates a new page' do
+    scenario 'creates a new page', js: true do
       visit posts_path(as: create(:admin))
 
-      click_on 'Add new Post'
+      click_on 'add-new-post'
 
       expect(page.current_path).to eq(new_post_path)
       expect(page).to have_selector('h1', text: 'New Post')
       expect(page).to have_button('Create Post')
 
       fill_in 'post[title]', with: 'Bar'
-      fill_in 'post[content]', with: '<p>dolor sit amet</p>'
+      all(:css, "trix-editor").first.click.set('dolor sit amet')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'
       expect(page).to have_selector('h1', text: 'Bar')
-      expect(page).to have_selector('p', text: 'dolor sit amet')
+      expect(page).to have_selector('div', text: 'dolor sit amet')
     end
 
     scenario 'creates a new page with image upload'
@@ -165,14 +166,14 @@ feature 'Post management' do
     scenario 'creates a new page with client side validation', js: true do
       visit new_post_path(as: create(:admin))
 
-      fill_in 'post[title]', with: 'Bar'
       click_on 'Create Post'
 
-      expect(page).to have_selector('.post_content .has-danger')
+      expect(page).to have_selector('.post_title.has-danger')
 
-      fill_in 'post[content]', with: '<p>dolor sit amet</p>', visible: false
-      expect(page).to_not have_selector('.post_content .has-danger')
+      fill_in 'post[title]', with: 'Foo'
+      expect(page).to_not have_selector('.post_title.has-danger')
 
+      all(:css, "trix-editor").first.click.set('dolor sit amet')
       click_on 'Create Post'
 
       expect(page).to have_text 'Post was successfully created.'

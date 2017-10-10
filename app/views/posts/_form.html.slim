@@ -1,4 +1,4 @@
-= simple_form_for post do |f|
+= simple_form_for post, data: { 'parsley-validate' => 'parsley-validate',  'parsley-excluded' => '[disabled]' }  do |f|
   = f.error_notification
 
   .form-inputs
@@ -14,13 +14,14 @@
 
     .tab-content
       #text-tab.tab-pane.active role="tabpanel"
-        = f.input :content, label: false, placeholder: 'Content'
-        
+        = f.input :content, as: :hidden
+        trix-editor input="post_content" placeholder="Content" id="trix-post-content"
+
       #clips-tab.tab-pane role="tabpanel"
         .fileinput-button.mt-3
-          input multiple="multiple" type="file" 
+          input multiple="multiple" type="file"
           .message Drop files here or click to upload
-          
+
           .row.no-gutters#js-images
             - post.clips.each do |clip|
               .col-2
@@ -36,7 +37,8 @@
                 .progress-bar role="progressbar" style="height: 2px"
 
       #copyright-tab.tab-pane role="tabpanel"
-        = f.input :copyright, label: false, placeholder: 'Copyright'
+        = f.input :copyright, as: :hidden
+        trix-editor input="post_copyright" placeholder="Copyright" id="trix-post-copyright"
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

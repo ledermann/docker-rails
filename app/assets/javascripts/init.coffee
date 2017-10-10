@@ -11,7 +11,6 @@ class @Init
 
     # Forms
     new FormValidator()
-    new HtmlEditor()
     new Upload()
 
     # Lists

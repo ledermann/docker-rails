@@ -2,8 +2,10 @@ require 'shrine'
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for forms
-Shrine.plugin :direct_upload
+Shrine.plugin :upload_endpoint
+Shrine.plugin :presign_endpoint
 Shrine.plugin :restore_cached_data
+Shrine.plugin :determine_mime_type
 
 # On precompile, the ENV vars for AWS are not set
 return if ARGV.join.include?('assets:precompile')

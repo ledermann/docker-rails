@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'responders'
 gem 'slim-rails'
 gem 'kaminari'
+gem 'redis', '~> 3.3'
 gem 'dalli'
 gem 'sidekiq'
 gem 'searchkick'
@@ -50,13 +51,13 @@ gem 'ahoy_matey'
 gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
+gem 'trix'
 
 # Image uploads
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
-gem 'aws-sdk'
-gem 'roda'
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

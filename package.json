@@ -3,12 +3,11 @@
   "private": true,
   "dependencies": {
     "blueimp-file-upload": "latest",
-    "corejs-typeahead": "latest",
+    "corejs-typeahead": "^1.2.1",
     "ekko-lightbox": "latest",
     "jquery": "latest",
-    "moment": "latest",
-    "parsleyjs": "latest",
-    "tether": "latest",
-    "trumbowyg": "latest"
+    "moment": "^2.19.0",
+    "parsleyjs": "^2.8.0",
+    "tether": "latest"
   }
 }

@@ -12,7 +12,7 @@ variables:
   AWS_BUCKET: "my-bucket"
   AWS_REGION: "eu-central-1"
 
-build_image:
+test:
   before_script:
     - docker-compose pull
     - docker-compose build
@@ -23,4 +23,4 @@ build_image:
   after_script:
     - docker-compose run --rm test rm -rf tmp/
     - docker-compose down
-    - docker volume ls -qf dangling=true | xargs -r docker volume rm
+    - docker volume rm `docker volume ls -qf dangling=true`

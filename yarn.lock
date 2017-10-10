@@ -7,8 +7,8 @@ blueimp-canvas-to-blob@3.5.0:
   resolved "https://registry.yarnpkg.com/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.5.0.tgz#5679ac32f6a2835821f0c3ad661719ff85a9236b"
 
 blueimp-file-upload@latest:
-  version "9.18.0"
-  resolved "https://registry.yarnpkg.com/blueimp-file-upload/-/blueimp-file-upload-9.18.0.tgz#944281956740a15e4aca86e3b2088889af60809c"
+  version "9.19.1"
+  resolved "https://registry.yarnpkg.com/blueimp-file-upload/-/blueimp-file-upload-9.19.1.tgz#9d46af945c41cefdd043f2fcb9c0a204d8e06337"
   optionalDependencies:
     blueimp-canvas-to-blob "3.5.0"
     blueimp-load-image "2.12.2"
@@ -22,9 +22,9 @@ blueimp-tmpl@3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.6.0.tgz#a4910975d042e2bc03ba77f0e62d04f1548a524c"
 
-corejs-typeahead@latest:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.1.1.tgz#62b2ab841de200256e36548c223b35b45fd7157e"
+corejs-typeahead@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.2.1.tgz#345a8afe664cc494075b59b64777807f0b3f132b"
   dependencies:
     jquery ">=1.11"
 
@@ -36,20 +36,16 @@ jquery@>=1.11, jquery@>=1.8.0, jquery@latest:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
-moment@latest:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+moment@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.0.tgz#44f675ef6b944942762581b1c179fb679e599d67"
 
-parsleyjs@latest:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.7.2.tgz#8e64e2a2975ce0455edacc45cb1867d0885fca66"
+parsleyjs@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.8.0.tgz#a5511fc3467d22bc18a25a6e2d7304492dd65bfd"
   dependencies:
     jquery ">=1.8.0"
 
 tether@latest:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
-
-trumbowyg@latest:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.7.0.tgz#8d270031c6afde05a9b637698ef7b3ff01e39933"
