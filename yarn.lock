@@ -36,9 +36,9 @@ jquery@>=1.11, jquery@>=1.8.0, jquery@latest:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
-moment@latest:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+moment@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.0.tgz#44f675ef6b944942762581b1c179fb679e599d67"
 
 parsleyjs@^2.8.0:
   version "2.8.0"

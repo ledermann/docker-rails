@@ -6,7 +6,7 @@
     "corejs-typeahead": "^1.2.1",
     "ekko-lightbox": "latest",
     "jquery": "latest",
-    "moment": "latest",
+    "moment": "^2.19.0",
     "parsleyjs": "^2.8.0",
     "tether": "latest"
   }
