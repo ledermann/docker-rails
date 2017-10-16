@@ -28,9 +28,9 @@ corejs-typeahead@^1.2.1:
   dependencies:
     jquery ">=1.11"
 
-ekko-lightbox@latest:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/ekko-lightbox/-/ekko-lightbox-5.2.0.tgz#84841af40240455a894a639661afc082a27257dd"
+ekko-lightbox@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/ekko-lightbox/-/ekko-lightbox-5.3.0.tgz#fbfcd9df93a8d1cdbf8770adc8c05aaac4d24f56"
 
 jquery@>=1.11, jquery@>=1.8.0, jquery@latest:
   version "3.2.1"
