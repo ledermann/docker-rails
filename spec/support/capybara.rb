@@ -13,14 +13,12 @@ else
   # Running on local machine
   Capybara.javascript_driver = :chrome
   Capybara.register_driver :chrome do |app|
-    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w[headless disable-gpu window-size=1024,768] }
-    )
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
 
-    Capybara::Selenium::Driver.new(
-      app,
+    Capybara::Selenium::Driver.new(app,
       browser: :chrome,
-      desired_capabilities: capabilities
+      options: options
     )
   end
 
