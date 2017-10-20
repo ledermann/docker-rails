@@ -75,10 +75,10 @@ GEM
       chartkick
       rails
       safely_block (>= 0.1.1)
-    bootstrap (4.0.0.beta)
+    bootstrap (4.0.0.beta2)
       autoprefixer-rails (>= 6.0.3)
-      popper_js (~> 1.11.1)
-      sass (>= 3.4.19)
+      popper_js (>= 1.12.3, < 2)
+      sass (>= 3.5.2)
     browser (2.5.1)
     builder (3.2.3)
     byebug (9.1.0)
@@ -210,7 +210,7 @@ GEM
       ruby-rc4
       ttfunk
     pg (0.21.0)
-    popper_js (1.11.1)
+    popper_js (1.12.5)
     premailer (1.11.0)
       addressable
       css_parser (>= 1.6.0)
