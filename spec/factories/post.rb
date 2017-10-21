@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     sequence(:title) { |n| "Post #{n}" }
     content '<p>Lorem ipsum</p>'
