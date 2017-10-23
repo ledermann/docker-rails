@@ -1,5 +1,5 @@
 json.array! @posts do |post|
-  json.extract! post, :id, :created_at, :updated_at, :clips_count
+  json.extract! post, :id, :slug, :created_at, :updated_at, :clips_count
 
   if search_string && post.search_highlights[:title]
     json.title post.search_highlights[:title]
