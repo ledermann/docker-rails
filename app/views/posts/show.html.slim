@@ -1,5 +1,4 @@
 - title @post.title
 
-- cache @post, expires_in: 1.day do
-  = render 'show_nav', post: @post
-  = render 'show_article', post: @post
+= render 'show_nav', post: @post
+= render 'show_article', post: @post
