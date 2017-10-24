@@ -1,4 +1,4 @@
-module Features
+module SystemTest
   module SessionHelpers
     # Using multiple Capybara sessions in RSpec request specs
     # http://blog.bruzilla.com/2012/04/10/using-multiple-capybara-sessions-in-rspec-request.html
@@ -14,5 +14,5 @@ module Features
 end
 
 RSpec.configure do |config|
-  config.include Features::SessionHelpers, type: :feature
+  config.include SystemTest::SessionHelpers, type: :system
 end

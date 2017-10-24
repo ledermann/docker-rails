@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visitor resets password" do
+describe "Visitor resets password" do
   before { ActionMailer::Base.deliveries.clear }
 
   scenario "by navigating to the page" do

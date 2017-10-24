@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Post management' do
+describe 'Post management' do
   before :each do
     30.times { create(:post) }
     Post.reindex
@@ -134,7 +134,7 @@ feature 'Post management' do
     scenario 'deletes an existing page', js: true do
       visit post_path(example_post, as: create(:admin))
 
-      page.accept_alert do
+      page.accept_confirm do
         find('a[data-original-title="Delete Post"]').click
       end
 

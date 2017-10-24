@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visitor signs in" do
+describe "Visitor signs in" do
   scenario "with valid email and password" do
     create_user "user@example.com", "password"
     sign_in_with "user@example.com", "password"

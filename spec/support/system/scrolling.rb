@@ -1,4 +1,4 @@
-module Features
+module SystemTest
   module Scrolling
     def scroll_to_bottom
       page.execute_script 'window.scrollBy (0, document.body.scrollHeight)'
@@ -11,5 +11,5 @@ module Features
 end
 
 RSpec.configure do |config|
-  config.include Features::Scrolling, type: :feature
+  config.include SystemTest::Scrolling, type: :system
 end
