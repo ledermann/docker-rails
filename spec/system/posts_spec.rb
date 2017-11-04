@@ -70,14 +70,14 @@ describe 'Post management' do
     end
 
     scenario 'sees auto-refreshed post (via ActionCable) if other user updates it', js: true do
-      in_browser(:first_user) do
+      Capybara.using_session(:first_user) do
         visit post_path(example_post)
 
         expect(page).to have_selector('h1', text: 'Example')
         expect(page).to have_selector('p', text: 'Lorem ipsum')
       end
 
-      in_browser(:second_user) do
+      Capybara.using_session(:second_user) do
         visit edit_post_path(example_post, as: create(:admin))
 
         fill_in 'post[title]', with: 'Fooo'
@@ -86,7 +86,7 @@ describe 'Post management' do
         click_on 'Update Post'
       end
 
-      in_browser(:first_user) do
+      Capybara.using_session(:first_user) do
         expect(page).to have_selector('h1', text: 'Fooo')
         expect(page).to have_selector('div', text: 'dolor sit amet')
       end
