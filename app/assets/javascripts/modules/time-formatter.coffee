@@ -1,4 +1,4 @@
 class @TimeFormatter
-  constructor: ->
-    $('time').text ->
+  constructor: (context) ->
+    $('time', context).text ->
       moment($(@).attr('datetime')).fromNow()

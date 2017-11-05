@@ -2,7 +2,10 @@
 rendered_objects = "<%=j render(objects) %>";
 
 // Append to exists list
-$("#js-infinite-scrolling").append(rendered_objects);
+appended_dom = $("#js-infinite-scrolling").append(rendered_objects);
+
+// Format times for new DOM elements
+new TimeFormatter(appended_dom);
 
 // Update Paginator
 $('#js-paging').replaceWith("<%=j render('kaminari/paging', objects: objects) %>");
