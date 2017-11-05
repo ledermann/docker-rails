@@ -21,7 +21,7 @@ class @InfiniteScrolling
       if url
         @disable()
         $.getScript url, ->
-          new Init()
+          new InfiniteScrolling()
           return
     return
 
