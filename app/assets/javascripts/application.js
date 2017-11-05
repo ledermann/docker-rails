@@ -13,7 +13,7 @@
 //= require jquery/dist/jquery.js
 //= require ahoy
 //= require parsleyjs
-//= require moment/moment
+//= require timeago/jquery.timeago
 //= require tether
 //= require popper
 //= require bootstrap-sprockets
