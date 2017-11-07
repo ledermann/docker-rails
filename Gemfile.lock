@@ -317,7 +317,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    skylight (1.4.3)
+    skylight (1.4.4)
       activesupport (>= 3.0.0)
     slim (3.0.8)
       temple (>= 0.7.6, < 0.9)
