@@ -1,4 +1,4 @@
-module Features
+module SystemTest
   module ClearanceHelpers
     def reset_password_for(email)
       visit new_password_path
@@ -8,7 +8,7 @@ module Features
 
     def sign_in
       password = "password"
-      user = FactoryGirl.create(:user, password: password)
+      user = FactoryBot.create(:user, password: password)
       sign_in_with user.email, password
     end
 
@@ -40,7 +40,7 @@ module Features
     end
 
     def user_with_reset_password
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       reset_password_for user.email
       user.reload
     end
@@ -48,5 +48,5 @@ module Features
 end
 
 RSpec.configure do |config|
-  config.include Features::ClearanceHelpers, type: :feature
+  config.include SystemTest::ClearanceHelpers, type: :system
 end

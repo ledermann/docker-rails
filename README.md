@@ -49,7 +49,7 @@ The application is divided into 7 different containers:
 For running tests using RSpec, there are two additional containers:
 
 - **test:** Application code prepared for running tests
-- **selenium:** Standalone Chrome for executing feature specs containing JavaScript
+- **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
 
 ## Check it out!

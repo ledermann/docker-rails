@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visitor signs up" do
+describe "Visitor signs up" do
   scenario "by navigating to the page" do
     visit sign_in_path
 

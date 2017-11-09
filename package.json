@@ -4,10 +4,9 @@
   "dependencies": {
     "blueimp-file-upload": "latest",
     "corejs-typeahead": "^1.2.1",
-    "ekko-lightbox": "latest",
+    "ekko-lightbox": "^5.3.0",
     "jquery": "latest",
-    "moment": "^2.19.0",
     "parsleyjs": "^2.8.0",
-    "tether": "latest"
+    "timeago": "^1.6.1"
   }
 }

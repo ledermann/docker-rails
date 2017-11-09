@@ -9,13 +9,6 @@ describe ApplicationController do
     end
   end
 
-  describe '#body_js_class' do
-    it "should named by controller_name and action_name" do
-      get :index
-      expect(controller.body_js_class).to eq('DummiesIndex')
-    end
-  end
-
   describe '#title' do
     it 'returns nil per default' do
       expect(subject.title).to eq(nil)

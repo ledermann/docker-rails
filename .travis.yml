@@ -3,24 +3,27 @@ sudo: required
 services:
   - docker
 
-install: true
+install: true # skip the installation step entirely
+
+env:
+  global:
+    - POSTGRES_PASSWORD=duubidoo
+    - SECRET_KEY_BASE="we-dont-need-a-secret-here"
+    - DB_USER=postgres
+    - DB_PASSWORD=duubidoo
+    - APP_ADMIN_EMAIL=admin@example.org
+    - APP_ADMIN_PASSWORD=secret
+    - APP_EMAIL=reply@example.org
+    - APP_HOST=example.org
+    - AWS_ACCESS_KEY_ID=my-access-key
+    - AWS_SECRET_ACCESS_KEY=my-secret
+    - AWS_BUCKET=my-bucket
+    - AWS_REGION=eu-central-1
 
 before_script:
   - sudo sysctl -w vm.max_map_count=262144 # Required for Elasticsearch 5
-  - export POSTGRES_PASSWORD=duubidoo
-  - export SECRET_KEY_BASE="we-dont-need-a-secret-here"
-  - export DB_USER=postgres
-  - export DB_PASSWORD=duubidoo
-  - export APP_ADMIN_EMAIL=admin@example.org
-  - export APP_ADMIN_PASSWORD=secret
-  - export APP_EMAIL=reply@example.org
-  - export APP_HOST=example.org
-  - export AWS_ACCESS_KEY_ID=my-access-key
-  - export AWS_SECRET_ACCESS_KEY=my-secret
-  - export AWS_BUCKET=my-bucket
-  - export AWS_REGION=eu-central-1
-  - docker-compose pull
-  - docker-compose build
 
 script:
+  - docker-compose pull
+  - docker-compose build
   - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec"

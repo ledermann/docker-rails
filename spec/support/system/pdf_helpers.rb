@@ -1,4 +1,4 @@
-module Features
+module SystemTest
   module PdfHelpers
     # Test PDFs with Capybara
     # https://content.pivotal.io/blog/how-to-test-pdfs-with-capybara
@@ -13,5 +13,5 @@ module Features
 end
 
 RSpec.configure do |config|
-  config.include Features::PdfHelpers, type: :feature
+  config.include SystemTest::PdfHelpers, type: :system
 end

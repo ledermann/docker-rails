@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visitor signs in" do
+describe "Visitor signs in" do
   scenario "with valid email and password" do
     create_user "user@example.com", "password"
     sign_in_with "user@example.com", "password"
@@ -44,11 +44,11 @@ feature "Visitor signs in" do
   private
 
   def create_user(email, password)
-    FactoryGirl.create(:user, email: email, password: password)
+    FactoryBot.create(:user, email: email, password: password)
   end
 
   def create_unconfirmed_user(email, password)
-    FactoryGirl.create(:user, :unconfirmed, email: email, password: password)
+    FactoryBot.create(:user, :unconfirmed, email: email, password: password)
   end
 
   def expect_page_to_display_sign_in_error

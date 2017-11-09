@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'error handling' do
+describe 'error handling' do
   scenario 'not existing path' do
     expect(Rails.logger).to receive(:warn).with(/Path not found/)
 

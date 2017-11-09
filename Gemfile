@@ -70,7 +70,7 @@ group :development, :test do
   gem 'launchy'
 
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'dotenv-rails'
 end
 

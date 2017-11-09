@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Visitor updates password" do
+describe "Visitor updates password" do
   scenario "with valid password" do
     user = user_with_reset_password
     update_password user, "newpassword"
