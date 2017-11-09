@@ -42,10 +42,6 @@ parsleyjs@^2.8.0:
   dependencies:
     jquery ">=1.8.0"
 
-tether@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.1.tgz#78112ef21adf2aea68cd90e72185f43d9ffc44e8"
-
 timeago@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/timeago/-/timeago-1.6.1.tgz#fa9aa932e6cfae1f0c9b62f49d8a6071fdf69c5b"

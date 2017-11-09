@@ -7,7 +7,6 @@
     "ekko-lightbox": "^5.3.0",
     "jquery": "latest",
     "parsleyjs": "^2.8.0",
-    "tether": "^1.4.1",
     "timeago": "^1.6.1"
   }
 }
