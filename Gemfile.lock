@@ -106,7 +106,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
-    crass (1.0.2)
+    crass (1.0.3)
     css_parser (1.6.0)
       addressable
     dalli (2.7.6)
