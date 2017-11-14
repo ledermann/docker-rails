@@ -19,7 +19,7 @@ describe 'Post management' do
 
       # Scroll down to load whole list via infinite scrolling
       scroll_to_bottom
-      expect(page).to have_css('table tbody tr', count: 31)
+      expect(page).to have_css('table tbody tr', count: 31, wait: 5)
 
       # Scroll up again and go to single post by clicking on a row
       scroll_to_top
