@@ -208,7 +208,7 @@ GEM
       ttfunk
     pg (0.21.0)
     popper_js (1.12.5)
-    premailer (1.11.0)
+    premailer (1.11.1)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
