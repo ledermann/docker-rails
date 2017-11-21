@@ -87,7 +87,7 @@ describe 'Post management' do
       end
 
       Capybara.using_session(:first_user) do
-        expect(page).to have_selector('h1', text: 'Fooo')
+        expect(page).to have_selector('h1', text: 'Fooo', wait: 5)
         expect(page).to have_selector('div', text: 'dolor sit amet')
       end
     end
