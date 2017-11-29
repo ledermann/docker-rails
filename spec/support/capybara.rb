@@ -2,6 +2,10 @@
 Capybara.asset_host = "http://#{ENV['APP_HOST']}"
 
 RSpec.configure do |config|
+  config.before :suite do
+    Capybara.server = :puma, { Threads: '0:20', Silent: true }
+  end
+
   config.before :each, type: :system do
     driven_by :rack_test
   end
