@@ -7,7 +7,7 @@ describe AuditsController do
   describe "GET #index" do
     it "returns a success response" do
       get :index, params: { post_id: post1.id }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 end
