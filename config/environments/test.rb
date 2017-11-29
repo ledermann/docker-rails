@@ -44,4 +44,7 @@ Rails.application.configure do
   config.middleware.use Clearance::BackDoor
 
   config.active_job.queue_adapter = :inline
+
+  # Avoid pollution of log file
+  config.log_level = :warn
 end
