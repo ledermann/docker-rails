@@ -25,5 +25,6 @@
 //= require blueimp-tmpl/js/tmpl
 //= require ekko-lightbox/dist/ekko-lightbox
 //= require rails-ujs
+//= require activestorage
 //= require turbolinks
 //= require_tree .
