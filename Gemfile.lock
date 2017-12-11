@@ -193,7 +193,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
-    paper_trail (8.1.0)
+    paper_trail (8.1.1)
       activerecord (>= 4.2, < 5.2)
       request_store (~> 1.1)
     pdf-reader (2.0.0)
