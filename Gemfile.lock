@@ -339,7 +339,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    trix (0.11.0)
+    trix (0.11.1)
       rails (> 4.1, < 5.2)
     ttfunk (1.5.1)
     turbolinks (5.0.1)
