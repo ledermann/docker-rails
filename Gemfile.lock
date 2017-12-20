@@ -152,7 +152,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashery (2.1.2)
-    hashie (3.5.6)
+    hashie (3.5.7)
     htmlentities (4.3.4)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
