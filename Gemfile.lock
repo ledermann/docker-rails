@@ -56,7 +56,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.2.3)
       execjs
-    aws-partitions (1.49.0)
+    aws-partitions (1.50.0)
     aws-sdk-core (3.11.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
