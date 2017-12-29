@@ -21,5 +21,4 @@ json.clips @post.clips do |clip|
     json.size clip.image[:thumbnail].size
     json.mime_type clip.image[:thumbnail].mime_type
   end
-
 end

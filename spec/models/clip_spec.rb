@@ -22,9 +22,7 @@ describe Clip, 'created for Post' do
   end
 
   it "increases counter cache" do
-    expect {
-      clip
-    }.to change(post, :clips_count).by(1)
+    expect { clip }.to change(post, :clips_count).by(1)
   end
 
   it "has image_data" do

@@ -8,6 +8,6 @@ class CreateClips < ActiveRecord::Migration[5.1]
     end
 
     add_column :posts, :clips_count, :integer, default: 0
-    remove_column :posts, :image_data
+    remove_column :posts, :image_data, :text
   end
 end

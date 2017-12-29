@@ -1,5 +1,5 @@
 module Ahoy
-  class Event < ActiveRecord::Base
+  class Event < ApplicationRecord
     include Ahoy::Properties
 
     self.table_name = "ahoy_events"

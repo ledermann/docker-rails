@@ -15,7 +15,7 @@ if Rails.env.test?
 
   Shrine.storages = {
     cache: Shrine::Storage::Memory.new,
-    store: Shrine::Storage::Memory.new,
+    store: Shrine::Storage::Memory.new
   }
 else
   require 'shrine/storage/s3'

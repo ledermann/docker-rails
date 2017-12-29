@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  has_many :audits, foreign_key: 'whodunnit', dependent: :nullify, inverse_of: :user
+
   def confirmed?
     email_confirmed_at.present?
   end

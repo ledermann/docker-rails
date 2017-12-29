@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   mount Shrine.presign_endpoint(:cache) => '/presign'
   mount Ahoy::Engine => '/ahoy', as: :my_ahoy
 
-  constraints Clearance::Constraints::SignedIn.new { |user| user.is_admin? } do
+  constraints Clearance::Constraints::SignedIn.new(&:is_admin?) do
     mount Sidekiq::Web => '/sidekiq'
     mount Blazer::Engine, at: 'blazer'
   end
