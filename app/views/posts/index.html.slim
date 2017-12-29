@@ -11,9 +11,10 @@
   = form_for posts_path, method: :get, enforce_utf8: false, html: { id: 'search' } do
     .input-group
       = text_field_tag :q, search_string, placeholder: 'Search', class: 'form-control', id: 'autocomplete'
-      span.input-group-addon
-        i.fa.fa-search
-        
+      .input-group-append
+        span.input-group-text
+          i.fa.fa-search
+
   - if @posts.respond_to?(:suggestions) && @posts.suggestions.present?
     p.small.mt-3#post-suggestions
       ' Did you mean
