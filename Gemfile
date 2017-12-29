@@ -89,7 +89,6 @@ group :test do
   gem 'pdf-reader'
   gem 'email_spec'
   gem 'shrine-memory'
-  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
