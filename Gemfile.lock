@@ -132,6 +132,8 @@ GEM
       activemodel
     errbase (0.0.3)
     erubi (1.7.0)
+    et-orbi (1.0.8)
+      tzinfo
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -273,6 +275,8 @@ GEM
     rspec-support (3.7.0)
     ruby-rc4 (0.1.5)
     rubyzip (1.2.1)
+    rufus-scheduler (3.4.2)
+      et-orbi (~> 1.0)
     safely_block (0.2.0)
       errbase
     sass (3.5.4)
@@ -302,6 +306,9 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    sidekiq-cron (0.6.3)
+      rufus-scheduler (>= 3.3.0)
+      sidekiq (>= 4.2.1)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -404,6 +411,7 @@ DEPENDENCIES
   shrine
   shrine-memory
   sidekiq
+  sidekiq-cron
   simple_form
   simplecov
   skylight
