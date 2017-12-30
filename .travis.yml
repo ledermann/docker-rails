@@ -26,4 +26,4 @@ before_script:
 script:
   - docker-compose pull
   - docker-compose build
-  - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec && rubocop"
+  - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"

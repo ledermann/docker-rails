@@ -4,3 +4,6 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+# On executing just "rake", run RSpec and Rubocop consecutively
+task default: [ :spec, :rubocop ]
