@@ -69,7 +69,7 @@ Navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]`.
 
 ## Deployment
 
-On every push, the test suite is run in public on [TravisCi](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [GitlabCI](https://about.gitlab.com/gitlab-ci/).
+On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run in public on [Travis CI](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
 
 On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
 
