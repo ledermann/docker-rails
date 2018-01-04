@@ -20,11 +20,16 @@ if Rails.env.test?
 else
   require 'shrine/storage/s3'
 
+  # Allow self signed certificate (needed for Minio server)
+  Aws.config[:ssl_verify_peer] = ENV.fetch('AWS_SSL_VERIFY_PEER', true) != 'false'
+
   s3_options = {
     access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
     secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
     region:            ENV.fetch('AWS_REGION'),
-    bucket:            ENV.fetch('AWS_BUCKET')
+    bucket:            ENV.fetch('AWS_BUCKET'),
+    endpoint:          ENV.fetch('AWS_ENDPOINT', 'https://s3.amazonaws.com'),
+    force_path_style:  ENV.fetch('AWS_FORCE_PATH_STYLE', false)
   }
 
   Shrine.storages = {
