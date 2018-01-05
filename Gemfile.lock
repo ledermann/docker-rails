@@ -79,7 +79,7 @@ GEM
       chartkick
       rails
       safely_block (>= 0.1.1)
-    bootsnap (1.1.7)
+    bootsnap (1.1.8)
       msgpack (~> 1.0)
     bootstrap (4.0.0.beta3)
       autoprefixer-rails (>= 6.0.3)
