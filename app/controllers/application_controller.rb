@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
 
-  protect_from_forgery with: :exception
-
   helper_method def title(value = nil)
     if value
       @title = value

@@ -41,7 +41,7 @@ RUN groupadd --gid 9999 app && \
     chown -R app:app /home/app
 
 # Precompile assets
-RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
 
 # Add the nginx site and config
 RUN rm -rf /etc/nginx/sites-available/default
