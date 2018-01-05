@@ -64,7 +64,15 @@ cp .env.example .env
 docker-compose up --build
 ```
 
-Navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]`.
+Wait some minutes while the database will be prepared. Then,
+navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]`.
+
+Sign in to the admin account:
+
+* Username: `admin@example.org`
+* Password: `secret`
+
+Enjoy!
 
 
 ## Deployment
