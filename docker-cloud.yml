@@ -67,6 +67,7 @@ app:
     - AWS_BUCKET=my-bucket
     - AWS_REGION=eu-central-1
     - BLAZER_DATABASE_URL=postgres://postgres:foobar@db:5432/docker-rails_production
+    - ROLLBAR_ACCESS_TOKEN=my-token-for-rollbar
   links:
     - db
     - elasticsearch
@@ -99,6 +100,7 @@ worker:
     - SMTP_PASSWORD=verysecret
     - SMTP_AUTHENTICATION=plain
     - SMTP_ENABLE_STARTTLS_AUTO=true
+    - ROLLBAR_ACCESS_TOKEN=my-token-for-rollbar
   command: 'bundle exec sidekiq'
   links:
     - app

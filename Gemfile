@@ -56,6 +56,7 @@ gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
 gem 'trix'
+gem 'rollbar'
 
 # Image uploads
 gem 'shrine'

@@ -68,6 +68,7 @@ services:
       - AWS_BUCKET
       - AWS_REGION
       - BLAZER_DATABASE_URL
+      - ROLLBAR_ACCESS_TOKEN
     ports:
       - "80"
     links:
