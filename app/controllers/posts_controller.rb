@@ -21,9 +21,6 @@ class PostsController < ApplicationController
   def show
     @post = find_post
 
-    fresh_when @post, public: true
-    expires_in 1.day, public: true
-
     authorize @post
 
     respond_with @post do |format|

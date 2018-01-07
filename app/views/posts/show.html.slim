@@ -1,4 +1,5 @@
 - title @post.title
 
-= render 'show_nav', post: @post
-= render 'show_article', post: @post
+- cache @post do
+  = render 'show_nav', post: @post
+  = render 'show_article', post: @post
