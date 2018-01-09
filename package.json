@@ -7,12 +7,12 @@
     "blueimp-file-upload": "^9.19.2",
     "coffeescript": "1.12.7",
     "corejs-typeahead": "^1.2.1",
-    "ekko-lightbox": "^5.3.0",
     "jquery": "^3.2.1",
     "parsleyjs": "^2.8.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-grid-gallery": "^0.4.7",
     "react_ujs": "^2.4.3",
     "timeago": "^1.6.1"
   },

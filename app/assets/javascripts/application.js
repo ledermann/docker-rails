@@ -23,7 +23,6 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require blueimp-load-image/js/load-image
 //= require blueimp-tmpl/js/tmpl
-//= require ekko-lightbox/dist/ekko-lightbox
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
