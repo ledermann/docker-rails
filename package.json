@@ -13,6 +13,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react_ujs": "^2.4.3",
     "timeago": "^1.6.1"
   },
   "devDependencies": {
