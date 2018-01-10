@@ -17,6 +17,6 @@
     "timeago": "^1.6.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.9.7"
+    "webpack-dev-server": "^2.10.1"
   }
 }
