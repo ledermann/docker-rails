@@ -5,6 +5,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - bin/webpack*
+    - bin/bundle
 
 ### Rails
 
