@@ -10,7 +10,6 @@ class @Init
     new InfiniteScrolling()
 
     # General
-    new TimeFormatter()
     new TooltipEnabler()
     new Autocomplete()
 

@@ -14,8 +14,7 @@ article data-cable-post-id=post.id
     h1.display-4
       = post.title
 
-    p.badge.badge-secondary
-      = time_tag(post.updated_at)
+    = react_component('TimeAgo', { date: post.updated_at }, { tag: 'p', class: 'badge badge-secondary'})
 
   - if post.clips.present?
     ruby:

@@ -21,4 +21,4 @@
           = post.content_as_plaintext.truncate(300)
 
     td.js-row-link.text-right.d-none.d-md-table-cell.text-nowrap
-      .badge.badge-secondary= time_tag post.updated_at
+      = react_component('TimeAgo', { date: post.updated_at }, { class: 'badge badge-secondary'})

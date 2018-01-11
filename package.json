@@ -13,8 +13,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-grid-gallery": "^0.4.7",
-    "react_ujs": "^2.4.3",
-    "timeago": "^1.6.1"
+    "react-timeago": "^3.4.3",
+    "react_ujs": "^2.4.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.10.1"
