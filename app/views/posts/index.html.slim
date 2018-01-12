@@ -35,7 +35,6 @@
         th Content
         th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
     tbody#js-infinite-scrolling
-      - cache [ @posts, search_string ] do
-        = render @posts
+      = render @posts
 
 = render 'kaminari/paging', objects: @posts
