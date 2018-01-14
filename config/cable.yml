@@ -1,10 +1,10 @@
 local:
-  url: redis://localhost:6379/1
+  adapter: async
 
 test:
-  url: <%= ENV['REDIS_CABLE_URL'] %>
-  channel_prefix: docker_rails_test
+  adapter: async
 
 production:
+  adapter: redis
   url: <%= ENV['REDIS_CABLE_URL'] %>
   channel_prefix: docker_rails_production
