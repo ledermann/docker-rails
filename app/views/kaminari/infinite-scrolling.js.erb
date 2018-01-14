@@ -4,8 +4,8 @@ renderedObjects = "<%=j render(objects) %>";
 // Append to existing list
 appendedDOM = $("#js-infinite-scrolling").append(renderedObjects);
 
-// Format times for new DOM elements
-new TimeFormatter(appendedDOM);
+// Mount React components in new DOM elements
+ReactRailsUJS.mountComponents(appendedDOM);
 
 // Update Paginator
 $('#js-paging').replaceWith("<%=j render('kaminari/paging', objects: objects) %>");

@@ -13,7 +13,6 @@
 //= require jquery/dist/jquery.js
 //= require ahoy
 //= require parsleyjs
-//= require timeago/jquery.timeago
 //= require popper
 //= require bootstrap-sprockets
 //= require corejs-typeahead/dist/typeahead.bundle
@@ -23,7 +22,6 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require blueimp-load-image/js/load-image
 //= require blueimp-tmpl/js/tmpl
-//= require ekko-lightbox/dist/ekko-lightbox
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

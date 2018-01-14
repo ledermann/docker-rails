@@ -2,4 +2,4 @@
 
 ./docker/wait-for-services.sh
 ./docker/prepare-db.sh
-foreman start
+foreman start -f Procfile.production

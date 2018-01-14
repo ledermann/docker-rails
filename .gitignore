@@ -36,3 +36,7 @@
 
 # Ignore Shrine uploads
 /public/uploads
+
+# Ignore JS packs
+/public/packs
+/public/packs-test
