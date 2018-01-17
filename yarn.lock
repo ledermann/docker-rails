@@ -46,8 +46,8 @@
     webpack-manifest-plugin "^1.3.2"
 
 "@std/esm@^0.19.2":
-  version "0.19.3"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.19.3.tgz#1bca732fc27a18e7dc32243316d0dd890f90cf7a"
+  version "0.19.4"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.19.4.tgz#0930b7ea18643582744672c7cb40868ee6f6aea1"
 
 abbrev@1:
   version "1.1.1"
@@ -3262,8 +3262,8 @@ jquery@>=1.11, jquery@>=1.8.0, jquery@^3.2.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
 js-base64@^2.1.8, js-base64@^2.1.9:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.0.tgz#9e566fee624751a1d720c966cd6226d29d4025aa"
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.1.tgz#e02813181cd53002888e918935467acb2910e596"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
@@ -5385,8 +5385,8 @@ selfsigned@^1.9.1:
     node-forge "0.6.33"
 
 "semver@2 || 3 || 4 || 5", semver@^5.3.0:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
 semver@~5.3.0:
   version "5.3.0"
@@ -6118,8 +6118,8 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
 uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
