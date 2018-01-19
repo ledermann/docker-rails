@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Add articles about programming languages from Wikipedia..."
-WikipediaJob.perform_now
-
 puts "Create admin user..."
 User.find_or_create_by(is_admin: true) do |user|
   user.email    = ENV.fetch('APP_ADMIN_EMAIL')
   user.password = ENV.fetch('APP_ADMIN_PASSWORD')
 end
 User.first.confirm!
+
+puts "Add articles about programming languages from Wikipedia..."
+WikipediaJob.perform_now
