@@ -85,9 +85,9 @@ GEM
       safely_block (>= 0.1.1)
     bootsnap (1.1.8)
       msgpack (~> 1.0)
-    bootstrap (4.0.0.beta3)
+    bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
-      popper_js (>= 1.12.3, < 2)
+      popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
     browser (2.5.2)
     builder (3.2.3)
@@ -418,7 +418,7 @@ DEPENDENCIES
   aws-sdk-s3
   blazer
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.0.0.beta)
+  bootstrap (~> 4)
   byebug
   capybara (~> 2.15)
   clearance
