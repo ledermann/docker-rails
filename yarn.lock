@@ -4945,8 +4945,8 @@ react-emotion@^8.0.6:
     emotion-utils "^8.0.12"
 
 react-grid-gallery@^0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.7.tgz#b21dcf3c655a65c093dc3e1816cbc9cacee0373d"
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.8.tgz#fe1626f099bbbd3a9241a4658beeb6aeeaf9f066"
   dependencies:
     react-images "^0.5.6"
 
