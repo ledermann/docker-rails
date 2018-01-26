@@ -12,6 +12,7 @@ class @Init
     # General
     new TooltipEnabler()
     new Autocomplete()
+    new FontAwesomeInit()
 
 $(document).on 'turbolinks:load', ->
   new Init()

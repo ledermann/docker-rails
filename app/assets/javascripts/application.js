@@ -22,6 +22,9 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require blueimp-load-image/js/load-image
 //= require blueimp-tmpl/js/tmpl
+//= require @fortawesome/fontawesome
+//= require @fortawesome/fontawesome-free-regular
+//= require @fortawesome/fontawesome-free-solid
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
