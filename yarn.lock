@@ -4946,8 +4946,8 @@ react-grid-gallery@^0.4.7:
     react-images "^0.5.6"
 
 react-images@^0.5.6:
-  version "0.5.14"
-  resolved "https://registry.yarnpkg.com/react-images/-/react-images-0.5.14.tgz#02410a3fa63a4eddfde19a26bb8e3dc758d2d44a"
+  version "0.5.15"
+  resolved "https://registry.yarnpkg.com/react-images/-/react-images-0.5.15.tgz#1e00e627383f2d0d27c5786644f0be96747fcd70"
   dependencies:
     aphrodite "^0.5.0"
     prop-types "^15.6.0"
