@@ -57,7 +57,7 @@ GEM
       user_agent_parser
       uuidtools
     arel (9.0.0)
-    ast (2.3.0)
+    ast (2.4.0)
     autoprefixer-rails (7.2.5)
       execjs
     aws-partitions (1.56.0)
