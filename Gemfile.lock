@@ -196,7 +196,7 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.2)
+    minitest (5.11.3)
     msgpack (1.2.2)
     multi_json (1.13.1)
     multipart-post (2.0.0)
