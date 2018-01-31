@@ -18,6 +18,7 @@ describe Clip, 'created for Post' do
 
   it "touches post" do
     clip
+    post.reload
     expect(post.updated_at.to_s).to eq(clip.created_at.to_s)
   end
 
