@@ -233,7 +233,7 @@ GEM
     puma (3.11.2)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-attack (5.0.1)
       rack
     rack-protection (2.0.0)
