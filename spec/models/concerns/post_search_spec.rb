@@ -12,7 +12,7 @@ describe PostSearch do
     end
   end
 
-  describe '#search_for' do
+  describe '.search_for' do
     let!(:post_single) do
       create :post,
              :reindex,
@@ -92,6 +92,45 @@ describe PostSearch do
       it "find matches in both fields" do
         expect(Post.search_for('Law knowledge').to_a).to eq([post_demeter])
       end
+    end
+  end
+
+  describe '.autocomplete' do
+    before { Post.reindex }
+
+    let!(:post_single) do
+      create :post,
+             :reindex,
+             title:   'PL360',
+             content: 'PL360 (or PL/360) is a programming language designed by Niklaus Wirth
+                       and written by Niklaus Wirth, Joseph W. Wells, Jr., and Edwin
+                       Satterthwaite, Jr. for the IBM System/360 computer at Stanford University.
+                       A description of PL360 was published in early 1968, although the
+                       implementation was probably completed before Wirth left Stanford in 1967.'
+    end
+
+    it "completes single word fragment" do
+      expect(Post.autocomplete('nikl')).to eq(%w[niklaus])
+      expect(Post.autocomplete('stan')).to eq(%w[stanford])
+      expect(Post.autocomplete('unive')).to eq(%w[university])
+
+      expect(Post.autocomplete('comp')).to eq(%w[computer completed])
+    end
+
+    it "completes words fragment" do
+      expect(Post.autocomplete('niklaus wi')).to eq(['niklaus wirth', 'wirth'])
+      expect(Post.autocomplete('niklaus wir')).to eq(['niklaus wirth', 'wirth'])
+      expect(Post.autocomplete('niklau wir')).to eq(['niklaus wirth', 'wirth'])
+    end
+
+    it "corrects misspellings" do
+      expect(Post.autocomplete('nikolaus wi')).to eq(['niklaus wirth', 'wirth'])
+      expect(Post.autocomplete('wirtt')).to eq(['wirth'])
+      expect(Post.autocomplete('implemntation')).to eq(['implementation'])
+
+      # Don't correct if the first 2 chars don't match
+      expect(Post.autocomplete('mplemntation')).to eq([])
+      expect(Post.autocomplete('inplemntation')).to eq([])
     end
   end
 end

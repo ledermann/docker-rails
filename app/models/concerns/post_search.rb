@@ -26,7 +26,7 @@ module PostSearch
     }
   end
 
-  module ClassMethods
+  class_methods do
     def search_for(search_string, options = {})
       search search_string, {
         fields:       [ :'title^10', :content, :combined ],
@@ -37,14 +37,29 @@ module PostSearch
       }.merge(options)
     end
 
-    def autocomplete(search_string, options = {})
+    def search_for_autocomplete(search_string, options = {})
       search search_string, {
-        fields:       [ :title ],
+        fields:       [ :combined ],
         match:        :word_start,
         limit:        10,
         load:         false,
-        misspellings: { below: 5 }
+        highlight:    true,
+        misspellings: { prefix_length: 2, below: 3 }
       }.merge(options)
+    end
+
+    def autocomplete(search_string)
+      search_for_autocomplete(search_string).map do |record|
+        record['highlight']['combined.word_start'].map do |fragment|
+          fragment.
+            scan(/<em>(.*?)<\/em>/).
+            join(' ').
+            downcase.
+            split(' ').
+            uniq.
+            join(' ')
+        end
+      end.flatten.uniq
     end
   end
 end

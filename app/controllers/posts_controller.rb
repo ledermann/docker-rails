@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def autocomplete
-    render json: Post.autocomplete(search_string).map(&:title)
+    render json: Post.autocomplete(search_string)
   end
 
   def show
