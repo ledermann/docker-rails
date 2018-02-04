@@ -46,7 +46,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     afm (0.2.2)
-    ahoy_matey (1.6.0)
+    ahoy_matey (1.6.1)
       addressable
       browser (~> 2.0)
       geocoder
