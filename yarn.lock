@@ -1258,8 +1258,8 @@ caniuse-api@^2.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000801"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000801.tgz#a1d49def94c4e5aca5ccf1d58812e4668fac19d4"
+  version "1.0.30000802"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000802.tgz#f7dca342da1c12cf84ff2c80432e24c7e1cc36d9"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000791, caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
@@ -4980,8 +4980,8 @@ react-scrolllock@^2.0.1:
     exenv "^1.2.2"
 
 react-spinners@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.2.5.tgz#5d88b4eb9d9fd1b2c21760f3c6d76f8da6f70042"
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.2.6.tgz#15ba678d07636c3cf760563b0efb7b2566f465cb"
   dependencies:
     babel-plugin-emotion "^8.0.6"
     emotion "^8.0.8"
