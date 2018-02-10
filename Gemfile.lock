@@ -59,7 +59,7 @@ GEM
       uuidtools
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (7.2.5)
+    autoprefixer-rails (7.2.6)
       execjs
     aws-partitions (1.59.0)
     aws-sdk-core (3.15.0)
