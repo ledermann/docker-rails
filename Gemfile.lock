@@ -93,7 +93,7 @@ GEM
     browser (2.5.2)
     builder (3.2.3)
     byebug (10.0.0)
-    capybara (2.17.0)
+    capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
@@ -229,7 +229,7 @@ GEM
     premailer-rails (1.10.1)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.2)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
