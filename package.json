@@ -8,7 +8,7 @@
     "@rails/webpacker": "^3.2.2",
     "babel-preset-react": "^6.24.1",
     "blueimp-file-upload": "^9.20.0",
-    "coffeescript": "1.12.7",
+    "coffeescript": "2.2.1",
     "corejs-typeahead": "^1.2.1",
     "jquery": "^3.2.1",
     "parsleyjs": "^2.8.0",
