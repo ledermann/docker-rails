@@ -164,7 +164,7 @@ GEM
     hashery (2.1.2)
     hashie (3.5.7)
     htmlentities (4.3.4)
-    i18n (0.9.4)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     image_processing (0.4.5)
     jbuilder (2.7.0)
