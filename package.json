@@ -7,7 +7,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.6",
     "@rails/webpacker": "^3.2.2",
     "babel-preset-react": "^6.24.1",
-    "blueimp-file-upload": "^9.20.0",
+    "blueimp-file-upload": "^9.21.0",
     "coffeescript": "2.2.1",
     "corejs-typeahead": "^1.2.1",
     "jquery": "^3.2.1",
