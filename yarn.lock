@@ -1383,9 +1383,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-coffeescript@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.2.1.tgz#39fa2ac2e369f9bf0c651792e1f74552b4081b8e"
+coffeescript@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.2.2.tgz#e693fefdb3d69017e13d24b8d6a658f8f4a7c1a9"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -2310,8 +2310,8 @@ fbjs@^0.8.16:
     ua-parser-js "^0.7.9"
 
 file-loader@^1.1.6:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.8.tgz#a62592ed732667d7482dc3268c381c7f0c913086"
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.9.tgz#cf152aedbcfb3d67038d0845efb7cf11a96e53de"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
