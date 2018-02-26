@@ -46,17 +46,15 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     afm (0.2.2)
-    ahoy_matey (1.6.1)
+    ahoy_matey (2.0.0)
       addressable
       browser (~> 2.0)
       geocoder
-      rack-attack (< 6)
-      railties
-      referer-parser (>= 0.3.0)
+      railties (>= 4.2)
+      referer-parser (>= 0.3)
       request_store
-      safely_block (>= 0.1.1)
+      safely_block (>= 0.2.1)
       user_agent_parser
-      uuidtools
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (8.0.0)
@@ -235,8 +233,6 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.4)
-    rack-attack (5.0.1)
-      rack
     rack-protection (2.0.1)
       rack
     rack-proxy (0.6.3)
@@ -396,7 +392,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
     user_agent_parser (2.4.1)
-    uuidtools (2.1.5)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -417,7 +412,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ahoy_matey
+  ahoy_matey (~> 2)
   aws-sdk-s3
   blazer
   bootsnap (>= 1.1.0)

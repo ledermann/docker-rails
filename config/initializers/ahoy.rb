@@ -1,8 +1,12 @@
 module Ahoy
-  class Store < Stores::ActiveRecordTokenStore
+  class Store < DatabaseStore
+    def visit_model
+      Visit
+    end
   end
 end
 
+Ahoy.api = true
+Ahoy.server_side_visits = false
 Ahoy.geocode = Rails.env.test? ? false : :async
-Ahoy.throttle = !Rails.env.test?
 Ahoy.quiet = !Rails.env.development?
