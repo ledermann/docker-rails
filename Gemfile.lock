@@ -316,7 +316,7 @@ GEM
     rubyzip (1.2.1)
     rufus-scheduler (3.4.2)
       et-orbi (~> 1.0)
-    safely_block (0.2.0)
+    safely_block (0.2.1)
       errbase
     sass (3.5.5)
       sass-listen (~> 4.0.0)
