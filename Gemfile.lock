@@ -157,7 +157,7 @@ GEM
       thor (~> 0.19.1)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
-    geocoder (1.4.5)
+    geocoder (1.4.6)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashery (2.1.2)
