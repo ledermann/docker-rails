@@ -4,5 +4,3 @@ class @TableRowLink
     $(document).on 'click', 'tr[data-href] > td.js-row-link', ->
       Turbolinks.visit $(this).parent().attr('data-href')
       return
-
-new TableRowLink()

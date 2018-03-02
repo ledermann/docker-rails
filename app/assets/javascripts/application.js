@@ -28,4 +28,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require punchbox
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  new FontAwesomeInit();
+  new TooltipEnabler();
+  new InfiniteScrolling();
+  new AhoyTracker();
+  new PiwikAnalytics();
+});

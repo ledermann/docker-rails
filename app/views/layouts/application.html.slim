@@ -12,7 +12,7 @@ html[lang="en"]
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag    'application'
 
-  body
+  body data-punchbox-controller=controller_path data-punchbox-action=action_name
     = render 'layouts/navbar'
 
     #main

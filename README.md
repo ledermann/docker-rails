@@ -27,7 +27,7 @@ Simple Rails 5.2 application to demonstrate using Docker for production deployme
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
 - User visit and click tracking with [Ahoy](https://github.com/ankane/ahoy) gem
 - Admin dashboards with [Blazer](https://github.com/ankane/blazer) gem
-- Controller specific JavaScript embedded into the asset pipeline
+- Page specific JavaScript with [Punchbox](https://github.com/kieraneglin/punchbox)
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
 

@@ -59,6 +59,7 @@ gem 'friendly_id'
 gem 'stringex'
 gem 'trix'
 gem 'rollbar'
+gem 'punchbox'
 
 # Image uploads
 gem 'shrine'

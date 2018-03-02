@@ -42,5 +42,3 @@ class @PiwikAnalytics
 
   piwikUrl: ->
     '//' + @piwikHost() + '/js/'
-
-new PiwikAnalytics

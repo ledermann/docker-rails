@@ -230,6 +230,8 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.2)
     puma (3.11.2)
+    punchbox (1.0.3)
+      rails (>= 4.0.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.4)
@@ -438,6 +440,7 @@ DEPENDENCIES
   pg (~> 1.0)
   premailer-rails
   puma (~> 3.11)
+  punchbox
   pundit
   rack
   rails (~> 5.2.0.rc1)
