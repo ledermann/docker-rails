@@ -80,14 +80,12 @@ describe 'Post management' do
       Capybara.using_session(:second_user) do
         visit edit_post_path(example_post, as: create(:admin))
 
-        fill_in 'post[title]', with: 'Fooo'
         all(:css, "trix-editor").first.click.set('dolor sit amet')
 
         click_on 'Update Post'
       end
 
       Capybara.using_session(:first_user) do
-        expect(page).to have_selector('h1', text: 'Fooo', wait: 5)
         expect(page).to have_selector('div', text: 'dolor sit amet')
       end
     end
