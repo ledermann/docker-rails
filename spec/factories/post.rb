@@ -4,8 +4,9 @@ FactoryBot.define do
     content '<p>Lorem ipsum</p>'
 
     trait :reindex do
-      after :create  do |post|
-        post.reindex refresh: true
+      after :create do |post|
+        post.reindex
+        Post.search_index.refresh
       end
     end
   end

@@ -327,9 +327,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    searchkick (2.5.0)
-      activemodel (>= 4.1)
-      elasticsearch (>= 1)
+    searchkick (3.0.0)
+      activemodel (>= 4.2)
+      elasticsearch (>= 5)
       hashie
     selenium-webdriver (3.10.0)
       childprocess (~> 0.5)
