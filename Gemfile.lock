@@ -57,7 +57,7 @@ GEM
       user_agent_parser
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.0.0)
+    autoprefixer-rails (8.1.0)
       execjs
     aws-partitions (1.68.0)
     aws-sdk-core (3.17.0)
