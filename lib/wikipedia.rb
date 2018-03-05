@@ -1,4 +1,4 @@
-require 'open-uri'
+require 'net/http'
 
 module Wikipedia
   class List
@@ -28,7 +28,7 @@ module Wikipedia
 
     def as_json
       @as_json ||= Hash.new do |h, key|
-        h[key] = JSON.parse(open(url).read)
+        h[key] = JSON.parse(Net::HTTP.get(URI(url)))
       end
       @as_json[@page]
     end
@@ -88,7 +88,7 @@ module Wikipedia
     end
 
     def as_json
-      @as_json ||= JSON.parse(open(json_url).read)
+      @as_json ||= JSON.parse(Net::HTTP.get(URI(json_url)))
     end
   end
 end
