@@ -4,13 +4,15 @@ AllCops:
     - db/schema.rb
     - 'node_modules/**/*'
     - 'vendor/**/*'
-    - bin/webpack*
-    - bin/bundle
+    - bin/*
 
 ### Rails
 
 Rails:
   Enabled: true
+
+Rails/ActiveRecordAliases:
+  Enabled: false
 
 Rails/FilePath:
   Enabled: false
@@ -28,12 +30,6 @@ Rails/CreateTableWithTimestamps:
 
 Bundler/OrderedGems:
   Enabled: false
-
-
-### Lint
-
-Lint/EndAlignment:
-  EnforcedStyleAlignWith: variable
 
 
 ### Metrics
@@ -101,6 +97,9 @@ Style/StderrPuts:
 
 Layout/DotPosition:
   EnforcedStyle: trailing
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
 
 Layout/FirstArrayElementLineBreak:
   Enabled: true
