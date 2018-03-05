@@ -22,9 +22,6 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require blueimp-load-image/js/load-image
 //= require blueimp-tmpl/js/tmpl
-//= require @fortawesome/fontawesome
-//= require @fortawesome/fontawesome-free-regular
-//= require @fortawesome/fontawesome-free-solid
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -32,7 +29,6 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  new FontAwesomeInit();
   new TooltipEnabler();
   new InfiniteScrolling();
   new AhoyTracker();

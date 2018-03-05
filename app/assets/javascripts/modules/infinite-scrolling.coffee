@@ -22,7 +22,6 @@ class @InfiniteScrolling
         @disable()
         $.getScript url, ->
           new InfiniteScrolling()
-          new FontAwesomeInit()
           return
     return
 
