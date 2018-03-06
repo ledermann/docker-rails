@@ -231,7 +231,7 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (3.11.3)
     punchbox (1.0.3)
       rails (>= 4.0.0)
     pundit (1.1.0)
