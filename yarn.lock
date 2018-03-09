@@ -53,8 +53,8 @@ acorn@^4.0.3:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
 acorn@^5.0.0:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.1.tgz#84e05a9ea0acbe131227da50301e62464dc9c1d8"
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
 ajv-keywords@^3.1.0:
   version "3.1.0"
@@ -3447,8 +3447,8 @@ loud-rejection@^1.0.0, loud-rejection@^1.6.0:
     signal-exit "^3.0.0"
 
 lru-cache@^4.0.1, lru-cache@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.2.tgz#45234b2e6e2f2b33da125624c4664929a0224c3f"
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
@@ -6231,11 +6231,10 @@ wordwrap@0.0.2:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
 
 worker-farm@^1.5.2:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/worker-farm/-/worker-farm-1.5.4.tgz#4debbe46b40edefcc717ebde74a90b1ae1e909a1"
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/worker-farm/-/worker-farm-1.6.0.tgz#aecc405976fab5a95526180846f0dba288f3a4a0"
   dependencies:
     errno "~0.1.7"
-    xtend "~4.0.1"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
