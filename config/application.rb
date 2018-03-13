@@ -20,6 +20,16 @@ module DockerRails
     # the framework and any gems in your application.
 
     config.time_zone = 'Berlin'
+
+    # Allow CORS for API requests
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '/api/*',
+                 headers: :any,
+                 methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
+      end
+    end
   end
 end
 
