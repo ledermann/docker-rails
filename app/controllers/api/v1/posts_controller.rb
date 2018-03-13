@@ -1,6 +1,6 @@
 module Api
   module V1
-    class PostsController < BaseController
+    class PostsController < ApiController
       def index
         @posts = if search_string
           Post.search_for(search_string, page: params[:page], per_page: 25)

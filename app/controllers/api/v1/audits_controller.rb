@@ -1,6 +1,6 @@
 module Api
   module V1
-    class AuditsController < BaseController
+    class AuditsController < ApiController
       def index
         @audits = post.audits.reorder(id: :desc)
       end
