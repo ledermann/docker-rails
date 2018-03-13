@@ -333,7 +333,7 @@ GEM
       activemodel (>= 4.2)
       elasticsearch (>= 5)
       hashie
-    selenium-webdriver (3.10.0)
+    selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     shrine (2.9.0)
