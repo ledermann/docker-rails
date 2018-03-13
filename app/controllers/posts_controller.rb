@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  respond_to :html, :json
-
   def index
     @posts = if search_string
       Post.search_for(search_string, page: params[:page], per_page: 25)
@@ -12,10 +10,6 @@ class PostsController < ApplicationController
     respond_with @posts do |format|
       format.js { render 'kaminari/infinite-scrolling', locals: { objects: @posts } }
     end
-  end
-
-  def autocomplete
-    render json: Post.autocomplete(search_string)
   end
 
   def show

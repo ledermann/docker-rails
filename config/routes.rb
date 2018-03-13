@@ -8,6 +8,18 @@ Rails.application.routes.draw do
   mount Shrine.presign_endpoint(:cache) => '/presign'
   mount Ahoy::Engine => '/ahoy', as: :my_ahoy
 
+  namespace :api do
+    namespace :v1 do
+      resources :posts do
+        collection do
+          get :autocomplete
+        end
+
+        resources :audits, only: [ :index ]
+      end
+    end
+  end
+
   constraints Clearance::Constraints::SignedIn.new(&:is_admin?) do
     mount Sidekiq::Web => '/sidekiq'
     mount Blazer::Engine, at: 'blazer'
@@ -26,10 +38,6 @@ Rails.application.routes.draw do
   get    '/sign_up'                  => 'users#new',                  as: 'sign_up'
 
   resources :posts do
-    collection do
-      get :autocomplete, constraints: ->(req) { req.format == :json }
-    end
-
     resources :audits, only: [ :index ]
   end
 
