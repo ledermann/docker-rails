@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@rails/webpacker@^3.2.2":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.3.0.tgz#4ce1e67d57e615dfacde33d2b27fbd46a2111cba"
+"@rails/webpacker@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.3.1.tgz#cc327dbdd5380c75468e769b52ea09b6616b4529"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -21,7 +21,7 @@
     glob "^7.1.2"
     js-yaml "^3.10.0"
     node-sass "^4.7.2"
-    path-complete-extname "^0.1.0"
+    path-complete-extname "^1.0.0"
     postcss-cssnext "^3.1.0"
     postcss-import "^11.0.0"
     postcss-loader "^2.1.0"
@@ -4047,9 +4047,9 @@ path-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/path-browserify/-/path-browserify-0.0.0.tgz#a0b870729aae214005b7d5032ec2cbbb0fb4451a"
 
-path-complete-extname@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/path-complete-extname/-/path-complete-extname-0.1.0.tgz#c454702669f31452f8193aa6168915fa31692f4a"
+path-complete-extname@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/path-complete-extname/-/path-complete-extname-1.0.0.tgz#f889985dc91000c815515c0bfed06c5acda0752b"
 
 path-dirname@^1.0.0:
   version "1.0.2"
