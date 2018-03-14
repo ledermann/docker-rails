@@ -65,6 +65,7 @@ gem 'stringex'
 gem 'trix'
 gem 'rollbar'
 gem 'punchbox'
+gem 'rack-cors', require: 'rack/cors'
 
 # Image uploads
 gem 'shrine'
