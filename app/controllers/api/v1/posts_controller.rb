@@ -8,7 +8,7 @@ module Api
           Post.order(updated_at: :desc).page(params[:page]).per(25)
         end
 
-        render json: posts, each_serializer: PostPreviewSerializer, search_string: search_string
+        render json: posts, each_serializer: PostPreviewSerializer, search_string: search_string, meta: pagination_dict(posts)
       end
 
       def autocomplete

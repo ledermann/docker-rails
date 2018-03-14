@@ -16,10 +16,16 @@ describe "Posts", type: :request do
         expect(response.content_type).to eq('application/json')
 
         json_data = JSON.parse(response.body)
-        expect(json_data.length).to eq(1)
-        expect(json_data.first.keys).to match_array(%w[id slug title content updated_at clips_count])
-        expect(json_data.first['title']).to eq('Foo')
-        expect(json_data.first['content']).to eq('Lorem ipsum')
+        expect(json_data.length).to eq(2)
+
+        posts = json_data['posts']
+        post = posts.first
+        expect(post.keys).to match_array(%w[id slug title content updated_at clips_count])
+        expect(post['title']).to eq('Foo')
+        expect(post['content']).to eq('Lorem ipsum')
+
+        meta = json_data['meta']
+        expect(meta['total_count']).to eq(1)
       end
     end
 
@@ -30,10 +36,13 @@ describe "Posts", type: :request do
         expect(response.content_type).to eq('application/json')
 
         json_data = JSON.parse(response.body)
-        expect(json_data.length).to eq(1)
-        expect(json_data.first.keys).to match_array(%w[id slug title content updated_at clips_count])
-        expect(json_data.first['title']).to eq('Foo')
-        expect(json_data.first['content']).to eq('…<em>Lorem</em> ipsum…')
+        expect(json_data.length).to eq(2)
+
+        posts = json_data['posts']
+        post = posts.first
+        expect(post.keys).to match_array(%w[id slug title content updated_at clips_count])
+        expect(post['title']).to eq('Foo')
+        expect(post['content']).to eq('…<em>Lorem</em> ipsum…')
       end
     end
   end
@@ -45,12 +54,16 @@ describe "Posts", type: :request do
       expect(response.content_type).to eq('application/json')
 
       json_data = JSON.parse(response.body)
-      expect(json_data.keys).to match_array(%w[id slug title content copyright created_at updated_at clips_count clips])
-      expect(json_data['title']).to eq('Foo')
-      expect(json_data['content']).to eq('Lorem ipsum')
 
-      expect(json_data['clips'].size).to eq(1)
-      expect(json_data['clips'].first.keys).to match_array(%w[id filename original large thumbnail])
+      post = json_data['post']
+      expect(post.keys).to match_array(%w[id slug title content copyright created_at updated_at clips_count clips])
+      expect(post['title']).to eq('Foo')
+      expect(post['content']).to eq('Lorem ipsum')
+
+      clips = post['clips']
+      expect(clips.size).to eq(1)
+      clip = clips.first
+      expect(clip.keys).to match_array(%w[id filename original large thumbnail])
     end
   end
 end

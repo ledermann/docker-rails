@@ -16,4 +16,14 @@ class ApiController < ActionController::Base
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, User-Agent, Keep-Alive'
     headers['Access-Control-Request-Method'] = '*'
   end
+
+  def pagination_dict(collection)
+    {
+      current_page: collection.current_page,
+      next_page: collection.next_page,
+      prev_page: collection.prev_page,
+      total_pages: collection.total_pages,
+      total_count: collection.total_count
+    }
+  end
 end
