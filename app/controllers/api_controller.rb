@@ -1,4 +1,4 @@
-class ApiController < ActionController::Base
+class ApiController < ActionController::API
   include Knock::Authenticable
 
   before_action :set_default_format
