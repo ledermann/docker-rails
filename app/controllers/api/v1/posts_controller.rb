@@ -21,7 +21,7 @@ module Api
 
       private
 
-      helper_method def search_string
+      def search_string
         params[:q].presence
       end
     end

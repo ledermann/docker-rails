@@ -7,7 +7,7 @@ module Api
 
       private
 
-      helper_method def post
+      def post
         @post ||= Post.find(params[:post_id])
       end
     end
