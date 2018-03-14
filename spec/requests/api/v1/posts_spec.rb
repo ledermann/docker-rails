@@ -17,10 +17,9 @@ describe "Posts", type: :request do
 
         json_data = JSON.parse(response.body)
         expect(json_data.length).to eq(1)
-        expect(json_data.first.keys).to match_array(%w[id slug title content created_at updated_at clips_count url])
+        expect(json_data.first.keys).to match_array(%w[id slug title content updated_at clips_count])
         expect(json_data.first['title']).to eq('Foo')
         expect(json_data.first['content']).to eq('Lorem ipsum')
-        expect(json_data.first['url']).to eq('http://www.example.com/posts/foo.json')
       end
     end
 
@@ -32,10 +31,9 @@ describe "Posts", type: :request do
 
         json_data = JSON.parse(response.body)
         expect(json_data.length).to eq(1)
-        expect(json_data.first.keys).to match_array(%w[id slug title content created_at updated_at clips_count url])
+        expect(json_data.first.keys).to match_array(%w[id slug title content updated_at clips_count])
         expect(json_data.first['title']).to eq('Foo')
         expect(json_data.first['content']).to eq('…<em>Lorem</em> ipsum…')
-        expect(json_data.first['url']).to eq('http://www.example.com/posts/foo.json')
       end
     end
   end

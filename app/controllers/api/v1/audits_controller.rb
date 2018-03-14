@@ -2,7 +2,7 @@ module Api
   module V1
     class AuditsController < ApiController
       def index
-        @audits = post.audits.reorder(id: :desc)
+        render json: post.audits.reorder(id: :desc)
       end
 
       private
