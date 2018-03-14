@@ -385,7 +385,7 @@ GEM
     sprockets_uglifier_with_source_maps (2.1.0)
       sprockets-rails (~> 3.0)
       uglifier (>= 2.5)
-    stringex (2.8.3)
+    stringex (2.8.4)
     temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
