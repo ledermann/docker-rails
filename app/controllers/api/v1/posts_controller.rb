@@ -12,7 +12,12 @@ module Api
       end
 
       def autocomplete
-        render json: Post.autocomplete(search_string)
+        words = Post.autocomplete(search_string)
+        if words.present?
+          render json: words
+        else
+          render json: ''
+        end
       end
 
       def show

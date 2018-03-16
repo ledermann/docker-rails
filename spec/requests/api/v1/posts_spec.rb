@@ -47,6 +47,28 @@ describe "Posts", type: :request do
     end
   end
 
+  describe 'GET /posts/autocomplete' do
+    context "finding something" do
+      it "returns JSON" do
+        get autocomplete_api_v1_posts_path(q: 'lorem', format: :json)
+        expect(response).to have_http_status(200)
+        expect(response.content_type).to eq('application/json')
+
+        json_data = JSON.parse(response.body)
+        expect(json_data).to eq(%w[lorem])
+      end
+    end
+
+    context "finding nothing" do
+      it "returns blank string" do
+        get autocomplete_api_v1_posts_path(q: 'foooo', format: :json)
+        expect(response).to have_http_status(200)
+        expect(response.content_type).to eq('application/json')
+        expect(response.body).to eq('')
+      end
+    end
+  end
+
   describe 'GET /posts/:id' do
     it "returns JSON" do
       get api_v1_post_path(id: 42, format: :json)
