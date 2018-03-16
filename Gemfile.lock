@@ -215,7 +215,7 @@ GEM
     msgpack (1.2.4)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    nio4r (2.2.0)
+    nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     paper_trail (8.1.2)
