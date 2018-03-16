@@ -291,7 +291,7 @@ GEM
       tilt
     redis (4.0.1)
     referer-parser (0.3.0)
-    request_store (1.4.0)
+    request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
