@@ -8,16 +8,16 @@ module Api
           Post.order(updated_at: :desc).page(params[:page]).per(25)
         end
 
-        render json: posts, each_serializer: PostPreviewSerializer, search_string: search_string, meta: pagination_dict(posts)
+        render json: posts,
+               each_serializer: PostPreviewSerializer,
+               search_string: search_string,
+               meta: pagination_dict(posts),
+               root: 'posts'
       end
 
       def autocomplete
         words = Post.autocomplete(search_string)
-        if words.present?
-          render json: words
-        else
-          render json: ''
-        end
+        render json: words.to_json
       end
 
       def show

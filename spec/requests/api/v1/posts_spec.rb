@@ -64,7 +64,9 @@ describe "Posts", type: :request do
         get autocomplete_api_v1_posts_path(q: 'foooo', format: :json)
         expect(response).to have_http_status(200)
         expect(response.content_type).to eq('application/json')
-        expect(response.body).to eq('')
+
+        json_data = JSON.parse(response.body)
+        expect(json_data).to eq(%w[])
       end
     end
   end
