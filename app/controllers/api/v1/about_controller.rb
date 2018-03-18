@@ -2,7 +2,7 @@ module Api
   module V1
     class AboutController < ApiController
       def show
-        render json: Rails.cache.fetch('versions') { versions }
+        render json: versions
       end
 
       private
