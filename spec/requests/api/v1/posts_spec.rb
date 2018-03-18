@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 describe "Posts", type: :request do
-  let!(:post) { create(:post, id: 42, title: 'Foo', content: 'Lorem ipsum') }
-  let!(:clip) { create(:clip, id: 123, post: post) }
+  let!(:post1) { create(:post, :reindex, id: 42, title: 'Foo', content: 'Lorem ipsum') }
+  let!(:clip) { create(:clip, id: 123, post: post1) }
 
-  before do
-    Post.reindex
-  end
+  let(:admin_user) { create(:user, is_admin: true) }
+  let(:normal_user) { create(:user, is_admin: false) }
 
   describe 'GET /posts' do
     context "without query param" do
@@ -88,6 +87,96 @@ describe "Posts", type: :request do
       expect(clips.size).to eq(1)
       clip = clips.first
       expect(clip.keys).to match_array(%w[id filename original large thumbnail])
+    end
+  end
+
+  describe 'POST /posts' do
+    let(:params) do
+      {
+        post: {
+          title: "This is a new post",
+          content: "Some content"
+        }
+      }
+    end
+
+    context "authenticated as admin" do
+      let(:headers) { authenticated_header(admin_user) }
+
+      it "creates new post" do
+        post api_v1_posts_path, params: params, headers: headers
+
+        expect(response).to have_http_status(201)
+        expect(response.content_type).to eq('application/json')
+
+        json_data = JSON.parse(response.body)
+        post = json_data['post']
+        expect(post.keys).to match_array(%w[id slug title content copyright created_at updated_at clips_count clips])
+        expect(post['title']).to eq('This is a new post')
+        expect(post['content']).to eq('Some content')
+      end
+    end
+
+    context "without admin authentication" do
+      it "rejects creating post" do
+        [ normal_user, nil, :invalid ].each do |auth_target|
+          post api_v1_posts_path, params: params, headers: authenticated_header(auth_target)
+
+          expect(response).to have_http_status(401)
+        end
+      end
+    end
+  end
+
+  describe 'PATCH /posts/:id' do
+    let(:params) do
+      {
+        post: {
+          title: "other title"
+        }
+      }
+    end
+
+    context "authenticated as admin" do
+      it "updates post" do
+        patch api_v1_post_path(id: 42), params: params, headers: authenticated_header(admin_user)
+
+        expect(response).to have_http_status(204)
+        expect(post1.reload.title).to eq('other title')
+      end
+    end
+
+    context "without admin authentication" do
+      it "rejects updating post" do
+        [ normal_user, nil, :invalid ].each do |auth_target|
+          patch api_v1_post_path(id: 42), params: params, headers: authenticated_header(auth_target)
+
+          expect(response).to have_http_status(401)
+          expect(post1.reload.title).to eq('Foo')
+        end
+      end
+    end
+  end
+
+  describe 'DELETE /posts/:id' do
+    context "authenticated as admin" do
+      it "deletes post" do
+        delete api_v1_post_path(id: 42), headers: authenticated_header(admin_user)
+
+        expect(response).to have_http_status(204)
+        expect { post1.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context "without admin authentication" do
+      it "rejects deleting post" do
+        [ normal_user, nil, :invalid ].each do |auth_target|
+          delete api_v1_post_path(id: 42), headers: authenticated_header(auth_target)
+
+          expect(response).to have_http_status(401)
+          expect { post1.reload }.to_not raise_error
+        end
+      end
     end
   end
 end

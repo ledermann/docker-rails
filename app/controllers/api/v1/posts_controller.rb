@@ -1,6 +1,8 @@
 module Api
   module V1
     class PostsController < ApiController
+      before_action :load_post, only: [:show, :update, :destroy]
+
       def index
         posts = if search_string
           Post.search_for(search_string, page: params[:page], per_page: 25)
@@ -21,13 +23,41 @@ module Api
       end
 
       def show
-        render json: Post.find(params[:id])
+        respond_with @post
+      end
+
+      def create
+        @post = Post.new(post_params)
+        authorize @post
+        @post.save
+        respond_with @post
+      end
+
+      def update
+        authorize @post
+        @post.update(post_params)
+        respond_with @post
+      end
+
+      def destroy
+        authorize @post
+        @post.destroy!
       end
 
       private
 
       def search_string
         params[:q].presence
+      end
+
+      def load_post
+        @post = Post.find(params[:id])
+      end
+
+      def post_params
+        params.require(:post).permit(
+          :title, :content, :copyright, clips_attributes: [ :id, :image, :_destroy ]
+        )
       end
     end
   end

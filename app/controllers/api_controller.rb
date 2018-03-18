@@ -1,7 +1,13 @@
 class ApiController < ActionController::API
+  respond_to :json
+
   include Knock::Authenticable
 
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   before_action :set_default_format
+  before_action :set_paper_trail_whodunnit
 
   private
 
@@ -17,5 +23,9 @@ class ApiController < ActionController::API
       total_pages: collection.total_pages,
       total_count: collection.total_count
     }
+  end
+
+  def user_not_authorized
+    render status: :unauthorized
   end
 end
