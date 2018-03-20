@@ -4,7 +4,7 @@ module Api
       before_action :load_post
 
       def index
-        respond_with @post.audits.reorder(id: :desc)
+        render json: @post.audits.reorder(id: :desc)
       end
 
       private

@@ -23,20 +23,26 @@ module Api
       end
 
       def show
-        respond_with @post
+        render json: @post
       end
 
       def create
         @post = Post.new(post_params)
         authorize @post
-        @post.save
-        respond_with @post
+        if @post.save
+          render json: @post, status: :created, location: @post
+        else
+          render json: @post.errors, status: :unprocessable_entity
+        end
       end
 
       def update
         authorize @post
-        @post.update(post_params)
-        respond_with @post
+        if @post.update(post_params)
+          render status: :no_content, location: @post
+        else
+          render json: @post.errors, status: :unprocessable_entity
+        end
       end
 
       def destroy

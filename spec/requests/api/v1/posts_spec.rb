@@ -108,6 +108,7 @@ describe "Posts", type: :request do
 
         expect(response).to have_http_status(201)
         expect(response.content_type).to eq('application/json')
+        expect(response.location).to eq('http://www.example.com/posts/this-is-a-new-post')
 
         json_data = JSON.parse(response.body)
         post = json_data['post']
@@ -142,6 +143,7 @@ describe "Posts", type: :request do
         patch api_v1_post_path(id: 42), params: params, headers: authenticated_header(admin_user)
 
         expect(response).to have_http_status(204)
+        expect(response.location).to eq('http://www.example.com/posts/other-title')
         expect(post1.reload.title).to eq('other title')
       end
     end

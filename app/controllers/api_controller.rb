@@ -1,6 +1,4 @@
 class ApiController < ActionController::API
-  respond_to :json
-
   include Knock::Authenticable
 
   include Pundit
