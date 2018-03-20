@@ -24,7 +24,8 @@ module DockerRails
         origins '*'
         resource '/api/*',
                  headers: :any,
-                 methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
+                 methods: [ :get, :post, :put, :patch, :delete, :options, :head ],
+                 expose: ['ETag']
       end
     end
   end
