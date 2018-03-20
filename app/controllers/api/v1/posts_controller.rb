@@ -39,7 +39,7 @@ module Api
       def update
         authorize @post
         if @post.update(post_params)
-          render status: :no_content, location: @post
+          render json: @post
         else
           render json: @post.errors, status: :unprocessable_entity
         end
