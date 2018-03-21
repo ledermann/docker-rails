@@ -22,7 +22,7 @@ backup:
     - SCHEDULE=@daily
 
 elasticsearch:
-  image: 'docker.elastic.co/elasticsearch/elasticsearch:6.2.2'
+  image: 'docker.elastic.co/elasticsearch/elasticsearch:6.2.3'
   restart: always
   environment:
     - xpack.security.enabled=false
