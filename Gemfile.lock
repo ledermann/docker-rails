@@ -96,7 +96,7 @@ GEM
       sass (>= 3.5.2)
     browser (2.5.3)
     builder (3.2.3)
-    byebug (10.0.0)
+    byebug (10.0.1)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
