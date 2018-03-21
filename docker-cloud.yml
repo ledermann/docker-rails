@@ -101,6 +101,10 @@ worker:
     - SMTP_AUTHENTICATION=plain
     - SMTP_ENABLE_STARTTLS_AUTO=true
     - ROLLBAR_ACCESS_TOKEN=my-token-for-rollbar
+    - AWS_ACCESS_KEY_ID=my-access-key
+    - AWS_SECRET_ACCESS_KEY=my-secret-key
+    - AWS_BUCKET=my-bucket
+    - AWS_REGION=eu-central-1
   command: 'bundle exec sidekiq'
   links:
     - app
