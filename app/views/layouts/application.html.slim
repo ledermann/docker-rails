@@ -6,6 +6,7 @@ html[lang="en"]
     meta[name="viewport" content="width=device-width, initial-scale=1"]
     title= [ title, 'DockerRails' ].compact.join(' :: ')
     = csrf_meta_tags
+    = csp_meta_tag
     = action_cable_meta_tag
     = piwik_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
