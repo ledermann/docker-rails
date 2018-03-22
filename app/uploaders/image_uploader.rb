@@ -14,9 +14,17 @@ class ImageUploader < Shrine
   end
 
   process(:store) do |io, _context|
-    original  = io.download
-    large     = resize_to_limit!(original, 1200, 1200, &:auto_orient)
-    thumbnail = resize_to_fill(large, 400, 400, gravity: 'Center')
+    original = io.download
+
+    large = ImageProcessing::MiniMagick.
+            source(original).
+            resize_to_limit(1200, 1200, &:auto_orient).
+            call
+
+    thumbnail = ImageProcessing::MiniMagick.
+                source(original).
+                resize_to_fill(400, 400, gravity: 'Center').
+                call
 
     {
       original:  io,
