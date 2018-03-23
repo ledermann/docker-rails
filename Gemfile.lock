@@ -133,12 +133,12 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     down (4.3.0)
-    elasticsearch (6.0.1)
-      elasticsearch-api (= 6.0.1)
-      elasticsearch-transport (= 6.0.1)
-    elasticsearch-api (6.0.1)
+    elasticsearch (6.0.2)
+      elasticsearch-api (= 6.0.2)
+      elasticsearch-transport (= 6.0.2)
+    elasticsearch-api (6.0.2)
       multi_json
-    elasticsearch-transport (6.0.1)
+    elasticsearch-transport (6.0.2)
       faraday
       multi_json
     email_spec (2.1.1)
