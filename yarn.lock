@@ -3,8 +3,8 @@
 
 
 "@rails/webpacker@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.3.1.tgz#cc327dbdd5380c75468e769b52ea09b6616b4529"
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.4.0.tgz#839055f2df777f4bd9ce94c7787a65ac1028ef58"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
