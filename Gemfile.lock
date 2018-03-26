@@ -106,7 +106,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     case_transform (0.2)
       activesupport
-    chartkick (2.3.2)
+    chartkick (2.3.3)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     clearance (1.16.1)
