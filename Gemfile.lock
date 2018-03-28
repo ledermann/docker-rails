@@ -252,7 +252,7 @@ GEM
       rack
     rack-proxy (0.6.4)
       rack
-    rack-test (0.8.3)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0.rc2)
       actioncable (= 5.2.0.rc2)
