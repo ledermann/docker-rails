@@ -348,7 +348,7 @@ GEM
       down (~> 4.1)
     shrine-memory (0.3.0)
       shrine (~> 2.2)
-    sidekiq (5.1.2)
+    sidekiq (5.1.3)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
