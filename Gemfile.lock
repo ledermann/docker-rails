@@ -141,10 +141,10 @@ GEM
     elasticsearch-transport (6.0.2)
       faraday
       multi_json
-    email_spec (2.1.1)
+    email_spec (2.2.0)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
-      mail (~> 2.6)
+      mail (~> 2.7)
     email_validator (1.6.0)
       activemodel
     errbase (0.1.0)
