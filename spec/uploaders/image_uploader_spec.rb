@@ -5,7 +5,7 @@ describe ImageUploader do
   let(:clip) { create :clip, post: post }
 
   it 'generates image versions' do
-    expect(clip.reload.image.keys).to eq([:original, :large, :thumbnail])
+    expect(clip.reload.image.keys).to match_array([:original, :large, :thumbnail])
   end
 
   it 'stores image' do
