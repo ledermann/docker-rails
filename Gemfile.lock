@@ -51,15 +51,6 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     afm (0.2.2)
-    ahoy_matey (2.0.2)
-      addressable
-      browser (~> 2.0)
-      geocoder (>= 1.4.5)
-      railties (>= 4.2)
-      referer-parser (>= 0.3)
-      request_store
-      safely_block (>= 0.2.1)
-      user_agent_parser
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (8.2.0)
@@ -94,7 +85,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    browser (2.5.3)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.0.1)
@@ -166,7 +156,6 @@ GEM
       thor (~> 0.19.1)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
-    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashery (2.1.2)
@@ -292,7 +281,6 @@ GEM
       railties (>= 3.2)
       tilt
     redis (4.0.1)
-    referer-parser (0.3.0)
     request_store (1.4.1)
       rack (>= 1.4)
     rollbar (2.15.5)
@@ -407,7 +395,6 @@ GEM
     uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
-    user_agent_parser (2.4.1)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -429,7 +416,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  ahoy_matey (~> 2)
   aws-sdk-s3
   blazer
   bootsnap (>= 1.1.0)

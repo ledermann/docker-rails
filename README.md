@@ -25,7 +25,6 @@ Simple Rails 5.2 application to demonstrate using Docker for production deployme
 - Infinitive scrolling (using the [Kaminari](https://github.com/kaminari/kaminari) gem and some JavaScript)
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
-- User visit and click tracking with [Ahoy](https://github.com/ankane/ahoy) gem
 - Admin dashboards with [Blazer](https://github.com/ankane/blazer) gem
 - Page specific JavaScript with [Punchbox](https://github.com/kieraneglin/punchbox)
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)

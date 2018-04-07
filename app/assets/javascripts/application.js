@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
-//= require ahoy
 //= require parsleyjs
 //= require popper
 //= require bootstrap-sprockets
@@ -33,5 +32,4 @@ new PiwikAnalytics();
 $(document).on('turbolinks:load', function() {
   new TooltipEnabler();
   new InfiniteScrolling();
-  new AhoyTracker();
 });
