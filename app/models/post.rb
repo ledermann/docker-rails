@@ -14,6 +14,6 @@ class Post < ApplicationRecord
     PostRelayJob.perform_later(post)
   end
 
-  has_many :clips, dependent: :destroy, inverse_of: :post
+  has_many :clips, -> { order(:id) }, dependent: :destroy, inverse_of: :post
   accepts_nested_attributes_for :clips, allow_destroy: true
 end

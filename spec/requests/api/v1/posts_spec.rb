@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Posts", type: :request do
   let!(:post1) { create(:post, :reindex, id: 42, title: 'Foo', content: 'Lorem ipsum') }
   let!(:clip) { create(:clip, id: 123, post: post1) }
+  let!(:clip_unprocessed) { create(:clip_unprocessed, id: 124, post: post1) }
 
   let(:admin_user) { create(:user, is_admin: true) }
   let(:normal_user) { create(:user, is_admin: false) }
@@ -84,9 +85,10 @@ describe "Posts", type: :request do
       expect(post['content']).to eq('Lorem ipsum')
 
       clips = post['clips']
-      expect(clips.size).to eq(1)
-      clip = clips.first
-      expect(clip.keys).to match_array(%w[id filename original large thumbnail])
+      expect(clips.size).to eq(2)
+      expect(clips.map(&:keys)).to all(match_array(%w[id filename original large thumbnail]))
+      expect(clips.first['filename']).to eq('example.jpg')
+      expect(clips.second['filename']).to eq(nil)
     end
   end
 
