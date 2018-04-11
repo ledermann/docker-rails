@@ -1189,12 +1189,12 @@ caniuse-api@^2.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000824"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000824.tgz#bba3ff425296e04caa37fe426259206a7056551b"
+  version "1.0.30000827"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000827.tgz#bd2839dd196093b44c28c17f93513140c9d92588"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805:
-  version "1.0.30000824"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000824.tgz#de3bc1ba0bff4937302f8cb2a8632a8cc1c07f9a"
+  version "1.0.30000827"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000827.tgz#2dad2354e4810c3c9bb1cfc57f655c270c25fa52"
 
 case-sensitive-paths-webpack-plugin@^2.1.1:
   version "2.1.2"
