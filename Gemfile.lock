@@ -459,7 +459,7 @@ DEPENDENCIES
   shrine-memory
   sidekiq
   sidekiq-cron
-  simple_form
+  simple_form (>= 3.5.1)
   simplecov
   skylight
   slim-rails
