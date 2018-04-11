@@ -467,7 +467,7 @@ DEPENDENCIES
   spring-commands-rspec
   sprockets_uglifier_with_source_maps
   stringex
-  trix
+  trix (>= 0.11.1)
   turbolinks (~> 5)
   tzinfo-data
   web-console
