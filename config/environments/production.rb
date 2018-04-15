@@ -47,8 +47,10 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-  if ENV['APP_HOST']
-    config.action_cable.allowed_request_origins = [/(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{ENV['APP_HOST']}/]
+  if ENV['APP_HOST'] || ENV['FRONTEND_HOST']
+    config.action_cable.allowed_request_origins = [ ENV['APP_HOST'], ENV['FRONTEND_HOST'] ].compact.map do |allowed_host|
+       /(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{allowed_host}/
+    end
   else
     # Allow all origins
     config.action_cable.disable_request_forgery_protection = true

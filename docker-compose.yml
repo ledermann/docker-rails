@@ -51,6 +51,7 @@ services:
       - RAILS_ENV
       - RAILS_MAX_THREADS
       - APP_HOST
+      - FRONTEND_HOST
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL
@@ -105,6 +106,7 @@ services:
       - DB_USER
       - DB_PASSWORD
       - APP_HOST
+      - FRONTEND_HOST
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL
