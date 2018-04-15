@@ -11,14 +11,18 @@ variables:
   AWS_SECRET_ACCESS_KEY: "my-secret"
   AWS_BUCKET: "my-bucket"
   AWS_REGION: "eu-central-1"
+  CONTAINER_LATEST_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+before_script:
+  - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
 
 test:
-  before_script:
-    - docker-compose pull
-    - docker-compose build
-
   script:
+    - docker build -t $CONTAINER_LATEST_IMAGE .
+    - docker-compose pull
+
     - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+    - docker push $CONTAINER_LATEST_IMAGE
 
   after_script:
     - docker-compose run --rm test rm -rf tmp/
