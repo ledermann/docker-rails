@@ -49,7 +49,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   if ENV['APP_HOST'] || ENV['FRONTEND_HOST']
     config.action_cable.allowed_request_origins = [ ENV['APP_HOST'], ENV['FRONTEND_HOST'] ].compact.map do |allowed_host|
-       /(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{allowed_host}/
+      /(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{allowed_host}/
     end
   else
     # Allow all origins
