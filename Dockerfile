@@ -22,6 +22,12 @@ RUN bundle config --global frozen 1 && \
 # Add the Rails app
 ADD . /home/app
 
+# Add user and chown folder
+RUN addgroup -g 1000 -S app && \
+    adduser -u 1000 -S app -G app && \
+    chown -R app:app /home/app
+USER app
+
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
 
@@ -49,6 +55,10 @@ RUN apk add --update --no-cache \
     libcrypto1.0 libssl1.0 \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
+
+RUN addgroup -g 1000 -S app && \
+    adduser -u 1000 -S app -G app
+USER app
 
 # Copy app with gems from former build stage
 COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
