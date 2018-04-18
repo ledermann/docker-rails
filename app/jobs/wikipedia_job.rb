@@ -4,7 +4,7 @@ class WikipediaJob < ApplicationJob
   queue_as :default
 
   def perform(*)
-    PaperTrail.whodunnit = 'Wikipedia'
+    PaperTrail.request.whodunnit = 'Wikipedia'
     Searchkick.callbacks(:bulk) do
       count = 0
       Wikipedia::List.new.articles.each do |article|
