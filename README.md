@@ -39,7 +39,7 @@ This repo demonstrates my way of building Rails applications. The techniques use
 
 The application is divided into 7 different containers:
 
-- **app:** Main part. It contains the Rails code to handle web requests (with the help of [Nginx](http://nginx.org) and the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on [ledermann/base](https://hub.docker.com/r/ledermann/base/), which in turn is based on the official [Ruby image](https://hub.docker.com/_/ruby/) and just adds Nginx, Node.js and Yarn.
+- **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building to get a small image.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine

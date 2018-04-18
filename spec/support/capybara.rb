@@ -18,7 +18,7 @@ RSpec.configure do |config|
         desired_capabilities: :chrome
       }
 
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
+      ip = `/sbin/ip route|awk '/scope/ { print $7 }'`.delete("\n")
       Capybara.server_host = ip
       Capybara.server_port = '3000'
       Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"

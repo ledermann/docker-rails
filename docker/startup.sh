@@ -2,4 +2,4 @@
 
 ./docker/wait-for-services.sh
 ./docker/prepare-db.sh
-foreman start -f Procfile.production
+bundle exec puma -C config/puma.rb
