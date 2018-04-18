@@ -16,8 +16,8 @@ WORKDIR /home/app
 
 # Install gems
 ADD Gemfile* /home/app/
-RUN bundle config --global frozen 1 && \
-    bundle install --without development -j4 --retry 3
+RUN bundle config --global frozen 1 \
+ && bundle install --without development -j4 --retry 3
 
 # Add the Rails app
 ADD . /home/app
@@ -43,24 +43,26 @@ RUN apk add --no-cache \
     file \
     bash
 
-# Copy wkhtmltopdf from former build stage
+# Copy wkhtmltopdf from former build stage (and install needed packages)
 RUN apk add --update --no-cache \
     libgcc libstdc++ libx11 glib libxrender libxext libintl \
     libcrypto1.0 libssl1.0 \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
 
-RUN addgroup -g 1000 -S app && \
-    adduser -u 1000 -S app -G app
+# Add user
+RUN addgroup -g 1000 -S app \
+ && adduser -u 1000 -S app -G app
 USER app
 
 # Copy app with gems from former build stage
 COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=Builder --chown=app:app /home/app /home/app
 
-# Set some config
+# Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
+
 WORKDIR /home/app
 
 # Expose Puma port
