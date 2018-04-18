@@ -22,12 +22,6 @@ RUN bundle config --global frozen 1 && \
 # Add the Rails app
 ADD . /home/app
 
-# Add user and chown folder
-RUN addgroup -g 1000 -S app && \
-    adduser -u 1000 -S app -G app && \
-    chown -R app:app /home/app
-USER app
-
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
 
@@ -62,7 +56,7 @@ USER app
 
 # Copy app with gems from former build stage
 COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
-COPY --from=Builder /home/app /home/app
+COPY --from=Builder --chown=app:app /home/app /home/app
 
 # Set some config
 ENV RAILS_LOG_TO_STDOUT true
