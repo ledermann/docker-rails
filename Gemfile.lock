@@ -161,7 +161,7 @@ GEM
     htmlentities (4.3.4)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
-    image_processing (1.1.0)
+    image_processing (1.2.0)
       mini_magick (~> 4.0)
       ruby-vips (>= 2.0.10, < 3)
     jmespath (1.4.0)
