@@ -14,17 +14,16 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
-  # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
-  # `config/secrets.yml.key`.
-  config.read_encrypted_secrets = true
+  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
+  # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
+  config.require_master_key = false
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = :uglifier_with_source_maps
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -39,12 +38,17 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
+  # Store uploaded files on the local file system (see config/storage.yml for options)
+  config.active_storage.service = :local
+
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-  if ENV['APP_HOST']
-    config.action_cable.allowed_request_origins = [/(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{ENV['APP_HOST']}/]
+  if ENV['APP_HOST'] || ENV['FRONTEND_HOST']
+    config.action_cable.allowed_request_origins = [ ENV['APP_HOST'], ENV['FRONTEND_HOST'] ].compact.map do |allowed_host|
+      /(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{allowed_host}/
+    end
   else
     # Allow all origins
     config.action_cable.disable_request_forgery_protection = true
@@ -62,7 +66,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store, ENV['MEMCACHED_HOST']
+  config.cache_store = :mem_cache_store, ENV['MEMCACHED_HOST']
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque

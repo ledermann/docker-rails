@@ -1,13 +1,28 @@
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  mount ImageUploader.upload_endpoint(:cache) => '/upload'
-  mount Shrine.presign_endpoint(:cache) => '/presign'
-  mount Ahoy::Engine => '/ahoy', as: :my_ahoy
+  namespace :api do
+    namespace :v1 do
+      mount Shrine.presign_endpoint(:cache) => '/presign'
 
-  constraints Clearance::Constraints::SignedIn.new { |user| user.is_admin? } do
+      post 'user_token' => 'user_token#create'
+
+      resources :posts do
+        collection do
+          get :autocomplete
+        end
+
+        resources :audits, only: [ :index ]
+      end
+
+      resource :about, only: [ :show ], controller: 'about'
+    end
+  end
+
+  constraints Clearance::Constraints::SignedIn.new(&:is_admin?) do
     mount Sidekiq::Web => '/sidekiq'
     mount Blazer::Engine, at: 'blazer'
   end
@@ -25,10 +40,6 @@ Rails.application.routes.draw do
   get    '/sign_up'                  => 'users#new',                  as: 'sign_up'
 
   resources :posts do
-    collection do
-      get :autocomplete, constraints: ->(req) { req.format == :json }
-    end
-
     resources :audits, only: [ :index ]
   end
 

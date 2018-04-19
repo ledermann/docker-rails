@@ -4,7 +4,7 @@
 .git
 .gitignore
 .gitlab-ci.yml
-docker-cloud.yml
+docker-stack.yml
 docker-compose.yml
 Dockerfile
 log/*

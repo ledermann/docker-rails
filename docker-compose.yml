@@ -1,4 +1,4 @@
-version: '2'
+version: '3.2'
 services:
   db:
     image: 'postgres:alpine'
@@ -24,7 +24,7 @@ services:
       - SCHEDULE
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
     environment:
       - xpack.security.enabled=false
       - xpack.monitoring.enabled=false
@@ -51,6 +51,7 @@ services:
       - RAILS_ENV
       - RAILS_MAX_THREADS
       - APP_HOST
+      - FRONTEND_HOST
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL
@@ -68,8 +69,9 @@ services:
       - AWS_BUCKET
       - AWS_REGION
       - BLAZER_DATABASE_URL
+      - ROLLBAR_ACCESS_TOKEN
     ports:
-      - "80"
+      - "3000"
     links:
       - elasticsearch
       - db
@@ -104,6 +106,7 @@ services:
       - DB_USER
       - DB_PASSWORD
       - APP_HOST
+      - FRONTEND_HOST
       - APP_ADMIN_EMAIL
       - APP_ADMIN_PASSWORD
       - APP_EMAIL

@@ -2,15 +2,29 @@ AllCops:
   TargetRubyVersion: 2.4
   Exclude:
     - db/schema.rb
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - bin/*
 
 ### Rails
 
 Rails:
   Enabled: true
 
+Rails/ActiveRecordAliases:
+  Enabled: false
+
 Rails/FilePath:
   Enabled: false
 
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
 
 ### Bundler
 
@@ -18,16 +32,13 @@ Bundler/OrderedGems:
   Enabled: false
 
 
-### Lint
-
-Lint/EndAlignment:
-  EnforcedStyleAlignWith: variable
-
-
 ### Metrics
 
 Metrics/AbcSize:
   Max: 20
+  Exclude:
+    - db/migrate/20170707122626_create_visits.rb
+    - db/migrate/20170708054041_install_blazer.rb
 
 Metrics/BlockLength:
   Max: 150
@@ -37,7 +48,9 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Max: 15
-
+  Exclude:
+    - db/migrate/20170707122626_create_visits.rb
+    - db/migrate/20170708054041_install_blazer.rb
 
 
 ### Style
@@ -49,22 +62,7 @@ Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
 
-Style/DotPosition:
-  EnforcedStyle: trailing
-
 Style/Encoding:
-  Enabled: true
-
-Style/FirstArrayElementLineBreak:
-  Enabled: true
-
-Style/FirstHashElementLineBreak:
-  Enabled: true
-
-Style/FirstMethodArgumentLineBreak:
-  Enabled: true
-
-Style/FirstMethodParameterLineBreak:
   Enabled: true
 
 Style/FrozenStringLiteralComment:
@@ -85,11 +83,38 @@ Style/StringLiterals:
 Style/StringMethods:
   Enabled: true
 
-Style/SpaceInsideBrackets:
-  Enabled: false
-
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/StderrPuts:
+  Enabled: false
+
+
+### Layout
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
 
 
 ### Documentation

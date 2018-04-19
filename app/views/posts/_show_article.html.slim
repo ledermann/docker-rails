@@ -1,29 +1,32 @@
 article data-cable-post-id=post.id
   header
-    .pull-right
+    .float-right
       .btn-group
         = link_to post_path(post, format: 'pdf'), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Export Post as PDF' do
-          = icon('file-pdf-o fa-lg')
+          i.fas.fa-file-pdf.fa-lg
 
         = link_to edit_post_path(post), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Edit Post' do
-          = icon('pencil fa-lg')
+          i.fas.fa-edit.fa-lg
 
         = link_to post, method: :delete, class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom', confirm: 'Are you sure?' }, role: 'button', title: 'Delete Post' do
-          = icon('trash fa-lg')
+          i.fas.fa-trash-alt.fa-lg
 
     h1.display-4
       = post.title
 
-    p.badge.badge-secondary
-      = time_tag(post.updated_at)
+    = react_component('TimeAgo', { date: post.updated_at }, { tag: 'p', class: 'badge badge-secondary'})
 
   - if post.clips.present?
-    .row.no-gutters
-      - post.clips.each do |clip|
-        .col-2
-          .mb-2.mr-2
-            = link_to clip.image_url(:large, expires_in: 1.day.to_i), data: { toggle: 'lightbox', gallery: 'gallery' }
-              = image_tag clip.image_url(:thumbnail, expires_in: 1.day.to_i), class: 'img-thumbnail square'
+    ruby:
+      images = post.clips.map do |clip|
+        { src:             clip.image_url(:large, expires_in: 1.day.to_i),
+          thumbnail:       clip.image_url(:thumbnail, expires_in: 1.day.to_i),
+          thumbnailWidth:  400,
+          thumbnailHeight: 400
+        }
+      end
+    div style="overflow:auto"
+      = react_component('Gallery', images: images, enableImageSelection: false)
     hr
 
   == post.content

@@ -5,8 +5,8 @@ RSpec.configure do |config|
   end
 
   config.around(:each, search: true) do |example|
-    Searchkick.enable_callbacks
-    example.run
-    Searchkick.disable_callbacks
+    Searchkick.callbacks(true) do
+      example.run
+    end
   end
 end

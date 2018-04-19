@@ -1,15 +1,8 @@
-require "application_responder"
-
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :set_paper_trail_whodunnit
-
-  self.responder = ApplicationResponder
-  respond_to :html
-
-  protect_from_forgery with: :exception
 
   helper_method def title(value = nil)
     if value

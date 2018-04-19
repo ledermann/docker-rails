@@ -19,7 +19,7 @@ describe 'Post management' do
 
       # Scroll down to load whole list via infinite scrolling
       scroll_to_bottom
-      expect(page).to have_css('table tbody tr', count: 31)
+      expect(page).to have_css('table tbody tr', count: 31, wait: 5)
 
       # Scroll up again and go to single post by clicking on a row
       scroll_to_top
@@ -36,7 +36,7 @@ describe 'Post management' do
 
       within '#search' do
         fill_in 'q', with: 'Exa'
-        expect(page).to have_selector('.tt-suggestion', text: 'Example')
+        expect(page).to have_selector('.tt-suggestion', text: 'example')
 
         fill_in 'q', with: "Exam\n"
       end
@@ -80,14 +80,12 @@ describe 'Post management' do
       Capybara.using_session(:second_user) do
         visit edit_post_path(example_post, as: create(:admin))
 
-        fill_in 'post[title]', with: 'Fooo'
         all(:css, "trix-editor").first.click.set('dolor sit amet')
 
         click_on 'Update Post'
       end
 
       Capybara.using_session(:first_user) do
-        expect(page).to have_selector('h1', text: 'Fooo')
         expect(page).to have_selector('div', text: 'dolor sit amet')
       end
     end

@@ -4,7 +4,7 @@ class @Autocomplete
       datumTokenizer: Bloodhound.tokenizers.whitespace
       queryTokenizer: Bloodhound.tokenizers.whitespace
       remote:
-        url: '/posts/autocomplete?q=%QUERY'
+        url: '/api/v1/posts/autocomplete?q=%QUERY'
         wildcard: '%QUERY')
 
     $('#autocomplete').typeahead(

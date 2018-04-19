@@ -14,5 +14,6 @@ $(document).on 'turbolinks:load', ->
       received: (data) ->
         # Called when there's incoming data on the websocket for this channel
         console.log "Received data from " + App.updates.identifier
-        $('article').html(data.html)
-        new Init()
+
+        # Reload the page
+        Turbolinks.visit(window.location)

@@ -50,7 +50,7 @@ describe PostsController do
     it "returns a success response" do
       create(:post, valid_attributes)
       get :index, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -58,7 +58,7 @@ describe PostsController do
     it "returns a success response" do
       post = create(:post, valid_attributes)
       get :show, params: { id: post.to_param }, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -69,7 +69,7 @@ describe PostsController do
 
     it "returns a success response" do
       get :new, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -81,7 +81,7 @@ describe PostsController do
     it "returns a success response" do
       post = create(:post, valid_attributes)
       get :edit, params: { id: post.to_param }, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -106,7 +106,7 @@ describe PostsController do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: { post: invalid_attributes }, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
@@ -141,7 +141,7 @@ describe PostsController do
       it "returns a success response (i.e. to display the 'edit' template)" do
         post = create(:post, valid_attributes)
         put :update, params: { id: post.to_param, post: invalid_attributes }, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end

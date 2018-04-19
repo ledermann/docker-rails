@@ -18,13 +18,12 @@ describe Clip, 'created for Post' do
 
   it "touches post" do
     clip
-    expect(post.updated_at.to_s).to eq(clip.created_at.to_s)
+    post.reload
+    expect(post.updated_at).to be_within(1.second).of clip.created_at
   end
 
   it "increases counter cache" do
-    expect {
-      clip
-    }.to change(post, :clips_count).by(1)
+    expect { clip }.to change(post, :clips_count).by(1)
   end
 
   it "has image_data" do

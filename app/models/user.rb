@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :audits, foreign_key: 'whodunnit', dependent: :nullify, inverse_of: :user
+
+  ######################################
+  ## Clearance
   include Clearance::User
 
   def confirmed?
@@ -13,4 +17,17 @@ class User < ApplicationRecord
   def confirm_with_token(token)
     confirm! if token == email_confirmation_token
   end
+
+  ######################################
+  # Knock
+  def to_token_payload
+    {
+      sub: id,
+      admin: is_admin,
+      email: email
+    }
+  end
+
+  # Knock expects #authenticate, but Clearance adds #authenticated?
+  alias authenticate authenticated?
 end

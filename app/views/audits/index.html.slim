@@ -12,7 +12,7 @@
       '
       = time_tag(@post.updated_at)
 
-  - if audits.present?
+  - if @audits.present?
     table.table.table-sm.table-borderless
       thead.thead-inverse
         tr
@@ -20,7 +20,7 @@
           th Event
           th.text-right User
       tbody
-        - audits.each do |audit|
+        - @audits.each do |audit|
           tr
             td= l audit.created_at, format: :long
             td

@@ -6,29 +6,27 @@
           dl.row
             dt.col-md-5 Version
             dd.col-md-7= Rails.application.version
-
             dt.col-md-5 Build time
             dd.col-md-7= Rails.application.build_time.try(:in_time_zone)
-
             dt.col-md-5 Environment
             dd.col-md-7= Rails.env
         .col
           dl.row
             dt.col-md-4 Ruby
-            dd.col-md-8= "#{RUBY_VERSION} patchlevel #{RUBY_PATCHLEVEL}"
+            dd.col-md-8= Rails.application.ruby_version
             dt.col-md-4 RubyGems
-            dd.col-md-8= Gem::VERSION
+            dd.col-md-8= Rails.application.rubygems_version
             dt.col-md-4 Bundler
-            dd.col-md-8= Bundler::VERSION
+            dd.col-md-8= Rails.application.bundler_version
             dt.col-md-4 Rails
-            dd.col-md-8= Rails::VERSION::STRING
+            dd.col-md-8= Rails.application.rails_version
         .col
           dl.row
             dt.col-md-5 PostgreSQL
-            dd.col-md-7= ActiveRecord::Base.connection.select_value('SHOW server_version;')
+            dd.col-md-7= Rails.application.postgresql_version
             dt.col-md-5 Redis
-            dd.col-md-7= Sidekiq.redis_info['redis_version'] rescue '[not connected]'
+            dd.col-md-7= Rails.application.redis_version
             dt.col-md-5 memcached
-            dd.col-md-7= Rails.cache.stats.first.second['version'] rescue '[not connected]'
+            dd.col-md-7= Rails.application.memcached_version
             dt.col-md-5 Elasticsearch
-            dd.col-md-7= Searchkick.server_version
+            dd.col-md-7= Rails.application.elasticsearch_version

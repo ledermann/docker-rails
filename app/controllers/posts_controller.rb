@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  respond_to :html, :json
-
   def index
     @posts = if search_string
       Post.search_for(search_string, page: params[:page], per_page: 25)
@@ -9,24 +7,18 @@ class PostsController < ApplicationController
     end
     authorize @posts
 
-    respond_with @posts do |format|
+    respond_to do |format|
+      format.html
       format.js { render 'kaminari/infinite-scrolling', locals: { objects: @posts } }
     end
   end
 
-  def autocomplete
-    render json: Post.autocomplete(search_string).map(&:title)
-  end
-
   def show
     @post = find_post
-
-    fresh_when @post, public: true
-    expires_in 1.day, public: true
-
     authorize @post
 
-    respond_with @post do |format|
+    respond_to do |format|
+      format.html
       format.pdf do
         render pdf:          @post.title,
                disposition:  'inline',
@@ -43,32 +35,35 @@ class PostsController < ApplicationController
   def edit
     @post = find_post
     authorize @post
-
-    respond_with @post
   end
 
   def create
     @post = Post.new(post_params)
     authorize @post
-    @post.save
 
-    respond_with @post
+    if @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
     @post = find_post
     authorize @post
-    @post.update(post_params)
 
-    respond_with @post
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @post = find_post
     authorize @post
     @post.destroy!
-
-    respond_with @post
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private

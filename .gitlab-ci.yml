@@ -11,16 +11,50 @@ variables:
   AWS_SECRET_ACCESS_KEY: "my-secret"
   AWS_BUCKET: "my-bucket"
   AWS_REGION: "eu-central-1"
+  CONTAINER_CURRENT_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_LATEST_IMAGE: $CI_REGISTRY_IMAGE:latest
+  CONTAINER_STABLE_IMAGE: $CI_REGISTRY_IMAGE:stable
 
-test:
-  before_script:
+stages:
+  - build
+  - test
+  - release
+
+before_script:
+  - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+
+build:
+  stage: build
+  script:
     - docker-compose pull
     - docker-compose build
 
+test:
+  stage: test
   script:
-    - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec"
+    - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+    - docker tag dockerrails_app $CONTAINER_CURRENT_IMAGE
+    - docker push $CONTAINER_CURRENT_IMAGE
 
   after_script:
     - docker-compose run --rm test rm -rf tmp/
     - docker-compose down
     - docker volume rm `docker volume ls -qf dangling=true`
+
+release-latest-image:
+  stage: release
+  script:
+    - docker pull $CONTAINER_CURRENT_IMAGE
+    - docker tag $CONTAINER_CURRENT_IMAGE $CONTAINER_LATEST_IMAGE
+    - docker push $CONTAINER_LATEST_IMAGE
+  only:
+    - develop
+
+release-stable-image:
+  stage: release
+  script:
+    - docker pull $CONTAINER_CURRENT_IMAGE
+    - docker tag $CONTAINER_CURRENT_IMAGE $CONTAINER_STABLE_IMAGE
+    - docker push $CONTAINER_STABLE_IMAGE
+  only:
+    - master

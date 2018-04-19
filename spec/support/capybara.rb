@@ -1,14 +1,11 @@
-# Use Puma for Capybara, because by default it uses Webrick (which is not compatible with ActionCable)
-Capybara.register_server :puma do |app, port, host|
-  require 'rack/handler/puma'
-  Rack::Handler::Puma.run(app, Host: host, Port: port, config_files: ['-'])
-end
-Capybara.server = :puma
-
 # To use save_and_open_page with CSS and JS loaded, get assets from this host
 Capybara.asset_host = "http://#{ENV['APP_HOST']}"
 
 RSpec.configure do |config|
+  config.before :suite do
+    Capybara.server = :puma, { Threads: '0:20', Silent: true }
+  end
+
   config.before :each, type: :system do
     driven_by :rack_test
   end
@@ -21,7 +18,7 @@ RSpec.configure do |config|
         desired_capabilities: :chrome
       }
 
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
+      ip = `/sbin/ip route|awk '/scope/ { print $7 }'`.delete("\n")
       Capybara.server_host = ip
       Capybara.server_port = '3000'
       Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"

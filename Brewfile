@@ -1,0 +1,8 @@
+brew 'elasticsearch'
+brew 'imagemagick@6'
+brew 'postgresql'
+brew 'node'
+brew 'redis'
+brew 'memcached'
+brew 'chromedriver'
+brew 'minio/stable/minio'
