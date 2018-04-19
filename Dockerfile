@@ -5,6 +5,7 @@ FROM ruby:2.4.4-alpine3.7 as Builder
 RUN apk add --no-cache \
     build-base \
     postgresql-dev \
+    git \
     imagemagick \
     nodejs \
     yarn \
