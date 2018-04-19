@@ -79,15 +79,11 @@ Enjoy!
 
 On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run in public on [Travis CI](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
 
-On every push, a new Docker image is built on [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/). Via its auto-deploy feature it can be deployed to your own cloud server.
+On every successful Travis build, a new Docker image is pushed to [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/).
 
 On every start of the app container, the database will be migrated (or, if not exists, created with some seeds).
-
-If you are already a Docker Cloud user, you can deploy the whole stack with one click:
-
-[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/ledermann/docker-rails)
 
 
 ## Domain setup and SSL encryption with Let's Encrypt
 
-The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-cloud.yml](/docker-cloud.yml) for example setup.
+The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-stack.yml](/docker-stack.yml) for example setup.
