@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     postgresql-dev \
     git \
     imagemagick \
-    nodejs \
+    nodejs-current \
     yarn \
     tzdata
 
@@ -35,20 +35,20 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 FROM ruby:2.4.4-alpine3.7
 LABEL maintainer="mail@georg-ledermann.de"
 
-RUN apk add --no-cache \
+# Add Alpine packages
+RUN apk add --update --no-cache \
+    postgresql-client \
     imagemagick \
-    nodejs \
-    postgresql-dev \
+    nodejs-current \
     tzdata \
     curl \
     file \
-    bash
-
-# Copy wkhtmltopdf from former build stage (and install needed packages)
-RUN apk add --update --no-cache \
-    libgcc libstdc++ libx11 glib libxrender libxext libintl \
+    bash \
+    # needed for wkhtmltopdf
     libcrypto1.0 libssl1.0 \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
+
+# Copy wkhtmltopdf from former build stage
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
 
 # Add user
