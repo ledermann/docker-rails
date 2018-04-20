@@ -18,7 +18,7 @@ WORKDIR /home/app
 # Install gems
 ADD Gemfile* /home/app/
 RUN bundle config --global frozen 1 \
- && bundle install --without development test -j4 --retry 3
+ && bundle install --without development -j4 --retry 3
 
 # Add the Rails app
 ADD . /home/app
@@ -39,6 +39,7 @@ LABEL maintainer="mail@georg-ledermann.de"
 RUN apk add --update --no-cache \
     postgresql-client \
     imagemagick \
+    nodejs-current \
     tzdata \
     curl \
     file \
@@ -62,7 +63,6 @@ COPY --from=Builder --chown=app:app /home/app /home/app
 # Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
-ENV EXECJS_RUNTIME Disabled
 
 WORKDIR /home/app
 

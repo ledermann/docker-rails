@@ -52,6 +52,7 @@ For running tests using RSpec, there are two additional containers:
 - **test:** Application code prepared for running tests
 - **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
+For testing there is a separate [Dockerfile.test](Dockerfile.test) and [docker-compose.test.yml](docker-compose.test.yml).
 
 ## Check it out!
 
@@ -86,4 +87,4 @@ On every start of the app container, the database will be migrated (or, if not e
 
 ## Domain setup and SSL encryption with Let's Encrypt
 
-The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-stack.yml](/docker-stack.yml) for example setup.
+The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.

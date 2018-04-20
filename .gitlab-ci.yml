@@ -1,45 +1,35 @@
 variables:
-  POSTGRES_PASSWORD: duubidoo
-  SECRET_KEY_BASE: "we-dont-need-a-secret-here"
-  DB_USER: "postgres"
-  DB_PASSWORD: "duubidoo"
-  APP_ADMIN_EMAIL: "admin@example.org"
-  APP_ADMIN_PASSWORD: "secret"
-  APP_EMAIL: "reply@example.org"
-  APP_HOST: "example.org"
-  AWS_ACCESS_KEY_ID: "my-access-key"
-  AWS_SECRET_ACCESS_KEY: "my-secret"
-  AWS_BUCKET: "my-bucket"
-  AWS_REGION: "eu-central-1"
   CONTAINER_CURRENT_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   CONTAINER_LATEST_IMAGE: $CI_REGISTRY_IMAGE:latest
   CONTAINER_STABLE_IMAGE: $CI_REGISTRY_IMAGE:stable
 
 stages:
-  - build
   - test
+  - build
   - release
 
 before_script:
   - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+
+test:
+  stage: test
+  script:
+    - docker-compose -f docker-compose.test.yml pull
+    - docker-compose -f docker-compose.test.yml build
+    - docker-compose -f docker-compose.test.yml run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+
+  after_script:
+    - docker-compose -f docker-compose.test.yml run --rm test rm -rf tmp/
+    - docker-compose -f docker-compose.test.yml down
+    - docker volume rm `docker volume ls -qf dangling=true`
 
 build:
   stage: build
   script:
     - docker-compose pull
     - docker-compose build
-
-test:
-  stage: test
-  script:
-    - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
     - docker tag dockerrails_app $CONTAINER_CURRENT_IMAGE
     - docker push $CONTAINER_CURRENT_IMAGE
-
-  after_script:
-    - docker-compose run --rm test rm -rf tmp/
-    - docker-compose down
-    - docker volume rm `docker volume ls -qf dangling=true`
 
 release-latest-image:
   stage: release

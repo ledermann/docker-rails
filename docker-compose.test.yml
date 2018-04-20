@@ -1,0 +1,65 @@
+version: '3.2'
+services:
+  db:
+    image: 'postgres:alpine'
+    environment:
+      - POSTGRES_PASSWORD
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    environment:
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+    volumes:
+      - "es-data:/usr/share/elasticsearch/data"
+
+  memcached:
+    image: memcached:1.5-alpine
+
+  redis:
+    image: redis:4.0-alpine
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      REDIS_SIDEKIQ_URL: redis://redis:6379/0
+      REDIS_CABLE_URL: redis://redis:6379/1
+      MEMCACHED_HOST: memcached
+      SELENIUM_REMOTE_HOST: selenium
+      RAILS_ENV: test
+      DB_HOST: db
+      POSTGRES_PASSWORD: duubidoo
+      SECRET_KEY_BASE: "we-dont-need-a-secret-here"
+      DB_USER: "postgres"
+      DB_PASSWORD: "duubidoo"
+      APP_ADMIN_EMAIL: "admin@example.org"
+      APP_ADMIN_PASSWORD: "secret"
+      APP_EMAIL: "reply@example.org"
+      APP_HOST: "example.org"
+      AWS_ACCESS_KEY_ID: "my-access-key"
+      AWS_SECRET_ACCESS_KEY: "my-secret"
+      AWS_BUCKET: "my-bucket"
+      AWS_REGION: "eu-central-1"
+    ports:
+      - "3000"
+    links:
+      - elasticsearch
+      - db
+      - redis
+      - memcached
+      - selenium
+
+volumes:
+  db-data:
+  es-data:
