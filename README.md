@@ -9,6 +9,8 @@
 
 Simple Rails 5.2 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
 
+This project aims to build a lean Docker image. Therefore it's based on the official Alpine Ruby image, uses a multi-stage building and separate Dockerfiles for testing and production.
+
 
 ## Features
 
@@ -32,7 +34,7 @@ Simple Rails 5.2 application to demonstrate using Docker for production deployme
 
 ## Why?
 
-This repo demonstrates my way of building Rails applications. The techniques used to build the app should not be considered as "best practice", maybe there are better ways to build. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
+This project demonstrates my way of building Rails applications. The techniques used to build the app should not be considered as "best practice", maybe there are better ways to build. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 
 
 ## Multi container architecture
