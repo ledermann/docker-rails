@@ -2,7 +2,7 @@
 # Stage: Builder
 FROM ruby:2.4.4-alpine3.7 as Builder
 
-RUN apk add --no-cache \
+RUN apk add --update --no-cache \
     build-base \
     postgresql-dev \
     git \
@@ -11,8 +11,6 @@ RUN apk add --no-cache \
     yarn \
     tzdata
 
-# Workdir
-RUN mkdir -p /home/app
 WORKDIR /home/app
 
 # Install gems
