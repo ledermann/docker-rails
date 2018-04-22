@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Wait for PostgreSQL
 until nc -z -v -w30 $DB_HOST 5432

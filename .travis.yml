@@ -12,7 +12,7 @@ before_script:
 script:
   - docker-compose pull
   - docker-compose -f docker-compose.test.yml build
-  - docker-compose -f docker-compose.test.yml run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+  - docker-compose -f docker-compose.test.yml run --rm test sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
   - docker-compose build
   - docker tag dockerrails_app $DOCKER_USERNAME/docker-rails

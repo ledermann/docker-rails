@@ -16,7 +16,7 @@ test:
   script:
     - docker-compose -f docker-compose.test.yml pull
     - docker-compose -f docker-compose.test.yml build
-    - docker-compose -f docker-compose.test.yml run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+    - docker-compose -f docker-compose.test.yml run --rm test sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
   after_script:
     - docker-compose -f docker-compose.test.yml run --rm test rm -rf tmp/
