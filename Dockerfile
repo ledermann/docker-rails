@@ -22,8 +22,9 @@ RUN bundle config --global frozen 1 \
  && find /usr/local/bundle/gems/ -name "*.c" -delete \
  && find /usr/local/bundle/gems/ -name "*.o" -delete
 
-# Add the Rails app
+# Add the Rails app (but without spec folder, because it's not needed in production)
 ADD . /home/app
+RUN rm -rf /home/app/spec
 
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
