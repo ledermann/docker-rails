@@ -16,7 +16,11 @@ WORKDIR /home/app
 # Install gems
 ADD Gemfile* /home/app/
 RUN bundle config --global frozen 1 \
- && bundle install --without development -j4 --retry 3
+ && bundle install --without development -j4 --retry 3 \
+ # Remove unneeded files (cached *.gem, *.o, *.c)
+ && rm -rf /usr/local/bundle/cache/*.gem \
+ && find /usr/local/bundle/gems/ -name "*.c" -delete \
+ && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 # Add the Rails app
 ADD . /home/app
