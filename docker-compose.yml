@@ -40,7 +40,7 @@ services:
   app: &app_base
     build: .
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - ELASTICSEARCH_HOST=elasticsearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
       - MEMCACHED_HOST=memcached

@@ -38,7 +38,6 @@ RUN apk add --update --no-cache \
     postgresql-client \
     imagemagick \
     tzdata \
-    curl \
     file \
     bash \
     # needed for wkhtmltopdf

@@ -39,7 +39,6 @@ RUN apk add --update --no-cache \
     imagemagick \
     nodejs-current \
     tzdata \
-    curl \
     file \
     bash \
     # needed for wkhtmltopdf
