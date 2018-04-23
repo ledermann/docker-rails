@@ -244,7 +244,7 @@ GEM
       rails (>= 4.0.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-cors (1.0.2)
     rack-protection (2.0.1)
       rack
