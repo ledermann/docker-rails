@@ -28,7 +28,7 @@ RUN bundle config --global frozen 1 \
 # Add the Rails app
 ADD . /home/app
 # Remove spec folder unless testing
-RUN rm -rf $folders_to_remove
+RUN rm -rf $folder_to_remove
 
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
