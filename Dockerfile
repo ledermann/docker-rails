@@ -2,6 +2,9 @@
 # Stage: Builder
 FROM ruby:2.4.4-alpine3.7 as Builder
 
+ARG folder_to_remove="/home/app/spec"
+ARG bundle_install_without="development test"
+
 RUN apk add --update --no-cache \
     build-base \
     postgresql-dev \
@@ -16,15 +19,16 @@ WORKDIR /home/app
 # Install gems
 ADD Gemfile* /home/app/
 RUN bundle config --global frozen 1 \
- && bundle install --without development test -j4 --retry 3 \
+ && bundle install --without $bundle_install_without -j4 --retry 3 \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
  && find /usr/local/bundle/gems/ -name "*.c" -delete \
  && find /usr/local/bundle/gems/ -name "*.o" -delete
 
-# Add the Rails app (but without spec folder, because it's not needed in production)
+# Add the Rails app
 ADD . /home/app
-RUN rm -rf /home/app/spec
+# Remove spec folder unless testing
+RUN rm -rf $folders_to_remove
 
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
@@ -38,10 +42,14 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 FROM ruby:2.4.4-alpine3.7
 LABEL maintainer="mail@georg-ledermann.de"
 
+ARG additional_packages
+ARG execjs_runtime="Disabled"
+
 # Add Alpine packages
 RUN apk add --update --no-cache \
     postgresql-client \
     imagemagick \
+    $additional_packages \
     tzdata \
     file \
     # needed for wkhtmltopdf
@@ -63,7 +71,7 @@ COPY --from=Builder --chown=app:app /home/app /home/app
 # Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
-ENV EXECJS_RUNTIME Disabled
+ENV EXECJS_RUNTIME $execjs_runtime
 
 WORKDIR /home/app
 

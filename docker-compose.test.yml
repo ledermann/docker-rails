@@ -27,7 +27,11 @@ services:
   test:
     build:
       context: .
-      dockerfile: Dockerfile.test
+      args:
+        - folder_to_remove=nothing
+        - additional_packages=nodejs-current
+        - execjs_runtime=Node
+        - bundle_install_without=development
     environment:
       ELASTICSEARCH_HOST: elasticsearch
       REDIS_SIDEKIQ_URL: redis://redis:6379/0

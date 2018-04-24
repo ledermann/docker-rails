@@ -54,7 +54,7 @@ For running tests using RSpec, there are two additional containers:
 - **test:** Application code prepared for running tests
 - **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
-For testing there is a separate [Dockerfile.test](Dockerfile.test) and [docker-compose.test.yml](docker-compose.test.yml).
+For testing there is a separate [docker-compose.test.yml](docker-compose.test.yml).
 
 ## Check it out!
 
