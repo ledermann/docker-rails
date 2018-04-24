@@ -1,33 +1,34 @@
 sudo: required
 
+language: ruby
+
 services:
   - docker
 
 install: true # skip the installation step entirely
 
-env:
-  global:
-    - POSTGRES_PASSWORD=duubidoo
-    - SECRET_KEY_BASE="we-dont-need-a-secret-here"
-    - DB_USER=postgres
-    - DB_PASSWORD=duubidoo
-    - APP_ADMIN_EMAIL=admin@example.org
-    - APP_ADMIN_PASSWORD=secret
-    - APP_EMAIL=reply@example.org
-    - APP_HOST=example.org
-    - AWS_ACCESS_KEY_ID=my-access-key
-    - AWS_SECRET_ACCESS_KEY=my-secret
-    - AWS_BUCKET=my-bucket
-    - AWS_REGION=eu-central-1
-
 before_script:
-  - sudo sysctl -w vm.max_map_count=262144 # Required for Elasticsearch 5
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - sudo sysctl -w vm.max_map_count=262144 # Required for Elasticsearch
 
 script:
   - docker-compose pull
-  - docker-compose build
-  - docker-compose run --rm test bash -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+  - docker-compose -f docker-compose.test.yml build
+  - docker-compose -f docker-compose.test.yml run --rm test sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
-  - docker tag dockerrails_app $DOCKER_USERNAME/docker-rails
-  - docker push $DOCKER_USERNAME/docker-rails
+before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - export REPO=$DOCKER_USERNAME/docker-rails
+  - docker-compose build
+
+deploy:
+  -
+    provider: script
+    script: docker tag dockerrails_app $REPO:latest && docker push $REPO
+    on:
+      branch: develop
+
+  -
+    provider: script
+    script: docker tag dockerrails_app $REPO:${TRAVIS_TAG} && docker push $REPO
+    on:
+      tags: true

@@ -9,6 +9,8 @@
 
 Simple Rails 5.2 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
 
+This project aims to build a lean Docker image. Therefore it's based on the official Alpine Ruby image, uses a multi-stage building and separate Dockerfiles for testing and production.
+
 
 ## Features
 
@@ -32,7 +34,7 @@ Simple Rails 5.2 application to demonstrate using Docker for production deployme
 
 ## Why?
 
-This repo demonstrates my way of building Rails applications. The techniques used to build the app should not be considered as "best practice", maybe there are better ways to build. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
+This project demonstrates my way of building Rails applications. The techniques used to build the app should not be considered as "best practice", maybe there are better ways to build. Any [feedback](https://github.com/ledermann/docker-rails/issues/new) would be appreciated.
 
 
 ## Multi container architecture
@@ -52,6 +54,7 @@ For running tests using RSpec, there are two additional containers:
 - **test:** Application code prepared for running tests
 - **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
+For testing there is a separate [docker-compose.test.yml](docker-compose.test.yml).
 
 ## Check it out!
 
@@ -86,4 +89,4 @@ On every start of the app container, the database will be migrated (or, if not e
 
 ## Domain setup and SSL encryption with Let's Encrypt
 
-The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-stack.yml](/docker-stack.yml) for example setup.
+The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.

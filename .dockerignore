@@ -4,9 +4,9 @@
 .git
 .gitignore
 .gitlab-ci.yml
-docker-stack.yml
-docker-compose.yml
-Dockerfile
+.travis.yml
+docker-compose.*
+Dockerfile*
 log/*
 public/assets/*
 tmp/*

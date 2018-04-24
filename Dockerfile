@@ -2,26 +2,33 @@
 # Stage: Builder
 FROM ruby:2.4.4-alpine3.7 as Builder
 
-RUN apk add --no-cache \
+ARG folder_to_remove="/home/app/spec"
+ARG bundle_install_without="development test"
+
+RUN apk add --update --no-cache \
     build-base \
     postgresql-dev \
     git \
     imagemagick \
-    nodejs \
+    nodejs-current \
     yarn \
     tzdata
 
-# Workdir
-RUN mkdir -p /home/app
 WORKDIR /home/app
 
 # Install gems
 ADD Gemfile* /home/app/
 RUN bundle config --global frozen 1 \
- && bundle install --without development -j4 --retry 3
+ && bundle install --without $bundle_install_without -j4 --retry 3 \
+ # Remove unneeded files (cached *.gem, *.o, *.c)
+ && rm -rf /usr/local/bundle/cache/*.gem \
+ && find /usr/local/bundle/gems/ -name "*.c" -delete \
+ && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 # Add the Rails app
 ADD . /home/app
+# Remove spec folder unless testing
+RUN rm -rf $folders_to_remove
 
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
@@ -35,20 +42,21 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 FROM ruby:2.4.4-alpine3.7
 LABEL maintainer="mail@georg-ledermann.de"
 
-RUN apk add --no-cache \
-    imagemagick \
-    nodejs \
-    postgresql-dev \
-    tzdata \
-    curl \
-    file \
-    bash
+ARG additional_packages
+ARG execjs_runtime="Disabled"
 
-# Copy wkhtmltopdf from former build stage (and install needed packages)
+# Add Alpine packages
 RUN apk add --update --no-cache \
-    libgcc libstdc++ libx11 glib libxrender libxext libintl \
+    postgresql-client \
+    imagemagick \
+    $additional_packages \
+    tzdata \
+    file \
+    # needed for wkhtmltopdf
     libcrypto1.0 libssl1.0 \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
+
+# Copy wkhtmltopdf from former build stage
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
 
 # Add user
@@ -63,6 +71,7 @@ COPY --from=Builder --chown=app:app /home/app /home/app
 # Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
+ENV EXECJS_RUNTIME $execjs_runtime
 
 WORKDIR /home/app
 
