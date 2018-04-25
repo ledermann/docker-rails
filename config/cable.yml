@@ -1,4 +1,4 @@
-local:
+development:
   adapter: async
 
 test:

@@ -1,32 +1,16 @@
-version: '3.2'
+version: '3.4'
 services:
   db:
-    image: 'postgres:alpine'
+    image: postgres:alpine
     environment:
       - POSTGRES_PASSWORD
     volumes:
-      - "db-data:/var/lib/postgresql/data"
-
-  backup:
-    image: schickling/postgres-backup-s3
-    links:
-      - db
-    environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - POSTGRES_DATABASE
-      - S3_ACCESS_KEY_ID
-      - S3_SECRET_ACCESS_KEY
-      - S3_BUCKET
-      - S3_REGION
-      - S3_PREFIX=backup
-      - SCHEDULE
+      - db-data:/var/lib/postgresql/data
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
     volumes:
-      - "es-data:/usr/share/elasticsearch/data"
+      - es-data:/usr/share/elasticsearch/data
 
   memcached:
     image: memcached:1.5-alpine
@@ -35,25 +19,31 @@ services:
     image: redis:4.0-alpine
 
   app: &app_base
-    build: .
+    build:
+      context: .
+      args:
+        - ADDITIONAL_PACKAGES=nodejs-current yarn
+        - EXECJS_RUNTIME=Node
+        - RAILS_ENV=development
+        - NODE_ENV=development
     environment:
       - ELASTICSEARCH_HOST=elasticsearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
       - MEMCACHED_HOST=memcached
-      - SECRET_KEY_BASE
+      - SECRET_KEY_BASE=f0ee8496d1ddeb69fa0980d0580ff0f174262e61b53e8a318c990a193661f45f84b07a995d33ca8749eb6e0085d375201d319ed0fdaab9aa469e3b9b96f269d6
       - DB_HOST=db
-      - DB_USER
-      - DB_PASSWORD
-      - RAILS_ENV
+      - DB_USER=postgres
+      - DB_PASSWORD=foobar123
+      - RAILS_ENV=development
       - RAILS_MAX_THREADS
       - APP_HOST
       - FRONTEND_HOST
-      - APP_ADMIN_EMAIL
-      - APP_ADMIN_PASSWORD
-      - APP_EMAIL
-      - PIWIK_HOST
-      - PIWIK_ID
+      - APP_ADMIN_EMAIL=admin@example.org
+      - APP_ADMIN_PASSWORD=secret
+      - APP_EMAIL=reply@example.org
+      - PIWIK_HOST=piwik.example.org
+      - PIWIK_ID=42
       - SMTP_SERVER
       - SMTP_PORT
       - SMTP_DOMAIN
@@ -61,12 +51,11 @@ services:
       - SMTP_PASSWORD
       - SMTP_AUTHENTICATION
       - SMTP_ENABLE_STARTTLS_AUTO
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-      - AWS_BUCKET
-      - AWS_REGION
+      - AWS_ACCESS_KEY_ID=1234
+      - AWS_SECRET_ACCESS_KEY=1234abcdef
+      - AWS_BUCKET=mybucket
+      - AWS_REGION=eu-central-1
       - BLAZER_DATABASE_URL
-      - ROLLBAR_ACCESS_TOKEN
     ports:
       - "3000"
     links:
@@ -74,6 +63,8 @@ services:
       - db
       - redis
       - memcached
+    volumes:
+      - .:/app
 
   worker:
     <<: *app_base

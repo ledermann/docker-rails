@@ -63,7 +63,6 @@ To start up the application in your Docker environment:
 ```bash
 git clone https://github.com/ledermann/docker-rails.git
 cd docker-rails
-cp .env.example .env
 docker-compose up --build
 ```
 

@@ -26,8 +26,7 @@ test:
 build:
   stage: build
   script:
-    - docker-compose pull
-    - docker-compose build
+    - docker-compose -f docker-compose.production.yml build
     - docker tag dockerrails_app $CONTAINER_CURRENT_IMAGE
     - docker push $CONTAINER_CURRENT_IMAGE
 

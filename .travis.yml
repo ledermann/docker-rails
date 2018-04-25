@@ -18,7 +18,7 @@ script:
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - export REPO=$DOCKER_USERNAME/docker-rails
-  - docker-compose build
+  - docker-compose -f docker-compose.production.yml build
 
 deploy:
   -

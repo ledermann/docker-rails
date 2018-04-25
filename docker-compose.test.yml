@@ -1,16 +1,16 @@
-version: '3.2'
+version: '3.4'
 services:
   db:
-    image: 'postgres:alpine'
+    image: postgres:alpine
     environment:
       - POSTGRES_PASSWORD
     volumes:
-      - "db-data:/var/lib/postgresql/data"
+      - db-data:/var/lib/postgresql/data
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
     volumes:
-      - "es-data:/usr/share/elasticsearch/data"
+      - es-data:/usr/share/elasticsearch/data
 
   memcached:
     image: memcached:1.5-alpine
@@ -21,17 +21,17 @@ services:
   selenium:
     image: selenium/standalone-chrome
     ports:
-      - "4444:4444"
-      - "5900:5900"
+      - 4444:4444
+      - 5900:5900
 
   test:
     build:
       context: .
       args:
-        - folder_to_remove=nothing
-        - additional_packages=nodejs-current
-        - execjs_runtime=Node
-        - bundle_install_without=development
+        - ADDITIONAL_PACKAGES=nodejs-current
+        - EXECJS_RUNTIME=Node
+        - BUNDLE_WITHOUT=production
+        - RAILS_ENV=test
     environment:
       ELASTICSEARCH_HOST: elasticsearch
       REDIS_SIDEKIQ_URL: redis://redis:6379/0
@@ -41,19 +41,19 @@ services:
       RAILS_ENV: test
       DB_HOST: db
       POSTGRES_PASSWORD: duubidoo
-      SECRET_KEY_BASE: "we-dont-need-a-secret-here"
-      DB_USER: "postgres"
-      DB_PASSWORD: "duubidoo"
-      APP_ADMIN_EMAIL: "admin@example.org"
-      APP_ADMIN_PASSWORD: "secret"
-      APP_EMAIL: "reply@example.org"
-      APP_HOST: "example.org"
-      AWS_ACCESS_KEY_ID: "my-access-key"
-      AWS_SECRET_ACCESS_KEY: "my-secret"
-      AWS_BUCKET: "my-bucket"
-      AWS_REGION: "eu-central-1"
+      SECRET_KEY_BASE: we-dont-need-a-secret-here
+      DB_USER: postgres
+      DB_PASSWORD: duubidoo
+      APP_ADMIN_EMAIL: admin@example.org
+      APP_ADMIN_PASSWORD: secret
+      APP_EMAIL: reply@example.org
+      APP_HOST: example.org
+      AWS_ACCESS_KEY_ID: my-access-key
+      AWS_SECRET_ACCESS_KEY: my-secret
+      AWS_BUCKET: my-bucket
+      AWS_REGION: eu-central-1
     ports:
-      - "3000"
+      - 3000
     links:
       - elasticsearch
       - db
