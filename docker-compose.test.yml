@@ -24,7 +24,7 @@ services:
       - 4444:4444
       - 5900:5900
 
-  test:
+  app:
     build:
       context: .
       args:
