@@ -1325,9 +1325,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-coffeescript@^2.2.2:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.2.4.tgz#427c038e17a125e52a79fdb3106761753b8585d2"
+coffeescript@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.3.0.tgz#d8d77ca5b110f540d52cbdc08e394942c9109994"
 
 collection-visit@^1.0.0:
   version "1.0.0"
