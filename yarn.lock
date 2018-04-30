@@ -4756,9 +4756,9 @@ react-dom@^16.3.2:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-grid-gallery@^0.4.9:
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.9.tgz#5686fb8ad035166d32b833e2108a16e363f9b956"
+react-grid-gallery@^0.4.11:
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.11.tgz#409d9d49d35a751cd53787a5645d386b08f7540c"
   dependencies:
     react-images "^0.5.6"
 
