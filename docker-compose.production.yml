@@ -81,7 +81,6 @@ services:
       - LETSENCRYPT_EMAIL=mail@my-site.com
       - LETSENCRYPT_HOST=docker-rails.my-site.com
       - MEMCACHED_HOST=memcached
-      - PASSENGER_APP_ENV=production
       - PIWIK_HOST=piwik.my-site.com
       - PIWIK_ID=my-piwik-id
       - RAILS_ENV=production
