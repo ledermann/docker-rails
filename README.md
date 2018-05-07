@@ -61,7 +61,7 @@ To start up the application in your local Docker environment:
 git clone https://github.com/ledermann/docker-rails.git
 cd docker-rails
 docker-compose build
-docker-compose run yarn install
+docker-compose run app yarn install
 docker-compose up
 ```
 
