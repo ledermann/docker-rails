@@ -154,7 +154,7 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    faraday (0.15.0)
+    faraday (0.15.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
     font-awesome-sass (5.0.9)
