@@ -292,7 +292,7 @@ GEM
     redis (4.0.1)
     request_store (1.4.1)
       rack (>= 1.4)
-    rollbar (2.15.6)
+    rollbar (2.16.0)
       multi_json
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
