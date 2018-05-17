@@ -43,7 +43,7 @@ gem 'redis', '~> 4.0'
 gem 'dalli'
 gem 'sidekiq'
 gem 'sidekiq-cron'
-gem 'rufus-scheduler', '3.4.2' # https://github.com/ondrejbartas/sidekiq-cron/issues/199
+gem 'rufus-scheduler', '3.5.0' # https://github.com/ondrejbartas/sidekiq-cron/issues/199
 gem 'searchkick'
 gem 'wicked_pdf'
 gem 'bootstrap', '~> 4'
