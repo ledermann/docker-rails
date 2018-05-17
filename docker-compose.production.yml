@@ -1,57 +1,40 @@
 version: '3.4'
 
 services:
-  app:
+  db:
     environment:
-      - APP_ADMIN_EMAIL=mail@my-site.com
-      - APP_ADMIN_PASSWORD=supergeheim
-      - APP_EMAIL=reply@example.org
-      - APP_HOST=docker-rails.example.org
-      - AWS_ACCESS_KEY_ID=my-access-key-id
-      - AWS_BUCKET=my-bucket
-      - AWS_REGION=eu-central-1
-      - AWS_SECRET_ACCESS_KEY=my-secret-access-key
-      - BLAZER_DATABASE_URL=postgres://postgres:my-pg-password@db:5432/docker-rails_production
-      - CERT_NAME=docker-rails.my-site.com
-      - DB_HOST=db
-      - DB_PASSWORD=my-pg-password
-      - DB_USER=postgres
-      - ELASTICSEARCH_HOST=elasticsearch
-      - LETSENCRYPT_EMAIL=mail@my-site.com
-      - LETSENCRYPT_HOST=docker-rails.my-site.com
-      - MEMCACHED_HOST=memcached
-      - PASSENGER_APP_ENV=production
-      - PIWIK_HOST=piwik.my-site.com
-      - PIWIK_ID=my-piwik-id
-      - RAILS_ENV=production
-      - RAILS_MAX_THREADS=5
-      - REDIS_CABLE_URL=redis://redis:6379/1
-      - REDIS_SIDEKIQ_URL=redis://redis:6379/0
-      - ROLLBAR_ACCESS_TOKEN=my-rollbar-token
-      - SECRET_KEY_BASE=my-secret-access-key
-      - SKYLIGHT_AUTHENTICATION=my-skylight-authentication
-      - SMTP_AUTHENTICATION=plain
-      - SMTP_DOMAIN=docker-rails.my-site.com
-      - SMTP_ENABLE_STARTTLS_AUTO=true
-      - SMTP_PASSWORD=my-smtp-password
-      - SMTP_PORT=587
-      - SMTP_SERVER=smtp.sendgrid.net
-      - SMTP_USERNAME=my-sendgrid-apikey
-      - VIRTUAL_HOST=docker-rails.my-site.com
-    hostname: app.docker-rails.my-site.com
-    image: 'ledermann/docker-rails:latest'
-    links:
-      - db
-      - elasticsearch
-      - memcached
-      - redis
+      - POSTGRES_PASSWORD=my-pg-password
+    hostname: db.docker-rails.my-site.com
+    image: postgres:10-alpine
     ports:
-      - '3000'
+      - 5432
     restart: always
     healthcheck:
-      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
-      interval: 5m
-      start_period: 1m
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    volumes:
+      - /my-volumes/docker-rails/postgresql:/var/lib/postgresql/data
+
+  elasticsearch:
+    hostname: elasticsearch.docker-rails.my-site.com
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
+    restart: always
+    volumes:
+      - /my-volumes/docker-rails/elasticsearch:/usr/share/elasticsearch/data
+
+  memcached:
+    hostname: memcached.docker-rails.my-site.com
+    image: memcached:1.5-alpine
+    restart: always
+
+  redis:
+    hostname: redis.docker-rails.my-site.com
+    image: redis:4.0-alpine
+    restart: always
+    volumes:
+      - /my-volumes/docker-rails/redis:/data
 
   backup:
     environment:
@@ -71,44 +54,18 @@ services:
       - db
     restart: always
 
-  db:
+  app: &app_base
+    build:
+      context: .
+      args:
+        - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets
+        - BUNDLE_WITHOUT=development:test
+        - EXECJS_RUNTIME=Disabled
+        - RAILS_ENV=production
+        - NODE_ENV=production
     environment:
-      - POSTGRES_PASSWORD=my-pg-password
-    hostname: db.docker-rails.my-site.com
-    image: 'postgres:10-alpine'
-    ports:
-      - '5432'
-    restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 30s
-      timeout: 30s
-      retries: 3
-    volumes:
-      - '/my-volumes/docker-rails/postgresql:/var/lib/postgresql/data'
-
-  elasticsearch:
-    hostname: elasticsearch.docker-rails.my-site.com
-    image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4'
-    restart: always
-    volumes:
-      - '/my-volumes/docker-rails/elasticsearch:/usr/share/elasticsearch/data'
-
-  memcached:
-    hostname: memcached.docker-rails.my-site.com
-    image: 'memcached:1.5-alpine'
-    restart: always
-
-  redis:
-    hostname: redis.docker-rails.my-site.com
-    image: 'redis:4.0-alpine'
-    restart: always
-    volumes:
-      - '/my-volumes/docker-rails/redis:/data'
-
-  worker:
-    command: bundle exec sidekiq
-    environment:
+      - APP_ADMIN_EMAIL=mail@my-site.com
+      - APP_ADMIN_PASSWORD=supergeheim
       - APP_EMAIL=reply@example.org
       - APP_HOST=docker-rails.example.org
       - AWS_ACCESS_KEY_ID=my-access-key-id
@@ -116,17 +73,24 @@ services:
       - AWS_REGION=eu-central-1
       - AWS_SECRET_ACCESS_KEY=my-secret-access-key
       - BLAZER_DATABASE_URL=postgres://postgres:my-pg-password@db:5432/docker-rails_production
+      - CERT_NAME=docker-rails.my-site.com
       - DB_HOST=db
       - DB_PASSWORD=my-pg-password
       - DB_USER=postgres
       - ELASTICSEARCH_HOST=elasticsearch
+      - LETSENCRYPT_EMAIL=mail@my-site.com
+      - LETSENCRYPT_HOST=docker-rails.my-site.com
       - MEMCACHED_HOST=memcached
+      - PIWIK_HOST=piwik.my-site.com
+      - PIWIK_ID=my-piwik-id
       - RAILS_ENV=production
-      - RAILS_MAX_THREADS=10
+      - NODE_ENV=production
+      - RAILS_MAX_THREADS=5
       - REDIS_CABLE_URL=redis://redis:6379/1
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - ROLLBAR_ACCESS_TOKEN=my-rollbar-token
       - SECRET_KEY_BASE=my-secret-access-key
+      - SKYLIGHT_AUTHENTICATION=my-skylight-authentication
       - SMTP_AUTHENTICATION=plain
       - SMTP_DOMAIN=docker-rails.my-site.com
       - SMTP_ENABLE_STARTTLS_AUTO=true
@@ -134,15 +98,25 @@ services:
       - SMTP_PORT=587
       - SMTP_SERVER=smtp.sendgrid.net
       - SMTP_USERNAME=my-sendgrid-apikey
-    hostname: worker.docker-rails.my-site.com
-    image: 'ledermann/docker-rails:latest'
+      - VIRTUAL_HOST=docker-rails.my-site.com
+    hostname: app.docker-rails.my-site.com
     links:
-      - app
       - db
       - elasticsearch
       - memcached
       - redis
+    ports:
+      - 3000
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
+      interval: 5m
+      start_period: 1m
+
+  worker:
+    <<: *app_base
+    command: bundle exec sidekiq
+    hostname: worker.docker-rails.my-site.com
     healthcheck:
       test: "ps ax | grep -v grep | grep sidekiq"
       interval: 1m

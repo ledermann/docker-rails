@@ -13,12 +13,12 @@ before_script:
 script:
   - docker-compose pull
   - docker-compose -f docker-compose.test.yml build
-  - docker-compose -f docker-compose.test.yml run --rm test sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+  - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - export REPO=$DOCKER_USERNAME/docker-rails
-  - docker-compose build
+  - docker-compose -f docker-compose.production.yml build
 
 deploy:
   -

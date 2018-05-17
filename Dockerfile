@@ -2,8 +2,15 @@
 # Stage: Builder
 FROM ruby:2.4.4-alpine3.7 as Builder
 
-ARG folder_to_remove="/home/app/spec"
-ARG bundle_install_without="development test"
+ARG FOLDERS_TO_REMOVE
+ARG BUNDLE_WITHOUT
+ARG RAILS_ENV
+ARG NODE_ENV
+
+ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
+ENV RAILS_ENV ${RAILS_ENV}
+ENV NODE_ENV ${NODE_ENV}
+ENV SECRET_KEY_BASE=foo
 
 RUN apk add --update --no-cache \
     build-base \
@@ -14,24 +21,29 @@ RUN apk add --update --no-cache \
     yarn \
     tzdata
 
-WORKDIR /home/app
+WORKDIR /app
 
 # Install gems
-ADD Gemfile* /home/app/
+ADD Gemfile* /app/
 RUN bundle config --global frozen 1 \
- && bundle install --without $bundle_install_without -j4 --retry 3 \
+ && bundle install -j4 --retry 3 \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
  && find /usr/local/bundle/gems/ -name "*.c" -delete \
  && find /usr/local/bundle/gems/ -name "*.o" -delete
 
+# Install yarn packages
+COPY package.json yarn.lock /app/
+RUN yarn install
+
 # Add the Rails app
-ADD . /home/app
-# Remove spec folder unless testing
-RUN rm -rf $folders_to_remove
+ADD . /app
 
 # Precompile assets
-RUN RAILS_ENV=production SECRET_KEY_BASE=foo bundle exec rake assets:precompile --trace
+RUN bundle exec rake assets:precompile
+
+# Remove folders not needed in resulting image
+RUN rm -rf $FOLDERS_TO_REMOVE
 
 ###############################
 # Stage wkhtmltopdf
@@ -42,14 +54,14 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 FROM ruby:2.4.4-alpine3.7
 LABEL maintainer="mail@georg-ledermann.de"
 
-ARG additional_packages
-ARG execjs_runtime="Disabled"
+ARG ADDITIONAL_PACKAGES
+ARG EXECJS_RUNTIME
 
 # Add Alpine packages
 RUN apk add --update --no-cache \
     postgresql-client \
     imagemagick \
-    $additional_packages \
+    $ADDITIONAL_PACKAGES \
     tzdata \
     file \
     # needed for wkhtmltopdf
@@ -66,14 +78,14 @@ USER app
 
 # Copy app with gems from former build stage
 COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
-COPY --from=Builder --chown=app:app /home/app /home/app
+COPY --from=Builder --chown=app:app /app /app
 
 # Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
-ENV EXECJS_RUNTIME $execjs_runtime
+ENV EXECJS_RUNTIME $EXECJS_RUNTIME
 
-WORKDIR /home/app
+WORKDIR /app
 
 # Expose Puma port
 EXPOSE 3000

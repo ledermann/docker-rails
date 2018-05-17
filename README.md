@@ -9,7 +9,7 @@
 
 Simple Rails 5.2 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
 
-This project aims to build a lean Docker image. Therefore it's based on the official Alpine Ruby image, uses a multi-stage building and separate Dockerfiles for testing and production.
+This project aims to build a lean Docker image for use in production. Therefore it's based on the official Alpine Ruby image, uses multi-stage building and some [optimizations that I described in my blog](https://www.georg-ledermann.de/blog/2018/04/19/dockerize-rails-the-lean-way/). This results in an image size of ~ 143MB (including the large wkhtmltopdf binary).
 
 
 ## Features
@@ -39,9 +39,9 @@ This project demonstrates my way of building Rails applications. The techniques 
 
 ## Multi container architecture
 
-The application is divided into 7 different containers:
+There is a separate **docker-compose.yml** for every environment: [development](docker-compose.yml), [test](docker-compose.test.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
 
-- **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building to get a small image (~ 230MB download size).
+- **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine
@@ -49,25 +49,23 @@ The application is divided into 7 different containers:
 - **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
-For running tests using RSpec, there are two additional containers:
+For running tests using RSpec, there is an additional container:
 
-- **test:** Application code prepared for running tests
 - **selenium:** Standalone Chrome for executing system tests containing JavaScript
-
-For testing there is a separate [docker-compose.test.yml](docker-compose.test.yml).
 
 ## Check it out!
 
-To start up the application in your Docker environment:
+To start up the application in your local Docker environment:
 
 ```bash
 git clone https://github.com/ledermann/docker-rails.git
 cd docker-rails
-cp .env.example .env
-docker-compose up --build
+docker-compose build
+docker-compose run app yarn install
+docker-compose up
 ```
 
-Wait some minutes while the database will be prepared. Then,
+Wait some minutes while the database will be prepared by fetching articles from Wikipedia. Then,
 navigate your browser to `http://[DOCKER_HOST]:[DOCKER_PORT]`.
 
 Sign in to the admin account:
@@ -78,15 +76,20 @@ Sign in to the admin account:
 Enjoy!
 
 
-## Deployment
+## Tests / CI
 
 On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run in public on [Travis CI](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
 
 On every successful Travis build, a new Docker image is pushed to [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/).
 
-On every start of the app container, the database will be migrated (or, if not exists, created with some seeds).
+
+## Production deployment
+
+The Docker image build for production is different from development or test. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
+
+The stack is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
 
 
-## Domain setup and SSL encryption with Let's Encrypt
+## Demo
 
-The app container is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
+A demo installation is set up on [https://docker-rails.georg-ledermann.de](https://docker-rails.georg-ledermann.de).

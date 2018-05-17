@@ -16,18 +16,17 @@ test:
   script:
     - docker-compose -f docker-compose.test.yml pull
     - docker-compose -f docker-compose.test.yml build
-    - docker-compose -f docker-compose.test.yml run --rm test sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+    - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
   after_script:
-    - docker-compose -f docker-compose.test.yml run --rm test rm -rf tmp/
+    - docker-compose -f docker-compose.test.yml run --rm app rm -rf tmp/
     - docker-compose -f docker-compose.test.yml down
     - docker volume rm `docker volume ls -qf dangling=true`
 
 build:
   stage: build
   script:
-    - docker-compose pull
-    - docker-compose build
+    - docker-compose -f docker-compose.production.yml build
     - docker tag dockerrails_app $CONTAINER_CURRENT_IMAGE
     - docker push $CONTAINER_CURRENT_IMAGE
 
