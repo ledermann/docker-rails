@@ -33,8 +33,8 @@ else
   }
 
   Shrine.storages = {
-    cache: Shrine::Storage::S3.new(prefix: "#{Rails.env}/cache", **s3_options),
-    store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", **s3_options)
+    cache: Shrine::Storage::S3.new(s3_options.merge(prefix: "#{Rails.env}/cache")),
+    store: Shrine::Storage::S3.new(s3_options.merge(prefix: "#{Rails.env}/store"))
   }
 end
 

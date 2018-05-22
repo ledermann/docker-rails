@@ -164,7 +164,7 @@ describe "Posts", type: :request do
   describe 'DELETE /posts/:id' do
     context "authenticated as admin" do
       it "deletes post" do
-        delete api_v1_post_path(id: 42), headers: authenticated_header(admin_user)
+        delete api_v1_post_path(id: 42), params: {}, headers: authenticated_header(admin_user)
 
         expect(response).to have_http_status(204)
         expect { post1.reload }.to raise_error(ActiveRecord::RecordNotFound)
@@ -174,7 +174,7 @@ describe "Posts", type: :request do
     context "without admin authentication" do
       it "rejects deleting post" do
         [ normal_user, nil, :invalid ].each do |auth_target|
-          delete api_v1_post_path(id: 42), headers: authenticated_header(auth_target)
+          delete api_v1_post_path(id: 42), params: {}, headers: authenticated_header(auth_target)
 
           expect(response).to have_http_status(401)
           expect { post1.reload }.to_not raise_error
