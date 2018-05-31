@@ -33,7 +33,7 @@ RUN bundle config --global frozen 1 \
  && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 # Install yarn packages
-COPY package.json yarn.lock /app/
+COPY package.json yarn.lock .yarnclean /app/
 RUN yarn install
 
 # Add the Rails app
