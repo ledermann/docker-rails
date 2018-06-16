@@ -62,7 +62,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (8.6.2)
       execjs
-    aws-eventstream (1.0.0)
+    aws-eventstream (1.0.1)
     aws-partitions (1.91.0)
     aws-sdk-core (3.21.2)
       aws-eventstream (~> 1.0)
