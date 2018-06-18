@@ -5164,8 +5164,8 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
 
 resolve@^1.1.7:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.8.0.tgz#a7f2ac27b78480ecc09c83782741d9f26e4f0c3e"
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.8.1.tgz#82f1ec19a423ac1fbd080b0bab06ba36e84a7a26"
   dependencies:
     path-parse "^1.0.5"
 
