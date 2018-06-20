@@ -9,7 +9,7 @@
     "corejs-typeahead": "^1.2.1",
     "jquery": "^3.2.1",
     "parsleyjs": "^2.8.0",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-grid-gallery": "^0.4.11",
