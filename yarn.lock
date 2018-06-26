@@ -4870,13 +4870,13 @@ react-dom@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-grid-gallery@^0.4.11:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.11.tgz#409d9d49d35a751cd53787a5645d386b08f7540c"
+react-grid-gallery@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.5.0.tgz#3db14350280b67122ee15b0f4277046a2c404bb2"
   dependencies:
-    react-images "^0.5.6"
+    react-images "^0.5.16"
 
-react-images@^0.5.6:
+react-images@^0.5.16:
   version "0.5.17"
   resolved "https://registry.yarnpkg.com/react-images/-/react-images-0.5.17.tgz#6f76fd03b370176bead7d22cec06afe82fe1cec0"
   dependencies:
