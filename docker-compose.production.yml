@@ -58,7 +58,7 @@ services:
     build:
       context: .
       args:
-        - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets
+        - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets tmp/cache
         - BUNDLE_WITHOUT=development:test
         - EXECJS_RUNTIME=Disabled
         - RAILS_ENV=production
