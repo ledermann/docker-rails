@@ -230,7 +230,7 @@ GEM
       request_store (~> 1.1)
     paper_trail-association_tracking (1.0.0)
     parallel (1.12.1)
-    parser (2.5.1.0)
+    parser (2.5.1.2)
       ast (~> 2.4.0)
     pdf-reader (2.1.0)
       Ascii85 (~> 1.0.0)
