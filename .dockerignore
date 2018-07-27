@@ -2,6 +2,7 @@
 .env*
 .git
 .gitignore
+.dockerignore
 .gitlab-ci.yml
 .travis.yml
 Brewfile
@@ -13,4 +14,6 @@ log/*
 node_modules/*
 public/assets/*
 storage/*
+public/packs/*
+public/packs-test/*
 tmp/*
