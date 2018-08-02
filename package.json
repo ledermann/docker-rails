@@ -10,7 +10,7 @@
     "jquery": "^3.2.1",
     "parsleyjs": "^2.8.0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
+    "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-grid-gallery": "^0.5.0",
     "react-timeago": "^4.1.9",
