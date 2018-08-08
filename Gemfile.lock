@@ -471,7 +471,7 @@ DEPENDENCIES
   pundit
   rack
   rack-cors
-  rails (~> 5.2.1.rc1)
+  rails (~> 5.2.1)
   react-rails
   redis (~> 4.0)
   rollbar
