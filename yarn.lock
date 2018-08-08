@@ -1206,8 +1206,8 @@ caniuse-api@^2.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000874"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000874.tgz#49edc0262efdc6c49d4d962bb16d1f0c790fa44e"
+  version "1.0.30000875"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000875.tgz#6f904fc89120de4029a9ca0f21d7ac3db89a0dce"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844:
   version "1.0.30000874"
@@ -4183,8 +4183,8 @@ pleeease-filters@^4.0.0:
     postcss "^6.0.1"
 
 portfinder@^1.0.9:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.15.tgz#28990f8a1d2794a5709010b25d9f6d90fcc2fa14"
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.16.tgz#a6a68be9c352bc66c1a4c17a261f661f3facaf52"
   dependencies:
     async "^1.5.2"
     debug "^2.2.0"
@@ -5260,8 +5260,8 @@ schema-utils@^0.3.0:
     ajv "^5.0.0"
 
 schema-utils@^0.4.0, schema-utils@^0.4.5:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.6.tgz#dab4516a656310a964ca772bd3771819ba2b5cec"
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
   dependencies:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
