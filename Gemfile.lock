@@ -298,7 +298,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redis (4.0.1)
+    redis (4.0.2)
     request_store (1.4.1)
       rack (>= 1.4)
     rollbar (2.16.4)
