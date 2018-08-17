@@ -26,6 +26,10 @@ Rails/Output:
 Rails/CreateTableWithTimestamps:
   Enabled: false
 
+Rails/BulkChangeTable:
+  Enabled: false
+
+
 ### Bundler
 
 Bundler/OrderedGems:
