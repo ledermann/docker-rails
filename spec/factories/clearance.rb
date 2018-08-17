@@ -5,16 +5,16 @@ FactoryBot.define do
 
   factory :user do
     email
-    password "password"
-    is_admin false
+    password { "password" }
+    is_admin { false }
     email_confirmed_at { Time.current }
 
     factory :admin do
-      is_admin true
+      is_admin { true }
     end
 
     trait :unconfirmed do
-      email_confirmed_at nil
+      email_confirmed_at { nil }
       email_confirmation_token { Clearance::Token.new }
     end
   end
