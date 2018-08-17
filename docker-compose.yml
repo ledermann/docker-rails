@@ -19,6 +19,7 @@ services:
     image: redis:4.0-alpine
 
   app: &app_base
+    image: dockerrails_app_development
     build:
       context: .
       args:

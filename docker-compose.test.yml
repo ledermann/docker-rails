@@ -25,6 +25,7 @@ services:
       - 5900:5900
 
   app:
+    image: dockerrails_app_test
     build:
       context: .
       args:

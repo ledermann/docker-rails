@@ -55,6 +55,7 @@ services:
     restart: always
 
   app: &app_base
+    image: dockerrails_app_production
     build:
       context: .
       args:
