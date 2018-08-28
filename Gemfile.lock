@@ -238,7 +238,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    pg (1.0.0)
+    pg (1.1.1)
     popper_js (1.14.3)
     powerpack (0.1.2)
     premailer (1.11.1)
@@ -381,9 +381,9 @@ GEM
       skylight-core (= 2.0.2)
     skylight-core (2.0.2)
       activesupport (>= 4.2.0)
-    slim (3.1.0)
+    slim (3.0.9)
       temple (>= 0.7.6, < 0.9)
-      tilt (>= 2.0.6, < 2.1)
+      tilt (>= 1.3.3, < 2.1)
     slim-rails (3.1.3)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -463,7 +463,7 @@ DEPENDENCIES
   mini_magick
   paper_trail
   pdf-reader
-  pg (~> 1.0)
+  pg (~> 1.1)
   premailer-rails
   puma (~> 3.11)
   punchbox
