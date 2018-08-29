@@ -463,7 +463,7 @@ DEPENDENCIES
   mini_magick
   paper_trail
   pdf-reader
-  pg (~> 1.0)
+  pg (~> 1.1)
   premailer-rails
   puma (~> 3.11)
   punchbox
