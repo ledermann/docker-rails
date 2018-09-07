@@ -236,7 +236,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    pg (1.1.2)
+    pg (1.1.3)
     popper_js (1.14.3)
     powerpack (0.1.2)
     premailer (1.11.1)
@@ -461,7 +461,7 @@ DEPENDENCIES
   mini_magick
   paper_trail
   pdf-reader
-  pg (~> 1.0)
+  pg (~> 1.1)
   premailer-rails
   puma (~> 3.11)
   punchbox
