@@ -3,11 +3,13 @@ class ClipSerializer < ActiveModel::Serializer
 
   def filename
     return unless image_processed?
+
     object.image[:original].original_filename
   end
 
   def original
     return unless image_processed?
+
     {
       url:       object.image_url(:thumbnail, expires_in: 1.day.to_i),
       size:      object.image[:thumbnail].size,
@@ -17,6 +19,7 @@ class ClipSerializer < ActiveModel::Serializer
 
   def large
     return unless image_processed?
+
     {
       url:       object.image_url(:large, expires_in: 1.day.to_i),
       size:      object.image[:large].size,
@@ -26,6 +29,7 @@ class ClipSerializer < ActiveModel::Serializer
 
   def thumbnail
     return unless image_processed?
+
     {
       url:       object.image_url(:thumbnail, expires_in: 1.day.to_i),
       size:      object.image[:thumbnail].size,
