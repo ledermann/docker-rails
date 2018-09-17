@@ -35,6 +35,8 @@ release-latest-image:
     - docker pull $CONTAINER_CURRENT_IMAGE
     - docker tag $CONTAINER_CURRENT_IMAGE $CONTAINER_LATEST_IMAGE
     - docker push $CONTAINER_LATEST_IMAGE
+    - curl -X POST $PORTAINER_HOOK_APP
+    - curl -X POST $PORTAINER_HOOK_WORKER
   only:
     - develop
 
