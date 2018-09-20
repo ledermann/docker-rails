@@ -146,7 +146,7 @@ GEM
       mail (~> 2.7)
     email_validator (1.6.0)
       activemodel
-    errbase (0.1.0)
+    errbase (0.1.1)
     erubi (1.7.1)
     et-orbi (1.1.6)
       tzinfo
