@@ -16,7 +16,7 @@ services:
     image: memcached:1.5-alpine
 
   redis:
-    image: redis:4.0-alpine
+    image: redis:5.0-alpine
 
   app: &app_base
     image: dockerrails_app_development

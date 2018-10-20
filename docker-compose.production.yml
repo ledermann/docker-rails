@@ -31,7 +31,7 @@ services:
 
   redis:
     hostname: redis.docker-rails.my-site.com
-    image: redis:4.0-alpine
+    image: redis:5.0-alpine
     restart: always
     volumes:
       - /my-volumes/docker-rails/redis:/data
