@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/markmercedes/trix.git
-  revision: 56d84ae42e34488b0bb301bd9bd0f54fac7fc811
-  specs:
-    trix (0.11.1)
-      rails (> 4.1, <= 6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -409,6 +402,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    trix-rails (2.0.0)
+      rails (> 4.1, < 6.0)
     ttfunk (1.5.1)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
@@ -491,7 +486,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sprockets_uglifier_with_source_maps
   stringex
-  trix (>= 0.11.1)!
+  trix-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
