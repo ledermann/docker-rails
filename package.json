@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.5.5",
     "babel-preset-react": "^6.24.1",
-    "blueimp-file-upload": "^9.23.0",
+    "blueimp-file-upload": "^9.25.0",
     "coffeescript": "^2.3.1",
     "corejs-typeahead": "^1.2.1",
     "jquery": "^3.2.1",
