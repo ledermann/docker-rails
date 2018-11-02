@@ -348,7 +348,7 @@ GEM
       activemodel (>= 4.2)
       elasticsearch (>= 5)
       hashie
-    selenium-webdriver (3.14.1)
+    selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     shrine (2.12.0)
