@@ -330,7 +330,7 @@ GEM
     rubyzip (1.2.2)
     safely_block (0.2.1)
       errbase
-    sass (3.7.1)
+    sass (3.7.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
