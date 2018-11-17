@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Post management' do
   before :each do
     30.times { create(:post) }
+    Post.search_index.delete
     Post.reindex
   end
 
