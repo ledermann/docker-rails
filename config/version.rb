@@ -1,15 +1,13 @@
 module DockerRails
   class Application
     def version
-      '1.9.2'
+      '1.9.3'
     end
 
     def build_time
-      @build_time ||= begin
-        File.read('BUILD_TIME').lines.first.chomp.to_datetime
-      rescue Errno::ENOENT
-        Time.current
-      end
+      @build_time ||= File.read('BUILD_TIME').lines.first.chomp.to_time
+    rescue Errno::ENOENT
+      Time.current
     end
 
     def ruby_version

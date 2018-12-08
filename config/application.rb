@@ -28,6 +28,8 @@ module DockerRails
                  expose: ['ETag']
       end
     end
+
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
   end
 end
 

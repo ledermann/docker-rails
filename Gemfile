@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'sprockets_uglifier_with_source_maps'
 # Use CoffeeScript for .coffee assets and views
@@ -43,7 +43,6 @@ gem 'redis', '~> 4.0'
 gem 'dalli'
 gem 'sidekiq'
 gem 'sidekiq-cron'
-gem 'rufus-scheduler', '3.4.2' # https://github.com/ondrejbartas/sidekiq-cron/issues/199
 gem 'searchkick'
 gem 'wicked_pdf'
 gem 'bootstrap', '~> 4'
@@ -60,7 +59,7 @@ gem 'paper_trail'
 gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
-gem 'trix', '>= 0.11.1', github: 'markmercedes/trix'
+gem 'trix-rails', require: 'trix'
 gem 'rollbar'
 gem 'punchbox'
 gem 'rack-cors', require: 'rack/cors'
@@ -97,7 +96,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   # gem 'chromedriver-helper'

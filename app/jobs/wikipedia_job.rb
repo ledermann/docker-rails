@@ -9,6 +9,7 @@ class WikipediaJob < ApplicationJob
       count = 0
       Wikipedia::List.new.articles.each do |article|
         next unless article.valid?
+
         logger.debug "Processing '#{article.title}'"
 
         post = build_post(article)

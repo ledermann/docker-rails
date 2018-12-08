@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - db/schema.rb
     - 'node_modules/**/*'
@@ -25,6 +25,10 @@ Rails/Output:
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
 
 ### Bundler
 
@@ -114,6 +118,9 @@ Layout/FirstMethodParameterLineBreak:
   Enabled: true
 
 Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+Layout/AlignHash:
   Enabled: false
 
 

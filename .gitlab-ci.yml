@@ -14,8 +14,7 @@ before_script:
 test:
   stage: test
   script:
-    - docker-compose -f docker-compose.test.yml pull
-    - docker-compose -f docker-compose.test.yml build
+    - docker-compose -f docker-compose.test.yml build --pull
     - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
   after_script:
@@ -26,8 +25,8 @@ test:
 build:
   stage: build
   script:
-    - docker-compose -f docker-compose.production.yml build
-    - docker tag dockerrails_app $CONTAINER_CURRENT_IMAGE
+    - docker-compose -f docker-compose.production.yml build --pull
+    - docker tag dockerrails_app_production $CONTAINER_CURRENT_IMAGE
     - docker push $CONTAINER_CURRENT_IMAGE
 
 release-latest-image:
@@ -36,6 +35,8 @@ release-latest-image:
     - docker pull $CONTAINER_CURRENT_IMAGE
     - docker tag $CONTAINER_CURRENT_IMAGE $CONTAINER_LATEST_IMAGE
     - docker push $CONTAINER_LATEST_IMAGE
+    - curl -X POST $PORTAINER_HOOK_APP
+    - curl -X POST $PORTAINER_HOOK_WORKER
   only:
     - develop
 

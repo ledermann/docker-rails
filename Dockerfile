@@ -1,6 +1,6 @@
 ######################
 # Stage: Builder
-FROM ruby:2.4.4-alpine3.7 as Builder
+FROM ruby:2.5.3-alpine as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
@@ -11,6 +11,7 @@ ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 ENV RAILS_ENV ${RAILS_ENV}
 ENV NODE_ENV ${NODE_ENV}
 ENV SECRET_KEY_BASE=foo
+ENV RAILS_SERVE_STATIC_FILES=true
 
 RUN apk add --update --no-cache \
     build-base \
@@ -33,7 +34,7 @@ RUN bundle config --global frozen 1 \
  && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 # Install yarn packages
-COPY package.json yarn.lock /app/
+COPY package.json yarn.lock .yarnclean /app/
 RUN yarn install
 
 # Add the Rails app
@@ -51,7 +52,7 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 
 ###############################
 # Stage Final
-FROM ruby:2.4.4-alpine3.7
+FROM ruby:2.5.3-alpine
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES

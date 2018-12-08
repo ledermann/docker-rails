@@ -11,8 +11,7 @@ before_script:
   - sudo sysctl -w vm.max_map_count=262144 # Required for Elasticsearch
 
 script:
-  - docker-compose pull
-  - docker-compose -f docker-compose.test.yml build
+  - docker-compose -f docker-compose.test.yml build --pull
   - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
 
 before_deploy:
@@ -23,12 +22,12 @@ before_deploy:
 deploy:
   -
     provider: script
-    script: docker tag dockerrails_app $REPO:latest && docker push $REPO
+    script: docker tag dockerrails_app_production $REPO:latest && docker push $REPO
     on:
       branch: develop
 
   -
     provider: script
-    script: docker tag dockerrails_app $REPO:${TRAVIS_TAG} && docker push $REPO
+    script: docker tag dockerrails_app_production $REPO:${TRAVIS_TAG} && docker push $REPO
     on:
       tags: true
