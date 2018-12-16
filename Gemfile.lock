@@ -283,8 +283,8 @@ GEM
     rainbow (3.0.0)
     rake (12.3.2)
     rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
     react-rails (2.4.7)
       babel-transpiler (>= 0.7.0)
       connection_pool
