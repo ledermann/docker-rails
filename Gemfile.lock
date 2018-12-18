@@ -217,7 +217,7 @@ GEM
     multi_json (1.13.1)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.9.0)
+    nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
     paper_trail (10.1.0)
       activerecord (>= 4.2, < 6.0)
