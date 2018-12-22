@@ -250,7 +250,7 @@ GEM
     raabro (1.1.6)
     rack (2.0.6)
     rack-cors (1.0.2)
-    rack-protection (2.0.4)
+    rack-protection (2.0.5)
       rack
     rack-proxy (0.6.5)
       rack
