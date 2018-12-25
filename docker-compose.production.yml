@@ -24,11 +24,6 @@ services:
     volumes:
       - /my-volumes/docker-rails/elasticsearch:/usr/share/elasticsearch/data
 
-  memcached:
-    hostname: memcached.docker-rails.my-site.com
-    image: memcached:1.5-alpine
-    restart: always
-
   redis:
     hostname: redis.docker-rails.my-site.com
     image: redis:5.0-alpine
@@ -81,7 +76,6 @@ services:
       - ELASTICSEARCH_HOST=elasticsearch
       - LETSENCRYPT_EMAIL=mail@my-site.com
       - LETSENCRYPT_HOST=docker-rails.my-site.com
-      - MEMCACHED_HOST=memcached
       - PIWIK_HOST=piwik.my-site.com
       - PIWIK_ID=my-piwik-id
       - RAILS_ENV=production
@@ -89,6 +83,7 @@ services:
       - RAILS_MAX_THREADS=5
       - REDIS_CABLE_URL=redis://redis:6379/1
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
+      - REDIS_CACHE_URL=redis://redis:6379/2
       - ROLLBAR_ACCESS_TOKEN=my-rollbar-token
       - SECRET_KEY_BASE=my-secret-access-key
       - SKYLIGHT_AUTHENTICATION=my-skylight-authentication
@@ -104,7 +99,6 @@ services:
     links:
       - db
       - elasticsearch
-      - memcached
       - redis
     ports:
       - 3000

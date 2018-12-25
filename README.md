@@ -45,8 +45,7 @@ There is a separate **docker-compose.yml** for every environment: [development](
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine
-- **memcached:** Memory caching system (used from within the app via the [Dalli](https://github.com/petergoldstein/dalli) gem)
-- **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
+- **redis:** In-memory key/value store (used by Sidekiq, ActionCable and for caching)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
 For running tests using RSpec, there is an additional container:

@@ -12,9 +12,6 @@ services:
     volumes:
       - es-data:/usr/share/elasticsearch/data
 
-  memcached:
-    image: memcached:1.5-alpine
-
   redis:
     image: redis:5.0-alpine
 
@@ -37,7 +34,7 @@ services:
       ELASTICSEARCH_HOST: elasticsearch
       REDIS_SIDEKIQ_URL: redis://redis:6379/0
       REDIS_CABLE_URL: redis://redis:6379/1
-      MEMCACHED_HOST: memcached
+      REDIS_CACHE_URL: redis://redis:6379/2
       SELENIUM_REMOTE_HOST: selenium
       RAILS_ENV: test
       DB_HOST: db
@@ -59,7 +56,6 @@ services:
       - elasticsearch
       - db
       - redis
-      - memcached
       - selenium
 
 volumes:

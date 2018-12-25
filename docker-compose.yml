@@ -12,9 +12,6 @@ services:
     volumes:
       - es-data:/usr/share/elasticsearch/data
 
-  memcached:
-    image: memcached:1.5-alpine
-
   redis:
     image: redis:5.0-alpine
 
@@ -31,7 +28,7 @@ services:
       - ELASTICSEARCH_HOST=elasticsearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
-      - MEMCACHED_HOST=memcached
+      - REDIS_CACHE_URL=redis://redis:6379/2
       - SECRET_KEY_BASE=f0ee8496d1ddeb69fa0980d0580ff0f174262e61b53e8a318c990a193661f45f84b07a995d33ca8749eb6e0085d375201d319ed0fdaab9aa469e3b9b96f269d6
       - DB_HOST=db
       - DB_USER=postgres
@@ -63,7 +60,6 @@ services:
       - elasticsearch
       - db
       - redis
-      - memcached
     volumes:
       - .:/app
 

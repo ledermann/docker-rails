@@ -30,12 +30,6 @@ module DockerRails
       Rails::VERSION::STRING
     end
 
-    def memcached_version
-      Rails.cache.stats.first.second['version']
-    rescue StandardError
-      'unknown'
-    end
-
     def redis_version
       Sidekiq.redis_info['redis_version']
     end
