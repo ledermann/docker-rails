@@ -156,7 +156,7 @@ GEM
     ffi (1.9.25)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
-    friendly_id (5.2.4)
+    friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     fugit (1.1.6)
       et-orbi (~> 1.1, >= 1.1.6)
