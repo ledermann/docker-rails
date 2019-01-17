@@ -158,7 +158,7 @@ GEM
       sassc (>= 1.11)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
-    fugit (1.1.7)
+    fugit (1.1.8)
       et-orbi (~> 1.1, >= 1.1.7)
       raabro (~> 1.1)
     globalid (0.4.2)
