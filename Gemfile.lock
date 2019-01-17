@@ -223,7 +223,7 @@ GEM
       activerecord (>= 4.2, < 6.0)
       request_store (~> 1.1)
     parallel (1.12.1)
-    parser (2.5.3.0)
+    parser (2.6.0.0)
       ast (~> 2.4.0)
     pdf-reader (2.2.0)
       Ascii85 (~> 1.0.0)
