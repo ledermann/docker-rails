@@ -245,7 +245,7 @@ GEM
     puma (3.12.0)
     punchbox (1.0.3)
       rails (>= 4.0.0)
-    pundit (2.0.0)
+    pundit (2.0.1)
       activesupport (>= 3.0.0)
     raabro (1.1.6)
     rack (2.0.6)
