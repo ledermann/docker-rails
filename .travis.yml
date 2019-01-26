@@ -12,7 +12,8 @@ before_script:
 
 script:
   - docker-compose -f docker-compose.test.yml build --pull
-  - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec rubocop"
+  - docker-compose -f docker-compose.test.yml run --rm app sh -c "yarn lint && bundle exec rubocop"
+  - docker-compose -f docker-compose.test.yml run --rm app sh -c "./docker/wait-for-services.sh && bundle exec rake db:create spec"
 
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
