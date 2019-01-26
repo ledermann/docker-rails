@@ -21,15 +21,13 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require blueimp-load-image/js/load-image
 //= require blueimp-tmpl/js/tmpl
-//= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require punchbox
 //= require_tree .
 
-new PiwikAnalytics();
+new PiwikAnalytics()
 
 $(document).on('turbolinks:load', function() {
-  new TooltipEnabler();
-  new InfiniteScrolling();
-});
+  new TooltipEnabler()
+  new InfiniteScrolling()
+})
