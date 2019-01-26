@@ -382,9 +382,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sprockets_uglifier_with_source_maps (2.1.0)
-      sprockets-rails (~> 3.0)
-      uglifier (>= 2.5)
     stringex (2.8.5)
     temple (0.8.0)
     thor (0.20.3)
@@ -396,8 +393,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.4.1)
     web-console (3.7.0)
       actionview (>= 5.0)
@@ -468,7 +463,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
-  sprockets_uglifier_with_source_maps
   stringex
   turbolinks (~> 5)
   tzinfo-data
