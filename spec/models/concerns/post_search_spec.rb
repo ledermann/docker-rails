@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe PostSearch do
+  before { Post.reindex }
+
   describe '#content_as_plaintext' do
     let(:html) { '<style type="text/css">body { margin: 10px; }</style> This is <strong>bold</strong><ul><li>One</li><li>Two</li></ul>' }
     let(:post) { Post.new content: html }
@@ -96,8 +98,6 @@ describe PostSearch do
   end
 
   describe '.autocomplete' do
-    before { Post.reindex }
-
     let!(:post_single) do
       create :post,
              :reindex,
