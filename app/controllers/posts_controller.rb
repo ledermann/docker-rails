@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    Post.find(params[:id])
+    Post.friendly.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

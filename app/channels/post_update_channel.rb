@@ -4,7 +4,7 @@ class PostUpdateChannel < ApplicationCable::Channel
 
     return unless params[:post_id]
 
-    post = Post.find(params[:post_id])
+    post = Post.friendly.find(params[:post_id])
     stream_for post
   end
 
