@@ -13,6 +13,7 @@
     "corejs-typeahead": "^1.2.1",
     "jquery": "^3.2.1",
     "parsleyjs": "^2.8.0",
+    "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
