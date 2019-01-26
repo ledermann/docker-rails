@@ -37,8 +37,10 @@ describe 'Post management' do
 
       within '#search' do
         fill_in 'q', with: 'Exa'
-        expect(page).to have_selector('.tt-suggestion', text: 'example')
+      end
+      expect(page).to have_css('.autocomplete div', text: 'example')
 
+      within '#search' do
         fill_in 'q', with: "Exam\n"
       end
 

@@ -1120,6 +1120,11 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+autocompleter@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-4.0.2.tgz#74fd9eaa733258e5ac2a72362c4bab0951ab6a01"
+  integrity sha512-joYpKB3gsYSVIzBdiuUU/LOpvNEN68rSTPlroH+RQ38Ff8OmSUE0ue+C6aSc+powTRrSUnZfvYGvOsa++3HRtA==
+
 autoprefixer@^9.4.2:
   version "9.4.6"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.4.6.tgz#0ace275e33b37de16b09a5547dbfe73a98c1d446"
@@ -1890,13 +1895,6 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
-
-corejs-typeahead@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.2.1.tgz#345a8afe664cc494075b59b64777807f0b3f132b"
-  integrity sha1-NFqK/mZMxJQHW1m2R3eAfws/Eys=
-  dependencies:
-    jquery ">=1.11"
 
 cosmiconfig@^4.0.0:
   version "4.0.0"
@@ -3924,7 +3922,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@>=1.11, jquery@>=1.8.0, jquery@^3.2.1:
+jquery@>=1.8.0, jquery@^3.2.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==

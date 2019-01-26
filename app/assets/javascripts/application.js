@@ -14,7 +14,6 @@
 //= require parsleyjs
 //= require popper
 //= require bootstrap-sprockets
-//= require corejs-typeahead/dist/typeahead.bundle
 //= require blueimp-file-upload/js/vendor/jquery.ui.widget
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload

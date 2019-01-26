@@ -1,6 +1,5 @@
 class Posts
   index: ->
-    new Autocomplete()
     new TableRowLink()
 
   edit: ->
