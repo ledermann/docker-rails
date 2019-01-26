@@ -36,7 +36,7 @@ gem 'active_model_serializers'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.0.rc.7'
 gem 'react-rails'
 
 gem 'slim-rails'

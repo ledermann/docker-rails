@@ -2,7 +2,7 @@
   "name": "docker-rails",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.5.5",
+    "@rails/webpacker": "^4.0.0-rc.7",
     "babel-preset-react": "^6.24.1",
     "blueimp-file-upload": "^9.28.0",
     "coffeescript": "^2.3.1",
@@ -17,6 +17,6 @@
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.11.2"
+    "webpack-dev-server": "^3.1.14"
   }
 }

@@ -5,6 +5,8 @@ default: &default
   source_entry_path: packs
   public_output_path: packs
   cache_path: tmp/cache/webpacker
+  check_yarn_integrity: false
+  webpack_compile_output: false
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
@@ -13,25 +15,39 @@ default: &default
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
+  # Don't extract and emit a css file
+  extract_css: false
+
+  static_assets_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .tiff
+    - .ico
+    - .svg
+    - .eot
+    - .otf
+    - .ttf
+    - .woff
+    - .woff2
+
   extensions:
-    - .coffee
-    - .erb
+    - .mjs
     - .js
-    - .jsx
-    - .ts
-    - .vue
     - .sass
     - .scss
     - .css
-    - .png
-    - .svg
-    - .gif
-    - .jpeg
-    - .jpg
+    - .module.sass
+    - .module.scss
+    - .module.css
 
 development:
   <<: *default
   compile: true
+
+  # Verifies that versions and hashed value of the package contents in the project's package.json
+  check_yarn_integrity: true
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
@@ -39,7 +55,7 @@ development:
     host: localhost
     port: 3035
     public: localhost:3035
-    hmr: false
+    hmr: true
     # Inline should be set to true if using HMR
     inline: true
     overlay: true
@@ -57,6 +73,9 @@ test:
   <<: *default
   compile: true
 
+  # Extract and emit a css file
+  extract_css: true
+
   # Compile test packs to a separate directory
   public_output_path: packs-test
 
@@ -65,6 +84,9 @@ production:
 
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
+
+  # Extract and emit a css file
+  extract_css: true
 
   # Cache manifest.json for performance
   cache_manifest: true

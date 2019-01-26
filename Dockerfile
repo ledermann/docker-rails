@@ -20,6 +20,7 @@ RUN apk add --update --no-cache \
     imagemagick \
     nodejs-current \
     yarn \
+    python2 \
     tzdata
 
 WORKDIR /app
