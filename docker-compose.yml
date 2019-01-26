@@ -13,7 +13,7 @@ services:
       - es-data:/usr/share/elasticsearch/data
 
   redis:
-    image: redis:5.0-alpine
+    image: redis:alpine
 
   app: &app_base
     image: dockerrails_app_development
