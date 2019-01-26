@@ -10,8 +10,8 @@ class User < ApplicationRecord
   end
 
   def confirm!
-    update_attributes email_confirmed_at: Time.current,
-                      email_confirmation_token: nil
+    update! email_confirmed_at: Time.current,
+            email_confirmation_token: nil
   end
 
   def confirm_with_token(token)

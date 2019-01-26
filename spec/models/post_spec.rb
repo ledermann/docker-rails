@@ -6,7 +6,7 @@ describe Post do
 
     it "performs PostRelayJob on update" do
       expect(PostRelayJob).to receive(:perform_later)
-      subject.update_attributes! content: 'ipsum'
+      subject.update! content: 'ipsum'
     end
 
     it "don't performs PostRelayJob on destroy" do
@@ -30,7 +30,7 @@ describe Post do
 
     it "adds version on update" do
       expect do
-        subject.update_attributes! content: 'foo'
+        subject.update! content: 'foo'
       end.to change(subject.audits, :count).by(1)
       expect(subject.audits.last.event).to eq('update')
     end
@@ -51,7 +51,7 @@ describe Post do
     end
 
     it 'updates slug if title changes' do
-      post.update_attributes! title: 'c+++'
+      post.update! title: 'c+++'
       expect(post.slug).to eq('c-plus-plus-plus')
     end
   end
