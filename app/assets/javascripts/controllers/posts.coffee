@@ -1,7 +1,4 @@
 class Posts
-  index: ->
-    new TableRowLink()
-
   edit: ->
     new FormValidator()
     new Upload()

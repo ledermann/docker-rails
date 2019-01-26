@@ -18,7 +18,7 @@ html, body {
   font-size: $small-font-size;
 }
 
-td.js-row-link {
+td[data-action] {
   cursor: pointer;
 }
 
