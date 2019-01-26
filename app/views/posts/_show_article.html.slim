@@ -14,7 +14,9 @@ article data-cable-post-id=post.id
     h1.display-4
       = post.title
 
-    = react_component('TimeAgo', { date: post.updated_at }, { tag: 'p', class: 'badge badge-secondary'})
+    time.badge.badge-secondary datetime=post.updated_at.iso8601
+      => distance_of_time_in_words_to_now post.updated_at
+      | ago
 
   - if post.clips.present?
     ruby:
@@ -25,8 +27,17 @@ article data-cable-post-id=post.id
           thumbnailHeight: 400
         }
       end
-    div style="overflow:auto"
-      = react_component('Gallery', images: images, enableImageSelection: false)
+
+    - images.each_with_index do |image, index|
+      .cssbox style="margin: 20px 0"
+        = content_tag :a, id: "image#{index+1}", href: "#image#{index+1}" do
+          img.cssbox_thumb src= image[:thumbnail] style="width:200px; height: 200px" alt=""
+          span.cssbox_full
+            img src= image[:src] alt=""
+        a.cssbox_close href="#void"
+        a.cssbox_prev href="#image1" &lt;
+        a.cssbox_next href="#image3" &gt;
+
     hr
 
   == post.content

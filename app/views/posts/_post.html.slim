@@ -21,4 +21,6 @@
           = post.content_as_plaintext.truncate(300)
 
     td.js-row-link.text-right.d-none.d-md-table-cell.text-nowrap
-      = react_component('TimeAgo', { date: post.updated_at }, { class: 'badge badge-secondary'})
+      time.badge.badge-secondary datetime=post.updated_at.iso8601
+        => distance_of_time_in_words_to_now post.updated_at
+        | ago

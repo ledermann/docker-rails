@@ -70,10 +70,6 @@ GEM
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.3)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
     blazer (2.0.1)
@@ -285,12 +281,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    react-rails (2.4.7)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     redis (4.1.0)
     regexp_parser (1.3.0)
     request_store (1.4.1)
@@ -462,7 +452,6 @@ DEPENDENCIES
   rack
   rack-cors
   rails (~> 5.2.2)
-  react-rails
   redis (~> 4.0)
   rollbar
   rspec-rails

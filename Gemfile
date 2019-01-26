@@ -37,7 +37,6 @@ gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'webpacker', '>= 4.0.0.rc.7'
-gem 'react-rails'
 
 gem 'slim-rails'
 gem 'kaminari'
