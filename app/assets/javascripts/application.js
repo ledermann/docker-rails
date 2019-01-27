@@ -20,5 +20,4 @@ new PiwikAnalytics()
 
 $(document).on('turbolinks:load', function() {
   new TooltipEnabler()
-  new InfiniteScrolling()
 })

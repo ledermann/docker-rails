@@ -28,13 +28,14 @@
   #post-count
     = pluralize @posts.total_count, 'Post'
 
-- if @posts.present?
-  table.table.table-hover
-    thead.thead-inverse
-      tr
-        th Content
-        th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
-    tbody#js-infinite-scrolling
-      = render @posts
+div data-controller="infinite-scrolling"
+  - if @posts.present?
+    table.table.table-hover
+      thead.thead-inverse
+        tr
+          th Content
+          th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
+      tbody
+        = render @posts
 
-= render 'kaminari/paging', objects: @posts
+  = render 'kaminari/paging', objects: @posts
