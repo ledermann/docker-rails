@@ -14,6 +14,7 @@ Turbolinks.start()
 
 import 'trix'
 import 'trix/dist/trix.css'
+import 'CSSBox/cssbox'
 
 // Load Stimulus controllers
 import 'controllers'
