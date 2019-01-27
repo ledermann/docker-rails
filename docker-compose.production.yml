@@ -58,7 +58,6 @@ services:
         - BUNDLE_WITHOUT=development:test
         - EXECJS_RUNTIME=Disabled
         - RAILS_ENV=production
-        - NODE_ENV=production
     environment:
       - APP_ADMIN_EMAIL=mail@my-site.com
       - APP_ADMIN_PASSWORD=supergeheim
@@ -79,7 +78,6 @@ services:
       - PIWIK_HOST=piwik.my-site.com
       - PIWIK_ID=my-piwik-id
       - RAILS_ENV=production
-      - NODE_ENV=production
       - RAILS_MAX_THREADS=5
       - REDIS_CABLE_URL=redis://redis:6379/1
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0

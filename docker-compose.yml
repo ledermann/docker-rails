@@ -23,7 +23,6 @@ services:
         - ADDITIONAL_PACKAGES=nodejs-current yarn python2 build-base
         - EXECJS_RUNTIME=Node
         - RAILS_ENV=development
-        - NODE_ENV=development
     environment:
       - ELASTICSEARCH_HOST=elasticsearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0

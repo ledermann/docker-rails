@@ -16,5 +16,10 @@ import 'trix'
 import 'trix/dist/trix.css'
 import 'CSSBox/cssbox'
 
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap'
+import 'bootstrap/dist/js/bootstrap'
+import 'styles/theme'
+
 // Load Stimulus controllers
 import 'controllers'

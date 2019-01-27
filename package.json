@@ -10,16 +10,24 @@
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^4.0.2",
     "blueimp-file-upload": "^9.28.0",
+    "bootstrap": "^4.2.1",
     "coffeescript": "^2.3.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "parsleyjs": "^2.8.0",
+    "popper.js": "^1.14.6",
     "stimulus": "^1.1.1",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.6",
     "babel-eslint": "^10.0.1",
+    "css-loader": "^2.1.0",
     "eslint": "^5.13.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack-dev-server": "^3.1.14"
   }
 }

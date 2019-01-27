@@ -11,13 +11,7 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
-//= require popper
-//= require bootstrap-sprockets
 //= require activestorage
 //= require_tree .
 
 new PiwikAnalytics()
-
-$(document).on('turbolinks:load', function() {
-  new TooltipEnabler()
-})
