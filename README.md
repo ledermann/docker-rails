@@ -27,7 +27,7 @@ This project aims to build a lean Docker image for use in production. Therefore 
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
 - Admin dashboards with [Blazer](https://github.com/ankane/blazer) gem
-- Page specific JavaScript with [Punchbox](https://github.com/kieraneglin/punchbox)
+- JavaScript with [Stimulus](https://stimulusjs.org/)
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
 

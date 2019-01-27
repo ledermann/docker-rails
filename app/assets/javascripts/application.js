@@ -14,7 +14,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require activestorage
-//= require punchbox
 //= require_tree .
 
 new PiwikAnalytics()

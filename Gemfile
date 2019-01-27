@@ -58,7 +58,6 @@ gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
 gem 'rollbar'
-gem 'punchbox'
 gem 'rack-cors', require: 'rack/cors'
 
 # Image uploads
