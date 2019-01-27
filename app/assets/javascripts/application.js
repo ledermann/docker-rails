@@ -13,11 +13,6 @@
 //= require jquery/dist/jquery.js
 //= require popper
 //= require bootstrap-sprockets
-//= require blueimp-file-upload/js/vendor/jquery.ui.widget
-//= require blueimp-file-upload/js/jquery.iframe-transport
-//= require blueimp-file-upload/js/jquery.fileupload
-//= require blueimp-load-image/js/load-image
-//= require blueimp-tmpl/js/tmpl
 //= require activestorage
 //= require punchbox
 //= require_tree .
