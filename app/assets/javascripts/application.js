@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.js
-//= require parsleyjs
 //= require popper
 //= require bootstrap-sprockets
 //= require blueimp-file-upload/js/vendor/jquery.ui.widget

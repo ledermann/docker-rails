@@ -1,4 +1,4 @@
-= simple_form_for post, data: { 'parsley-validate' => 'parsley-validate',  'parsley-excluded' => '[disabled]' }  do |f|
+= simple_form_for post, data: { controller: 'form-validator', 'parsley-excluded' => '[disabled]' }  do |f|
   = f.error_notification
 
   .form-inputs
