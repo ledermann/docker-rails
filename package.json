@@ -11,7 +11,6 @@
     "autocompleter": "^4.0.2",
     "blueimp-file-upload": "^9.28.0",
     "bootstrap": "^4.2.1",
-    "coffeescript": "^2.3.1",
     "jquery": "^3.3.1",
     "parsleyjs": "^2.8.0",
     "popper.js": "^1.14.6",
