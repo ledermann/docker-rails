@@ -13,5 +13,3 @@
 //= require jquery/dist/jquery.js
 //= require activestorage
 //= require_tree .
-
-new PiwikAnalytics()
