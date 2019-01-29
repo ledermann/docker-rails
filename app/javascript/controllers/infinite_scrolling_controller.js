@@ -38,6 +38,7 @@ export default class extends Controller {
   isInViewport() {
     // Check if the paginator is visible (i.e. scrolled into the viewport)
     const rect = this.pagingTarget.getBoundingClientRect()
-    return (rect.top > 0) && (rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+    return (rect.top > 0)
+           && (rect.top <= (window.innerHeight || document.documentElement.clientHeight))
   }
 }

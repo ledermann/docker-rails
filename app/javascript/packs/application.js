@@ -9,17 +9,18 @@
 
 import Rails from '@rails/ujs'
 import Turbolinks from 'turbolinks'
-Rails.start()
-Turbolinks.start()
 
 import 'trix'
 import 'trix/dist/trix.css'
-import 'CSSBox/cssbox'
+import 'CSSBox/cssbox.css'
 
 // Bootstrap
-import 'bootstrap/dist/css/bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap'
-import 'styles/theme'
+import '../styles/theme.scss'
 
 // Load Stimulus controllers
-import 'controllers'
+import '../controllers'
+
+Rails.start()
+Turbolinks.start()

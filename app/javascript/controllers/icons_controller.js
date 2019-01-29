@@ -16,7 +16,20 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
 
 export default class extends Controller {
   initialize() {
-    library.add(faHome, faPlus, faFilePdf, faSpinner, faImage, faCogs, faBinoculars, faUserCircle, faUserPlus, faEdit, faTrashAlt, faSearch)
+    library.add(
+      faHome,
+      faPlus,
+      faFilePdf,
+      faSpinner,
+      faImage,
+      faCogs,
+      faBinoculars,
+      faUserCircle,
+      faUserPlus,
+      faEdit,
+      faTrashAlt,
+      faSearch
+    )
   }
 
   connect() {

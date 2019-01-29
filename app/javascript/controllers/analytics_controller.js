@@ -7,8 +7,7 @@ export default class extends Controller {
   // Based on https://gist.github.com/erpe/8586565
 
   connect() {
-    if (!this.piwikHost() || !this.piwikId())
-      return
+    if (!this.piwikHost() || !this.piwikId()) { return }
 
     // Piwik Analytics depends on a global _paq array. window is the global scope.
     window._paq = []
@@ -28,9 +27,7 @@ export default class extends Controller {
     // If Turbolinks is supported, set up a callback to track pageviews on turbolinks:load.
     // If it isn't supported, just track the pageview now.
     if ((typeof Turbolinks !== 'undefined') && Turbolinks.supported) {
-      document.addEventListener('turbolinks:load', (() => {
-        return this.trackPageView()
-      }
+      document.addEventListener('turbolinks:load', (() => this.trackPageView()
       ), true)
     } else {
       this.trackPageView()
