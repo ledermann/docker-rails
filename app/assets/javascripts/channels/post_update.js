@@ -1,25 +1,27 @@
-$(document).on('turbolinks:load', () => {
-  const postId = $('article').data('cable-post-id')
+document.addEventListener('turbolinks:load', () => {
+  const article = document.querySelector('article')
+  if (!article) return
 
-  if (postId) {
-    App.updates = App.cable.subscriptions.create({ channel: 'PostUpdateChannel', postId }, {
-      connected() {
-        // Called when the subscription is ready for use on the server
-        console.log(`Connected to ${App.updates.identifier}`)
-      },
+  const postId = article.dataset.cablePostId
+  if (!postId) return
 
-      disconnected() {
-        // Called when the subscription has been terminated by the server
-        console.log(`Disconnected from ${App.updates.identifier}`)
-      },
+  App.updates = App.cable.subscriptions.create({ channel: 'PostUpdateChannel', post_id: postId }, {
+    connected() {
+      // Called when the subscription is ready for use on the server
+      console.log(`Connected to ${App.updates.identifier}`)
+    },
 
-      received(data) {
-        // Called when there's incoming data on the websocket for this channel
-        console.log(`Received data from ${App.updates.identifier}`)
+    disconnected() {
+      // Called when the subscription has been terminated by the server
+      console.log(`Disconnected from ${App.updates.identifier}`)
+    },
 
-        // Reload the page
-        Turbolinks.visit(window.location)
-      }
-    })
-  }
+    received(data) {
+      // Called when there's incoming data on the websocket for this channel
+      console.log(`Received data from ${App.updates.identifier}`)
+
+      // Reload the page
+      Turbolinks.visit(window.location)
+    }
+  })
 })
