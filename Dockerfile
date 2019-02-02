@@ -1,6 +1,6 @@
 ######################
 # Stage: Builder
-FROM ruby:2.6.0-alpine as Builder
+FROM ruby:2.6.1-alpine3.8 as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
@@ -53,7 +53,7 @@ FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
 
 ###############################
 # Stage Final
-FROM ruby:2.6.0-alpine
+FROM ruby:2.6.1-alpine3.8
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES
