@@ -5,10 +5,10 @@
     "lint": "eslint --ext .js app/javascript"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.13",
-    "@fortawesome/free-brands-svg-icons": "^5.7.0",
-    "@fortawesome/free-regular-svg-icons": "^5.7.0",
-    "@fortawesome/free-solid-svg-icons": "^5.7.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-regular-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.0-rc.7",
     "CSSBox": "TheLastProject/CSSBox",
@@ -16,7 +16,7 @@
     "blueimp-file-upload": "^9.28.0",
     "blueimp-load-image": "^2.20.1",
     "blueimp-tmpl": "^3.11.0",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.0",
     "jquery": "^3.3.1",
     "parsleyjs": "^2.8.0",
     "popper.js": "^1.14.7",
