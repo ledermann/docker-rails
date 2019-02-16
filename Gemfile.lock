@@ -54,7 +54,7 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.1)
-    aws-partitions (1.138.0)
+    aws-partitions (1.139.0)
     aws-sdk-core (3.46.1)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
