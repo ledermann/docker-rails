@@ -13,5 +13,7 @@ User.find_or_create_by(is_admin: true) do |user|
 end
 User.first.confirm!
 
+Post.reindex
+
 puts "Add articles about programming languages from Wikipedia..."
 WikipediaJob.perform_now
