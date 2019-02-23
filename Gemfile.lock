@@ -161,7 +161,7 @@ GEM
       ruby-vips (>= 2.0.13, < 3)
     jaro_winkler (1.5.2)
     jmespath (1.4.0)
-    json (2.1.0)
+    json (2.2.0)
     jsonapi-renderer (0.2.0)
     jwt (1.5.6)
     kaminari (1.1.1)
