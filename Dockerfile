@@ -59,6 +59,7 @@ ARG EXECJS_RUNTIME
 
 # Add Alpine packages
 RUN apk add --update --no-cache \
+    libstdc++ \
     postgresql-client \
     imagemagick \
     $ADDITIONAL_PACKAGES \
