@@ -393,7 +393,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (4.0.0.rc.8)
+    webpacker (4.0.1)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -458,7 +458,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
-  webpacker (>= 4.0.0.rc.7)
+  webpacker (>= 4)
   wicked_pdf
 
 RUBY VERSION
