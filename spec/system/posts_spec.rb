@@ -44,9 +44,9 @@ describe 'Post management' do
         fill_in 'q', with: "Exam\n"
       end
 
-      expect(page).to have_current_path(/q=Exam/)
       expect(page).to have_css('table tbody tr', count: 1, text: 'Example')
       expect(page).to have_selector('#post-count', text: '1 Post')
+      expect(page).to have_current_path(/q=Exam/)
     end
 
     scenario 'searches for a post and sees suggestions' do
