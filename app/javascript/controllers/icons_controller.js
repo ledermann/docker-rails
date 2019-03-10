@@ -3,7 +3,6 @@ import { Controller } from 'stimulus'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons/faFilePdf'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner'
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage'
 import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs'
@@ -19,7 +18,6 @@ export default class extends Controller {
     library.add(
       faHome,
       faPlus,
-      faFilePdf,
       faSpinner,
       faImage,
       faCogs,

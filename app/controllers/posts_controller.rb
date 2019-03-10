@@ -16,15 +16,6 @@ class PostsController < ApplicationController
   def show
     @post = find_post
     authorize @post
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf:          @post.title,
-               disposition:  'inline',
-               show_as_html: params[:debug].present?
-      end
-    end
   end
 
   def new

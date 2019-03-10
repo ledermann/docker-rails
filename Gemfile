@@ -42,7 +42,6 @@ gem 'redis', '~> 4.0'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'searchkick'
-gem 'wicked_pdf'
 gem 'puma', '~> 3.11'
 gem 'rack'
 gem 'clearance'
@@ -96,7 +95,6 @@ group :test do
   # gem 'chromedriver-helper'
 
   gem 'simplecov', require: false
-  gem 'pdf-reader'
   gem 'email_spec'
   gem 'shrine-memory'
 end

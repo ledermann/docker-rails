@@ -46,10 +46,6 @@ RUN bundle exec rake assets:precompile
 RUN rm -rf $FOLDERS_TO_REMOVE
 
 ###############################
-# Stage wkhtmltopdf
-FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
-
-###############################
 # Stage Final
 FROM ruby:2.6.1-alpine3.8
 LABEL maintainer="mail@georg-ledermann.de"
@@ -63,13 +59,7 @@ RUN apk add --update --no-cache \
     imagemagick \
     $ADDITIONAL_PACKAGES \
     tzdata \
-    file \
-    # needed for wkhtmltopdf
-    libcrypto1.0 libssl1.0 \
-    ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
-
-# Copy wkhtmltopdf from former build stage
-COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
+    file
 
 # Add user
 RUN addgroup -g 1000 -S app \

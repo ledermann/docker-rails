@@ -2,9 +2,6 @@ article data-cable-post-id=post.id
   header
     .float-right
       .btn-group
-        = link_to post_path(post, format: 'pdf'), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Export Post as PDF' do
-          i.fas.fa-file-pdf.fa-lg
-
         = link_to edit_post_path(post), class: 'btn btn-outline-dark', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Edit Post' do
           i.fas.fa-edit.fa-lg
 
