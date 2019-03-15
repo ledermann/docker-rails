@@ -210,7 +210,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
-    paper_trail (10.2.0)
+    paper_trail (10.2.1)
       activerecord (>= 4.2, < 6.1)
       request_store (~> 1.1)
     parallel (1.14.0)
