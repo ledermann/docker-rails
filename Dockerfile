@@ -1,6 +1,6 @@
 ######################
 # Stage: Builder
-FROM ruby:2.6.1-alpine as Builder
+FROM ruby:2.6.2-alpine as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
@@ -47,7 +47,7 @@ RUN rm -rf $FOLDERS_TO_REMOVE
 
 ###############################
 # Stage Final
-FROM ruby:2.6.1-alpine
+FROM ruby:2.6.2-alpine
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES
