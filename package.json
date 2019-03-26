@@ -18,7 +18,7 @@
     "blueimp-tmpl": "^3.11.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.3.1",
-    "parsleyjs": "^2.8.0",
+    "parsleyjs": "^2.8.2",
     "popper.js": "^1.14.7",
     "stimulus": "^1.1.1",
     "trix": "^1.1.0",
