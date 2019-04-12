@@ -91,7 +91,7 @@ GEM
     chartkick (3.0.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    clearance (1.16.2)
+    clearance (1.17.0)
       actionmailer (>= 3.1)
       activemodel (>= 3.1)
       activerecord (>= 3.1)
