@@ -7155,10 +7155,10 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-trix@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-1.1.0.tgz#8286149128f032d6d6df17fc8dcd2ee2aed5e7de"
-  integrity sha512-FKqrxRdCOzdq+mKJeZC9Mio02T0gZipOo64Aw4uytWhI7+OH8n41iooT0UL9s0vbppm4HN/1B5Ns2rGCo4iNZA==
+trix@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-1.1.1.tgz#ca8a3fab4d23d960a17e88441d601cb22a86f5d5"
+  integrity sha512-dNHTcryRK0EmwCyJDOBrG6OznL8HNEVVlecq/xzxLj3M9Eht5DV4yl+eCYX8RKyfrtBcNki+mpKIxESgXaGGZA==
 
 "true-case-path@^1.0.2":
   version "1.0.3"
