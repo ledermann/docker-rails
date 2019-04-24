@@ -98,9 +98,9 @@ GEM
       bcrypt
       email_validator (~> 1.4)
       railties (>= 3.1)
-    coffee-rails (4.2.2)
+    coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
+      railties (>= 5.2.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -408,7 +408,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   clearance
-  coffee-rails (~> 4.2)
+  coffee-rails (~> 5.0)
   dotenv-rails
   email_spec
   factory_bot_rails
