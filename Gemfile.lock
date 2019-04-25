@@ -74,7 +74,7 @@ GEM
       chartkick
       railties (>= 4.2)
       safely_block (>= 0.1.1)
-    bootsnap (1.4.3)
+    bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
