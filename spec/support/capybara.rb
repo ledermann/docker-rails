@@ -1,3 +1,5 @@
+Webdrivers.cache_time = 86_400
+
 # To use save_and_open_page with CSS and JS loaded, get assets from this host
 Capybara.asset_host = "http://#{ENV['APP_HOST']}"
 
