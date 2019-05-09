@@ -319,7 +319,7 @@ GEM
     selenium-webdriver (3.142.1)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
-    shrine (2.16.0)
+    shrine (2.17.0)
       content_disposition (~> 1.0)
       down (~> 4.1)
     shrine-memory (0.3.0)
