@@ -53,7 +53,7 @@ GEM
     ast (2.4.0)
     aws-eventstream (1.0.3)
     aws-partitions (1.161.0)
-    aws-sdk-core (3.51.0)
+    aws-sdk-core (3.52.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
