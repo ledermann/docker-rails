@@ -222,7 +222,7 @@ GEM
     premailer-rails (1.10.2)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (3.0.3)
+    public_suffix (3.1.0)
     puma (3.12.1)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
