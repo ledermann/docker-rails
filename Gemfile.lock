@@ -264,7 +264,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.1.1)
+    redis (4.1.2)
     regexp_parser (1.5.1)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -426,7 +426,7 @@ DEPENDENCIES
   rack
   rack-cors
   rails (~> 5.2.3)
-  redis (~> 4.0)
+  redis (~> 4.1)
   rollbar
   rspec-rails
   rubocop
