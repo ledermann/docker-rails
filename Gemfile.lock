@@ -268,7 +268,7 @@ GEM
     regexp_parser (1.5.1)
     request_store (1.4.1)
       rack (>= 1.4)
-    rollbar (2.20.0)
+    rollbar (2.20.1)
       multi_json
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
