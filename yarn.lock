@@ -713,10 +713,10 @@
   resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.0-alpha.tgz#d5761d93e19215f5f342229f934d5ca8f6dd22a5"
   integrity sha512-6AZcab77PeJQv8RdfryDYh6tAGcndcRnqYaciLiFclADBPFE9Ip978pGCPiKcKGgCg8S1P1nZII+1GNIrUrx+g==
 
-"@rails/webpacker@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.4.tgz#802761597c66c9f85732497d81cd0fb57cba47ee"
-  integrity sha512-r8cQAU88PCiUM3JJqVL6fum/lVGTaTyG+pdAC6mm2oo5CzoIukH4/KGI+hZnCid0bq98rN0z/beKQurfJiZ+Pg==
+"@rails/webpacker@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.5.tgz#8f108125b83769993c43f3fbd0d6de9ef0af3227"
+  integrity sha512-eac7Ba97xylIjilFV0q6/2TkRM0EycDABxrJqBxe5vJWg4pUrCrOjlxATo3RJUfLeaQvNir4EF0nq6qg7ngD6w==
   dependencies:
     "@babel/core" "^7.4.5"
     "@babel/plugin-proposal-class-properties" "^7.4.4"
