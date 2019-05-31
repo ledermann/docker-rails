@@ -38,7 +38,7 @@ gem 'webpacker', '>= 4'
 
 gem 'slim-rails'
 gem 'kaminari'
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.1'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'searchkick'
