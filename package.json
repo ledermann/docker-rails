@@ -35,6 +35,6 @@
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack-dev-server": "^3.5.1"
+    "webpack-dev-server": "^3.6.0"
   }
 }
