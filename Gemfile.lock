@@ -69,9 +69,9 @@ GEM
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bindex (0.7.0)
-    blazer (2.0.2)
+    blazer (2.1.0)
       activerecord (>= 4.2)
-      chartkick
+      chartkick (>= 3.2)
       railties (>= 4.2)
       safely_block (>= 0.1.1)
     bootsnap (1.4.4)
