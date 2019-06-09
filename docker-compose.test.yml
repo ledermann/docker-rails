@@ -16,7 +16,7 @@ services:
     image: redis:alpine
 
   selenium:
-    image: selenium/standalone-chrome:3.141.59-oxygen
+    image: selenium/standalone-chrome
     ports:
       - 4444:4444
       - 5900:5900
