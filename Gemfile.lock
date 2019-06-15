@@ -270,7 +270,7 @@ GEM
       rack (>= 1.4)
     rollbar (2.20.2)
       multi_json
-    rspec-core (3.8.0)
+    rspec-core (3.8.1)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
       diff-lcs (>= 1.2.0, < 2.0)
