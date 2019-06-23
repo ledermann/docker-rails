@@ -16,7 +16,7 @@ RUN apk add --update --no-cache \
     postgresql-dev \
     git \
     imagemagick \
-    nodejs-current \
+    nodejs \
     yarn \
     python2 \
     tzdata

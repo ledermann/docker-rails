@@ -20,7 +20,7 @@ services:
     build:
       context: .
       args:
-        - ADDITIONAL_PACKAGES=nodejs-current yarn python2 build-base git
+        - ADDITIONAL_PACKAGES=nodejs yarn python2 build-base git
         - EXECJS_RUNTIME=Node
         - RAILS_ENV=development
     environment:
