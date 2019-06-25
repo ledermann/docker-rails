@@ -223,7 +223,8 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.1.0)
-    puma (3.12.1)
+    puma (4.0.0)
+      nio4r (~> 2.0)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     raabro (1.1.6)
@@ -420,7 +421,7 @@ DEPENDENCIES
   paper_trail
   pg (~> 1.0)
   premailer-rails
-  puma (~> 3.11)
+  puma (~> 4.0)
   pundit
   rack
   rack-cors
