@@ -1,0 +1,30 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@rails/webpacker > node-sass > gaze > globule > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/core > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/core > @babel/types > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > node-sass > sass-graph > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > node-sass > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2019-07-04T00:14:40.846Z'
+    - '@rails/webpacker > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2019-07-04T00:14:40.846Z'

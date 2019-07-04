@@ -2,7 +2,9 @@
   "name": "docker-rails",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js app/javascript"
+    "lint": "eslint --ext .js app/javascript",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -22,7 +24,8 @@
     "popper.js": "^1.15.0",
     "stimulus": "^1.1.1",
     "trix": "^1.1.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",
@@ -34,5 +37,6 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  "snyk": true
 }
