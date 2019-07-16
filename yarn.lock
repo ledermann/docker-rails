@@ -1369,10 +1369,10 @@ blueimp-tmpl@3.6.0:
   resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.6.0.tgz#a4910975d042e2bc03ba77f0e62d04f1548a524c"
   integrity sha1-pJEJddBC4rwDunfw5i0E8VSKUkw=
 
-blueimp-tmpl@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.11.0.tgz#47e78cbab16770e3922b019a250b4ad9c7b20f8f"
-  integrity sha512-+nzph90GQ7YzYdOJNLm1hHJrzWnWbxUGJyJVrLBD+q7HF6PIIjJVNrJCgLkFmNcNvJRKICvWuItL8NpH9Z8J5A==
+blueimp-tmpl@^3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.12.0.tgz#fe56cd90caae619b4f0cb55d9125bc572cd842a5"
+  integrity sha512-rzPHcYgZnYmNwtotIUqm7EhYygIasfZOnpmzHU0elGBOLBwkdwpujKEzmdEbawV5xPKpPuux20HYl9dVYCu1rA==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
