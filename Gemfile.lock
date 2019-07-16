@@ -88,7 +88,7 @@ GEM
       xpath (~> 3.2)
     case_transform (0.2)
       activesupport
-    chartkick (3.2.0)
+    chartkick (3.2.1)
     childprocess (1.0.1)
       rake (< 13.0)
     clearance (1.17.0)
