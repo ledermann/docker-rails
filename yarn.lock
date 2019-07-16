@@ -1359,10 +1359,10 @@ blueimp-load-image@2.12.2:
   resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-2.12.2.tgz#6a17598aab858d4fbf01543e0631141b51057c87"
   integrity sha1-ahdZiquFjU+/AVQ+BjEUG1EFfIc=
 
-blueimp-load-image@^2.22.0:
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-2.22.0.tgz#5c60e3ce3182fd257253b31b5512d10cd6fecc02"
-  integrity sha512-velremyKWi71CAe45Te81drrcvyRtwS4/sIxju9weyrWzlXGSJINS9d1rIC9r/78IUYTMW55Pv/CkDTLAH3r+Q==
+blueimp-load-image@^2.23.0:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-2.23.0.tgz#85cdb20cd14b76f59a2e2e0e7914cb41e5ab2300"
+  integrity sha512-2xLJfgYWXLXDFWhSZC49ahJtdiPKiGld3rEqp3ecOM428PlyuYxR7bq2vGuMfdlBXi8wYXfcs5T6XmU6XxrA7w==
 
 blueimp-tmpl@3.6.0:
   version "3.6.0"
