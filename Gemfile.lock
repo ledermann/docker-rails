@@ -266,7 +266,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redis (4.1.2)
-    regexp_parser (1.5.1)
+    regexp_parser (1.6.0)
     request_store (1.4.1)
       rack (>= 1.4)
     rollbar (2.21.0)
