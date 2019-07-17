@@ -74,6 +74,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-performance', require: false
 end
 

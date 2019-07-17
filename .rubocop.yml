@@ -1,4 +1,5 @@
 require:
+  - rubocop-rails
   - rubocop-performance
 
 AllCops:

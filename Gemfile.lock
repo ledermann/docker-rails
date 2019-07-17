@@ -296,6 +296,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.4.0)
       rubocop (>= 0.71.0)
+    rubocop-rails (2.2.1)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
     ruby-vips (2.0.14)
       ffi (~> 1.9)
@@ -430,6 +433,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-performance
+  rubocop-rails
   sassc-rails
   searchkick
   shrine
