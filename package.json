@@ -1,22 +1,38 @@
 {
   "name": "docker-rails",
   "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js app/javascript"
+  },
   "dependencies": {
-    "@rails/webpacker": "^3.5.5",
-    "babel-preset-react": "^6.24.1",
-    "blueimp-file-upload": "^9.28.0",
-    "coffeescript": "^2.3.1",
-    "corejs-typeahead": "^1.2.1",
-    "jquery": "^3.2.1",
-    "parsleyjs": "^2.8.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-grid-gallery": "^0.5.0",
-    "react-timeago": "^4.1.9",
-    "react_ujs": "^2.4.4"
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "^4.0.7",
+    "CSSBox": "TheLastProject/CSSBox",
+    "autocompleter": "^5.0.1",
+    "blueimp-file-upload": "^9.32.0",
+    "blueimp-load-image": "^2.23.0",
+    "blueimp-tmpl": "^3.12.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "parsleyjs": "^2.9.1",
+    "popper.js": "^1.15.0",
+    "stimulus": "^1.1.1",
+    "trix": "^1.1.1",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.11.2"
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-dev-server": "^3.7.2"
   }
 }

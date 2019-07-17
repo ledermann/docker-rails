@@ -1,15 +1,13 @@
 ######################
 # Stage: Builder
-FROM ruby:2.5.3-alpine as Builder
+FROM ruby:2.6.3-alpine as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
 ARG RAILS_ENV
-ARG NODE_ENV
 
 ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 ENV RAILS_ENV ${RAILS_ENV}
-ENV NODE_ENV ${NODE_ENV}
 ENV SECRET_KEY_BASE=foo
 ENV RAILS_SERVE_STATIC_FILES=true
 
@@ -18,8 +16,9 @@ RUN apk add --update --no-cache \
     postgresql-dev \
     git \
     imagemagick \
-    nodejs-current \
+    nodejs \
     yarn \
+    python2 \
     tzdata
 
 WORKDIR /app
@@ -47,12 +46,8 @@ RUN bundle exec rake assets:precompile
 RUN rm -rf $FOLDERS_TO_REMOVE
 
 ###############################
-# Stage wkhtmltopdf
-FROM madnight/docker-alpine-wkhtmltopdf as wkhtmltopdf
-
-###############################
 # Stage Final
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.3-alpine
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES
@@ -64,13 +59,7 @@ RUN apk add --update --no-cache \
     imagemagick \
     $ADDITIONAL_PACKAGES \
     tzdata \
-    file \
-    # needed for wkhtmltopdf
-    libcrypto1.0 libssl1.0 \
-    ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
-
-# Copy wkhtmltopdf from former build stage
-COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/
+    file
 
 # Add user
 RUN addgroup -g 1000 -S app \

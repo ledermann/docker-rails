@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby '2.6.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.0'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'sprockets_uglifier_with_source_maps'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -34,20 +34,15 @@ gem 'active_model_serializers'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'webpacker'
-gem 'react-rails'
+gem 'webpacker', '>= 4'
 
 gem 'slim-rails'
 gem 'kaminari'
-gem 'redis', '~> 4.0'
-gem 'dalli'
+gem 'redis', '~> 4.1'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'searchkick'
-gem 'wicked_pdf'
-gem 'bootstrap', '~> 4'
-gem 'font-awesome-sass'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.0'
 gem 'rack'
 gem 'clearance'
 gem 'knock'
@@ -59,9 +54,7 @@ gem 'paper_trail'
 gem 'blazer'
 gem 'friendly_id'
 gem 'stringex'
-gem 'trix-rails', require: 'trix'
 gem 'rollbar'
-gem 'punchbox'
 gem 'rack-cors', require: 'rack/cors'
 
 # Image uploads
@@ -81,6 +74,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-performance', require: false
 end
 
 group :development do
@@ -97,12 +92,9 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  # gem 'chromedriver-helper'
+  gem 'webdrivers'
 
   gem 'simplecov', require: false
-  gem 'pdf-reader'
   gem 'email_spec'
   gem 'shrine-memory'
 end

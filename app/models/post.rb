@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
   include PostSearch
-  has_paper_trail class_name: 'Audit',
-                  versions:   :audits,
-                  skip:       [ :created_at, :updated_at ]
+  has_paper_trail versions: { name: :audits, class_name: 'Audit' },
+                  skip:     [ :created_at, :updated_at ]
 
   extend FriendlyId
   friendly_id :title

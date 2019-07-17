@@ -1,4 +1,4 @@
-= simple_form_for post, data: { 'parsley-validate' => 'parsley-validate',  'parsley-excluded' => '[disabled]' }  do |f|
+= simple_form_for post, data: { controller: 'form-validator', 'parsley-excluded' => '[disabled]' }  do |f|
   = f.error_notification
 
   .form-inputs
@@ -17,7 +17,7 @@
         = f.input :content, as: :hidden
         trix-editor input="post_content" placeholder="Content" id="trix-post-content"
 
-      #clips-tab.tab-pane role="tabpanel"
+      #clips-tab.tab-pane role="tabpanel" data-controller="upload"
         .fileinput-button.mt-3
           input multiple="multiple" type="file"
           .message Drop files here or click to upload

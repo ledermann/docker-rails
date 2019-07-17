@@ -1,3 +1,5 @@
+Webdrivers.cache_time = 86_400
+
 # To use save_and_open_page with CSS and JS loaded, get assets from this host
 Capybara.asset_host = "http://#{ENV['APP_HOST']}"
 
@@ -13,11 +15,20 @@ RSpec.configure do |config|
   config.before :each, type: :system, js: true do
     if ENV['SELENIUM_REMOTE_HOST']
       # Docker environment
-      driven_by :selenium, using: :chrome, options: {
-        browser: :remote,
-        url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-        desired_capabilities: :chrome
-      }
+      driven_by(
+        :selenium,
+        using: :chrome,
+        options: {
+          browser: :remote,
+          url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
+          desired_capabilities: {
+            chromeOptions: {
+              args: %w[headless],
+              w3c: false
+            }
+          }
+        }
+      )
 
       # Find Docker IP address
       docker_ip = `/sbin/ip route|awk '/scope/ { print $7 }'`.strip
@@ -26,7 +37,18 @@ RSpec.configure do |config|
       Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"
     else
       # Local environment
-      driven_by :selenium_chrome_headless
+      driven_by(
+        :selenium,
+        using: :chrome,
+        options: {
+          desired_capabilities: {
+            chromeOptions: {
+              args: %w[headless],
+              w3c: false
+            }
+          }
+        }
+      )
     end
   end
 

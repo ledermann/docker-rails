@@ -9,18 +9,16 @@
 
 Simple Rails 5.2 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
 
-This project aims to build a lean Docker image for use in production. Therefore it's based on the official Alpine Ruby image, uses multi-stage building and some [optimizations that I described in my blog](https://www.georg-ledermann.de/blog/2018/04/19/dockerize-rails-the-lean-way/). This results in an image size of ~120MB (including the large wkhtmltopdf binary).
+This project aims to build a lean Docker image for use in production. Therefore it's based on the official Alpine Ruby image, uses multi-stage building and some [optimizations that I described in my blog](https://www.georg-ledermann.de/blog/2018/04/19/dockerize-rails-the-lean-way/). This results in an image size of ~80MB.
 
 
 ## Features
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed post gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
 - Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content (with suggestions)
-- Autocompletion with [corejs-typeahead](https://github.com/corejavascript/typeahead.js)
-- PDF export with [wkhtmltopdf](http://wkhtmltopdf.org/) and the [WickedPDF](https://github.com/mileszs/wicked_pdf) gem
+- Autocompletion with [autocompleter](https://github.com/kraaden/autocomplete)
 - Editing HTML content with the WYSIWYG JavaScript editor [Trix](https://github.com/basecamp/trix)
 - Uploading images directly to S3 with the [Shrine](https://github.com/janko-m/shrine) gem and [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
-- Display images as Gallery with the [React Grid Gallery](https://github.com/benhowell/react-grid-gallery)
 - Background jobs with [ActiveJob](https://github.com/rails/rails/tree/master/activejob) and the [Sidekiq](http://sidekiq.org/) gem (to handle full text indexing, image processing and ActionCable broadcasting)
 - Cron scheduling with [Sidekiq-Cron](https://github.com/ondrejbartas/sidekiq-cron) to handle daily data updates from Wikipedia
 - Permalinks using the [FriendlyId](https://github.com/norman/friendly_id) gem
@@ -28,7 +26,7 @@ This project aims to build a lean Docker image for use in production. Therefore 
 - User authentication with the [Clearance](https://github.com/thoughtbot/clearance/) gem
 - Sending HTML e-mails with [Premailer](https://github.com/fphilipe/premailer-rails) and the [Really Simple Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
 - Admin dashboards with [Blazer](https://github.com/ankane/blazer) gem
-- Page specific JavaScript with [Punchbox](https://github.com/kieraneglin/punchbox)
+- JavaScript with [Stimulus](https://stimulusjs.org/)
 - Bundle JavaScript libraries with [Yarn](https://yarnpkg.com)
 
 
@@ -45,8 +43,7 @@ There is a separate **docker-compose.yml** for every environment: [development](
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
 - **elasticsearch:** Full text search engine
-- **memcached:** Memory caching system (used from within the app via the [Dalli](https://github.com/petergoldstein/dalli) gem)
-- **redis:** In-memory key/value store (used by Sidekiq and ActionCable)
+- **redis:** In-memory key/value store (used by Sidekiq, ActionCable and for caching)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 
 For running tests using RSpec, there is an additional container:

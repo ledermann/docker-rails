@@ -3,7 +3,8 @@ html
   head
     meta[charset="utf-8"]
     title DockerRails
-    = stylesheet_link_tag 'application'
+    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application'
 
   body
     = yield

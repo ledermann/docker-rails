@@ -10,7 +10,7 @@
 
   = form_for posts_path, method: :get, enforce_utf8: false, html: { id: 'search' } do
     .input-group
-      = text_field_tag :q, search_string, placeholder: 'Search', class: 'form-control', id: 'autocomplete'
+      = text_field_tag :q, search_string, placeholder: 'Search', class: 'form-control', data: { controller: 'autocomplete' }, autofocus: true
       .input-group-append
         span.input-group-text
           i.fa.fa-search
@@ -28,13 +28,14 @@
   #post-count
     = pluralize @posts.total_count, 'Post'
 
-- if @posts.present?
-  table.table.table-hover
-    thead.thead-inverse
-      tr
-        th Content
-        th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
-    tbody#js-infinite-scrolling
-      = render @posts
+div data-controller="infinite-scrolling"
+  - if @posts.present?
+    table.table.table-hover
+      thead.thead-inverse
+        tr
+          th Content
+          th.text-right.text-nowrap.d-none.d-md-table-cell Last Update
+      tbody
+        = render @posts
 
-= render 'kaminari/paging', objects: @posts
+  = render 'kaminari/paging', objects: @posts

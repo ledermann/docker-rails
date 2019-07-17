@@ -1,5 +1,9 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   Exclude:
     - db/schema.rb
     - 'node_modules/**/*'

@@ -1,3 +1,10 @@
+$enable-shadows: false;
+$jumbotron-padding: 1.5rem;
+
+@import 'bootstrap/scss/_functions';
+@import 'bootstrap/scss/_variables';
+@import 'bootstrap/scss/mixins/_breakpoints';
+
 html, body {
   height: 100%;
 }
@@ -18,7 +25,7 @@ html, body {
   font-size: $small-font-size;
 }
 
-td.js-row-link {
+td[data-action] {
   cursor: pointer;
 }
 

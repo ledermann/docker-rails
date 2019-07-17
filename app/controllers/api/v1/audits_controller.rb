@@ -10,7 +10,7 @@ module Api
       private
 
       def load_post
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
       end
     end
   end

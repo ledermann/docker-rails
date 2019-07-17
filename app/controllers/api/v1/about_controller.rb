@@ -17,7 +17,6 @@ module Api
           rails:         Rails.application.rails_version,
           postgresql:    Rails.application.postgresql_version,
           redis:         Rails.application.redis_version,
-          memcached:     Rails.application.memcached_version,
           elasticsearch: Rails.application.elasticsearch_version
         }
       end

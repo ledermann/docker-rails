@@ -2,10 +2,9 @@
 renderedObjects = "<%=j render(objects) %>";
 
 // Append to existing list
-appendedDOM = $("#js-infinite-scrolling").append(renderedObjects);
-
-// Mount React components in new DOM elements
-ReactRailsUJS.mountComponents(appendedDOM);
+var el = document.querySelector('[data-controller="infinite-scrolling"] tbody');
+el.innerHTML += renderedObjects;
 
 // Update Paginator
-$('#js-paging').replaceWith("<%=j render('kaminari/paging', objects: objects) %>");
+var el = document.querySelector('[data-target="infinite-scrolling.paging"]');
+el.innerHTML = "<%=j render('kaminari/paging', objects: objects) %>"

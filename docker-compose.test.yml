@@ -1,22 +1,19 @@
 version: '3.4'
 services:
   db:
-    image: postgres:alpine
+    image: postgres:11-alpine
     environment:
       - POSTGRES_PASSWORD
     volumes:
       - db-data:/var/lib/postgresql/data
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.5.2
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.1
     volumes:
       - es-data:/usr/share/elasticsearch/data
 
-  memcached:
-    image: memcached:1.5-alpine
-
   redis:
-    image: redis:5.0-alpine
+    image: redis:alpine
 
   selenium:
     image: selenium/standalone-chrome
@@ -29,7 +26,7 @@ services:
     build:
       context: .
       args:
-        - ADDITIONAL_PACKAGES=nodejs-current
+        - ADDITIONAL_PACKAGES=nodejs yarn
         - EXECJS_RUNTIME=Node
         - BUNDLE_WITHOUT=production
         - RAILS_ENV=test
@@ -37,7 +34,7 @@ services:
       ELASTICSEARCH_HOST: elasticsearch
       REDIS_SIDEKIQ_URL: redis://redis:6379/0
       REDIS_CABLE_URL: redis://redis:6379/1
-      MEMCACHED_HOST: memcached
+      REDIS_CACHE_URL: redis://redis:6379/2
       SELENIUM_REMOTE_HOST: selenium
       RAILS_ENV: test
       DB_HOST: db
@@ -59,7 +56,6 @@ services:
       - elasticsearch
       - db
       - redis
-      - memcached
       - selenium
 
 volumes:

@@ -37,14 +37,16 @@ describe 'Post management' do
 
       within '#search' do
         fill_in 'q', with: 'Exa'
-        expect(page).to have_selector('.tt-suggestion', text: 'example')
+      end
+      expect(page).to have_css('.autocomplete div', text: 'example')
 
+      within '#search' do
         fill_in 'q', with: "Exam\n"
       end
 
-      expect(page).to have_current_path(/q=Exam/)
       expect(page).to have_css('table tbody tr', count: 1, text: 'Example')
       expect(page).to have_selector('#post-count', text: '1 Post')
+      expect(page).to have_current_path(/q=Exam/)
     end
 
     scenario 'searches for a post and sees suggestions' do
@@ -59,15 +61,6 @@ describe 'Post management' do
       expect(page).to have_selector('h1', text: 'Example')
       expect(page).to have_selector('time', text: 'ago')
       expect(page).to have_link(href: edit_post_path(example_post))
-      expect(page).to have_link(href: post_path(example_post, format: 'pdf'))
-    end
-
-    scenario 'opens a single page as PDF' do
-      visit post_path(example_post, format: 'pdf')
-
-      convert_pdf_to_page
-      expect(page).to have_text('Example')
-      expect(page).to have_text('Lorem ipsum')
     end
 
     scenario 'sees auto-refreshed post (via ActionCable) if other user updates it', js: true do

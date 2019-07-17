@@ -35,7 +35,7 @@ module Wikipedia
 
     def url
       result = "https://en.wikipedia.org/w/api.php?format=json&action=query&titles=List_of_programming_languages&prop=links&pllimit=500"
-      result << "&plcontinue=#{@page}" if @page.present?
+      result << "&plcontinue=#{CGI.escape @page}" if @page.present?
       result
     end
   end

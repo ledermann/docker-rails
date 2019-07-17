@@ -4,8 +4,6 @@ engines:
     enabled: true
   bundler-audit:
     enabled: true
-  coffeelint:
-    enabled: true
   duplication:
     enabled: true
     config:
@@ -26,7 +24,6 @@ ratings:
   - "**.rb"
   - "**.rhtml"
   - "**.slim"
-  - "**.coffee"
   - "**.js"
 exclude_paths:
 - config/

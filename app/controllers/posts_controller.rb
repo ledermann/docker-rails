@@ -16,15 +16,6 @@ class PostsController < ApplicationController
   def show
     @post = find_post
     authorize @post
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf:          @post.title,
-               disposition:  'inline',
-               show_as_html: params[:debug].present?
-      end
-    end
   end
 
   def new
@@ -69,7 +60,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    Post.find(params[:id])
+    Post.friendly.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

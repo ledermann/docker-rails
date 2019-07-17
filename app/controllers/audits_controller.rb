@@ -6,6 +6,6 @@ class AuditsController < ApplicationController
   private
 
   helper_method def post
-    @post ||= Post.find(params[:post_id])
+    @post ||= Post.friendly.find(params[:post_id])
   end
 end

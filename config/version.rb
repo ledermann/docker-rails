@@ -1,13 +1,17 @@
 module DockerRails
   class Application
     def version
-      '1.9.3'
+      '1.10.0'
     end
 
     def build_time
-      @build_time ||= File.read('BUILD_TIME').lines.first.chomp.to_time
+      @build_time ||= File.read('BUILD_TIME').lines.first.chomp.to_datetime
     rescue Errno::ENOENT
       Time.current
+    end
+
+    def alpine_release
+      `cat /etc/alpine-release 2>/dev/null`.chomp
     end
 
     def ruby_version
@@ -24,12 +28,6 @@ module DockerRails
 
     def rails_version
       Rails::VERSION::STRING
-    end
-
-    def memcached_version
-      Rails.cache.stats.first.second['version']
-    rescue StandardError
-      'unknown'
     end
 
     def redis_version
