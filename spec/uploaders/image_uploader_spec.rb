@@ -38,6 +38,6 @@ describe ImageUploader do
     clip = post.clips.build image: fixture_file_upload('spec/fixtures/example.txt')
 
     clip.valid?
-    expect(clip.errors[:image]).to eq ["isn't of allowed type (allowed types: image/jpeg, image/png, image/gif)"]
+    expect(clip.errors[:image]).to eq ['type must be one of: image/jpeg, image/png, image/gif']
   end
 end
