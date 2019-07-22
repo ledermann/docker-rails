@@ -13,7 +13,7 @@
     "@rails/webpacker": "^4.0.7",
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^5.0.1",
-    "blueimp-file-upload": "^9.34.0",
+    "blueimp-file-upload": "^10.0.0",
     "blueimp-load-image": "^2.23.0",
     "blueimp-tmpl": "^3.12.0",
     "bootstrap": "^4.3.1",
