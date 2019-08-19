@@ -13,8 +13,8 @@ export default class extends Controller {
       fetch(text, update) {
         // Query JSON API, which returns words
         fetch(`/api/v1/posts/autocomplete?q=${text}`)
-          .then(response => response.json())
-          .then(words => update(words))
+          .then((response) => response.json())
+          .then((words) => update(words))
       },
 
       render(item) {
