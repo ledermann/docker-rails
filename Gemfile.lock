@@ -306,9 +306,8 @@ GEM
     rubyzip (1.2.3)
     safely_block (0.2.2)
       errbase (>= 0.1.1)
-    sassc (2.0.1)
+    sassc (2.1.0)
       ffi (~> 1.9)
-      rake
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
