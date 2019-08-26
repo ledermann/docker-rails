@@ -14,22 +14,15 @@ class ImageUploader < Shrine
   end
 
   process(:store) do |io, _context|
-    original = io.download
+    versions = { original: io } # retain original
 
-    large = ImageProcessing::MiniMagick.
-            source(original).
-            resize_to_limit(1200, 1200, &:auto_orient).
-            call
+    io.download do |original|
+      pipeline = ImageProcessing::MiniMagick.source(original)
 
-    thumbnail = ImageProcessing::MiniMagick.
-                source(original).
-                resize_to_fill(400, 400, gravity: 'Center').
-                call
+      versions[:large]     = pipeline.resize_to_limit!(1200, 1200, &:auto_orient)
+      versions[:thumbnail] = pipeline.resize_to_fill!(400, 400, gravity: 'Center')
+    end
 
-    {
-      original:  io,
-      large:     large,
-      thumbnail: thumbnail
-    }
+    versions # return the hash of processed files
   end
 end

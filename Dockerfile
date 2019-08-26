@@ -18,7 +18,6 @@ RUN apk add --update --no-cache \
     imagemagick \
     nodejs \
     yarn \
-    python2 \
     tzdata
 
 WORKDIR /app
@@ -26,6 +25,7 @@ WORKDIR /app
 # Install gems
 ADD Gemfile* /app/
 RUN bundle config --global frozen 1 \
+ && bundle config force_ruby_platform true \
  && bundle install -j4 --retry 3 \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
@@ -51,7 +51,6 @@ FROM ruby:2.6.3-alpine
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES
-ARG EXECJS_RUNTIME
 
 # Add Alpine packages
 RUN apk add --update --no-cache \
@@ -73,7 +72,6 @@ COPY --from=Builder --chown=app:app /app /app
 # Set Rails env
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
-ENV EXECJS_RUNTIME $EXECJS_RUNTIME
 
 WORKDIR /app
 

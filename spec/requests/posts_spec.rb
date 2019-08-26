@@ -9,7 +9,7 @@ describe "Posts", type: :request do
       it "returns HTML" do
         get posts_path
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('text/html')
+        expect(response.content_type).to eq('text/html; charset=utf-8')
         expect(response.body).to match(/Foo.*Lorem ipsum/)
       end
     end
@@ -18,7 +18,7 @@ describe "Posts", type: :request do
       it "returns HTML" do
         get posts_path(q: 'lorem')
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('text/html')
+        expect(response.content_type).to eq('text/html; charset=utf-8')
         expect(response.body).to include('Foo')
         expect(response.body).to include('<em>Lorem</em> ipsum')
       end
@@ -29,7 +29,7 @@ describe "Posts", type: :request do
     it "returns HTML" do
       get post_path(id: 42)
       expect(response).to have_http_status(200)
-      expect(response.content_type).to eq('text/html')
+      expect(response.content_type).to eq('text/html; charset=utf-8')
       expect(response.body).to match(/Foo.*Lorem ipsum/)
     end
   end

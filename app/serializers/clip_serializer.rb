@@ -38,6 +38,6 @@ class ClipSerializer < ActiveModel::Serializer
   end
 
   def image_processed?
-    object.image.respond_to?(:[])
+    object.image.is_a?(Hash)
   end
 end

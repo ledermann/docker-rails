@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Posts", type: :request do
   let!(:post1) { create(:post, :reindex, id: 42, title: 'Foo', content: 'Lorem ipsum') }
-  let!(:clip) { create(:clip, id: 123, post: post1) }
+  let!(:clip) { perform_enqueued_jobs { create(:clip, id: 123, post: post1) } }
   let!(:clip_unprocessed) { create(:clip_unprocessed, id: 124, post: post1) }
 
   let(:admin_user) { create(:user, is_admin: true) }
@@ -13,7 +13,7 @@ describe "Posts", type: :request do
       it "returns JSON" do
         get api_v1_posts_path(format: :json)
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
 
         json_data = JSON.parse(response.body)
         expect(json_data.length).to eq(2)
@@ -33,7 +33,7 @@ describe "Posts", type: :request do
       it "returns JSON" do
         get api_v1_posts_path(q: 'lorem', format: :json)
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
 
         json_data = JSON.parse(response.body)
         expect(json_data.length).to eq(2)
@@ -52,7 +52,7 @@ describe "Posts", type: :request do
       it "returns JSON" do
         get autocomplete_api_v1_posts_path(q: 'lorem', format: :json)
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
 
         json_data = JSON.parse(response.body)
         expect(json_data).to eq(%w[lorem])
@@ -63,7 +63,7 @@ describe "Posts", type: :request do
       it "returns blank string" do
         get autocomplete_api_v1_posts_path(q: 'foooo', format: :json)
         expect(response).to have_http_status(200)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
 
         json_data = JSON.parse(response.body)
         expect(json_data).to eq(%w[])
@@ -75,7 +75,7 @@ describe "Posts", type: :request do
     it "returns JSON" do
       get api_v1_post_path(id: 42, format: :json)
       expect(response).to have_http_status(200)
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
 
       json_data = JSON.parse(response.body)
 
@@ -109,7 +109,7 @@ describe "Posts", type: :request do
         post api_v1_posts_path, params: params, headers: headers
 
         expect(response).to have_http_status(201)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
         expect(response.location).to eq('http://www.example.com/posts/this-is-a-new-post')
 
         json_data = JSON.parse(response.body)

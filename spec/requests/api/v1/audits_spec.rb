@@ -7,7 +7,7 @@ describe "Audits", type: :request do
     it "returns JSON" do
       get api_v1_post_audits_path(post, format: :json)
       expect(response).to have_http_status(200)
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
 
       json_data = JSON.parse(response.body)
 

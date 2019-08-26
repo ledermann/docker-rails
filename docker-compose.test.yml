@@ -8,7 +8,7 @@ services:
       - db-data:/var/lib/postgresql/data
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.2
     volumes:
       - es-data:/usr/share/elasticsearch/data
 
@@ -27,7 +27,6 @@ services:
       context: .
       args:
         - ADDITIONAL_PACKAGES=nodejs yarn
-        - EXECJS_RUNTIME=Node
         - BUNDLE_WITHOUT=production
         - RAILS_ENV=test
     environment:

@@ -19,7 +19,7 @@ services:
 
   elasticsearch:
     hostname: elasticsearch.docker-rails.my-site.com
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.2
     restart: always
     volumes:
       - /my-volumes/docker-rails/elasticsearch:/usr/share/elasticsearch/data
@@ -56,7 +56,6 @@ services:
       args:
         - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets tmp/cache
         - BUNDLE_WITHOUT=development:test
-        - EXECJS_RUNTIME=Disabled
         - RAILS_ENV=production
     environment:
       - APP_ADMIN_EMAIL=mail@my-site.com

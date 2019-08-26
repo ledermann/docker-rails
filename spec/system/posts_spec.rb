@@ -77,6 +77,7 @@ describe 'Post management' do
         all(:css, "trix-editor").first.click.set('dolor sit amet')
 
         click_on 'Update Post'
+        perform_enqueued_jobs
       end
 
       Capybara.using_session(:first_user) do
