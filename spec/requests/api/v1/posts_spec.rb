@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Posts", type: :request do
   let!(:post1) { create(:post, :reindex, id: 42, title: 'Foo', content: 'Lorem ipsum') }
-  let!(:clip) { create(:clip, id: 123, post: post1) }
+  let!(:clip) { perform_enqueued_jobs { create(:clip, id: 123, post: post1) } }
   let!(:clip_unprocessed) { create(:clip_unprocessed, id: 124, post: post1) }
 
   let(:admin_user) { create(:user, is_admin: true) }
