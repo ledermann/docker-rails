@@ -8,7 +8,9 @@ document.addEventListener('turbolinks:load', () => {
   const postId = article.dataset.cablePostId
   if (!postId) return
 
-  consumer.subscriptions.create({ channel: 'PostUpdateChannel', post_id: postId }, {
+  consumer.subscriptions.create({
+    channel: 'PostUpdateChannel', post_id: postId
+  }, {
     connected() {
       // Called when the subscription is ready for use on the server
       console.log('Connected.')

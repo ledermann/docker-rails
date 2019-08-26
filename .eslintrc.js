@@ -27,10 +27,10 @@ module.exports = {
     "comma-dangle": ["error", "never"],
     "object-curly-spacing": 2,
     "object-curly-newline": ["error", {
-      "ImportDeclaration": {
-        "multiline": true,
-        "minProperties": 4
-      }
+      "ObjectExpression": "always",
+      "ObjectPattern": { "multiline": true },
+      "ImportDeclaration": "never",
+      "ExportDeclaration": { "multiline": true, "minProperties": 3 }
     }]
   },
   parser: "babel-eslint",
