@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+      "label": "foreman",
+      "command": "foreman",
+      "args": [
+        "start"
+      ],
+      "isBackground": true
+    },
+    {
+      "label": "guard-rspec",
+      "command": "rbenv",
+      "args": [
+        "exec",
+        "bundle",
+        "exec",
+        "guard"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "applyTo": "allDocuments",
+        "owner": "Ruby",
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
+        "pattern": [{
+            "regexp": "^(Error|Warning|Info):.*$",
+            "severity": 1
+          },
+          {
+            "regexp": "^\\s*[^#]+#[^:]+:$",
+            "message": 0
+          },
+          {
+            "regexp": "^\\s*([^:]+):(.*)$",
+            "message": 5
+          },
+          {
+            "regexp": "^    ([^:]+):(\\d+):in (.+)$",
+            "file": 1,
+            "location": 2,
+            "code": 3
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^# Running:$",
+          "endsPattern": "^\\d+ runs.*$"
+        }
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
