@@ -4,7 +4,6 @@
 [![Code Climate](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Issue Count](https://codeclimate.com/github/ledermann/docker-rails/badges/issue_count.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Depfu](https://badges.depfu.com/badges/2f883bd05b4dca8448484ff9289ea15f/overview.svg)](https://depfu.com/github/ledermann/docker-rails)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ledermann/docker-rails.svg)](https://greenkeeper.io/)
 [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
 
 Simple Rails 6 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
