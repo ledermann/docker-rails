@@ -27,7 +27,6 @@ services:
       context: .
       args:
         - ADDITIONAL_PACKAGES=nodejs yarn
-        - EXECJS_RUNTIME=Node
         - BUNDLE_WITHOUT=production
         - RAILS_ENV=test
     environment:
