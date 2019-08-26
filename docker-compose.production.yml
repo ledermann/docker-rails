@@ -56,7 +56,6 @@ services:
       args:
         - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets tmp/cache
         - BUNDLE_WITHOUT=development:test
-        - EXECJS_RUNTIME=Disabled
         - RAILS_ENV=production
     environment:
       - APP_ADMIN_EMAIL=mail@my-site.com

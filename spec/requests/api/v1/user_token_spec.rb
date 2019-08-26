@@ -14,7 +14,7 @@ describe "User token", type: :request do
         }
 
         expect(response).to have_http_status(201)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
 
         json_data = JSON.parse(response.body)
         expect(json_data['jwt']).to be_present
