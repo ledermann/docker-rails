@@ -1,4 +1,4 @@
-class ClipSerializer < ActiveModel::Serializer
+class ClipSerializer < Panko::Serializer
   attributes :id, :filename, :original, :large, :thumbnail
 
   def filename
