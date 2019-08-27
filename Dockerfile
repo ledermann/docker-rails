@@ -25,7 +25,6 @@ WORKDIR /app
 # Install gems
 ADD Gemfile* /app/
 RUN bundle config --global frozen 1 \
- && bundle config force_ruby_platform true \
  && bundle install -j4 --retry 3 \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
