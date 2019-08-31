@@ -226,7 +226,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oj (3.9.0)
+    oj (3.9.1)
     panko_serializer (0.7.0)
       oj (~> 3.9.0)
     paper_trail (10.3.1)
