@@ -1,0 +1,13 @@
+name: Docker Compose Actions Workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Prepare Elasticsearch
+      run: sudo sysctl -w vm.max_map_count=262144
+    - name: Build the stack
+      run: docker-compose -f docker-compose.test.yml build --pull
+    - name: Test
+      run: docker-compose -f docker-compose.test.yml run --rm app sh -c "yarn lint && bundle exec rubocop && ./docker/wait-for-services.sh && bundle exec rake db:create spec"
