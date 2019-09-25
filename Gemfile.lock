@@ -137,10 +137,10 @@ GEM
     erubi (1.8.0)
     et-orbi (1.2.2)
       tzinfo
-    factory_bot (5.0.2)
+    factory_bot (5.1.0)
       activesupport (>= 4.2.0)
-    factory_bot_rails (5.0.2)
-      factory_bot (~> 5.0.2)
+    factory_bot_rails (5.1.0)
+      factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
