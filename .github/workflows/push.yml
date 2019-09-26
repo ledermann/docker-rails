@@ -1,13 +1,78 @@
-name: Docker Compose Actions Workflow
+name: Test, build and deploy
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@master
+
     - name: Prepare Elasticsearch
       run: sudo sysctl -w vm.max_map_count=262144
+
     - name: Build the stack
       run: docker-compose -f docker-compose.test.yml build --pull
+
     - name: Test
       run: docker-compose -f docker-compose.test.yml run --rm app sh -c "yarn lint && bundle exec rubocop && ./docker/wait-for-services.sh && bundle exec rake db:create spec"
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build the production image
+        run: |
+          export COMMIT_TIME=$(git show -s --format=%ci ${GITHUB_SHA})
+          export COMMIT_SHA=${GITHUB_SHA}
+          docker-compose -f docker-compose.production.yml build --pull
+
+      - name: Save Docker image as file
+        run: docker save dockerrails_app_production | gzip > untested.tar.gz
+
+      - name: Upload Docker image as artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: docker-image
+          path: untested.tar.gz
+
+  deploy:
+    needs: [test, build]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Download Docker image from build job
+        uses: actions/download-artifact@v1
+        with:
+          name: docker-image
+
+      - name: Load Docker image from file
+        shell: bash
+        run: docker load < docker-image/untested.tar.gz
+
+      - name: Login to GitLab Docker Registry
+        run: echo ${{ secrets.GITLAB_TOKEN }} | docker login -u gitlab-ci-token --password-stdin ${{ secrets.GITLAB_REGISTRY }}
+
+      - name: Push the image as LATEST and deploy
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
+          docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
+          curl -X POST ${{ secrets.DEPLOY_HOOK }}
+
+      - name: Push the image as STABLE
+        if: github.ref == 'refs/heads/master'
+        run: |
+          docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
+          docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
+
+      - name: Trigger deployment
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
+          curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
