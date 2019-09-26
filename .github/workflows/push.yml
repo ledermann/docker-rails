@@ -63,16 +63,11 @@ jobs:
         run: |
           docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
           docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
-          curl -X POST ${{ secrets.DEPLOY_HOOK }}
+          curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
+          curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
 
       - name: Push the image as STABLE
         if: github.ref == 'refs/heads/master'
         run: |
           docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
           docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
-
-      - name: Trigger deployment
-        if: github.ref == 'refs/heads/develop'
-        run: |
-          curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
-          curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
