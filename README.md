@@ -1,6 +1,5 @@
 # Docker-Rails
 
-[![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
 [![Code Climate](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Issue Count](https://codeclimate.com/github/ledermann/docker-rails/badges/issue_count.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![Depfu](https://badges.depfu.com/badges/2f883bd05b4dca8448484ff9289ea15f/overview.svg)](https://depfu.com/github/ledermann/docker-rails)
@@ -74,9 +73,7 @@ Enjoy!
 
 ## Tests / CI
 
-On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run in public on [Travis CI](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
-
-On every successful Travis build, a new Docker image is pushed to [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/).
+On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run and a production image is built via [GitHub Actions](https://github.com/ledermann/docker-rails/actions). If successful, the new Docker image is pushed to a private GitLab Docker Registry.
 
 
 ## Production deployment
