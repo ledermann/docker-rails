@@ -130,5 +130,5 @@ Layout/AlignHash:
 
 ### Documentation
 
-Documentation:
+Style/Documentation:
   Enabled: false
