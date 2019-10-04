@@ -168,7 +168,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     hashie (3.6.0)
     htmlentities (4.3.4)
-    i18n (1.6.0)
+    i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
       mini_magick (>= 4.9.5, < 5)
