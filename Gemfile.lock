@@ -362,7 +362,7 @@ GEM
     sidekiq-cron (1.1.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
-    simple_form (5.0.0)
+    simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.17.1)
