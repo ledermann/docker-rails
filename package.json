@@ -20,7 +20,7 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "parsleyjs": "^2.9.1",
-    "popper.js": "^1.15.0",
+    "popper.js": "^1.16.0",
     "stimulus": "^1.1.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
