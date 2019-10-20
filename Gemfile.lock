@@ -116,7 +116,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    down (4.8.1)
+    down (5.0.0)
       addressable (~> 2.5)
     elasticsearch (7.3.0)
       elasticsearch-api (= 7.3.0)
@@ -349,11 +349,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
-    shrine (2.19.3)
+    shrine (3.0.1)
       content_disposition (~> 1.0)
-      down (~> 4.1)
-    shrine-memory (0.3.1)
-      shrine (~> 2.2)
+      down (~> 5.0)
     sidekiq (6.0.2)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
@@ -466,7 +464,6 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   shrine
-  shrine-memory
   sidekiq
   sidekiq-cron
   simple_form (>= 3.5.1)

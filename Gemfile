@@ -90,7 +90,6 @@ group :test do
 
   gem 'simplecov', require: false
   gem 'email_spec'
-  gem 'shrine-memory'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

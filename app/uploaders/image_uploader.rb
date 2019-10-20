@@ -5,24 +5,17 @@ class ImageUploader < Shrine
 
   plugin :pretty_location
   plugin :validation_helpers
-  plugin :processing
-  plugin :versions   # enable Shrine to handle a hash of files
-  plugin :delete_raw # delete processed files after uploading
 
   Attacher.validate do
     validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
   end
 
-  process(:store) do |io, _context|
-    versions = { original: io } # retain original
+  Attacher.derivatives_processor do |original|
+    magick = ImageProcessing::MiniMagick.source(original)
 
-    io.download do |original|
-      pipeline = ImageProcessing::MiniMagick.source(original)
-
-      versions[:large]     = pipeline.resize_to_limit!(1200, 1200, &:auto_orient)
-      versions[:thumbnail] = pipeline.resize_to_fill!(400, 400, gravity: 'Center')
-    end
-
-    versions # return the hash of processed files
+    {
+      large:     magick.resize_to_limit!(1200, 1200, &:auto_orient),
+      thumbnail: magick.resize_to_fill!(400, 400, gravity: 'Center')
+    }
   end
 end

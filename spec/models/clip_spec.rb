@@ -29,4 +29,9 @@ describe Clip, 'created for Post' do
   it "has image_data" do
     expect(clip.image_data).to be_present
   end
+
+  it "has stored image" do
+    clip.reload
+    expect(clip).to be_image_stored
+  end
 end
