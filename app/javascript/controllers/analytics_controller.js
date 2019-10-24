@@ -11,6 +11,7 @@ export default class extends Controller {
 
     // Piwik Analytics depends on a global _paq array. window is the global scope.
     window._paq = []
+    window._paq.push(['disableCookies'])
     window._paq.push(['setTrackerUrl', this.piwikUrl()])
     window._paq.push(['setSiteId', this.piwikId()])
     window._paq.push(['enableLinkTracking'])
