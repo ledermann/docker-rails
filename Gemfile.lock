@@ -132,7 +132,7 @@ GEM
       mail (~> 2.7)
     email_validator (1.6.0)
       activemodel
-    errbase (0.1.1)
+    errbase (0.2.0)
     erubi (1.9.0)
     et-orbi (1.2.2)
       tzinfo
@@ -331,7 +331,7 @@ GEM
     ruby-vips (2.0.16)
       ffi (~> 1.9)
     rubyzip (2.0.0)
-    safely_block (0.2.2)
+    safely_block (0.3.0)
       errbase (>= 0.1.1)
     sassc (2.2.1)
       ffi (~> 1.9)
