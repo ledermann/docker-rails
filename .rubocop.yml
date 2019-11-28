@@ -124,7 +124,7 @@ Layout/FirstMethodParameterLineBreak:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 
