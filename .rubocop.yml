@@ -124,11 +124,11 @@ Layout/FirstMethodParameterLineBreak:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 
 ### Documentation
 
-Documentation:
+Style/Documentation:
   Enabled: false

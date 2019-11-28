@@ -4,7 +4,9 @@ module Api
       before_action :load_post
 
       def index
-        render json: @post.audits.reorder(id: :desc)
+        render json: Panko::Response.new(
+          audits: Panko::ArraySerializer.new(@post.audits.reorder(id: :desc), each_serializer: AuditSerializer)
+        )
       end
 
       private

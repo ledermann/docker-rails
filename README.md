@@ -1,10 +1,6 @@
 # Docker-Rails
 
-[![Build Status](https://travis-ci.org/ledermann/docker-rails.svg?branch=master)](https://travis-ci.org/ledermann/docker-rails)
-[![Code Climate](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
-[![Issue Count](https://codeclimate.com/github/ledermann/docker-rails/badges/issue_count.svg)](https://codeclimate.com/github/ledermann/docker-rails)
-[![Depfu](https://badges.depfu.com/badges/2f883bd05b4dca8448484ff9289ea15f/overview.svg)](https://depfu.com/github/ledermann/docker-rails)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ledermann/docker-rails.svg)](https://greenkeeper.io/)
+[![Maintainability](https://codeclimate.com/github/ledermann/docker-rails/badges/gpa.svg)](https://codeclimate.com/github/ledermann/docker-rails)
 [![](https://images.microbadger.com/badges/image/ledermann/docker-rails.svg)](https://microbadger.com/images/ledermann/docker-rails)
 
 Simple Rails 6 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
@@ -37,7 +33,7 @@ This project demonstrates my way of building Rails applications. The techniques 
 
 ## Multi container architecture
 
-There is a separate **docker-compose.yml** for every environment: [development](docker-compose.yml), [test](docker-compose.test.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
+There is a separate **docker-compose.yml** for [development](docker-compose.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
 
 - **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
@@ -45,10 +41,6 @@ There is a separate **docker-compose.yml** for every environment: [development](
 - **elasticsearch:** Full text search engine
 - **redis:** In-memory key/value store (used by Sidekiq, ActionCable and for caching)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
-
-For running tests using RSpec, there is an additional container:
-
-- **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
 ## Check it out!
 
@@ -75,16 +67,14 @@ Enjoy!
 
 ## Tests / CI
 
-On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run in public on [Travis CI](https://travis-ci.org/ledermann/docker-rails/builds) and in private on [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
-
-On every successful Travis build, a new Docker image is pushed to [Docker Hub](https://hub.docker.com/r/ledermann/docker-rails/).
+On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is performed via [GitHub Actions](https://github.com/ledermann/docker-rails/actions). If successful, a production image is built and pushed to a private GitLab Docker Registry.
 
 
 ## Production deployment
 
-The Docker image build for production is different from development or test. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
+The Docker image build for production is different from development. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
 
-The stack is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
+The stack is ready to host with [traefik](https://traefik.io/) or [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
 
 
 ## Demo

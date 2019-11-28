@@ -1,6 +1,6 @@
 ######################
 # Stage: Builder
-FROM ruby:2.6.3-alpine as Builder
+FROM ruby:2.6.5-alpine as Builder
 
 ARG FOLDERS_TO_REMOVE
 ARG BUNDLE_WITHOUT
@@ -25,7 +25,6 @@ WORKDIR /app
 # Install gems
 ADD Gemfile* /app/
 RUN bundle config --global frozen 1 \
- && bundle config force_ruby_platform true \
  && bundle install -j4 --retry 3 \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
@@ -47,7 +46,7 @@ RUN rm -rf $FOLDERS_TO_REMOVE
 
 ###############################
 # Stage Final
-FROM ruby:2.6.3-alpine
+FROM ruby:2.6.5-alpine
 LABEL maintainer="mail@georg-ledermann.de"
 
 ARG ADDITIONAL_PACKAGES

@@ -19,7 +19,7 @@ describe Clip, 'created for Post' do
   it "touches post" do
     clip
     post.reload
-    expect(post.updated_at).to be_within(1.second).of clip.created_at
+    expect(post.updated_at).to be_within(5.seconds).of clip.created_at
   end
 
   it "increases counter cache" do
@@ -28,5 +28,10 @@ describe Clip, 'created for Post' do
 
   it "has image_data" do
     expect(clip.image_data).to be_present
+  end
+
+  it "has stored image" do
+    clip.reload
+    expect(clip).to be_image_stored
   end
 end

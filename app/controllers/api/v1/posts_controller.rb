@@ -10,11 +10,10 @@ module Api
           Post.order(updated_at: :desc).page(params[:page]).per(25)
         end
 
-        render json: posts,
-               each_serializer: PostPreviewSerializer,
-               search_string: search_string,
-               meta: pagination_dict(posts),
-               root: 'posts'
+        render json: Panko::Response.new(
+          meta: pagination_dict(posts),
+          posts: Panko::ArraySerializer.new(posts, each_serializer: PostPreviewSerializer)
+        )
       end
 
       def autocomplete
@@ -23,14 +22,18 @@ module Api
       end
 
       def show
-        render json: @post
+        render json: Panko::Response.new(
+          post: PostSerializer.new.serialize(@post)
+        )
       end
 
       def create
         @post = Post.new(post_params)
         authorize @post
         if @post.save
-          render json: @post, status: :created, location: @post
+          render json: Panko::Response.new(
+            post: PostSerializer.new.serialize(@post)
+          ), status: :created, location: @post
         else
           render json: @post.errors, status: :unprocessable_entity
         end
@@ -39,7 +42,9 @@ module Api
       def update
         authorize @post
         if @post.update(post_params)
-          render json: @post
+          render json: Panko::Response.new(
+            post: PostSerializer.new.serialize(@post)
+          )
         else
           render json: @post.errors, status: :unprocessable_entity
         end

@@ -5,7 +5,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=my-pg-password
     hostname: db.docker-rails.my-site.com
-    image: postgres:11-alpine
+    image: postgres:12-alpine
     ports:
       - 5432
     restart: always
@@ -19,7 +19,7 @@ services:
 
   elasticsearch:
     hostname: elasticsearch.docker-rails.my-site.com
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.2
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.5
     restart: always
     volumes:
       - /my-volumes/docker-rails/elasticsearch:/usr/share/elasticsearch/data
@@ -54,7 +54,7 @@ services:
     build:
       context: .
       args:
-        - FOLDERS_TO_REMOVE=spec node_modules app/assets vendor/assets lib/assets tmp/cache
+        - FOLDERS_TO_REMOVE=spec node_modules vendor/assets lib/assets tmp/cache
         - BUNDLE_WITHOUT=development:test
         - RAILS_ENV=production
     environment:

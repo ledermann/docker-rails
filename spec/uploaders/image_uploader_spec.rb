@@ -6,18 +6,18 @@ describe ImageUploader do
 
   before { clip.reload }
 
-  it 'generates image versions' do
-    expect(clip.image.keys).to match_array([:original, :large, :thumbnail])
+  it 'generates image_derivatives' do
+    expect(clip.image_derivatives.keys).to match_array([:large, :thumbnail])
   end
 
   it 'stores image' do
-    expect(clip.image[:original].storage_key).to eq('store')
-    expect(clip.image[:large].storage_key).to eq('store')
-    expect(clip.image[:thumbnail].storage_key).to eq('store')
+    expect(clip.image.storage_key).to eq(:store)
+    expect(clip.image(:large).storage_key).to eq(:store)
+    expect(clip.image(:thumbnail).storage_key).to eq(:store)
   end
 
   describe "metadata" do
-    subject { clip.image[:original] }
+    subject { clip.image }
 
     it 'extracts mime type' do
       expect(subject.mime_type).to eq('image/jpeg')

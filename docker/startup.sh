@@ -2,5 +2,5 @@
 
 ./docker/wait-for-services.sh
 ./docker/prepare-db.sh
-mkdir ./tmp/pids
+mkdir -p ./tmp/pids
 bundle exec puma -C config/puma.rb

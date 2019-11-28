@@ -1,4 +1,4 @@
-class AuditSerializer < ActiveModel::Serializer
+class AuditSerializer < Panko::Serializer
   attributes :id, :created_at, :event, :whodunnit
 
   def whodunnit

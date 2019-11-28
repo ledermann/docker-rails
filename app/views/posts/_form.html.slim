@@ -23,7 +23,7 @@
           .message Drop files here or click to upload
 
           .row.no-gutters#js-images
-            - post.clips.each do |clip|
+            - post.clips.select(&:image_stored?).each do |clip|
               .col-2
                 .mb-2.mr-2
                   = image_tag clip.image_url(:thumbnail), class: 'img-thumbnail square'
