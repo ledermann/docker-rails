@@ -1,4 +1,4 @@
-name: Test, build and deploy
+name: Continuous integration
 on: push
 
 jobs:
@@ -83,7 +83,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v1
@@ -108,7 +108,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v1
