@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '~> 2.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
@@ -68,6 +68,9 @@ group :development, :test do
 
   # Automatically run the specs (like autotest)
   gem 'guard-rspec', require: false
+
+  # Security Audit for installed Gems
+  gem 'bundler-audit'
 end
 
 group :development do
@@ -86,7 +89,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers', require: ENV['SELENIUM_REMOTE_HOST'].nil?
+  gem 'webdrivers'
 
   gem 'simplecov', require: false
   gem 'email_spec'

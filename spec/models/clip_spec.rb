@@ -19,7 +19,7 @@ describe Clip, 'created for Post' do
   it "touches post" do
     clip
     post.reload
-    expect(post.updated_at).to be_within(1.second).of clip.created_at
+    expect(post.updated_at).to be_within(5.seconds).of clip.created_at
   end
 
   it "increases counter cache" do

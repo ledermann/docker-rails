@@ -35,7 +35,7 @@ This project demonstrates my way of building Rails applications. The techniques 
 
 ## Multi container architecture
 
-There is a separate **docker-compose.yml** for every environment: [development](docker-compose.yml), [test](docker-compose.test.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
+There is a separate **docker-compose.yml** for [development](docker-compose.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
 
 - **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
@@ -43,10 +43,6 @@ There is a separate **docker-compose.yml** for every environment: [development](
 - **elasticsearch:** Full text search engine
 - **redis:** In-memory key/value store (used by Sidekiq, ActionCable and for caching)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
-
-For running tests using RSpec, there is an additional container:
-
-- **selenium:** Standalone Chrome for executing system tests containing JavaScript
 
 ## Check it out!
 
@@ -73,14 +69,14 @@ Enjoy!
 
 ## Tests / CI
 
-On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is run and a production image is built via [GitHub Actions](https://github.com/ledermann/docker-rails/actions). If successful, the new Docker image is pushed to a private GitLab Docker Registry.
+On every push, the test suite (including [RuboCop](https://github.com/bbatsov/rubocop) checks) is performed via [GitHub Actions](https://github.com/ledermann/docker-rails/actions). If successful, a production image is built and pushed to a private GitLab Docker Registry.
 
 
 ## Production deployment
 
-The Docker image build for production is different from development or test. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
+The Docker image build for production is different from development. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
 
-The stack is ready to host with [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
+The stack is ready to host with [traefik](https://traefik.io/) or [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
 
 
 ## Demo

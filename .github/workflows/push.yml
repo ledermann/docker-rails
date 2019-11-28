@@ -5,17 +5,80 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:12
+        ports: ["5432:5432"]
+
+      redis:
+        image: redis:latest
+        ports: ["6379:6379"]
+
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.5
+        ports: ["9200:9200"]
+        options: -e="discovery.type=single-node"
+
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@v1
 
-    - name: Prepare Elasticsearch
-      run: sudo sysctl -w vm.max_map_count=262144
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
 
-    - name: Build the stack
-      run: docker-compose -f docker-compose.test.yml build --pull
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get -yqq install libpq-dev
 
-    - name: Test
-      run: docker-compose -f docker-compose.test.yml run --rm app sh -c "yarn lint && bundle exec rubocop && ./docker/wait-for-services.sh && bundle exec rake db:create spec"
+      - name: Cache Ruby gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Bundle gems
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3 --without production
+
+      - name: Audit gems
+        run: bundle exec bundle-audit check --update
+
+      - name: Lint with RuboCop
+        run: bundle exec rubocop --parallel
+
+      - name: Cache Node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Node modules
+        run: yarn install
+
+      - name: Run Tests
+        env:
+          DB_HOST: localhost
+          DB_USER: postgres
+          RAILS_ENV: test
+          SECRET_KEY_BASE: we-dont-need-a-secret-here
+          APP_ADMIN_EMAIL: admin@example.org
+          APP_ADMIN_PASSWORD: secret
+          APP_EMAIL: reply@example.org
+          APP_HOST: example.org
+          AWS_ACCESS_KEY_ID: my-access-key
+          AWS_SECRET_ACCESS_KEY: my-secret
+          AWS_BUCKET: my-bucket
+          AWS_REGION: eu-central-1
+        run: |
+          bundle exec rake db:create db:schema:load
+          bundle exec rake spec
 
   build:
     runs-on: ubuntu-latest
