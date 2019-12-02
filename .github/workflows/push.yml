@@ -7,11 +7,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12
+        image: postgres:12-alpine
         ports: ["5432:5432"]
 
       redis:
-        image: redis:latest
+        image: redis:alpine
         ports: ["6379:6379"]
 
       elasticsearch:
