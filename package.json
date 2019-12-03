@@ -22,7 +22,7 @@
     "parsleyjs": "^2.9.1",
     "popper.js": "^1.16.0",
     "stimulus": "^1.1.1",
-    "trix": "^1.2.1",
+    "trix": "^1.2.2",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
