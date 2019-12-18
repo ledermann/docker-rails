@@ -353,7 +353,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
-    shrine (3.1.0)
+    shrine (3.2.0)
       content_disposition (~> 1.0)
       down (~> 5.0)
     sidekiq (6.0.3)
