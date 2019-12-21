@@ -356,7 +356,7 @@ GEM
     shrine (3.2.0)
       content_disposition (~> 1.0)
       down (~> 5.0)
-    sidekiq (6.0.3)
+    sidekiq (6.0.4)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
