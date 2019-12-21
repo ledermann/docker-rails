@@ -51,9 +51,6 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Max: 150
 
-Metrics/LineLength:
-  Max: 140
-
 Metrics/MethodLength:
   Max: 15
   Exclude:
@@ -127,6 +124,8 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/HashAlignment:
   Enabled: false
 
+Layout/LineLength:
+  Max: 140
 
 ### Documentation
 
