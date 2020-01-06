@@ -1274,10 +1274,10 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autocompleter@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-5.2.0.tgz#9ed3df262614fd557bf4d5bf67ab13cdee008203"
-  integrity sha512-CMYgI+r7RGZFaT0SvXcyBn1hb/Ne6XbjXimWQPc16LcwZgUGFBHg/Pv8honrwkTZE4DbfrD/MzqlG+Bn2u+1ng==
+autocompleter@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-6.0.1.tgz#e21fd4457ea43d6bcf6c67ee2f2ad86517e986ed"
+  integrity sha512-1NVj2Pif+TrTNRwmqRfMdRl9o+1B1k944hPYm5rdPGJLK0t3hb7UGwCsTgFqa/MZ/27FJ2ZtZPlrGcwAfFGyVg==
 
 autoprefixer@^9.6.1, autoprefixer@^9.7.3:
   version "9.7.3"
