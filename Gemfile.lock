@@ -119,7 +119,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    down (5.0.1)
+    down (5.1.0)
       addressable (~> 2.5)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
