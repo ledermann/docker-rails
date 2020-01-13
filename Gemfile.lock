@@ -110,7 +110,7 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     content_disposition (1.0.0)
-    crass (1.0.5)
+    crass (1.0.6)
     css_parser (1.7.1)
       addressable
     diff-lcs (1.3)
