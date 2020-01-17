@@ -125,19 +125,19 @@ jobs:
         shell: bash
         run: docker load < docker-image/untested.tar.gz
 
-      - name: Login to GitLab Docker Registry
-        run: echo ${{ secrets.GITLAB_TOKEN }} | docker login -u gitlab-ci-token --password-stdin ${{ secrets.GITLAB_REGISTRY }}
+      - name: Login to GitHub Package Registry
+        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push the image as LATEST and deploy
         if: github.ref == 'refs/heads/develop'
         run: |
-          docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
-          docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
+          docker tag dockerrails_app_production "docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest"
+          docker push "docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest"
           curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
           curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
 
       - name: Push the image as STABLE
         if: github.ref == 'refs/heads/master'
         run: |
-          docker tag dockerrails_app_production ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
-          docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:stable
+          docker tag dockerrails_app_production "docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable"
+          docker push "docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable"
