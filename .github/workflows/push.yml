@@ -126,7 +126,7 @@ jobs:
         run: docker load < docker-image/untested.tar.gz
 
       - name: Login to GitHub Package Registry
-        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }}
+        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push the image as LATEST and deploy
         if: github.ref == 'refs/heads/develop'
