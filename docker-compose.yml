@@ -8,20 +8,18 @@ services:
       - db-data:/var/lib/postgresql/data
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.2
     volumes:
       - es-data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
 
   redis:
     image: redis:alpine
 
   app: &app_base
-    image: dockerrails_app_development
     build:
       context: .
-      args:
-        - ADDITIONAL_PACKAGES=nodejs yarn python2 build-base git
-        - RAILS_ENV=development
     environment:
       - ELASTICSEARCH_HOST=elasticsearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0

@@ -1,31 +1,18 @@
 ######################
 # Stage: Builder
-FROM ruby:2.6.5-alpine as Builder
-
-ARG FOLDERS_TO_REMOVE
-ARG BUNDLE_WITHOUT
-ARG RAILS_ENV
-
-ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
-ENV RAILS_ENV ${RAILS_ENV}
-ENV SECRET_KEY_BASE=foo
-ENV RAILS_SERVE_STATIC_FILES=true
-
-RUN apk add --update --no-cache \
-    build-base \
-    postgresql-dev \
-    git \
-    imagemagick \
-    nodejs \
-    yarn \
-    tzdata
+FROM docker.pkg.github.com/ledermann/docker-rails-base/rails-base-builder:latest as Builder
 
 WORKDIR /app
 
+ENV BUNDLE_WITHOUT=development:test
+ENV RAILS_ENV=production
+ENV SECRET_KEY_BASE=just-for-assets-compiling
+ENV RAILS_SERVE_STATIC_FILES true
+
 # Install gems
 ADD Gemfile* /app/
-RUN bundle config --global frozen 1 \
- && bundle install -j4 --retry 3 \
+RUN bundle install -j4 --retry 3 \
+ && bundle clean --force \
  # Remove unneeded files (cached *.gem, *.o, *.c)
  && rm -rf /usr/local/bundle/cache/*.gem \
  && find /usr/local/bundle/gems/ -name "*.c" -delete \
@@ -42,22 +29,15 @@ ADD . /app
 RUN bundle exec rake assets:precompile
 
 # Remove folders not needed in resulting image
-RUN rm -rf $FOLDERS_TO_REMOVE
+RUN rm -rf node_modules tmp/cache vendor/bundle spec
 
 ###############################
 # Stage Final
-FROM ruby:2.6.5-alpine
+FROM docker.pkg.github.com/ledermann/docker-rails-base/rails-base-final:latest
 LABEL maintainer="mail@georg-ledermann.de"
 
-ARG ADDITIONAL_PACKAGES
-
 # Add Alpine packages
-RUN apk add --update --no-cache \
-    postgresql-client \
-    imagemagick \
-    $ADDITIONAL_PACKAGES \
-    tzdata \
-    file
+RUN apk add imagemagick
 
 # Add user
 RUN addgroup -g 1000 -S app \

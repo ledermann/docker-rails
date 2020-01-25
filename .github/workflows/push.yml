@@ -15,7 +15,7 @@ jobs:
         ports: ["6379:6379"]
 
       elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.1
+        image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.2
         ports: ["9200:9200"]
         options: -e="discovery.type=single-node"
 
@@ -83,61 +83,27 @@ jobs:
           bundle exec rake db:create db:schema:load
           bundle exec rake spec
 
-  build:
-    runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: Build the production image
-        run: |
-          export COMMIT_TIME=$(git show -s --format=%ci ${GITHUB_SHA})
-          export COMMIT_SHA=${GITHUB_SHA}
-          docker-compose -f docker-compose.production.yml build --pull
-
-      - name: Save Docker image as file
-        run: docker save dockerrails_app_production | gzip > untested.tar.gz
-
-      - name: Upload Docker image as artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: docker-image
-          path: untested.tar.gz
-
   deploy:
-    needs: [test, build]
-
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
+    needs: test
 
     steps:
       - uses: actions/checkout@v1
-
-      - name: Download Docker image from build job
-        uses: actions/download-artifact@v1
-        with:
-          name: docker-image
-
-      - name: Load Docker image from file
-        shell: bash
-        run: docker load < docker-image/untested.tar.gz
 
       - name: Login to GitHub Package Registry
         run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.PACKAGES_TOKEN }}
 
-      - name: Push the image as LATEST and deploy
+      - name: Build, push and deploy the LATEST image
         if: github.ref == 'refs/heads/develop'
         run: |
-          docker tag dockerrails_app_production "docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest"
-          docker push "docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest"
+          docker build -t docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest .
+          docker push docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest
           curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
           curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
 
-      - name: Push the image as STABLE
+      - name: Push the STABLE image
         if: github.ref == 'refs/heads/master'
         run: |
-          docker tag dockerrails_app_production "docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable"
-          docker push "docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable"
+          docker build -t docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable .
+          docker push docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable
