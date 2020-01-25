@@ -33,7 +33,7 @@ This project demonstrates my way of building Rails applications. The techniques 
 
 ## Multi container architecture
 
-There is a separate **docker-compose.yml** for [development](docker-compose.yml) and [production](docker-compose.production.yml). The whole stack is divided into multiple different containers:
+There is an example **docker-compose.production.yml**. The whole stack is divided into multiple different containers:
 
 - **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
@@ -50,7 +50,6 @@ To start up the application in your local Docker environment:
 git clone https://github.com/ledermann/docker-rails.git
 cd docker-rails
 docker-compose build
-docker-compose run app yarn install
 docker-compose up
 ```
 
@@ -72,9 +71,9 @@ On every push, the test suite (including [RuboCop](https://github.com/bbatsov/ru
 
 ## Production deployment
 
-The Docker image build for production is different from development. It includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
+The Docker image build includes precompiled assets only (no node_modules and no sources). The [spec folder](/spec) is removed and the Alpine packages for Node and Yarn are not installed.
 
-The stack is ready to host with [traefik](https://traefik.io/) or [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion). See [docker-compose.production.yml](/docker-compose.production.yml) for example setup.
+The stack is ready to host with [traefik](https://traefik.io/) or [nginx proxy](https://github.com/jwilder/nginx-proxy) and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion).
 
 
 ## Demo
