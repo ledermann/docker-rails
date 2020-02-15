@@ -9,6 +9,8 @@ jobs:
       postgres:
         image: postgres:12-alpine
         ports: ["5432:5432"]
+        env:
+          POSTGRES_PASSWORD: postgres
 
       redis:
         image: redis:alpine
@@ -69,6 +71,7 @@ jobs:
         env:
           DB_HOST: localhost
           DB_USER: postgres
+          DB_PASSWORD: postgres
           RAILS_ENV: test
           SECRET_KEY_BASE: we-dont-need-a-secret-here
           APP_ADMIN_EMAIL: admin@example.org
