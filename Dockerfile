@@ -1,5 +1,5 @@
-FROM docker.pkg.github.com/ledermann/docker-rails-base/rails-base-builder:latest as Builder
-FROM docker.pkg.github.com/ledermann/docker-rails-base/rails-base-final:latest
+FROM ledermann/rails-base-builder:latest as Builder
+FROM ledermann/rails-base-final:latest
 LABEL maintainer="georg@ledermann.dev"
 
 # Add Alpine packages
