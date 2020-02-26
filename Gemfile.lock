@@ -121,13 +121,13 @@ GEM
       railties (>= 3.2, < 6.1)
     down (5.1.1)
       addressable (~> 2.5)
-    elasticsearch (7.4.0)
-      elasticsearch-api (= 7.4.0)
-      elasticsearch-transport (= 7.4.0)
-    elasticsearch-api (7.4.0)
+    elasticsearch (7.5.0)
+      elasticsearch-api (= 7.5.0)
+      elasticsearch-transport (= 7.5.0)
+    elasticsearch-api (7.5.0)
       multi_json
-    elasticsearch-transport (7.4.0)
-      faraday
+    elasticsearch-transport (7.5.0)
+      faraday (>= 0.14, < 1)
       multi_json
     email_spec (2.2.0)
       htmlentities (~> 4.3.3)
@@ -144,7 +144,7 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faraday (1.0.0)
+    faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
     formatador (0.2.5)
