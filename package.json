@@ -11,7 +11,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@rails/actioncable": "^6.0.2",
     "@rails/ujs": "^6.0.2",
-    "@rails/webpacker": "^4.2.2",
+    "@rails/webpacker": "^5.0.0",
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^6.0.2",
     "blueimp-file-upload": "^10.8.0",
