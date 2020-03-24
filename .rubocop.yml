@@ -97,6 +97,17 @@ Style/MixinUsage:
 Style/StderrPuts:
   Enabled: false
 
+Style/Documentation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
 
 ### Layout
 
@@ -126,8 +137,3 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Max: 140
-
-### Documentation
-
-Style/Documentation:
-  Enabled: false
