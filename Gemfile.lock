@@ -359,7 +359,7 @@ GEM
     shrine (3.2.1)
       content_disposition (~> 1.0)
       down (~> 5.1)
-    sidekiq (6.0.6)
+    sidekiq (6.0.5)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
@@ -468,7 +468,7 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   shrine
-  sidekiq
+  sidekiq (!= 6.0.6)
   sidekiq-cron
   simple_form (>= 3.5.1)
   simplecov
