@@ -137,3 +137,11 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Max: 140
+
+# Lint
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
