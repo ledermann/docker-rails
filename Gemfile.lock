@@ -364,7 +364,7 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
-    sidekiq-cron (1.1.0)
+    sidekiq-cron (1.2.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
     simple_form (5.0.2)
