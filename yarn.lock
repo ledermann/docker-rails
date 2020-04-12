@@ -1517,10 +1517,15 @@ blueimp-file-upload@^10.11.0:
     blueimp-load-image "2"
     blueimp-tmpl "3"
 
-blueimp-load-image@2, blueimp-load-image@^2.31.0:
+blueimp-load-image@2:
   version "2.31.0"
   resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-2.31.0.tgz#a8fd5e0849071a44367f5e1e870acdf638789963"
   integrity sha512-6sTGh1OiUmuH8ftAYvUzALivoOmcnahinGmjZFI4puZVowXoKTn/bXtth7N1skW5AlezEOfjgFH4lNXHeNRQog==
+
+blueimp-load-image@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-3.0.0.tgz#d71c39440a7d2f1a83e3e86a625e329116a51705"
+  integrity sha512-Q9rFbd4ZUNvzSFmRXx9MoG0RwWwJeMjjEUbG7WIOJgUg22Jgkow0wL5b35B6qwiBscxACW9OHdrP5s2vQ3x8DQ==
 
 blueimp-tmpl@3, blueimp-tmpl@^3.14.0:
   version "3.14.0"
