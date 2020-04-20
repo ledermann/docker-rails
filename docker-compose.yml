@@ -32,6 +32,7 @@ services:
       - RAILS_ENV=production
       - RAILS_MAX_THREADS
       - APP_HOST
+      - APP_SSL
       - FRONTEND_HOST
       - APP_ADMIN_EMAIL=admin@example.org
       - APP_ADMIN_PASSWORD=secret
