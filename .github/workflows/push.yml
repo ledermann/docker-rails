@@ -65,7 +65,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install Node modules
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Run Tests
         env:
