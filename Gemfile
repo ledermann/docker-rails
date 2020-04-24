@@ -67,9 +67,6 @@ group :development, :test do
 
   # Automatically run the specs (like autotest)
   gem 'guard-rspec', require: false
-
-  # Security Audit for installed Gems
-  gem 'bundler-audit'
 end
 
 group :development do
