@@ -22,7 +22,7 @@ jobs:
         options: -e="discovery.type=single-node"
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Set up Ruby 2.6
         uses: actions/setup-ruby@v1
@@ -89,7 +89,7 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Login to GitHub Package Registry
         run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.PACKAGES_TOKEN }}
