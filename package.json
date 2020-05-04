@@ -16,7 +16,7 @@
     "autocompleter": "^6.0.3",
     "blueimp-file-upload": "^10.18.0",
     "blueimp-load-image": "^5.1.0",
-    "blueimp-tmpl": "^3.14.0",
+    "blueimp-tmpl": "^3.15.0",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "parsleyjs": "^2.9.2",
