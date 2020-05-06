@@ -15,7 +15,7 @@
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^6.0.3",
     "blueimp-file-upload": "^10.20.0",
-    "blueimp-load-image": "^5.5.0",
+    "blueimp-load-image": "^5.6.0",
     "blueimp-tmpl": "^3.15.0",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.1",
