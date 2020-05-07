@@ -10,7 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@rails/actioncable": "^6.0.3",
-    "@rails/ujs": "^6.0.2",
+    "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.1.1",
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^6.0.3",
