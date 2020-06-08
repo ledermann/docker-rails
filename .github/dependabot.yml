@@ -11,10 +11,6 @@ updates:
   allow:
   - dependency-type: direct
   - dependency-type: indirect
-  ignore:
-  - dependency-name: sidekiq
-    versions:
-    - "= 5.2.4"
 - package-ecosystem: npm
   directory: "/"
   schedule:
