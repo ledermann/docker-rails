@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: '01:00'
+    timezone: Europe/Berlin
+  open-pull-requests-limit: 10
+  versioning-strategy: lockfile-only
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  ignore:
+  - dependency-name: sidekiq
+    versions:
+    - "= 5.2.4"
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: '01:00'
+    timezone: Europe/Berlin
+  open-pull-requests-limit: 10
