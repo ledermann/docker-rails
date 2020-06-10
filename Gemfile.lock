@@ -60,7 +60,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.326.0)
+    aws-partitions (1.327.0)
     aws-sdk-core (3.98.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
