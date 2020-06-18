@@ -118,12 +118,12 @@ GEM
       railties (>= 3.2, < 6.1)
     down (5.1.1)
       addressable (~> 2.5)
-    elasticsearch (7.7.0)
-      elasticsearch-api (= 7.7.0)
-      elasticsearch-transport (= 7.7.0)
-    elasticsearch-api (7.7.0)
+    elasticsearch (7.8.0)
+      elasticsearch-api (= 7.8.0)
+      elasticsearch-transport (= 7.8.0)
+    elasticsearch-api (7.8.0)
       multi_json
-    elasticsearch-transport (7.7.0)
+    elasticsearch-transport (7.8.0)
       faraday (~> 1)
       multi_json
     email_spec (2.2.0)
