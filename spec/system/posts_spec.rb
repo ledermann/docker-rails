@@ -25,11 +25,11 @@ describe 'Post management' do
       # Scroll up again and go to single post by clicking on a row
       scroll_to_top
       first('table tbody tr').click
-      expect(page.current_path).to eq(post_path(example_post))
+      expect(page).to have_current_path(post_path(example_post))
 
       # Go to homepage by clicking an the navbar logo
       find('a.navbar-brand').click
-      expect(page.current_path).to eq(root_path)
+      expect(page).to have_current_path(root_path)
     end
 
     scenario 'searches for a post with autocompletion', js: true do
@@ -118,10 +118,10 @@ describe 'Post management' do
       all(:css, "trix-editor").first.click.set('dolor sit amet')
       click_on 'Update Post'
 
-      expect(page.current_path).to eq(post_path(example_post.reload))
       expect(page).to have_text 'Post was successfully updated.'
       expect(page).to have_selector('h1', text: 'Bar')
       expect(page).to have_selector('div', text: 'dolor sit amet')
+      expect(page).to have_current_path(post_path(example_post.reload))
     end
 
     scenario 'deletes an existing page', js: true do
@@ -131,9 +131,9 @@ describe 'Post management' do
         find('a[data-original-title="Delete Post"]').click
       end
 
-      expect(page.current_path).to eq(posts_path)
       expect(page).to have_text 'Post was successfully destroyed.'
       expect(page).to_not have_selector('td', text: 'Example')
+      expect(page).to have_current_path(posts_path)
     end
 
     scenario 'creates a new page', js: true do
@@ -141,9 +141,9 @@ describe 'Post management' do
 
       click_on 'add-new-post'
 
-      expect(page.current_path).to eq(new_post_path)
       expect(page).to have_selector('h1', text: 'New Post')
       expect(page).to have_button('Create Post')
+      expect(page).to have_current_path(new_post_path)
 
       fill_in 'post[title]', with: 'Bar'
       all(:css, "trix-editor").first.click.set('dolor sit amet')
