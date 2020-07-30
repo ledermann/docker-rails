@@ -56,8 +56,6 @@ services:
       - elasticsearch
       - db
       - redis
-    volumes:
-      - .:/app
 
   worker:
     <<: *app_base
