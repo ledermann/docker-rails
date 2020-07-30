@@ -29,7 +29,6 @@ services:
       - DB_HOST=db
       - DB_USER=postgres
       - DB_PASSWORD=foobar123
-      - RAILS_ENV=production
       - RAILS_MAX_THREADS
       - APP_HOST
       - APP_SSL
