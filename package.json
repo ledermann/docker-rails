@@ -17,7 +17,7 @@
     "blueimp-file-upload": "^10.31.0",
     "blueimp-load-image": "^5.14.0",
     "blueimp-tmpl": "^3.18.0",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.1",
     "jquery": "^3.5.1",
     "parsleyjs": "^2.9.2",
     "popper.js": "^1.16.1",
