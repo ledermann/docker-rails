@@ -360,7 +360,7 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
     shellany (0.0.1)
-    shrine (3.2.1)
+    shrine (3.2.2)
       content_disposition (~> 1.0)
       down (~> 5.1)
     sidekiq (6.1.1)
