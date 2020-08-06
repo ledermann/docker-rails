@@ -11,6 +11,10 @@ updates:
   allow:
   - dependency-type: direct
   - dependency-type: indirect
+  labels:
+    - "dependencies"
+    - "ruby"
+    - "automerge"
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -24,3 +28,7 @@ updates:
     interval: daily
     time: '01:00'
     timezone: Europe/Berlin
+  labels:
+    - "dependencies"
+    - "javascript"
+    - "automerge"
