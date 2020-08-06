@@ -42,9 +42,7 @@ module DockerRails
       end
     end
 
-    if ENV['RAILS_SERVE_STATIC_FILES'].present? # rubocop:disable Style/IfUnlessModifier
-      config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
-    end
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater if ENV['RAILS_SERVE_STATIC_FILES'].present?
   end
 end
 
