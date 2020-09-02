@@ -1179,7 +1179,8 @@
 
 CSSBox@TheLastProject/CSSBox:
   version "0.0.0"
-  resolved "https://codeload.github.com/TheLastProject/CSSBox/tar.gz/45ae544c04b3189df541117b318a65d6442416fa"
+  uid "2234546c25d51770086f972b0f330d4087e7c829"
+  resolved "https://codeload.github.com/TheLastProject/CSSBox/tar.gz/2234546c25d51770086f972b0f330d4087e7c829"
 
 abbrev@1:
   version "1.1.1"
