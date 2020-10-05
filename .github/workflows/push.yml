@@ -26,8 +26,6 @@ jobs:
 
       - name: Set up Ruby 2.7
         uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.1
 
       - name: Cache Ruby gems
         uses: actions/cache@v2
