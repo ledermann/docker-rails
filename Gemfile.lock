@@ -254,7 +254,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
-    raabro (1.3.3)
+    raabro (1.4.0)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
