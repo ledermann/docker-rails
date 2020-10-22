@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe ApplicationController do
-  class DummiesController < ApplicationController; end
-
-  controller DummiesController do
+  controller ApplicationController do
     def index
       head :ok
     end
