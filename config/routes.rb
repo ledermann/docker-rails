@@ -46,5 +46,5 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   # Catch all to avoid FATAL error logging
-  match '*path', via: :all, to: 'errors#error_404'
+  match '*path', via: :all, to: 'errors#not_found'
 end
