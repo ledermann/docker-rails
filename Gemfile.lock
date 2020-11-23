@@ -231,7 +231,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.10.16)
-    panko_serializer (0.7.3)
+    panko_serializer (0.7.4)
       oj (~> 3.10.0)
     paper_trail (11.0.0)
       activerecord (>= 5.2)
