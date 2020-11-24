@@ -55,7 +55,7 @@ module PostSearch
             scan(/<em>(.*?)<\/em>/).
             join(' ').
             downcase.
-            split(' ').
+            split.
             uniq.
             join(' ')
         end
