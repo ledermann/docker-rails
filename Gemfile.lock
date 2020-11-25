@@ -354,7 +354,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (4.4.1)
+    searchkick (4.4.2)
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
