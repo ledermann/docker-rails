@@ -361,7 +361,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    semantic_range (2.3.0)
+    semantic_range (2.3.1)
     shellany (0.0.1)
     shrine (3.3.0)
       content_disposition (~> 1.0)
