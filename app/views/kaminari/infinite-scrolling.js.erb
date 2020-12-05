@@ -6,5 +6,5 @@ var el = document.querySelector('[data-controller="infinite-scrolling"] tbody');
 el.innerHTML += renderedObjects;
 
 // Update Paginator
-var el = document.querySelector('[data-target="infinite-scrolling.paging"]');
+var el = document.querySelector('[data-infinite-scrolling-target="paging"]');
 el.innerHTML = "<%=j render('kaminari/paging', objects: objects) %>"
