@@ -134,7 +134,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
-    email_validator (2.2.0)
+    email_validator (2.2.1)
       activemodel
     errbase (0.2.0)
     erubi (1.10.0)
