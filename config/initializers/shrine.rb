@@ -8,8 +8,8 @@ Shrine.plugin :restore_cached_data
 Shrine.plugin :determine_mime_type
 Shrine.plugin :derivatives, versions_compatibility: true # handle versions column format
 
-# On precompile, the ENV vars for AWS are not set
-return if ARGV.join.include?('assets:precompile')
+# Don't load when there is no APP_HOST (e.g. when precompiling assets)
+return unless ENV['APP_HOST']
 
 if Rails.env.test?
   require "shrine/storage/memory"
