@@ -9,8 +9,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@rails/actioncable": "^6.0.3",
-    "@rails/ujs": "^6.1.0",
+    "@rails/actioncable": "6.0.3-4",
+    "@rails/ujs": "6.0.3-4",
     "@rails/webpacker": "^5.2.1",
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^6.1.0",
@@ -26,7 +26,7 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
