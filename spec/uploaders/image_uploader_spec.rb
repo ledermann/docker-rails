@@ -37,7 +37,7 @@ describe ImageUploader do
   end
 
   it 'rejects other files than images' do
-    clip = post.clips.build image: fixture_file_upload('spec/fixtures/example.txt')
+    clip = post.clips.build image: Rack::Test::UploadedFile.new('spec/fixtures/example.txt', 'text/plain')
 
     clip.valid?
     expect(clip.errors[:image]).to eq ['type must be one of: image/jpeg, image/png, image/gif']

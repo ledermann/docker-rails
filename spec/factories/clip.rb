@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :clip do
     post { create :post }
-    image { fixture_file_upload("spec/fixtures/example.jpg") }
+    image { Rack::Test::UploadedFile.new('spec/fixtures/example.jpg', 'image/png') }
   end
 
   factory :clip_unprocessed, class: Clip do

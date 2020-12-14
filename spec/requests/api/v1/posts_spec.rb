@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+include ActiveSupport::Testing::Assertions
+
 describe "Posts", type: :request do
   let!(:post1) { create(:post, :reindex, id: 42, title: 'Foo', content: 'Lorem ipsum') }
   let!(:clip) { perform_enqueued_jobs { create(:clip, id: 123, post: post1) } }

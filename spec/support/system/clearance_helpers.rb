@@ -4,8 +4,6 @@ module SystemTest
       visit new_password_path
       fill_in "password_email", with: email
       click_button I18n.t("helpers.submit.password.submit")
-
-      perform_enqueued_jobs
     end
 
     def sign_in
@@ -30,8 +28,6 @@ module SystemTest
       fill_in "user_email", with: email
       fill_in "user_password", with: password
       click_button I18n.t("helpers.submit.user.create")
-
-      perform_enqueued_jobs
     end
 
     def expect_user_to_be_signed_in
