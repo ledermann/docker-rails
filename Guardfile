@@ -25,7 +25,7 @@
 #  * 'just' rspec: 'rspec'
 
 guard :rspec, cmd: "bin/rspec" do
-  directories %w[app config lib spec]
+  directories(%w[app config lib spec])
 
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)

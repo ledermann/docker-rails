@@ -7,7 +7,7 @@ class ImageUploader < Shrine
   plugin :validation_helpers
 
   Attacher.validate do
-    validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
+    validate_mime_type_inclusion(%w[image/jpeg image/png image/gif])
   end
 
   Attacher.derivatives_processor do |original|
