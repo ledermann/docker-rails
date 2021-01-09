@@ -1459,10 +1459,10 @@ autocompleter@^6.1.0:
   resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-6.1.0.tgz#39f21d1ff53ba5b012ad1b1da0182b234268eff2"
   integrity sha512-w+gPtAuwL+0BY33rwtFaliZ2TW/iJlbQ0AaFFi7sy7kh1MdOM5VpAMJ2s/6yygIkWkLQP8WF+ajlG39Ft8459Q==
 
-autoprefixer@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.0.tgz#73c148882ff771b48df9e76eaad88565516eda0c"
-  integrity sha512-5SdPoK2Q3rxVh4xC8GKdy772KbEESdl2SyJADCw5FMUrd5eNtpOTLo7oCFMEKvK86zQdvsIVTYk93E8dAfRy6g==
+autoprefixer@^10.2.1:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.1.tgz#ce96870df6ddd9ba4c9bbba56c54b9ef4b00a962"
+  integrity sha512-dwP0UjyYvROUvtU+boBx8ff5pPWami1NGTrJs9YUsS/oZVbRAcdNHOOuXSA1fc46tgKqe072cVaKD69rvCc3QQ==
   dependencies:
     browserslist "^4.16.1"
     caniuse-lite "^1.0.30001173"
