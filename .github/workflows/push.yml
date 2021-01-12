@@ -26,21 +26,8 @@ jobs:
 
       - name: Set up Ruby 2.7
         uses: ruby/setup-ruby@v1
-
-      - name: Cache Ruby gems
-        uses: actions/cache@v2
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gem-
-
-      - name: Bundle gems
-        run: |
-          bundle config path vendor/bundle
-          bundle config set without 'production development'
-          bundle config --local build.sassc --disable-march-tune-native
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true
 
       - name: Lint with RuboCop
         run: bundle exec rubocop --parallel
