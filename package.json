@@ -8,7 +8,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@rails/actioncable": "^6.1.1",
     "@rails/ujs": "^6.1.1",
     "@rails/webpacker": "^5.2.1",
@@ -31,6 +31,6 @@
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.2"
   }
 }
