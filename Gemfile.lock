@@ -112,7 +112,7 @@ GEM
       email_validator (~> 2.0)
       railties (>= 5.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     content_disposition (1.0.0)
     crass (1.0.6)
