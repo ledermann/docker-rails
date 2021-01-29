@@ -7,7 +7,7 @@ module KnockHelpers
     else
       Knock::AuthToken.new(payload: { sub: target.id }).token
     end
-    { 'Authorization': "Bearer #{token}" }
+    { Authorization: "Bearer #{token}" }
   end
 end
 
