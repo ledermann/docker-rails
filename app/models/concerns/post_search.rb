@@ -28,7 +28,7 @@ module PostSearch
 
   class_methods do
     def search_for(search_string, options = {})
-      search search_string, {
+      search search_string, **{
         fields:       [ :'title^10', :content, :combined ],
         match:        :word_start,
         suggest:      true,
@@ -38,7 +38,7 @@ module PostSearch
     end
 
     def search_for_autocomplete(search_string, options = {})
-      search search_string, {
+      search search_string, **{
         fields:       [ :combined ],
         match:        :word_start,
         limit:        10,
