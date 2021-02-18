@@ -9,7 +9,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@rails/actioncable": "^6.1.2",
+    "@rails/actioncable": "^6.1.3",
     "@rails/ujs": "^6.1.3",
     "@rails/webpacker": "^5.2.1",
     "CSSBox": "TheLastProject/CSSBox",
