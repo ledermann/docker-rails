@@ -6,6 +6,9 @@ RUN rm .browserslistrc babel.config.js package.json postcss.config.js yarn.lock
 FROM ledermann/rails-base-final:3.0.0-alpine
 LABEL maintainer="georg@ledermann.dev"
 
+# Workaround for BuildKit to trigger Builder's ONBUILDs to finish
+COPY --from=Builder /etc/alpine-release /tmp/dummy
+
 # Add Alpine packages
 RUN apk add --no-cache imagemagick
 
