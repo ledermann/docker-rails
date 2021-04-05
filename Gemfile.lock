@@ -138,7 +138,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
-    email_validator (2.2.2)
+    email_validator (2.2.3)
       activemodel
     errbase (0.2.1)
     erubi (1.10.0)
@@ -307,7 +307,7 @@ GEM
     regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rollbar (3.1.2)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
