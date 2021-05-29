@@ -318,7 +318,7 @@ GEM
     request_store (1.5.0)
       rack (>= 1.4)
     rexml (3.2.5)
-    rollbar (3.1.2)
+    rollbar (3.2.0)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
