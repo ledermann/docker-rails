@@ -8,11 +8,12 @@ services:
       - db-data:/var/lib/postgresql/data
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
     volumes:
       - es-data:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
+      - xpack.security.enabled=false
 
   redis:
     image: redis:alpine
