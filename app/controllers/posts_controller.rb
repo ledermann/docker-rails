@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     Post.friendly.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:title, :content, :copyright, clips_attributes: [ :id, :image, :_destroy ])
   end
