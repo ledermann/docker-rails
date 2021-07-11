@@ -1492,13 +1492,13 @@ autocompleter@^6.1.0:
   resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-6.1.0.tgz#39f21d1ff53ba5b012ad1b1da0182b234268eff2"
   integrity sha512-w+gPtAuwL+0BY33rwtFaliZ2TW/iJlbQ0AaFFi7sy7kh1MdOM5VpAMJ2s/6yygIkWkLQP8WF+ajlG39Ft8459Q==
 
-autoprefixer@^10.2.6:
-  version "10.2.6"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.6.tgz#aadd9ec34e1c98d403e01950038049f0eb252949"
-  integrity sha512-8lChSmdU6dCNMCQopIf4Pe5kipkAGj/fvTMslCsih0uHpOrXOPUEVOmYMMqmw3cekQkSD7EhIeuYl5y0BLdKqg==
+autoprefixer@^10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.3.0.tgz#c60803dce9268f7fe0a5e5c1fe48a74356d7b864"
+  integrity sha512-BzVzdjs47nT3MphTddr8eSsPVEIUCF96X6iC8V5iEB8RtxrU+ybtdhHV5rsqRqOsoyh/acQaYs7YupHPUECgmg==
   dependencies:
     browserslist "^4.16.6"
-    caniuse-lite "^1.0.30001230"
+    caniuse-lite "^1.0.30001243"
     colorette "^1.2.2"
     fraction.js "^4.1.1"
     normalize-range "^0.1.2"
@@ -1959,10 +1959,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001230:
-  version "1.0.30001240"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001240.tgz#ec15d125b590602c8731545c5351ff054ad2d52f"
-  integrity sha512-nb8mDzfMdxBDN7ZKx8chWafAdBp5DAAlpWvNyUGe5tcDWd838zpzDN3Rah9cjCqhfOKkrvx40G2SDtP0qiWX/w==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001243:
+  version "1.0.30001243"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001243.tgz#d9250155c91e872186671c523f3ae50cfc94a3aa"
+  integrity sha512-vNxw9mkTBtkmLFnJRv/2rhs1yufpDfCkBZexG3Y0xdOH2Z/eE/85E4Dl5j1YUN34nZVsSp6vVRFQRrez9wJMRA==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
