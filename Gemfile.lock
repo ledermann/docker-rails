@@ -116,7 +116,7 @@ GEM
     connection_pool (2.2.5)
     content_disposition (1.0.0)
     crass (1.0.6)
-    css_parser (1.9.0)
+    css_parser (1.10.0)
       addressable
     diff-lcs (1.4.4)
     docile (1.4.0)
