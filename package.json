@@ -8,7 +8,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@rails/actioncable": "^6.1.4",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "^5.4.0",
