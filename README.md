@@ -5,7 +5,7 @@
 
 Simple Rails 6.1 application to demonstrate using Docker for production deployment. The application is a very simple kind of CMS (content management system) allowing to manage posts. Beside the boring [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality it has some non-default features.
 
-This project aims to build a lean Docker image for use in production. Therefore it's based on the official Alpine Ruby image, uses multi-stage building and some [optimizations that I described in my blog](https://www.georg-ledermann.de/blog/2018/04/19/dockerize-rails-the-lean-way/). This results in an image size of ~80MB.
+This project aims to build a lean Docker image for use in production. Therefore it's based on the official Alpine Ruby image, uses multi-stage building and some [optimizations that I described in my blog](https://ledermann.dev/blog/2018/04/19/dockerize-rails-the-lean-way/). This results in an image size of ~80MB.
 
 
 ## Features
@@ -78,4 +78,4 @@ The stack is ready to host with [traefik](https://traefik.io/) or [nginx proxy](
 
 ## Demo
 
-A demo installation is set up on [https://docker-rails.georg-ledermann.de](https://docker-rails.georg-ledermann.de).
+A demo installation is set up on [https://docker-rails.ledermann.dev](https://docker-rails.ledermann.dev).
