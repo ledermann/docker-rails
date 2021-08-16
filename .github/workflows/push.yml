@@ -75,21 +75,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
 
-      - name: Login to GitHub Package Registry
-        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.PACKAGES_TOKEN }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build, push and deploy the LATEST image
         if: github.ref == 'refs/heads/develop'
         run: |
           export COMMIT_TIME=$(git show -s --format=%cD ${GITHUB_SHA})
           export COMMIT_SHA=${GITHUB_SHA}
-          docker buildx build --build-arg COMMIT_TIME --build-arg COMMIT_SHA -t docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest .
-          docker push docker.pkg.github.com/ledermann/docker-rails/docker-rails:latest
+          docker buildx build --build-arg COMMIT_TIME --build-arg COMMIT_SHA -t ghcr.io/ledermann/docker-rails/docker-rails:latest .
+          docker push ghcr.io/ledermann/docker-rails/docker-rails:latest
           curl -X POST ${{ secrets.DEPLOY_HOOK_APP }}
           curl -X POST ${{ secrets.DEPLOY_HOOK_WORKER }}
 
       - name: Build and push the STABLE image
         if: github.ref == 'refs/heads/master'
         run: |
-          docker buildx build -t docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable .
-          docker push docker.pkg.github.com/ledermann/docker-rails/docker-rails:stable
+          docker buildx build -t ghcr.io/ledermann/docker-rails/docker-rails:stable .
+          docker push ghcr.io/ledermann/docker-rails/docker-rails:stable
