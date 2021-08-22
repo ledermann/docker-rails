@@ -126,12 +126,12 @@ GEM
       railties (>= 3.2)
     down (5.2.3)
       addressable (~> 2.8)
-    elasticsearch (7.14.0)
-      elasticsearch-api (= 7.14.0)
-      elasticsearch-transport (= 7.14.0)
-    elasticsearch-api (7.14.0)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
       multi_json
-    elasticsearch-transport (7.14.0)
+    elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
     email_spec (2.2.0)
@@ -379,9 +379,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (4.5.2)
+    searchkick (4.6.0)
       activemodel (>= 5)
-      elasticsearch (>= 6)
+      elasticsearch (>= 6, < 7.14)
       hashie
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
