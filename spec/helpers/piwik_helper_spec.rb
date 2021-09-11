@@ -10,8 +10,8 @@ describe PiwikHelper do
         allow(Rails.configuration.x).to receive(:piwik_id).and_return("42")
       end
 
-      it { expect(subject.lines.first.chomp).to  eq('<meta name="piwik-host" content="piwik.example.org" />') }
-      it { expect(subject.lines.second.chomp).to eq('<meta name="piwik-id" content="42" />') }
+      it { expect(subject.lines.first.chomp).to  eq('<meta name="piwik-host" content="piwik.example.org">') }
+      it { expect(subject.lines.second.chomp).to eq('<meta name="piwik-id" content="42">') }
     end
 
     context "without env vars" do
