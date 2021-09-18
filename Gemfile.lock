@@ -142,7 +142,7 @@ GEM
       activemodel
     errbase (0.2.1)
     erubi (1.10.0)
-    et-orbi (1.2.4)
+    et-orbi (1.2.5)
       tzinfo
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -175,7 +175,7 @@ GEM
     formatador (0.3.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
-    fugit (1.5.1)
+    fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
     globalid (0.5.2)
