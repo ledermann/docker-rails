@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
 
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import $ from 'jquery'
 
 import 'blueimp-file-upload/js/vendor/jquery.ui.widget'

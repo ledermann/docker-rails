@@ -9,6 +9,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@hotwired/stimulus": "^3.0.0",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@rails/actioncable": "^6.1.4",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "^5.4.3",
