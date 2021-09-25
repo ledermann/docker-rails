@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import autocomplete from 'autocompleter'
 import 'autocompleter/autocomplete.css'
 
