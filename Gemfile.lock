@@ -235,7 +235,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_magick (4.11.0)
-    mini_mime (1.1.1)
+    mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
