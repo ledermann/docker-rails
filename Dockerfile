@@ -14,5 +14,5 @@ RUN apk add --no-cache imagemagick
 
 USER app
 
-# Start up
-CMD ["docker/startup.sh"]
+# Script to be executed every time the container starts
+ENTRYPOINT ["docker/startup.sh"]
