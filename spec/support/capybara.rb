@@ -11,22 +11,11 @@ RSpec.configure do |config|
   end
 
   config.before :each, type: :system, js: true do
-    driven_by(
-      :selenium,
-      using: :chrome,
-      options: {
-        desired_capabilities: {
-          chromeOptions: {
-            args: %w[headless],
-            w3c: false
-          }
-        }
-      }
-    )
+    driven_by :selenium, using: :headless_chrome
   end
 
   config.after :each, type: :system, js: true do
-    page.driver.browser.manage.logs.get(:browser).each do |log|
+    page.driver.browser.logs.get(:browser).each do |log|
       case log.message
       when /This page includes a password or credit card input in a non-secure context/
         # Ignore this warning in tests
