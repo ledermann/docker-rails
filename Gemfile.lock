@@ -118,7 +118,7 @@ GEM
     crass (1.0.6)
     css_parser (1.11.0)
       addressable
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     docile (1.4.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
