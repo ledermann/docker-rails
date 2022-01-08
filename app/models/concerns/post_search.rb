@@ -20,7 +20,7 @@ module PostSearch
 
   def search_data
     {
-      title:    title,
+      title:,
       content:  content_as_plaintext,
       combined: "#{title} #{content_as_plaintext}"
     }

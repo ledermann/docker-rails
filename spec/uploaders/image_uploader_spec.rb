@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ImageUploader do
   let(:post) { create :post }
-  let(:clip) { create :clip, post: post }
+  let(:clip) { create :clip, post: }
 
   before { clip.reload }
 

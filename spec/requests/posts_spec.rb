@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Posts", type: :request do
   let!(:post) { create(:post, id: 42, title: 'Foo', content: 'Lorem ipsum') }
-  let!(:clip) { create(:clip, id: 123, post: post) }
+  let!(:clip) { create(:clip, id: 123, post:) }
 
   describe 'GET /posts' do
     context "without query param" do

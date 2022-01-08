@@ -8,7 +8,7 @@ module SystemTest
 
     def sign_in
       password = "password"
-      user = FactoryBot.create(:user, password: password)
+      user = FactoryBot.create(:user, password:)
       sign_in_with user.email, password
     end
 

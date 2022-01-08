@@ -24,7 +24,7 @@ class User < ApplicationRecord
     {
       sub: id,
       admin: is_admin,
-      email: email
+      email:
     }
   end
 

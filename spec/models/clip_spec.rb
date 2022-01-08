@@ -14,7 +14,7 @@ end
 
 describe Clip, 'created for Post' do
   let(:post) { create :post, updated_at: 10.days.ago }
-  let(:clip) { create :clip, post: post  }
+  let(:clip) { create :clip, post: }
 
   it "touches post" do
     clip
