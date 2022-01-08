@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
-import $ from 'jquery'
-import 'parsleyjs'
+import { Controller } from '@hotwired/stimulus';
+import $ from 'jquery';
+import 'parsleyjs';
 
 export default class extends Controller {
   connect() {
@@ -10,8 +10,8 @@ export default class extends Controller {
       errorsWrapper: '<div></div>',
       errorTemplate: '<span class="form-text text-danger"></span>',
       classHandler(ParsleyField) {
-        return ParsleyField.$element.parent()
-      }
-    })
+        return ParsleyField.$element.parent();
+      },
+    });
   }
 }

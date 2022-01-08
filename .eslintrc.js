@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   plugins: [],
   extends: [
@@ -13,29 +13,31 @@ module.exports = {
     // override/add rules settings here, such as:
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'semi': ['error', 'never'],
-    "class-methods-use-this": [0],
-    'quotes': ['warn', 'single'],
-    "no-multiple-empty-lines": ["error", {
-      "max": 2
+    'class-methods-use-this': [0],
+    quotes: ['warn', 'single'],
+    'no-multiple-empty-lines': ['error', {
+      max: 2,
     }],
-    "no-unexpected-multiline": "warn",
+    'no-unexpected-multiline': 'warn',
     'no-extra-semi': 'error',
-    "no-underscore-dangle": 0,
-    "prefer-const": ["error"],
-    "getter-return": ["error"],
-    "comma-dangle": ["error", "never"],
-    "object-curly-spacing": 2,
-    "object-curly-newline": ["error", {
-      "ObjectExpression": "always",
-      "ObjectPattern": { "multiline": true },
-      "ImportDeclaration": "never",
-      "ExportDeclaration": { "multiline": true, "minProperties": 3 }
-    }]
+    'no-underscore-dangle': 0,
+    'prefer-const': ['error'],
+    'getter-return': ['error'],
+    'object-curly-spacing': 2,
+    'object-curly-newline': ['error', {
+      ObjectExpression: 'always',
+      ObjectPattern: {
+        multiline: true,
+      },
+      ImportDeclaration: 'never',
+      ExportDeclaration: {
+        multiline: true, minProperties: 3,
+      },
+    }],
   },
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: "module"
-  }
-}
+    sourceType: 'module',
+  },
+};
