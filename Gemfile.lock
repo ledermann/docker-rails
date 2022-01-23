@@ -183,7 +183,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    formatador (0.3.0)
+    formatador (1.0.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     fugit (1.5.2)
