@@ -27,7 +27,10 @@ gem 'slim-rails'
 gem 'kaminari'
 gem 'redis', '~> 4.1'
 gem 'sidekiq'
-gem 'sidekiq-cron'
+
+# https://github.com/ondrejbartas/sidekiq-cron/pull/309
+gem 'sidekiq-cron', github: 'D1ceWard/sidekiq-cron', branch: 'hotfix/pipelining_depreciation'
+
 gem 'searchkick'
 gem 'rack'
 gem 'clearance'
