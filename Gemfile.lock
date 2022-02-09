@@ -516,7 +516,7 @@ DEPENDENCIES
   pundit
   rack
   rack-cors
-  rails (~> 7.0.0)
+  rails (~> 7.0.2)
   redis (~> 4.1)
   rollbar
   rspec-rails
