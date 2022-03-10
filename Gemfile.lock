@@ -158,7 +158,7 @@ GEM
       activemodel
     errbase (0.2.2)
     erubi (1.10.0)
-    et-orbi (1.2.6)
+    et-orbi (1.2.7)
       tzinfo
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
