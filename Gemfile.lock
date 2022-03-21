@@ -242,7 +242,7 @@ GEM
       rails (>= 4.2)
     launchy (2.5.0)
       addressable (~> 2.7)
-    letter_opener (1.8.0)
+    letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
