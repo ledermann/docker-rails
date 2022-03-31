@@ -31,7 +31,8 @@ gem 'sidekiq'
 # https://github.com/ondrejbartas/sidekiq-cron/pull/309
 gem 'sidekiq-cron', github: 'D1ceWard/sidekiq-cron', branch: 'hotfix/pipelining_depreciation'
 
-gem 'searchkick', '< 5'
+gem 'searchkick'
+gem 'elasticsearch', '< 7.14'
 gem 'rack'
 gem 'clearance'
 gem 'knock'

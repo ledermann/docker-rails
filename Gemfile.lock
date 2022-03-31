@@ -414,9 +414,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (4.6.3)
-      activemodel (>= 5)
-      elasticsearch (>= 6, < 7.14)
+    searchkick (5.0.3)
+      activemodel (>= 5.2)
       hashie
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
@@ -498,6 +497,7 @@ DEPENDENCIES
   capybara
   clearance
   dotenv-rails
+  elasticsearch (< 7.14)
   email_spec
   factory_bot_rails
   friendly_id
@@ -524,7 +524,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   sassc-rails
-  searchkick (< 5)
+  searchkick
   selenium-webdriver
   shrine
   sidekiq
