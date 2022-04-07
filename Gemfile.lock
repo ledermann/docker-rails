@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/D1ceWard/sidekiq-cron.git
-  revision: 56b3d32aeedeb5dfdebbf498d0079dbb0bbee890
-  branch: hotfix/pipelining_depreciation
-  specs:
-    sidekiq-cron (1.2.0)
-      fugit (~> 1.1)
-      sidekiq (>= 4.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -428,6 +419,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-cron (1.3.0)
+      fugit (>= 1.1)
+      sidekiq (>= 4.2.1)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -526,7 +520,7 @@ DEPENDENCIES
   selenium-webdriver
   shrine
   sidekiq
-  sidekiq-cron!
+  sidekiq-cron
   simple_form (>= 3.5.1)
   simplecov
   slim-rails
