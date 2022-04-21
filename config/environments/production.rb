@@ -35,8 +35,11 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-  if ENV['APP_HOST'] || ENV['FRONTEND_HOST']
-    config.action_cable.allowed_request_origins = [ ENV['APP_HOST'], ENV['FRONTEND_HOST'] ].compact.map do |allowed_host|
+  if ENV.fetch('APP_HOST', nil) || ENV.fetch('FRONTEND_HOST', nil)
+    config.action_cable.allowed_request_origins = [
+      ENV.fetch('APP_HOST', nil),
+      ENV.fetch('FRONTEND_HOST', nil)
+    ].compact.map do |allowed_host|
       /(?:^(http|https):\/\/)?(?:([^.]+)\.)?#{allowed_host}/
     end
   else
@@ -45,7 +48,7 @@ Rails.application.configure do
   end
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = ENV['APP_SSL'] == 'true'
+  config.force_ssl = ENV.fetch('APP_SSL', nil) == 'true'
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
@@ -56,7 +59,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :redis_cache_store, { url: ENV['REDIS_CACHE_URL'] }
+  config.cache_store = :redis_cache_store, { url: ENV.fetch('REDIS_CACHE_URL', nil) }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -69,16 +72,16 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: ENV['APP_HOST'] }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APP_HOST', nil) }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              ENV['SMTP_SERVER'],
+    address:              ENV.fetch('SMTP_SERVER', nil),
     port:                 ENV['SMTP_PORT'].to_i,
-    domain:               ENV['SMTP_DOMAIN'],
-    user_name:            ENV['SMTP_USERNAME'],
-    password:             ENV['SMTP_PASSWORD'],
-    authentication:       ENV['SMTP_AUTHENTICATION'],
+    domain:               ENV.fetch('SMTP_DOMAIN', nil),
+    user_name:            ENV.fetch('SMTP_USERNAME', nil),
+    password:             ENV.fetch('SMTP_PASSWORD', nil),
+    authentication:       ENV.fetch('SMTP_AUTHENTICATION', nil),
     enable_starttls_auto: ENV['SMTP_ENABLE_STARTTLS_AUTO'].present?
   }
 

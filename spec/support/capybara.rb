@@ -1,5 +1,5 @@
 # To use save_and_open_page with CSS and JS loaded, get assets from this host
-Capybara.asset_host = "http://#{ENV['APP_HOST']}"
+Capybara.asset_host = "http://#{ENV.fetch('APP_HOST', nil)}"
 
 # Don't show Puma startup message
 require 'action_dispatch/system_testing/server'

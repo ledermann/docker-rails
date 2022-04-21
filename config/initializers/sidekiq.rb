@@ -1,6 +1,6 @@
 require 'sidekiq/api'
 
-redis_config = { url: ENV['REDIS_SIDEKIQ_URL'] }
+redis_config = { url: ENV.fetch('REDIS_SIDEKIQ_URL', nil) }
 
 Sidekiq.configure_server do |config|
   config.redis = redis_config
