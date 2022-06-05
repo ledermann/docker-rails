@@ -278,7 +278,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.13.14)
-    panko_serializer (0.7.6)
+    panko_serializer (0.7.7)
       activesupport
       oj (> 3.11.0, < 4.0.0)
     paper_trail (12.3.0)
