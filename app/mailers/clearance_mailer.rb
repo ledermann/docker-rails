@@ -4,8 +4,7 @@ class ClearanceMailer < ApplicationMailer
     mail(
       to: @user.email,
       subject: I18n.t(
-        :change_password,
-        scope: [:clearance, :models, :clearance_mailer]
+        'clearance.models.clearance_mailer.change_password'
       )
     )
   end
@@ -15,8 +14,7 @@ class ClearanceMailer < ApplicationMailer
     mail(
       to: @user.email,
       subject: I18n.t(
-        :registration_confirmation,
-        scope: [:clearance, :models, :clearance_mailer]
+        'clearance.models.clearance_mailer.registration_confirmation'
       )
     )
   end
