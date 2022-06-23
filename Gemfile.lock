@@ -406,7 +406,7 @@ GEM
     searchkick (5.0.3)
       activemodel (>= 5.2)
       hashie
-    selenium-webdriver (4.2.1)
+    selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
