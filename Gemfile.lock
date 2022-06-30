@@ -422,7 +422,7 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    sidekiq-cron (1.5.1)
+    sidekiq-cron (1.6.0)
       fugit (~> 1)
       sidekiq (>= 4.2.1)
     simple_form (5.1.0)
