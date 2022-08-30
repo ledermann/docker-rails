@@ -25,7 +25,7 @@ gem 'panko_serializer'
 
 gem 'slim-rails'
 gem 'kaminari'
-gem 'redis', '!= 4.8.0' # https://github.com/mperham/sidekiq/issues/5488
+gem 'redis', '~> 4.1'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 
