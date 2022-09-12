@@ -141,7 +141,7 @@ GEM
     elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
-    email_spec (2.2.0)
+    email_spec (2.2.1)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
