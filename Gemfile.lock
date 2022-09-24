@@ -109,7 +109,7 @@ GEM
       xpath (~> 3.2)
     chartkick (4.2.1)
     childprocess (4.1.0)
-    clearance (2.6.0)
+    clearance (2.6.1)
       actionmailer (>= 5.0)
       activemodel (>= 5.0)
       activerecord (>= 5.0)
