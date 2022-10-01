@@ -1,7 +1,7 @@
 FROM ghcr.io/ledermann/rails-base-builder:3.1.2-alpine as Builder
 
 # Remove some files not needed in resulting image
-RUN rm .browserslistrc babel.config.js package.json postcss.config.js yarn.lock
+RUN rm .browserslistrc babel.config.js package.json postcss.config.js
 
 FROM ghcr.io/ledermann/rails-base-final:3.1.2-alpine
 LABEL maintainer="georg@ledermann.dev"
