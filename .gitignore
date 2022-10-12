@@ -48,3 +48,4 @@
 # Ignore JS packs
 /public/packs
 /public/packs-test
+Brewfile.lock.json
