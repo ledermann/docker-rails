@@ -8,10 +8,10 @@ do
 done
 echo "PostgreSQL is up and running"
 
-# Wait for Elasticsearch
-until nc -z -v -w30 "$ELASTICSEARCH_HOST" 9200
+# Wait for OpenSearch
+until nc -z -v -w30 "$OPENSEARCH_HOST" 9200
 do
-  echo 'Waiting for Elasticsearch...'
+  echo 'Waiting for OpenSearch...'
   sleep 1
 done
-echo "Elasticsearch is up and running"
+echo "OpenSearch is up and running"

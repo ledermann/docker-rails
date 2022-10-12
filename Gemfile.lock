@@ -132,14 +132,6 @@ GEM
       railties (>= 3.2)
     down (5.3.1)
       addressable (~> 2.8)
-    elasticsearch (7.13.3)
-      elasticsearch-api (= 7.13.3)
-      elasticsearch-transport (= 7.13.3)
-    elasticsearch-api (7.13.3)
-      multi_json
-    elasticsearch-transport (7.13.3)
-      faraday (~> 1)
-      multi_json
     email_spec (2.2.1)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
@@ -155,29 +147,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (1.10.2)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
+    faraday (2.6.0)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
+    faraday-net_http (3.0.1)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -252,7 +225,6 @@ GEM
     minitest (5.16.3)
     msgpack (1.6.0)
     multi_json (1.15.0)
-    multipart-post (2.2.3)
     nenv (0.3.0)
     net-imap (0.3.1)
       net-protocol
@@ -272,6 +244,14 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.13.21)
+    opensearch-api (2.0.2)
+      multi_json
+    opensearch-ruby (2.0.3)
+      opensearch-api (= 2.0.2)
+      opensearch-transport (~> 2.0.0)
+    opensearch-transport (2.0.1)
+      faraday (>= 1.0, < 3)
+      multi_json
     panko_serializer (0.7.7)
       activesupport
       oj (> 3.11.0, < 4.0.0)
@@ -398,7 +378,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (5.0.4)
+    searchkick (5.0.5)
       activemodel (>= 5.2)
       hashie
     selenium-webdriver (4.5.0)
@@ -485,7 +465,6 @@ DEPENDENCIES
   capybara
   clearance
   dotenv-rails
-  elasticsearch (< 7.14)
   email_spec
   factory_bot_rails
   friendly_id
@@ -496,6 +475,7 @@ DEPENDENCIES
   launchy
   letter_opener
   mini_magick
+  opensearch-ruby
   panko_serializer
   paper_trail
   pg (~> 1.0)

@@ -8,7 +8,7 @@ This project aims to build a lean Docker image for use in production. Therefore 
 ## Features
 
 - Auto refresh via [ActionCable](https://github.com/rails/rails/tree/master/actioncable): If a displayed post gets changed by another user/instance, it refreshes automatically using the publish/subscribe pattern
-- Full text search via [Elasticsearch](https://www.elastic.co/products/elasticsearch) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content (with suggestions)
+- Full text search via [OpenSearch](https://opensearch.org/) and the [Searchkick](https://github.com/ankane/searchkick) gem to find post content (with suggestions)
 - Autocompletion with [autocompleter](https://github.com/kraaden/autocomplete)
 - Editing HTML content with the WYSIWYG JavaScript editor [Trix](https://github.com/basecamp/trix)
 - Uploading images directly to S3 with the [Shrine](https://github.com/janko-m/shrine) gem and [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
@@ -35,7 +35,7 @@ There is an example **docker-compose.production.yml**. The whole stack is divide
 - **app:** Main part. It contains the Rails code to handle web requests (by using the [Puma](https://github.com/puma/puma) gem). See the [Dockerfile](/Dockerfile) for details. The image is based on the Alpine variant of the official [Ruby image](https://hub.docker.com/_/ruby/) and uses multi-stage building.
 - **worker:** Background processing. It contains the same Rails code, but only runs Sidekiq
 - **db:** PostgreSQL database
-- **elasticsearch:** Full text search engine
+- **opensearch:** Full text search engine
 - **redis:** In-memory key/value store (used by Sidekiq, ActionCable and for caching)
 - **backup:** Regularly backups the database as a dump via CRON to an Amazon S3 bucket
 

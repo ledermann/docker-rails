@@ -30,7 +30,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 
 gem 'searchkick'
-gem 'elasticsearch', '< 7.14'
+gem 'opensearch-ruby'
 gem 'rack'
 gem 'clearance'
 gem 'knock'

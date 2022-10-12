@@ -7,13 +7,13 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
+  opensearch:
+    image: opensearchproject/opensearch:latest
     volumes:
-      - es-data:/usr/share/elasticsearch/data
+      - os-data:/usr/share/opensearch/data
     environment:
       - discovery.type=single-node
-      - xpack.security.enabled=false
+      - plugins.security.disabled=true
 
   redis:
     image: redis:alpine
@@ -22,7 +22,7 @@ services:
     build:
       context: .
     environment:
-      - ELASTICSEARCH_HOST=elasticsearch
+      - OPENSEARCH_HOST=opensearch
       - REDIS_SIDEKIQ_URL=redis://redis:6379/0
       - REDIS_CABLE_URL=redis://redis:6379/1
       - REDIS_CACHE_URL=redis://redis:6379/2
@@ -54,7 +54,7 @@ services:
     ports:
       - "3000"
     links:
-      - elasticsearch
+      - opensearch
       - db
       - redis
 
@@ -67,4 +67,4 @@ services:
 
 volumes:
   db-data:
-  es-data:
+  os-data:

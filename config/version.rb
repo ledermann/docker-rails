@@ -36,7 +36,7 @@ module DockerRails
       ActiveRecord::Base.connection.select_value('SHOW server_version;')
     end
 
-    def elasticsearch_version
+    def opensearch_version
       Searchkick.server_version
     end
   end

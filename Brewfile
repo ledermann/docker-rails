@@ -1,6 +1,4 @@
-tap 'elastic/tap'
-
-brew 'elastic/tap/elasticsearch-full'
+brew 'opensearch'
 brew 'imagemagick'
 brew 'postgresql@14'
 brew 'node'
