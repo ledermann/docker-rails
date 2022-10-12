@@ -2,9 +2,9 @@ tap 'elastic/tap'
 
 brew 'elastic/tap/elasticsearch-full'
 brew 'imagemagick'
-brew 'postgresql'
+brew 'postgresql@14'
 brew 'node'
 brew 'redis'
-brew 'minio/stable/minio'
+brew 'minio'
 
 cask 'chromedriver'
