@@ -378,7 +378,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    searchkick (5.0.5)
+    searchkick (5.1.0)
       activemodel (>= 5.2)
       hashie
     selenium-webdriver (4.5.0)
