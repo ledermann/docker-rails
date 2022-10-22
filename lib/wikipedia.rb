@@ -17,9 +17,7 @@ module Wikipedia
     private
 
     def names
-      as_json['query']['pages'].to_a.first.second['links'].map do |hash|
-        hash['title']
-      end
+      as_json['query']['pages'].to_a.first.second['links'].pluck('title')
     end
 
     def next_page
