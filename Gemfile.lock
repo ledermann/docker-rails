@@ -255,9 +255,9 @@ GEM
     panko_serializer (0.7.7)
       activesupport
       oj (> 3.11.0, < 4.0.0)
-    paper_trail (13.0.0)
-      activerecord (>= 5.2)
-      request_store (~> 1.1)
+    paper_trail (14.0.0)
+      activerecord (>= 6.0)
+      request_store (~> 1.4)
     parallel (1.22.1)
     parser (3.1.3.0)
       ast (~> 2.4.1)
