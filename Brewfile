@@ -1,6 +1,6 @@
 brew 'opensearch'
 brew 'imagemagick'
-brew 'postgresql@14'
+brew 'postgresql@15'
 brew 'node'
 brew 'redis'
 brew 'minio'
