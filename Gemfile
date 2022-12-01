@@ -25,8 +25,8 @@ gem 'panko_serializer'
 
 gem 'slim-rails'
 gem 'kaminari'
-gem 'redis', '~> 4.1'
-gem 'sidekiq'
+gem 'redis'
+gem 'sidekiq', '< 7'
 gem 'sidekiq-cron'
 
 gem 'searchkick'

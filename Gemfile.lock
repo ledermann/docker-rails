@@ -390,8 +390,8 @@ GEM
     shrine (3.4.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
-    sidekiq (6.5.7)
-      connection_pool (>= 2.2.5)
+    sidekiq (6.5.8)
+      connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
     sidekiq-cron (1.9.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   rack
   rack-cors
   rails (~> 7.0.2, >= 7.0.2.3)
-  redis (~> 4.1)
+  redis
   rollbar
   rspec-rails
   rubocop
@@ -494,7 +494,7 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   shrine
-  sidekiq
+  sidekiq (< 7)
   sidekiq-cron
   simple_form (>= 3.5.1)
   simplecov
