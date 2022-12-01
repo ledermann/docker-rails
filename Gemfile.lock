@@ -244,11 +244,11 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.13.23)
-    opensearch-api (2.0.2)
+    opensearch-api (2.1.0)
       multi_json
-    opensearch-ruby (2.0.3)
-      opensearch-api (= 2.0.2)
-      opensearch-transport (~> 2.0.0)
+    opensearch-ruby (2.1.0)
+      opensearch-api (~> 2.1)
+      opensearch-transport (~> 2.0)
     opensearch-transport (2.0.1)
       faraday (>= 1.0, < 3)
       multi_json
