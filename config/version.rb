@@ -29,7 +29,7 @@ module DockerRails
     end
 
     def redis_version
-      Sidekiq.redis_info['redis_version']
+      Redis.new(url: ENV.fetch('REDIS_SIDEKIQ_URL', nil)).info['redis_version']
     end
 
     def postgresql_version
