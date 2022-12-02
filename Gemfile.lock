@@ -249,7 +249,7 @@ GEM
     opensearch-ruby (2.1.0)
       opensearch-api (~> 2.1)
       opensearch-transport (~> 2.0)
-    opensearch-transport (2.0.1)
+    opensearch-transport (2.1.0)
       faraday (>= 1.0, < 3)
       multi_json
     panko_serializer (0.7.7)
