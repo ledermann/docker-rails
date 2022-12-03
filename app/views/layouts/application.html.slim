@@ -8,11 +8,15 @@ html[lang="en"]
     = csrf_meta_tags
     = csp_meta_tag
     = action_cable_meta_tag
-    = piwik_meta_tags
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body data-controller="tooltip icons analytics"
+    - if Rails.env.production? && Rails.configuration.x.plausible_script
+      = javascript_include_tag Rails.configuration.x.plausible_script,
+                               defer: true,
+                               data: { domain: Rails.configuration.x.app_host }
+
+  body data-controller="tooltip icons"
     = render 'layouts/navbar'
 
     #main

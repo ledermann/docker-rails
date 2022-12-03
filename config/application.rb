@@ -50,9 +50,9 @@ module DockerRails
 
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater if ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-    config.x.app_email  = ENV.fetch('APP_EMAIL', nil)
-    config.x.piwik_host = ENV.fetch('PIWIK_HOST', nil)
-    config.x.piwik_id   = ENV.fetch('PIWIK_ID', nil)
+    config.x.app_email = ENV.fetch('APP_EMAIL', nil)
+    config.x.plausible_script = ENV.fetch('PLAUSIBLE_SCRIPT', nil)
+    config.x.app_host = ENV.fetch('APP_HOST', nil)
   end
 end
 
