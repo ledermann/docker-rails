@@ -123,6 +123,7 @@ GEM
     crass (1.0.6)
     css_parser (1.12.0)
       addressable
+    date (3.3.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
     dotenv (2.8.1)
@@ -228,7 +229,8 @@ GEM
     msgpack (1.6.0)
     multi_json (1.15.0)
     nenv (0.3.0)
-    net-imap (0.3.1)
+    net-imap (0.3.2)
+      date
       net-protocol
     net-pop (0.1.2)
       net-protocol
