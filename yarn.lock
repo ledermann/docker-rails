@@ -7221,10 +7221,10 @@ toidentifier@1.0.1:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
 
-trix@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-2.0.3.tgz#6c60a2cdb62d36a8d67642a698695e72939e92bf"
-  integrity sha512-QIz71n75odwftH+YMg/oYPYsU7C+MwcEpWcQJDYKlnQ2Gu27zeXFTKbeTW2+UI4tHgQ2TlMiNpbqXLvJqcTzAg==
+trix@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.0.4.tgz#37ec8092e5d561462cee1d96cc402aa5c5f8c04e"
+  integrity sha512-WOMKqwCVti0i3RVaDrMnrEZWs6XMpFoCfUvFCZNd15KndAy6MsYQscizxEpFiCLUlo+rXMkueK0ldRDo5xpVJA==
 
 ts-pnp@^1.1.6:
   version "1.2.0"
