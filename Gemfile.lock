@@ -139,7 +139,7 @@ GEM
     email_validator (2.2.4)
       activemodel
     errbase (0.2.2)
-    erubi (1.11.0)
+    erubi (1.12.0)
     et-orbi (1.2.7)
       tzinfo
     factory_bot (6.2.1)
