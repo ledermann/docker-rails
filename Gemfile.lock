@@ -121,7 +121,7 @@ GEM
     connection_pool (2.3.0)
     content_disposition (1.0.0)
     crass (1.0.6)
-    css_parser (1.13.0)
+    css_parser (1.14.0)
       addressable
     date (3.3.3)
     diff-lcs (1.5.0)
