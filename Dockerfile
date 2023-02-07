@@ -14,5 +14,8 @@ RUN apk add --no-cache imagemagick
 
 USER app
 
+# Enable YJIT
+ENV RUBY_YJIT_ENABLE=1
+
 # Start up
 CMD ["docker/startup.sh"]

@@ -27,6 +27,9 @@ jobs:
           discovery.type: single-node
           plugins.security.disabled: true
 
+    env:
+      RUBY_YJIT_ENABLE: 1
+
     steps:
       - uses: actions/checkout@v3
 
