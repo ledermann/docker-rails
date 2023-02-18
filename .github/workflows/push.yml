@@ -68,6 +68,7 @@ jobs:
           AWS_BUCKET: my-bucket
           AWS_REGION: eu-central-1
           CI: true
+          NODE_OPTIONS: '--openssl-legacy-provider'
         run: |
           bundle exec rake assets:precompile
           bundle exec rake db:create db:schema:load
