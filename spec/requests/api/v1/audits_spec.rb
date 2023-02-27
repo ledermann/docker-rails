@@ -9,7 +9,7 @@ describe "Audits", type: :request do
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq('application/json; charset=utf-8')
 
-      json_data = JSON.parse(response.body)
+      json_data = response.parsed_body
 
       audits = json_data['audits']
       expect(audits.length).to eq(1)
