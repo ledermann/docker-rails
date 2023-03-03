@@ -284,7 +284,7 @@ GEM
       activesupport (>= 3.0.0)
     raabro (1.4.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-cors (2.0.0)
       rack (>= 2.0.0)
     rack-proxy (0.7.6)
