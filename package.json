@@ -20,7 +20,7 @@
     "blueimp-load-image": "^5.16.0",
     "blueimp-tmpl": "^3.20.0",
     "bootstrap": "^4.6.2",
-    "jquery": "^3.6.3",
+    "jquery": "^3.6.4",
     "parsleyjs": "^2.9.2",
     "popper.js": "^1.16.1",
     "trix": "^2.0.4",
