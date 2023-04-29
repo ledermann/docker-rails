@@ -265,7 +265,7 @@ GEM
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
-    pg (1.5.2)
+    pg (1.5.3)
     premailer (1.21.0)
       addressable
       css_parser (>= 1.12.0)
