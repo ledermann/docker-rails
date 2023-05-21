@@ -130,7 +130,7 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    down (5.4.0)
+    down (5.4.1)
       addressable (~> 2.8)
     email_spec (2.2.1)
       htmlentities (~> 4.3.3)
