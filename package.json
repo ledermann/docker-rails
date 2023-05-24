@@ -12,7 +12,7 @@
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@rails/actioncable": "^7.0.4",
-    "@rails/ujs": "^7.0.4",
+    "@rails/ujs": "^7.0.5",
     "@rails/webpacker": "^5.4.4",
     "CSSBox": "TheLastProject/CSSBox",
     "autocompleter": "^8.0.3",
