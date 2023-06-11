@@ -255,7 +255,7 @@ GEM
     opensearch-transport (2.1.0)
       faraday (>= 1.0, < 3)
       multi_json
-    panko_serializer (0.7.9)
+    panko_serializer (0.8.0)
       activesupport
       oj (> 3.11.0, < 4.0.0)
     paper_trail (14.0.0)
