@@ -132,7 +132,7 @@ GEM
       railties (>= 3.2)
     down (5.4.1)
       addressable (~> 2.8)
-    email_spec (2.2.1)
+    email_spec (2.2.2)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
