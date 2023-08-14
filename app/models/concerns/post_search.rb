@@ -14,7 +14,7 @@ module PostSearch
       # Based on https://stackoverflow.com/a/28449868/57950
       doc = Nokogiri::HTML(content)
       doc.xpath('//style').remove
-      doc.xpath('//text()').map(&:text).map(&:strip).join(' ')
+      doc.xpath('//text()').map { |x| x.text.strip }.join(' ')
     end
   end
 
