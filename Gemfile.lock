@@ -289,7 +289,7 @@ GEM
     rack (2.2.8)
     rack-cors (2.0.1)
       rack (>= 2.0.0)
-    rack-proxy (0.7.6)
+    rack-proxy (0.7.7)
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
