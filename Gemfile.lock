@@ -250,14 +250,9 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.16.1)
-    opensearch-api (2.2.0)
-      multi_json
-    opensearch-ruby (2.1.0)
-      opensearch-api (~> 2.1)
-      opensearch-transport (~> 2.0)
-    opensearch-transport (2.1.0)
+    opensearch-ruby (3.0.1)
       faraday (>= 1.0, < 3)
-      multi_json
+      multi_json (>= 1.0)
     panko_serializer (0.8.1)
       activesupport
       oj (> 3.11.0, < 4.0.0)
