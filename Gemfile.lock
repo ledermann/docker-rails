@@ -432,7 +432,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     stringex (2.8.6)
-    temple (0.10.2)
+    temple (0.10.3)
     thor (1.2.2)
     tilt (2.3.0)
     timeout (0.4.0)
