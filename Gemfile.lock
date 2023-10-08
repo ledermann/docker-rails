@@ -91,7 +91,7 @@ GEM
     base64 (0.1.1)
     bcrypt (3.1.19)
     bindex (0.8.1)
-    blazer (3.0.0)
+    blazer (3.0.1)
       activerecord (>= 6.1)
       chartkick (>= 5)
       railties (>= 6.1)
