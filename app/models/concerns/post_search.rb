@@ -28,24 +28,27 @@ module PostSearch
 
   class_methods do
     def search_for(search_string, options = {})
-      search search_string, **{
-        fields:       [ :'title^10', :content, :combined ],
-        match:        :word_start,
-        suggest:      true,
-        highlight:    true,
-        misspellings: false
-      }.merge(options)
+      search search_string,
+             fields: [:'title^10', :content, :combined],
+             match: :word_start,
+             suggest: true,
+             highlight: true,
+             misspellings: false,
+             **options
     end
 
     def search_for_autocomplete(search_string, options = {})
-      search search_string, **{
-        fields:       [ :combined ],
-        match:        :word_start,
-        limit:        10,
-        load:         false,
-        highlight:    true,
-        misspellings: { prefix_length: 2, below: 3 }
-      }.merge(options)
+      search search_string,
+             fields: [:combined],
+             match: :word_start,
+             limit: 10,
+             load: false,
+             highlight: true,
+             misspellings: {
+               prefix_length: 2,
+               below: 3
+             },
+             **options
     end
 
     def autocomplete(search_string)
