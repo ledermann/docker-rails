@@ -11,7 +11,10 @@ RSpec.configure do |config|
   end
 
   config.before :each, type: :system, js: true do
-    driven_by :selenium, using: :headless_chrome
+    driven_by :selenium, using: :headless_chrome do |driver_option|
+      # Chrome 120 compatibility
+      driver_option.add_argument '--headless=new'
+    end
   end
 
   config.after :each, type: :system, js: true do
