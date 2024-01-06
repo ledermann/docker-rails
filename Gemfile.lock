@@ -232,7 +232,7 @@ GEM
     msgpack (1.7.2)
     multi_json (1.15.0)
     nenv (0.3.0)
-    net-imap (0.4.9)
+    net-imap (0.4.9.1)
       date
       net-protocol
     net-pop (0.1.2)
