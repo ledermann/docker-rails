@@ -328,7 +328,7 @@ GEM
       redis-client (>= 0.17.0)
     redis-client (0.19.1)
       connection_pool
-    regexp_parser (2.8.3)
+    regexp_parser (2.9.0)
     request_store (1.5.1)
       rack (>= 1.4)
     rexml (3.2.6)
