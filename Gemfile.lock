@@ -98,7 +98,7 @@ GEM
       csv
       railties (>= 6.1)
       safely_block (>= 0.4)
-    bootsnap (1.18.1)
+    bootsnap (1.18.2)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.40.0)
@@ -522,4 +522,4 @@ RUBY VERSION
    ruby 3.3.0p0
 
 BUNDLED WITH
-   2.5.3
+   2.5.5
