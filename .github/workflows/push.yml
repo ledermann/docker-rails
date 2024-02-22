@@ -25,7 +25,7 @@ jobs:
         ports: ["9200:9200"]
         env:
           discovery.type: single-node
-          plugins.security.disabled: true
+          DISABLE_SECURITY_PLUGIN: true
 
     env:
       RUBY_YJIT_ENABLE: 1

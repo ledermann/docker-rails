@@ -13,7 +13,7 @@ services:
       - os-data:/usr/share/opensearch/data
     environment:
       - discovery.type=single-node
-      - plugins.security.disabled=true
+      - DISABLE_SECURITY_PLUGIN=true
 
   redis:
     image: redis:alpine
