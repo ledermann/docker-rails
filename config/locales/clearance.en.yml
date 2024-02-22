@@ -26,6 +26,7 @@ en:
     confirmation_requested: We have send you an confirmation e-mail. Please click the link inside.
     confirmed_registration: Your account is confirmed. Now you can sign in with your password.
     failure_when_not_confirmed: Your account needs to be confirmed. Please look in your e-mail.
+    already_confirmed: Your account is already confirmed. You can sign in.
   helpers:
     label:
       password:
