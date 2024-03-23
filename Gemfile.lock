@@ -126,7 +126,7 @@ GEM
     crass (1.0.6)
     css_parser (1.16.0)
       addressable
-    csv (3.2.8)
+    csv (3.3.0)
     date (3.3.4)
     diff-lcs (1.5.1)
     docile (1.4.0)
