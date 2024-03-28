@@ -23,7 +23,7 @@
     "jquery": "^3.7.1",
     "parsleyjs": "^2.9.2",
     "popper.js": "^1.16.1",
-    "trix": "^2.0.10",
+    "trix": "^2.1.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
