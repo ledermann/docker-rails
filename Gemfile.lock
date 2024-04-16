@@ -329,7 +329,7 @@ GEM
       ffi (~> 1.0)
     redis (5.2.0)
       redis-client (>= 0.22.0)
-    redis-client (0.22.0)
+    redis-client (0.22.1)
       connection_pool
     regexp_parser (2.9.0)
     request_store (1.6.0)
