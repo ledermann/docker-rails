@@ -401,7 +401,7 @@ GEM
       websocket (~> 1.0)
     semantic_range (3.0.0)
     shellany (0.0.1)
-    shrine (3.5.0)
+    shrine (3.6.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
     sidekiq (7.2.4)
