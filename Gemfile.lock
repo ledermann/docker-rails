@@ -332,7 +332,7 @@ GEM
     redis-client (0.22.1)
       connection_pool
     regexp_parser (2.9.0)
-    request_store (1.6.0)
+    request_store (1.7.0)
       rack (>= 1.4)
     rexml (3.2.6)
     rollbar (3.5.2)
