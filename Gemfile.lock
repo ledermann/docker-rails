@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+    amazing_print (1.6.0)
     argon2 (2.3.0)
       ffi (~> 1.15)
       ffi-compiler (~> 1.0)
@@ -473,6 +474,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  amazing_print
   aws-sdk-s3
   blazer
   bootsnap

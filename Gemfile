@@ -78,6 +78,8 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   # gem 'rack-mini-profiler'
   gem 'letter_opener'
+
+  gem 'amazing_print'
 end
 
 group :test do
