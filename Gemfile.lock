@@ -233,6 +233,7 @@ GEM
     minitest (5.23.0)
     msgpack (1.7.2)
     multi_json (1.15.0)
+    mutex_m (0.2.0)
     nenv (0.3.0)
     net-http (0.4.1)
       uri
@@ -476,6 +477,7 @@ PLATFORMS
 DEPENDENCIES
   amazing_print
   aws-sdk-s3
+  base64
   blazer
   bootsnap
   capybara
@@ -491,6 +493,7 @@ DEPENDENCIES
   launchy
   letter_opener
   mini_magick
+  mutex_m
   opensearch-ruby
   panko_serializer
   paper_trail

@@ -53,6 +53,10 @@ gem 'aws-sdk-s3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Fix warnings about missing default gems in Ruby 3.3
+gem 'mutex_m'
+gem 'base64'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   # gem 'debug', platforms: [:mri, :mingw, :x64_mingw]
