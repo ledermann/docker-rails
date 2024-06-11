@@ -337,7 +337,7 @@ GEM
     regexp_parser (2.9.2)
     request_store (1.7.0)
       rack (>= 1.4)
-    rexml (3.2.9)
+    rexml (3.3.0)
       strscan
     rollbar (3.5.2)
     rspec (3.13.0)
