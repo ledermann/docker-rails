@@ -1,9 +1,9 @@
-FROM ghcr.io/ledermann/rails-base-builder:3.3.3-alpine as Builder
+FROM ghcr.io/ledermann/rails-base-builder:3.3.4-alpine as Builder
 
 # Remove some files not needed in resulting image
 RUN rm .browserslistrc babel.config.js package.json postcss.config.js
 
-FROM ghcr.io/ledermann/rails-base-final:3.3.3-alpine
+FROM ghcr.io/ledermann/rails-base-final:3.3.4-alpine
 LABEL maintainer="georg@ledermann.dev"
 
 # Workaround for BuildKit to trigger Builder's ONBUILDs to finish
