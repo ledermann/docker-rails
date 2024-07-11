@@ -260,7 +260,7 @@ GEM
       shellany (~> 0.0)
     oj (3.16.4)
       bigdecimal (>= 3.0)
-    opensearch-ruby (3.3.0)
+    opensearch-ruby (3.4.0)
       faraday (>= 1.0, < 3)
       multi_json (>= 1.0)
     panko_serializer (0.8.1)
