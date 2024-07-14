@@ -263,7 +263,7 @@ GEM
     opensearch-ruby (3.4.0)
       faraday (>= 1.0, < 3)
       multi_json (>= 1.0)
-    panko_serializer (0.8.1)
+    panko_serializer (0.8.2)
       activesupport
       oj (> 3.11.0, < 4.0.0)
     paper_trail (15.1.0)
