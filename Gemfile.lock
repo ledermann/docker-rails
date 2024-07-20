@@ -401,7 +401,7 @@ GEM
     searchkick (5.3.1)
       activemodel (>= 6.1)
       hashie
-    selenium-webdriver (4.22.0)
+    selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
