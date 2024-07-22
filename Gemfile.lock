@@ -137,9 +137,9 @@ GEM
       railties (>= 6.1)
     down (5.4.2)
       addressable (~> 2.8)
-    email_spec (2.2.2)
+    email_spec (2.3.0)
       htmlentities (~> 4.3.3)
-      launchy (~> 2.1)
+      launchy (>= 2.1, < 4.0)
       mail (~> 2.7)
     email_validator (2.2.4)
       activemodel
