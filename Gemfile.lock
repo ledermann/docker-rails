@@ -131,7 +131,7 @@ GEM
     csv (3.3.0)
     date (3.3.4)
     diff-lcs (1.5.1)
-    docile (1.4.0)
+    docile (1.4.1)
     dotenv (3.1.2)
     dotenv-rails (3.1.2)
       dotenv (= 3.1.2)
