@@ -114,7 +114,7 @@ GEM
     chartkick (5.0.7)
     childprocess (5.1.0)
       logger (~> 1.5)
-    clearance (2.7.2)
+    clearance (2.8.0)
       actionmailer (>= 5.0)
       activemodel (>= 5.0)
       activerecord (>= 5.0)
