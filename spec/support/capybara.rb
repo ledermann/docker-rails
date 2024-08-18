@@ -12,8 +12,8 @@ RSpec.configure do |config|
 
   config.before :each, type: :system, js: true do
     driven_by :selenium, using: :headless_chrome do |driver_option|
-      # Chrome 120 compatibility
-      driver_option.add_argument '--headless=new'
+      # Chrome 127 compatibility
+      driver_option.add_argument '--disable-search-engine-choice-screen'
     end
   end
 
