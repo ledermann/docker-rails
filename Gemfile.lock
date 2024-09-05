@@ -392,7 +392,7 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
-    safely_block (0.4.0)
+    safely_block (0.4.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
