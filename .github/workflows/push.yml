@@ -42,7 +42,7 @@ jobs:
         run: bundle exec rubocop --parallel
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.0.4
         with:
           cache: yarn
 
