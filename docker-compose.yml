@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   db:
-    image: postgres:15-alpine
+    image: postgres:17-alpine
     environment:
       - POSTGRES_PASSWORD=foobar123
     volumes:
