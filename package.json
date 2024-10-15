@@ -11,7 +11,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
-    "@rails/actioncable": "^7.2.100",
+    "@rails/actioncable": "^7.2.101",
     "@rails/ujs": "^7.1.400",
     "@rails/webpacker": "^5.4.4",
     "CSSBox": "TheLastProject/CSSBox",
