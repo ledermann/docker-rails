@@ -7575,10 +7575,10 @@ toidentifier@1.0.1:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
 
-trix@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.6.tgz#a7897cd67e03e6c8664df5dd31365bf87366e8db"
-  integrity sha512-NHX69IkQz/JEQWI++sRryleXWo1PuN8GKjvU+jYgMX6UbN2Pzfg6k46RpmdRl+1q0SyoGbyOZDoFUpNwEdjtXA==
+trix@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.7.tgz#239dc3fbba87ce30eea44286ea09865c7fbab10f"
+  integrity sha512-RyFmjLJfxP2nuAKqgVqJ40wk4qoYfDQtyi71q6ozkP+X4EOILe+j5ll5g/suvTyMx7BacGszNWzjnx9Vbj17sw==
 
 ts-pnp@^1.1.6:
   version "1.2.0"
