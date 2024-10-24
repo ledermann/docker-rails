@@ -194,7 +194,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     jmespath (1.6.2)
-    json (2.7.2)
+    json (2.7.3)
     jwt (1.5.6)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
